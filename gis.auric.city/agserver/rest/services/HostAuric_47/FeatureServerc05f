@@ -1,0 +1,78 @@
+{
+ "currentVersion": 10.6,
+ "serviceDescription": "",
+ "hasVersionedData": false,
+ "supportsDisconnectedEditing": false,
+ "syncEnabled": false,
+ "supportedQueryFormats": "JSON, AMF",
+ "maxRecordCount": 1000,
+ "capabilities": "Delete,Query,Update,Uploads,Editing",
+ "description": "",
+ "copyrightText": "",
+ "spatialReference": {
+  "wkid": 4326,
+  "latestWkid": 4326
+ },
+ "initialExtent": {
+  "xmin": 75.50323315234968,
+  "ymin": 19.883051221307365,
+  "xmax": 75.55277353049104,
+  "ymax": 19.893378082072662,
+  "spatialReference": {
+   "wkid": 4326,
+   "latestWkid": 4326
+  }
+ },
+ "fullExtent": {
+  "xmin": 75.50413599610329,
+  "ymin": 19.86776429414749,
+  "xmax": 75.55484079569578,
+  "ymax": 19.894531600177288,
+  "spatialReference": {
+   "wkid": 4326,
+   "latestWkid": 4326
+  }
+ },
+ "allowGeometryUpdates": true,
+ "allowTrueCurvesUpdates": false,
+ "onlyAllowTrueCurveUpdatesByTrueCurveClients": false,
+ "supportsApplyEditsWithGlobalIds": false,
+ "supportsTrueCurve": true,
+ "units": "esriDecimalDegrees",
+ "documentInfo": {
+  "Title": "",
+  "Author": "",
+  "Comments": "8",
+  "Subject": "zxc",
+  "Category": "",
+  "Keywords": "zxc"
+ },
+ "supportsQueryDomains": true,
+ "layers": [
+  {
+   "id": 0,
+   "name": "auric_stg.public.shendra_alloted_plot_v3",
+   "parentLayerId": -1,
+   "defaultVisibility": true,
+   "subLayerIds": null,
+   "minScale": 0,
+   "maxScale": 0,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolygon"
+  },
+  {
+   "id": 1,
+   "name": "auric_stg.public.shendra_building_p3",
+   "parentLayerId": -1,
+   "defaultVisibility": true,
+   "subLayerIds": null,
+   "minScale": 0,
+   "maxScale": 0,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolygon"
+  }
+ ],
+ "tables": [],
+ "enableZDefaults": false,
+ "allowUpdateWithoutMValues": false
+}

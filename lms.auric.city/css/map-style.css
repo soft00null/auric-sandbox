@@ -1,0 +1,1033 @@
+@font-face {
+    font-family: Gotham-Book;
+    src: url(../fonts/Gotham-Book.otf);
+}
+
+@font-face {
+    font-family: Clarice-Medium;
+    src: url(../fonts/Clarice-Medium.html);
+}
+
+body {
+    font-family: 'Gotham-Book';
+    font-size: 12px;
+}
+
+
+.esri-popup__content {overflow-x: scroll !important;}
+.esri-popup__content .table {margin-bottom: 0px;}
+
+
+.esri-widget table tr th {width: auto!important;}
+.esri-widget table tr td {width: auto!important;}
+
+
+
+
+
+
+
+
+.pd-0 {
+    padding: 0 !important;
+}
+
+.topbar {
+    background-color: #064469;
+    position: relative;
+    z-index: 9;
+    border-radius: 0;
+    border: 0;
+    margin-bottom: 0;
+    -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.40);
+    -moz-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.40);
+    box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.40);
+}
+
+.topbar img {
+    width: 200px;
+}
+
+.topbar .navbar-brand {
+    height: auto;
+    padding: 8px 10px 0;
+}
+
+.nav-link {
+    padding: 0;
+    margin: 10px 0 0 0;
+}
+
+.nav-link>li {
+    margin: 0;
+    padding: 0 10px;
+    display: inline-block;
+    list-style: none;
+}
+
+.nav-link .mapcontrolbtn {
+    padding: 0 5px;
+}
+
+.nav-link .mapcontrolbtn:nth-child(3n) {
+    margin-right: 15px;
+    padding-right: 30px;
+    border-right: solid 1px #2d688c;
+}
+
+.nav-link .mapcontrolbtn a {
+    /*background-color: #FFF;*/
+    width: 30px;
+    height: 30px;
+    line-height: 26px;
+}
+
+.nav-link .mapcontrolbtn a:hover {
+    background-color: #186592;
+}
+
+.nav-link a {
+    color: #FFF;
+    line-height: 30px;
+    text-align: center;
+    font-size: 19px;
+    display: inline-block;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+}
+
+.nav-link a:hover,
+.nav-link a.active {
+    color: #B0E0FD;
+    background-color: #186592;
+}
+
+.nav-link .dropdown a {
+    border-radius: 0;
+    width: inherit;
+    height: inherit;
+    text-align: left;
+}
+
+.nav-link .dropdown a:hover,
+.nav-link .dropdown a.active {
+    color: #B0E0FD;
+    background-color: transparent;
+}
+
+.nav-link a img {
+    width: 22px;
+}
+
+.toolsection {
+    width: 270px;
+    position: absolute;
+    z-index: 9;
+    top: 86px;
+    right: 15px;
+}
+
+.form-horizontal .control-label {
+    text-align: left;
+}
+
+.calculate-box {
+    position: absolute !important;
+    top: 52px;
+    right: 0;
+    border-radius: 0;
+    width: 100% !important;
+    height: auto !important;
+    z-index: 9;
+    border-color: #064469;
+    border-top: solid 1px #1a6794 !important;
+}
+
+.bigger-16 {
+    font-size: 16px;
+    padding-top: 4px !important;
+    font-weight: 400;
+}
+
+.calculate-box .panel-heading {
+    background-color: #064469;
+    border-bottom: solid 1px #23649c;
+    border-radius: 0;
+}
+
+.calculate-box .div-content {
+    background-color: #0d537d;
+    border: 0;
+}
+
+.calculate-box .form-group {
+    margin-bottom: 0;
+}
+
+.calculate-box .form-control {
+    height: 28px;
+    padding: 4px 12px;
+    border-radius: 0;
+    background-color: #1d638e;
+    border-color: #1b7ab7;
+    color: #fff;
+}
+
+.calculate-box .close-panel {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+}
+
+.counter-div {
+    padding: 0 20px;
+    float: left;
+    text-align: right;
+    color: #FFF;
+    border-right: solid 1px #3c86b3;
+}
+
+.counter-div:last-child {
+    border-right: 0;
+}
+
+.counter-div span {
+    display: block;
+    font-size: 2em;
+    font-family: 'Clarice-Medium';
+}
+
+.maptoolbox {
+    position: absolute !important;
+    top: 0;
+    right: 0;
+    width: 100% !important;
+    height: auto !important;
+    z-index: 9;
+}
+
+.maptoolbox:hover {
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.6);
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.6);
+}
+
+.maptoolbox:nth-child(2) {
+    top: 15px;
+    /*right: 15px;*/
+    z-index: 6;
+}
+
+.maptoolbox:nth-child(3) {
+    top: 30px;
+    /*right: 30px;*/
+    z-index: 7;
+}
+
+.maptoolbox:nth-child(4) {
+    top: 45px;
+    /*right: 45px;*/
+    z-index: 8;
+}
+
+.maptoolbox:nth-child(5) {
+    top: 60px;
+    /*right: 60px;*/
+    z-index: 9;
+}
+
+.maptoolbox:nth-child(6) {
+    top: 75px;
+    /*right: 75px;*/
+    z-index: 10;
+}
+
+.subhd {
+    position: relative;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #dadada;
+    color: #053c5d;
+    margin-bottom: 4px;
+    font-weight: bold;
+}
+
+.subhd:before {
+    content: " ";
+    position: absolute;
+    z-index: 0;
+    left: 0px;
+    right: 0;
+    width: 45%;
+    bottom: -2px;
+    border-bottom: 2px solid #064469;
+}
+
+.filter-box ul,
+.grivance-status ul,
+#mBoundaryUL {
+    margin: 0;
+    padding: 0 0 0 0px;
+}
+
+.filter-box li,
+.grivance-status li,
+#mBoundaryUL li {
+    list-style: none;
+}
+
+.filter-box li label,
+.grivance-status li label,
+#mBoundaryUL li label {
+    font-weight: normal;
+    color: #292828;
+}
+
+.layer-box ul {
+    margin: 0;
+    padding: 0 0 0 8px;
+}
+
+.layer-box li {
+    list-style: none;
+}
+
+.layer-box .ui-slider {
+    margin-left: 6px;
+}
+
+.layer-box li input[type=checkbox],
+input[type=radio] {
+    float: left;
+    margin: 2px 5px 5px 0;
+}
+
+.layer-box li label {
+    font-weight: normal;
+    color: #292828;
+}
+
+label {
+    font-weight: bold;
+}
+
+.relativdiv {
+    position: relative;
+}
+
+.toolsection .panel {
+    margin-bottom: 0;
+}
+
+hr {
+    margin: 12px 0;
+    border-top: 1px solid #cad9e2;
+}
+
+.toolsection .panel-heading {
+    background-color: #064469;
+    cursor: move;
+    border-color: #064469;
+    padding: 5px 8px 5px 10px;
+}
+
+.toolsection .panel-heading b {
+    font-weight: normal;
+}
+
+.toolsection .panel-heading span {
+    float: right;
+    margin-left: 10px;
+}
+
+.toolsection .panel-heading span:last-child {
+    margin-left: 0px;
+}
+
+.toolsection .panel-heading span img {
+    margin-right: 0;
+}
+
+.toolsection .panel-heading img {
+    width: 16px;
+    margin-right: 5px;
+}
+
+.toolsection .icon-portlet .panel-heading {
+    padding: 6px 15px;
+}
+
+.toolsection .icon-portlet .panel-heading img {
+    width: 20px;
+}
+
+.toolsection .icon-portlet .panel-heading .minmaze-panel {
+    display: block;
+    float: none;
+}
+
+.panel {
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .0);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .0);
+}
+
+.icon-portlet {
+    width: auto!important;
+}
+
+.icon-portlet .ui-resizable-handle {
+    display: none;
+}
+
+.toolsection .icon-portlet .panel-heading img {
+    margin-right: 0;
+}
+
+
+/*.icon-portlet .div-content {height: auto !important;}
+.icon-portlet {background-color: #064469;}
+.icon-portlet .panel-heading {text-align: center;}
+.icon-portlet .panel-heading img {margin: auto; width: inherit;}
+.icon-portlet .panel-heading .minmaze-panel {float: none; margin:10px auto 5px auto;}*/
+
+.closed-color {
+    color: #92dd5a !important;
+}
+
+.pending-color {
+    color: #1081e0 !important;
+}
+
+.reopen-color {
+    color: #d90022 !important;
+}
+
+.forward-color {
+    color: #1d3a47 !important;
+}
+
+.onhold-color {
+    color: #2200f2 !important;
+}
+
+.utility-box .ui-slider {
+    margin-left: 0;
+}
+
+.nav li a:focus,
+.nav li a:hover {
+    background-color: #186592;
+}
+
+.nav li.active a {
+    border-bottom-color: #FFF !important;
+}
+
+.nav li a {
+    padding: 4px 15px;
+    background-color: #186592;
+    color: #FFF;
+    border-color: #186592 !important;
+}
+
+.nav-tabs {
+    border-color: #186592
+}
+
+.tab-content {
+    padding: 10px 0;
+}
+
+.form-control {
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.div-content {
+    padding: 10px;
+    position: relative;
+    max-height: 350px;
+    overflow-y: auto;
+    background-color: #FFF;
+    border: solid 1px #337ab7;
+}
+
+.div-content .form-group {
+    margin-bottom: 10px;
+}
+
+.layer-box .div-content input {
+    margin-top: -23px;
+    display: block;
+    float: right;
+    text-align: right;
+}
+
+.layer-box label {
+    display: block;
+}
+
+.input-group-addon {
+    padding: 1px!important;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: #555;
+    text-align: center;
+    background-color: #5cb85c!important;
+    border: 1px solid #5cb85c!important;
+}
+
+.mapimg {
+    width: 100%;
+    height: 100vh;
+}
+
+
+/*.ui-slider {margin-left: 6px;}*/
+
+.dropdown-menu {
+    margin: 0;
+    padding: 0;
+    top: 99%;
+    border: 0;
+    border-radius: 0;
+    background-color: #105b88;
+}
+
+.dropdown-menu>li>a {
+    color: #FFF;
+    font-size: 12px;
+    padding: 8px 15px;
+    border-bottom: solid 1px #1f6894;
+}
+
+.dropdown-menu>li>a:hover,
+.dropdown-menu>li>a:focus {
+    color: #fff;
+    background-color: #064469;
+}
+
+.dropdown.open {
+    background-color: #105b88;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+}
+
+.dropdown-toggle:hover {
+    background-color: transparent !important;
+    opacity: 0.6;
+}
+
+.close-panel,
+.minmaze-panel {
+    cursor: pointer;
+    z-index: 999;
+}
+
+.toolsection .close-panel img {
+    margin-right: 0;
+}
+
+.toolsection .close-panel img:hover {
+    opacity: 0.8;
+}
+
+#byPlot,
+#byTicket {
+    position: relative;
+}
+
+.posBtn {
+    position: absolute;
+    right: 53px;
+    z-index: 999;
+    top: 3px;
+}
+
+.scroll1 {
+    max-height: 81px;
+    min-height: 76px;
+    padding: 5px;
+    overflow-y: auto;
+    cursor: pointer;
+}
+
+.AutoExtender li {
+    border-bottom: 1px solid #ddd;
+}
+
+.btn-danger:hover {
+    color: #ac2925;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+#searchPindexId li,
+#searchCompanyId li,
+#searchCompanyId1 li,
+#searchCompanyId11 li {
+    border-bottom: solid 1px #CCC;
+    padding: 4px;
+    list-style: decimal;
+    cursor: pointer;
+}
+
+.btn-danger {
+    color: #ac2925;
+    background-color: transparent;
+    border-color: transparent;
+    font-size: 18px;
+}
+
+#searchCompanyId11 li span {
+    display: block;
+    padding: 2px 0;
+}
+
+#searchPindexId li:last-child,
+#searchCompanyId li:last-child,
+#searchCompanyId1 li:last-child,
+#searchCompanyId11 li:last-child {
+    border-bottom: 0;
+}
+
+.clear {
+    clear: both;
+}
+
+#leftPane {
+    overflow-x: hidden !important;
+}
+
+.esri-ui-manual-container>.esri-component {}
+
+.esri-legend__layer-body {
+    margin-left: 0;
+}
+
+.esri-legend__service {
+    padding: 0 !important;
+}
+
+.esri-legend__service-label {
+    display: none;
+}
+
+.esri-legend__layer-caption {
+    position: relative;
+    padding-bottom: 2px;
+    border-bottom: 1px solid #dadada;
+    color: #053c5d;
+    margin-bottom: 4px;
+    font-weight: bold;
+}
+
+.esri-legend__layer-caption:before {
+    content: " ";
+    position: absolute;
+    z-index: 0;
+    left: 0px;
+    right: 0;
+    width: 45%;
+    bottom: -2px;
+    border-bottom: 2px solid #064469;
+}
+
+.esri-legend__layer-cell {
+    padding: 0 8px 0 0;
+}
+
+.esri-basemap-gallery__item {
+    padding: 6px 0;
+}
+
+.ui-widget-content {
+    background-color: #186592;
+    border: 1px solid #186592;
+}
+
+.form-horizontal .form-group.row-sm {
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+.row-sm {
+    margin-left: -5px;
+    margin-right: -5px;
+}
+
+.row-sm .col-lg-1,
+.row-sm .col-lg-10,
+.row-sm .col-lg-11,
+.row-sm .col-lg-12,
+.row-sm .col-lg-2,
+.row-sm .col-lg-3,
+.row-sm .col-lg-4,
+.row-sm .col-lg-5,
+.row-sm .col-lg-6,
+.row-sm .col-lg-7,
+.row-sm .col-lg-8,
+.row-sm .col-lg-9,
+.row-sm .col-md-1,
+.row-sm .col-md-10,
+.row-sm .col-md-11,
+.row-sm .col-md-12,
+.row-sm .col-md-2,
+.row-sm .col-md-3,
+.row-sm .col-md-4,
+.row-sm .col-md-5,
+.row-sm .col-md-6,
+.row-sm .col-md-7,
+.row-sm .col-md-8,
+.row-sm .col-md-9,
+.row-sm .col-sm-1,
+.row-sm .col-sm-10,
+.row-sm .col-sm-11,
+.row-sm .col-sm-12,
+.row-sm .col-sm-2,
+.row-sm .col-sm-3,
+.row-sm .col-sm-4,
+.row-sm .col-sm-5,
+.row-sm .col-sm-6,
+.row-sm .col-sm-7,
+.row-sm .col-sm-8,
+.row-sm .col-sm-9,
+.row-sm .col-xs-1,
+.row-sm .col-xs-10,
+.row-sm .col-xs-11,
+.row-sm .col-xs-12,
+.row-sm .col-xs-2,
+.row-sm .col-xs-3,
+.row-sm .col-xs-4,
+.row-sm .col-xs-5,
+.row-sm .col-xs-6,
+.row-sm .col-xs-7,
+.row-sm .col-xs-8,
+.row-sm .col-xs-9 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.smallbox {
+    display: inline-block;
+}
+
+.centerplease {
+    margin: 0 auto;
+    max-width: 270px;
+    font-size: 40px;
+}
+
+.question {
+    position: relative;
+    background-color: #e7edf1;
+    margin: 0 0 2px 0;
+    padding: 6px 24px 6px 8px;
+    display: block;
+    width: 100%;
+    cursor: pointer;
+}
+
+.question.subhd:before {
+    border-bottom: 0;
+}
+
+.question.subhd .hdr-chkbox {
+    display: block;
+    float: left;
+    margin-top: 2px;
+    margin-right: 5px;
+}
+
+.showhidediv {
+    display: none;
+    padding: 0px 15px;
+    margin: 0px 0 0px 0;
+    height: 0;
+    position: relative;
+    opacity: 0;
+    -webkit-transition: .7s ease;
+    -moz-transition: .7s ease;
+    -o-transition: .7s ease;
+    transition: .7s ease;
+}
+
+.showhidediv ul {
+    padding-left: 0;
+}
+
+.layer-box .div-content input.questions[type=checkbox] {
+    display: none;
+}
+
+.questions:checked~.showhidediv {
+    height: auto;
+    display: block;
+    opacity: 1;
+    padding: 10px 5px 10px 5px;
+}
+
+.plus {
+    position: absolute;
+    margin-left: 10px;
+    top: -4px;
+    right: 8px;
+    z-index: 5;
+    font-size: 2em;
+    line-height: inherit;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    -webkit-transition: .3s ease;
+    -moz-transition: .3s ease;
+    -o-transition: .3s ease;
+    transition: .3s ease;
+}
+
+.questions:checked~.plus {
+    opacity: 0.6;
+    /*-webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);*/
+}
+
+.questions {
+    display: none;
+}
+
+@media screen and (min-width:1024px) {
+    .mapimg {
+        height: 100vh;
+    }
+}
+
+@media screen and (max-width:1366px) {
+    .nav-link a img {
+        width: 18px;
+    }
+}
+
+@media screen and (max-width:645px) {
+    .navbar-header {
+        border-bottom: solid 1px #0d527b;
+    }
+    .top-navbar {
+        border-top: 0;
+        display: none;
+    }
+    .nav-link>li {
+        padding: 0 5px;
+    }
+}
+
+@media screen and (max-width:480px) {
+    .toolsection {
+        top: 130px;
+        left: 10px;
+    }
+    .maptoolbox:nth-child(2) {
+        top: 10px;
+        left: 0px;
+        z-index: 6;
+    }
+    .maptoolbox:nth-child(3) {
+        top: 20px;
+        left: 0px;
+        z-index: 7;
+    }
+    .maptoolbox:nth-child(4) {
+        top: 30px;
+        left: 0px;
+        z-index: 8;
+    }
+    .maptoolbox:nth-child(5) {
+        top: 40px;
+        left: 0px;
+        z-index: 9;
+    }
+    .maptoolbox:nth-child(6) {
+        top: 50px;
+        left: 0px;
+        z-index: 10;
+    }
+}
+
+
+/*.esri-popup__main-container {
+    max-height: 300px;
+}*/
+
+.esri-view-height-less-than-medium .esri-popup__main-container {
+    max-height: 325px;
+}
+
+/*.esri-view-width-xlarge .esri-popup__main-container {
+    max-width: 375px;
+}*/
+
+.esri-view-width-xlarge .esri-popup__main-container {
+    width: 580px;
+}
+.esri-view-width-xlarge .esri-popup__main-container {
+    max-width: 580px;
+}
+
+#alertModal .modal-content,
+#confirmModal .modal-content,
+#inactiveModal .modal-content,
+#updateStatusModal .modal-content,
+.alert-modal {
+    border: 5px solid #8baaec;
+    border-radius: 4px!important;
+}
+
+#alertModal .modal-content h2,
+#confirmModal .modal-content h2,
+#inactiveModal .modal-content h2,
+#updateStatusModal .modal-content h2 {
+    font-size: 1.3em!important;
+    font-weight: normal!important;
+    margin-top: 15px;
+}
+
+.modal-body .btn-danger.active.focus,
+.modal-body .btn-danger.active:focus,
+.modal-body .btn-danger.active:hover,
+.modal-body .btn-danger:active.focus,
+.modal-body .btn-danger:active:focus,
+.modal-body .btn-danger:active:hover,
+.modal-body .open>.dropdown-toggle.btn-danger.focus,
+.modal-body .open>.dropdown-toggle.btn-danger:focus,
+.modal-bodyD2AC2B .open>.dropdown-toggle.btn-danger:hover {
+    color: #fff;
+    background-color: #D2AC2B;
+    border-color: #D2AC2B;
+}
+
+.modal-body .btn-danger {
+    color: #fff;
+    background-color: #064469;
+    border-color: #064469;
+}
+
+.grivance-status1 {
+    position: relative;
+}
+
+.grivance-status1 input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 9;
+    height: 20px;
+    width: 20px;
+}
+
+.grivance-status1 .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: rgb(233, 233, 233);
+    border: 1px solid rgb(158, 158, 158);
+}
+
+.grivance-status1:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+
+/* When the checkbox is checked, add a blue background */
+
+.grivance-status1 input:checked~.checkmark {
+    background-color: #2196F3;
+    border: 1px solid #076abb;
+}
+
+.grivance-status1 input:checked~.checkmark:after {
+    display: block;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+li.grivance-status1 label {
+    margin-left: 25px;
+}
+
+.grivance-status1 .checkmark:after {
+    left: 7px;
+    top: 4px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.no-side-padding {
+    padding-left: 0px!important;
+    padding-right: 0px!important;
+    padding-top: 10px!important;
+}
+
+#divLoader {
+    position: absolute;
+    z-index: 1000;
+    /*top: 45%;
+    left: 45%;*/
+    background-color: rgb(20, 19, 19);
+    height: 100vh;
+    width: 100%;
+    opacity: 0.1;
+    padding-top: 20%;
+    padding-left: 45%;
+}
+
+#divLoader i {
+    font-size: 40px;
+    color: #fff;
+}
+
+.bookPlot {
+    float: right;
+    background-color: #d6ac31;
+    margin-right: -15px;
+    padding: 5px;
+    color: #fff!important;
+}
+
+.datepara {
+    background: #ddd;
+    width: 118%!important;
+    padding: 10px!important;
+    font-size: 11px!important;
+}
+.datepara1 {
+    background: #24fd0c;
+    width: 115%!important;
+    padding: 10px!important;
+    font-size: 14px!important;
+    text-align: center;
+	margin-top:10px;
+}
+
+#rsetFilter {
+    margin-left: 10px;
+    float: right;
+    color: #000;
+    position: relative;
+    top: -2px;
+}

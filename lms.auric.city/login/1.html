@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<!-- Mirrored from lms.auric.city/login/1 by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 02:30:56 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta charset="utf-8">
+        <title>e-Land Management System, AITL</title>
+        <meta name="description" content="overview &amp; stats">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <!-- bootstrap & fontawesome -->
+        <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="../css/font-awesome.min.css"/>
+        <!-- text fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300"/>
+        <!-- ace styles -->
+        <link rel="stylesheet" href="../css/ace.min.css"/>
+        <!--[if lte IE 9]>
+                                <link rel="stylesheet" href="https://lms.auric.city/css/ace-part2.min.css" />
+              <![endif]-->
+        <link rel="stylesheet" href="../css/ace-skins.min.css"/>
+        <link rel="stylesheet" href="../css/ace-rtl.min.css"/>
+        <!--[if lte IE 9]>
+                          <link rel="stylesheet" href="https://lms.auric.city/css/ace-ie.min.css" />
+              <![endif]-->
+        <!-- custom styles -->
+        <!--<link href="css/jquery.simplyscroll.css" rel="stylesheet" media="all" type="text/css">
+        <link href="https://lms.auric.city/css/menu.css" rel="stylesheet"/>
+        <link href="https://lms.auric.city/css/jquery.lightbox-0.5.css" rel="stylesheet" type="text/css" media="screen" />-->
+        <link href="../css/custom.css" rel="stylesheet"/>
+        <!--<script src="https://lms.auric.city/js/jquery-1.8.2.min.js"></script>-->
+        <script src="../js/jquery-2.1.1.js"></script>
+        <!-- extra custom script -->
+        <script>
+            // function to scroll to topposition
+            function scrollToPosition(id)
+            {
+                $('html, body').animate({scrollTop: $('#' + id).offset().top - 300}, 'slow');
+                $('#' + id).focus();
+            }
+            $(document).ready(function () {
+                $('form').find('input[type=text],textarea,select').not('.date-picker, .dashboard-control').filter(':visible:first').focus();
+                $('form').find('input[type=text],textarea').attr('autocomplete', 'off');
+            });
+            function viewAlert(msg, ctrlId, redLoc)
+            {
+                $('#btnAlertOk').off('click');
+                if (typeof (ctrlId) == 'undefined')
+                {
+                    ctrlId = '';
+                }
+                if (typeof (redLoc) == 'undefined')
+                {
+                    redLoc = '';
+                }
+                $('#alertModal').modal({backdrop: 'static', keyboard: false});
+                $('.alertMessage').html(msg);
+                $('#btnAlertOk').on('click', function () {
+                    $('#alertModal').modal('hide');
+                    if (ctrlId != '')
+                    {
+                        $(".form-content").hide();
+                        $("#" + ctrlId).closest(".form-content").show();
+                        $('#' + ctrlId).focus();
+                        $("hr").css('border-bottom', '1px solid #ccc');
+                        $('#' + ctrlId).closest(".form-group").next('hr').css('border-bottom', '1px solid #f00');
+                        $('#' + ctrlId).closest('.widget-main').css('border', '1px solid #f59942');
+                        scrollToPosition(ctrlId);
+                    }
+                    if (redLoc != '')
+                    {
+                        window.location.href = redLoc;
+                    }
+                });
+
+            }
+            function confirmAlert(msg)
+            {
+                $('#confirmModal').modal({backdrop: 'static', keyboard: false});
+                $('.confirmMessage').html(msg);
+            }
+        </script>
+    </head>
+    <body class="loginbgblue">
+                <form class="form-horizontal" role="form" name="frmAITL" id="frmAITL" method="post" enctype="multipart/form-data">
+            <!--[if lte IE 8]>
+            <script src="https://lms.auric.city/Application/js/html5shiv.js"></script>
+            <script src="https://lms.auric.city/Application/js/respond.min.js"></script>
+            <![endif]-->
+
+
+
+            <div class="main-container" id="main-container">
+                <script type="text/javascript">
+                    try {
+                        ace.settings.check('main-container', 'fixed')
+                    } catch (e) {
+                    }
+                </script>
+                                <div class="main-content2">
+                    
+
+
+
+                    <!--Header end-->
+                                        <!--<script src="https://lms.auric.city/js/bootstrap.min.js"></script>-->
+                    <script src="../Application/Console/scripts/md5.js"></script>
+                                        <style type="text/css">
+                        /*  div.tooltip{width: 350px!important;}*/
+                        div.tooltip p{text-align: left!important;}
+                    </style>
+                    <script type="text/javascript">
+                        $(document).ready(function () {
+                            var cookieDetails = getCookie('Auth');
+                            if (cookieDetails != '') {
+                                var cookie = $.parseJSON(cookieDetails);
+                                if (cookie.rmbr == 1) {
+                                    $("#chkRememberMe").attr("checked", "checked");
+                                    $("#txtUserName").val(cookie.userName);
+                                    $("#txtPassword").val(cookie.password);
+                                }
+                            }
+
+                            $('#cpatchHlp').tooltip({
+                                html: true,
+                                //placement: 'right',
+                                title: '<p align="left">Please fill the word in the box</p>'
+                            });
+
+
+                            var winW = $(window).width();
+                            if (winW <= 770) {
+
+                                $('.hlpICN').tooltip().removeData().off();
+                                $('.hlpICN').tooltip({
+                                    html: true,
+                                    placement: 'bottom',
+                                    title: '<p align="left">Please fill the word in the box</p>'
+                                });
+                            }
+
+
+                            $('#reload').click(function () {
+                                var random = randomXToY(0, 999);
+                                $('#captchaImage').attr('src', $('#captchaImage').attr('src') + '#');
+                            });
+                            loadNavigation('');
+                            $('form').attr('autocomplete', 'off');
+                            $('#txtUserName').focus();
+                            $('#passwordTitle').hide();
+                            $('.emailInput').hide();
+                            $('#btnSubmit').hide();
+                            $('#btnBack').hide();
+                            $('#forgotPwdLink').click(function () {
+                                $('.passwordInput').hide();
+                                $('.remindMe').hide();
+                                $('#btnLogin').hide();
+                                $('#btnNewUser').hide();
+                                $('#loginTitle').hide();
+                                $('.emailInput').show();
+                                $('#btnSubmit').show();
+                                $('#btnBack').show();
+                                $('#passwordTitle').show();
+                                $("#userID").hide();
+                                $("#mobileNo").show();
+                                $("#forgotPwdLink").hide();
+                            });
+
+                            $('#btnBack').click(function () {
+                                $('.passwordInput').show();
+                                $('.remindMe').show();
+                                $('#btnLogin').show();
+                                $('#btnNewUser').show();
+                                $('#loginTitle').show();
+                                $('.emailInput').hide();
+                                $('#btnSubmit').hide();
+                                $('#btnBack').hide();
+                                $('#passwordTitle').hide();
+                                $("#mobileNo").hide();
+                                $("#userID").show();
+                                $("#txtUserName").attr("placeholder", "Unique ID or email ID or Mobile Number");
+                                $("#forgotPwdLink").show();
+                            });
+                        });
+                        function randomXToY(minVal, maxVal)
+                        {
+                            var randVal = minVal + (Math.random() * (maxVal - minVal));
+                            return Math.round(randVal);
+                        }
+                        function validator(flag)
+                        {
+                            if (flag == 1) {
+                                if (!blankCheck('txtUserName', 'User Id cannot left blank'))
+                                    return false;
+                                if (!checkSpecialChar('txtUserName'))
+                                    return false;
+                                if (!maxLength('txtUserName', 50, 'User Id'))
+                                    return false;
+                                if (!blankCheck('txtPassword', 'Password cannot left blank'))
+                                    return false;
+                                if (!checkSpecialChar('txtPassword'))
+                                    return false;
+                                if (!maxLength('txtPassword', 30, 'Password'))
+                                    return false;
+                                if (!blankCheck('txtCaptcha', 'Captcha code cannot left blank'))
+                                    return false;
+                                if ($('#chkRememberMe').is(":checked")) {
+                                    var authString = JSON.stringify({userName: $('#txtUserName').val(), password: $('#txtPassword').val(), rmbr: $('#chkRememberMe').val()});
+                                    setCookie('Auth', authString, '30');
+                                }
+                                var str = hex_md5($("#txtPassword").val()) + "948";
+                                $("#txtPassword").val(hex_md5(str));
+                                $('#hdn_qs').val('L');
+                                $('form').submit();
+                            } else if (flag == 2) {
+                                if (!blankCheck('txtEmailID', 'Email ID cannot left blank'))
+                                    return false;
+                                if (!validEmail('txtEmailID'))
+                                    return false;
+
+                                /*if (!blankCheck('txtMobNo', 'Mobile Number cannot left blank'))
+                                 return false;*/
+
+                                if (!checkSpecialChar('txtMobNo'))
+                                    return false;
+                                if (!validateNumber('txtMobNo'))
+                                    return false;
+                                if (!equalLength('txtMobNo', 10, 'Mobile Number'))
+                                    return false;
+
+                                if (!blankCheck('txtCaptcha', 'Captcha code cannot left blank'))
+                                    return false;
+                                $('#hdn_qs').val('F');
+                                $('form').submit();
+                            }
+                        }
+                    </script>
+                    <div class="loginheighttop"></div>
+                    <div class="container loginbgnew">
+                        <div class="row">
+
+                            
+
+                            <div class="col-md-3 col-md-offset-2 col-sm-4 col-sm-offset-1 loginbluebg">
+
+                                <span class="logobg white"> <img src="../../www.lms.auric.city/img/auric_logo2.html" alt="AURIC" title="AURIC" class="login-logo"  />
+                                    <!--<h5>e-Land Management System, AITL</h5>--></span>
+                            </div>   
+                            <div class="col-md-5 col-sm-6 padding0 loginpanelnew">
+                                <!-- <div class="loginBox"> -->
+                                <div>
+                                    <div class="panel panel-login  page-height">
+
+                                        <h2 id="loginTitle">Login to Applicant Account</h2>
+                                        <h2 id="passwordTitle" style="display:none;">Get to your password</h2>
+
+
+                                        <div class="panel-body">
+                                            <div class="form-group input-group-lg" id="userID">
+
+                                                <div class="col-sm-12"> 
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-user"></i></span> 
+                                                        <input type="text" class="form-control" placeholder="Unique ID or Email ID or Mobile Number" maxlength="50" id="txtUserName" name="txtUserName" value="" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group input-group-lg emailInput" style="display:none;">
+
+                                                <div class="col-sm-12">
+                                                    <div class="input-group"><span class="input-group-addon"><i class="fa fa-envelope"></i></span> 
+                                                        <input type="text" class="form-control" placeholder="Enter Email ID" id="txtEmailID" name="txtEmailID" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group input-group-lg" style="display: none;" id="mobileNo">
+
+                                                <div class="col-sm-12">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-phone"></i></span>
+                                                        <input type="text" class="form-control" placeholder="Registered Mobile Number" maxlength="10" id="txtMobNo" name="txtMobNo" onKeyPress="return isNumberKey(event);"  />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="form-group input-group-lg passwordInput">
+
+                                                <div class="col-sm-12">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                                        <input type="password" class="form-control" value="" onFocus="this.select();" id="txtPassword" name="txtPassword" placeholder="Password"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group input-group-lg captcha">
+
+                                                <div class="col-sm-6 col-xs-6"> 
+                                                    <div class="input-group pos-rel">
+                                                        <span class="input-group-addon"><i class="fa fa-repeat"></i></span> 
+                                                        <input type="text" class="form-control fanotify" id="txtCaptcha" name="txtCaptcha" placeholder="Captcha"/>
+                                                         <!--<i class="fa fa-question-circle pos-abs hlpICN" id="cpatchHlp"></i>-->
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 col-xs-6">
+                                                    <div class="input-group"> 
+                                                        <img src="../Application/includes/captcha.html" alt="captcha image" align="absmiddle" id="captchaImage" class="form-control" width="100">
+                                                        <a href="javascript:void(0);" class="input-group-addon" id="reload" style="outline: 0;"><i class="fa fa-refresh"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-12">
+                                                    <input type="submit" id="btnLogin" name="btnLogin" value="Log in" class="btnlogin" onClick="return validator(1);" width="100%"/>
+                                                    <input type="submit" id="btnSubmit" name="btnSubmit" value="Reset password" class="btnlogin" onClick="return validator(2);" style="display:none;" width="100%"/>
+
+                                                    <input type="hidden" name="hdn_qs" id="hdn_qs" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+
+
+                                                <div class="col-sm-6 col-xs-6">
+                                                    <div class="checkbox remindMe">
+                                                        <label>
+                                                            <input type="checkbox" class="ace" name="chkRememberMe" value="1" id="chkRememberMe" />
+                                                            <span class="lbl"> Remember me</span>
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 col-xs-6">
+                                                    <a href="javascript:void(0);" id="forgotPwdLink" class="pull-right">Forgot your Password ?</a>
+                                                    <a href="javascript:void(0);" class="pull-right" id="btnBack" style="display: none;margin-top:7px;">Back to login</a>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                        <div class="panel-footer">
+                                            <div class="col-sm-7 col-xs-6"><h4>New user ?</h4>
+											<small>
+                                                                                                    Please Register to Apply for Land
+                                                                                                											</small>
+                                            </div>
+                                            <div class="col-sm-5 col-xs-6">
+
+                                                                                                    <a href="../citizen-reg-home.html" class="btnlogin btnregister">Click to register</a>
+                                                                                                                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix hidden-sm" style="height:20px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--footer start-->
+
+
+                    <div class="loginfooter">
+
+                        <span class="text-center whitetxt">&copy; 2019, e-Land Management System,<br/>AITL</span>  <div class="clearfix"></div>
+                        <span class="text-center whitetxt footersmalltxt">Design &amp; Developed by <a href="http://www.csmpl.com/" title="CSM Technologies" target="_blank" class="white">CSM Technologies</a></span>
+                    </div>
+
+
+
+
+                    <!-- /.main-content -->
+                </div>
+                <!-- /.main-container -->
+            </div>
+
+        </form>
+
+        <div class="modal fade in" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" >
+            <div class="modal-dialog">
+                <div class="modal-content text-center">
+                    <div class="modal-body no-padding">
+                        <h2 class="alertMessage"></h2>
+                        <div class="form-group">
+                            <div class="center"> <a class=" btn btn-danger btn-sm" id="btnAlertOk" style="width:100px; margin-top:30px;">Ok</a> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- ace settings handler -->
+        <script src="../js/ace-extra.min.js"></script>
+        <!-- extra custom script -->
+        <script src="../js/custom.js"></script>
+        <script src="../js/loadComponent.js"></script>
+        <script src="../js/menu.js"></script>
+        <script src="../Application/js/validatorchklist.js"></script>
+
+        <!--basic scripts--> 
+        <script src="../Application/js/bootstrap.min.js"></script>
+        <!-- page specific plugin scripts 
+        <!--[if lte IE 8]>
+                        <script src="https://lms.auric.city/Application/js/excanvas.min.js"></script>
+        <![endif]-->
+        <!--<script src="https://lms.auric.city/Application/js/jquery-ui.custom.min.js"></script>
+         ace scripts 
+        <script src="https://lms.auric.city/Application/js/ace-elements.min.js"></script>
+        <script src="https://lms.auric.city/Application/js/ace.min.js"></script>-->
+        <!-- inline scripts related to this page -->
+        <script type="text/javascript" language="javascript">
+                                                        $(document).ready(function () {
+
+
+                                                            /*for login page height*/
+                                                            var loginbluebg = $(".loginbluebg ").innerHeight();
+                                                            $('.page-height').css('min-height', loginbluebg + 10);
+
+                                                            $(window).resize(function () {
+                                                                var loginbluebg = $(".loginbluebg ").innerHeight();
+                                                                $('.page-height').css('min-height', loginbluebg + 10);
+                                                            });
+
+
+
+                                                            $('#startApp').click(function (e) {
+                                                                $('#appBox').slideToggle('medium');
+                                                            });
+
+                                                            //Add navigation
+                                                            var gLink = (getCookie("WebGlName") != '' && getCookie("WebGlName") > 0) ? getCookie("WebGlName") : 0;
+                                                            var pLink = (getCookie("WebPlName") != '' && getCookie("WebPlName") > 0) ? getCookie("WebPlName") : 0;
+                                                            /*$('.mainLi').each(function(){
+                                                             var dataVal	= $(this).data('val');
+                                                             if(dataVal==gLink)
+                                                             {
+                                                             $(this).addClass('open');
+                                                             $(this).find('.submenu').addClass('nav-show');
+                                                             $(this).find('.submenu').show();
+                                                             $(this).find('li').each(function(){
+                                                             var dataSubVal	= $(this).data('subval');	
+                                                             if(dataSubVal==pLink)
+                                                             {
+                                                             $(this).addClass('active');
+                                                             }
+                                                             });								 
+                                                             }			
+                                                             });*/
+
+                                                            if ('login' == 'home')
+                                                            {
+                                                                gLink = 0;
+                                                                pLink = 0;
+                                                                removeCookie("WebGlName");
+                                                                removeCookie("WebPlName");
+                                                            }
+
+                                                            //if(getCookie('mysheet')!='')
+                                                            //	var cookieName	= getCookie('mysheet');
+                                                            //	chooseStyle(cookieName, 60);
+
+                                                            //Add tabindex
+                                                            setInterval(function () {
+                                                                $('.screenReader').each(function (i) {
+                                                                    $(this).attr('tabindex', i);
+                                                                });
+                                                            }, 3000);
+                                                        });
+
+                                                        //Customisation of font size
+                                                        var min = 11;
+                                                        var max = 16;
+                                                        var reset = 13;
+                                                        function increaseFontSize() {
+                                                            var p = document.getElementsByTagName('body');
+                                                            for (i = 0; i < p.length; i++) {
+                                                                if (p[i].style.fontSize) {
+                                                                    var s = parseInt(p[i].style.fontSize.replace("px", ""));
+                                                                } else {
+                                                                    var s = 13;
+                                                                }
+                                                                if (s != max) {
+                                                                    s += 1;
+                                                                }
+                                                                p[i].style.fontSize = s + "px"
+                                                            }
+                                                        }
+                                                        function decreaseFontSize() {
+                                                            var p = document.getElementsByTagName('body');
+                                                            for (i = 0; i < p.length; i++) {
+                                                                if (p[i].style.fontSize) {
+                                                                    var s = parseInt(p[i].style.fontSize.replace("px", ""));
+                                                                } else {
+                                                                    var s = 13;
+                                                                }
+                                                                if (s != min) {
+                                                                    s -= 1;
+                                                                }
+                                                                p[i].style.fontSize = s + "px"
+                                                            }
+                                                        }
+                                                        function reSetFontSize() {
+                                                            var p = document.getElementsByTagName('body');
+                                                            for (i = 0; i < p.length; i++) {
+                                                                if (p[i].style.fontSize) {
+                                                                    var s = parseInt(p[i].style.fontSize.replace("px", ""));
+                                                                } else {
+                                                                    var s = 13;
+                                                                }
+                                                                if (s != reset) {
+                                                                    s = 13;
+                                                                }
+                                                                p[i].style.fontSize = s + "px"
+                                                            }
+                                                        }
+                                                        $(document).keypress(function (e) {
+                                                            if (e.which == 13) {
+                                                                if ($('#btnLogin').is(':visible'))
+                                                                {
+                                                                    $('#btnLogin').click();
+                                                                }
+                                                                else
+                                                                {
+                                                                    $('.btnlogin').filter(':visible').click();
+                                                                }
+                                                                return false;
+                                                            }
+                                                        });
+        </script>
+    </body>
+<!-- Mirrored from lms.auric.city/login/1 by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 02:30:58 GMT -->
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+ 

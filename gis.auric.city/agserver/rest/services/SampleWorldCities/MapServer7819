@@ -1,0 +1,12 @@
+{
+ "fullExtent": {
+  "xmin": -180,
+  "ymin": -90,
+  "xmax": 180.0001220703125,
+  "ymax": 90.0001220703125,
+  "spatialReference": {
+   "wkid": 4326,
+   "latestWkid": 4326
+  }
+ }
+}

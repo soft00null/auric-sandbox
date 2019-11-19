@@ -1,0 +1,436 @@
+  
+    <!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from www.auric.city/apply-register/5 by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 02:25:51 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>AURIC - Aurangabad Industrial City | Maharashtra</title>
+<!-- custom-theme -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="title" content="AURIC - Aurangabad Industrial City  Maharashtra, Shendra, Bidkin, AURIC,AITL, Investment Opportunity, Industry in Maharastra, Industrial Smart City, DMIC, MIDC, Shendra industrial area in aurangabad">
+<meta name="keywords" content="AURIC - Aurangabad Industrial City  Maharashtra, Shendra, Bidkin, AURIC, AITL, Investment Opportunity, Industry in Maharastra, Industrial Smart City, DMIC, MIDC, Industrial Smart in India, Industrial Smart Aurangabad, Shendra industrial area in aurangabad, The Golden Address, Ease of Doing Business, Quality of Life, Master Plan">
+<meta name="description" content="AURIC is a planned & greenfield smart industrial city developed across 10,000 acres in Maharashtra, as part of the Delhi-Mumbai Industrial Corridor (DMIC).">
+<link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="../images/favicon.ico" type="image/x-icon">
+<!-- //custom-theme -->
+<!--<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">	
+<link href="../css/owl.carousel.css" rel="stylesheet" type="text/css" media="all" />
+<!--<link href="css/owl.theme.default.css" rel="stylesheet" type="text/css" media="all" />-->
+<link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="../css/auric.css" rel="stylesheet" type="text/css" media="all" />
+<link href="../css/form.css" rel="stylesheet" type="text/css" media="all" />
+<link href="../css/custom1.css" rel="stylesheet" type="text/css" media="all" />
+
+<link href="../css/custom.css" rel="stylesheet" type="text/css" media="all" />
+<link href="../css/hover.css" rel="stylesheet" type="text/css" media="all" />
+<!--<link href="css/font-awesome.css" rel="stylesheet" type="text/css" media="all" />-->
+<link href="../css/blog.css" rel="stylesheet" type="text/css" media="all" />
+<link href="../css/icomoon.css" rel="stylesheet" />
+<!-- js -->
+
+
+<!-- //js -->
+<!-- font-awesome-icons -->
+<!--<link href="css/font-awesome.css" rel="stylesheet"> -->
+<!-- //font-awesome-icons -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<!--<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>-->
+<script src="https://code.jquery.com/jquery-2.1.4.min.js" integrity="sha256-8WqyJLuWKRBVhxXIL1jBDD7SDxU936oZkCnxQbWwJVw=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="../js/jquery.liMarquee.js"></script>
+
+
+</head>
+<body> <link href="../css/auric-login.css" rel="stylesheet" type="text/css">
+ <script src="../js/jquery-2.1.4.min.html"></script>
+ <script src="../../servicesappauric.auric.city/js/validatorchklist.js" type="text/javascript"></script>
+ <script src="../../servicesappauric.auric.city/js/bootstrap.min.js" type="text/javascript"></script>
+<style>
+.mandatory {right: -9px;}
+.mandatory.req {right: 6px !important;}
+span.logobg {background: rgb(6, 68, 105); }	
+	.loginpanelnew h2 {margin-bottom: 0;}
+.contentWrapper {padding-top: 0;}
+@media screen and (max-width: 1366px) {
+	.grievancelogin {
+		padding-top: 2%;
+	}	
+}	
+</style>
+<script type="text/javascript">
+    
+        $(function () {
+            var winW = $(window).width();
+            if(winW <= 770 ){
+                $('.hlpICN').tooltip().removeData().off();
+                $('#passHlp.hlpICN').tooltip({
+						//html: true,
+						placement: 'bottom',
+						title: '<p align="left">Password should be alphanumeric and consist of at least one upper case letter, special character and should be 8-15 characters long</p>'
+					});
+
+                           $('#mobHlp.hlpICN').tooltip({
+                              html: true,
+                              placement: 'bottom',
+                              title: '<p align="left">This number will be used by AURIC for all future official communications via SMS</p>'
+                          });
+
+                           $('#emailHlp.hlpICN').tooltip({
+                              html: true,
+                              placement: 'bottom',
+                              title: '<p align="left">This Email ID will be used by AURIC for all future official communications</p>'
+                          });
+                       }
+                       else {
+
+                           $('#passHlp').tooltip({
+                              html: true,
+                              placement: 'top',
+                              title: '<p align="left">Password should be alphanumeric and consist of at least one upper case letter, special character and should be 8-15 characters long</p>'
+                          });
+                           $('#mobHlp').tooltip({
+                              html: true,
+                              placement: 'top',
+                              title: '<p align="left">This number will be used by AURIC for all future official communications via SMS</p>'
+                          });
+                           $('#emailHlp').tooltip({
+                              html: true,
+                              placement: 'top',
+                              title: '<p align="left">This Email ID will be used by AURIC for all future official communications</p>'
+                          });
+                       }
+
+
+
+                   });
+                   
+                   
+                    function chkUserType(sel) {
+                     $('#applicantSection').hide();
+                     var dataVal=$("#userType option:selected").attr('data-val');
+                         if(dataVal=='t' || dataVal=='i')
+                         {
+                             $('#applicantSection').show();
+                         }
+                         else{
+                             $('#applicantSection').hide();
+                         }
+                        }        
+                        function validator() {
+                            var strPassword = $("#txtPassword").val();
+                            var strCpassword = $("#txtCpassword").val();
+                            var mailFlag = $("#mailFlag").val();
+
+                            if (!selectDropdown('selNamePrefix', 'Prefix cannot be left blank'))
+                                return false;
+                            if (!blankCheck('txtFirstName', 'First Name cannot be left blank'))
+                                return false;
+                            if (!maxLength('txtFirstName', 50, 'First Name'))
+                                return false;
+                            if (!checkSpecialChar('txtFirstName'))
+                                return false;
+                            if (!blankCheck('txtLastName', 'Last Name cannot be left blank'))
+                                return false;
+                            if (!maxLength('txtLastName', 50, 'Last Name'))
+                                return false;
+                            if (!checkSpecialChar('txtLastName'))
+                                return false;
+                            if (!blankCheck('txtMobNo', 'Mobile number cannot be left blank'))
+                                return false;
+                            if (!maxLength('txtMobNo', 10, 'Mobile number'))
+                                    return false;
+                            if (!validateNumber('txtMobNo'))
+                                    return false;
+                            if (!validMobileNo('txtMobNo', 'Invalid mobile number')) {
+                                    return false;
+                            }
+                           
+                            if (!blankCheck('txtEmail', 'Email cannot be left blank'))
+                                return false;
+                            if (!checkSpecialChar('txtEmail'))
+                                return false;
+                            if (!validEmail('txtEmail'))
+                                return false;
+                            if (mailFlag>0) {
+                                viewAlert('Email Id already exists ', 'txtEmail');
+                                return false;
+                            }
+                            if (!blankCheck('txtPassword', 'Create Password cannot be left blank'))
+                                return false;
+                            if (!validPassword('txtPassword', ''))
+                                return false;
+                            if (!checkSpecialChar('txtPassword'))
+                                return false;
+                            if (!blankCheck('txtCpassword', 'Confirm password cannot be left blank'))
+                                return false;
+                            if (!validPassword('txtCpassword', ''))
+                                return false;
+                            if (!checkSpecialChar('txtCpassword'))
+                                return false;
+                            if (strPassword !== strCpassword) {
+                                viewAlert('Mismatching confirm password ', 'txtCpassword');
+                                return false;
+                            }
+                            if (!validPassword('txtCpassword', 'Confirm password'))
+                                return false;
+                            
+                            if (!maxLength('txtAddress', 500, 'Address'))
+                                return false;
+                            if (!checkSpecialChar('txtAddress'))
+                                return false;
+
+                        }
+                        
+                   
+                    </script>
+<form method="POST" autocomplete="off">
+<div class="contentWrapper">	
+
+<section class="grievancelogin active innerpage">
+    <div class="container logincontainer">
+	<div class="row">
+
+                            <div class="col-md-3 col-md-offset-1 col-sm-4 loginbluebg" >
+							
+								<a href="../index.html" title="Home" class="back-home"><i class="fa fa-home " aria-hidden="true"></i></a>
+								<a href="../publicServices.html" title="Back to previous" class="back-prev"><i class="fa fa-reply" aria-hidden="true"></i></a>
+                                <span class="logobg"> <img src="../../www.lms.auric.city/img/auric_logo2.html" alt="AURIC" title="AURIC" class="login-logo"><!--<h5>e-Land Management System, AURIC</h5>--></span>
+                                <!--<span class="logo-img"> <img src="https://www.auric.city/images/auriclogo.jpg" border="0" align="absmiddle" alt="AURIC"></span>--> 
+                            </div>   
+                            <div class="col-md-7 col-sm-8 padding0 loginpanelnew">
+                                <div class="panel panel-login page-height" >
+                                    <div class="clearfix"></div>
+                                    <h2 class="loginTitle">New  User Registration</h2>
+
+                                    <div class="panel-body">
+                                        <div class="arch-regd" id="signupForm">
+
+                                            <div class="form-group row" >
+
+                                                <div class="col-sm-6 inputbox"> 
+                                                    <label class="control-label no-padding-right" for="txtAddress">Register As</label>
+                                                    <div class="clearfix"></div>
+													<div class="pos-rel">
+                                                    <select class="form-control pull-left" id="userType" name="userType" onchange="return chkUserType(this);">
+                                                        <option value="0" data-val="">Select</option> 
+                                                        <option value="1" data-val="c">Citizen</option> 
+                                                        <option value="1" data-val="i">Investor</option> 
+                                                        <option value="2" data-val="t">Technical Personnel</option>
+                                                    </select>
+                                                    
+													<i class="fa fa-question-circle pos-abs hlpICN" id="mobHlp" data-toggle="tooltip" data-placement="bottom" title="Applicant Includes Citizen-residents, Public & Corporates, industrials, commercial establishment"></i>
+                                                </div><span class="mandatory req" style="margin-top: 10px;">*</span>
+                                                </div>
+										 <div class="col-sm-6 inputbox" id="applicantSection" style="display:none"> 
+                                                    <label class="control-label no-padding-right" for="txtBusinessName">Entity Name</label>
+                                                    <div class="clearfix"></div>
+                                                    <input type="text" id="txtBusinessName" name="txtBusinessName" placeholder="" class="form-control" maxlength="100" autocomplete="off" onkeypress="return isCharKey(event);" value="">
+                                                </div>
+                                            </div>
+                                       					                       <div class="form-group row"  style="display:none">
+
+                                               <!-- <div class="col-sm-12 inputbox"> 
+                                                    <label class="control-label no-padding-right" for="txtBusinessName">Entity Name</label>
+                                                    <div class="clearfix"></div>
+                                                    <input type="text" id="txtBusinessName" name="txtBusinessName" placeholder="" class="form-control" maxlength="100" value="" autocomplete="off" onkeypress="return isCharKey(event);" value="">
+                                                </div>-->
+                                                
+                                                <div class="col-sm-6 inputbox" style="display: none"> 
+                                                    <label class="control-label no-padding-right" for="txtUserId">User Name</label>
+                                                    <div class="clearfix"></div>
+                                                    <input type="text" class="form-control pull-left userId" name="txtUserId" id="txtUserId" maxlength="15" onBlur="//checkDuplicateUID(this.value);">
+                                                    <span class="mandatory req" style="margin-top: 10px;">*</span>
+						<small class="text-danger errUserId" style="display: none;"></small>
+                                                </div>
+                                            </div>
+                                                                                   <div class="form-group applicantgroup row">
+                                                <label class="col-sm-12 col-xs-12 control-label no-padding-right inputbox" for="txtBusinessName">Applicant Name </label>
+                                                <div class="col-sm-3 col-xs-6 inputbox"> 
+                                                    <select class="form-control pull-left" id="selNamePrefix" name="selNamePrefix">
+                                                        <option value="0">Select</option> 
+                                                        <option value="Ms">Ms</option>                                                                                                   <option value="Mr">Mr</option>
+                                                    </select>
+                                                    <span class="mandatory req">*</span>
+                                                </div>
+                                                <div class="col-sm-3  col-xs-6 inputbox"> 
+
+                                                    <input type="text" id="txtFirstName" name="txtFirstName" placeholder="First Name" class="form-control" maxlength="30" value="" autocomplete="off" onkeypress="return isCharKey(event);" >
+                                                    <span class="mandatory req">*</span>
+                                                </div>
+                                                <div class="col-sm-3  col-xs-6 inputbox"> 
+                                                    <input type="text" id="txtMiddleName" name="txtMiddleName" placeholder="Middle Name" class="form-control" maxlength="30" value="" autocomplete="off" onkeypress="return isCharKey(event);">
+                                                </div>
+                                                <div class="col-sm-3  col-xs-6 inputbox"> 
+                                                    <input type="text" id="txtLastName" name="txtLastName" placeholder="Last Name" class="form-control" maxlength="30" value="" autocomplete="off" onkeypress="return isCharKey(event);">
+                                                    <span class="mandatory req">*</span>
+                                                </div>
+
+                                            </div>
+                                            
+                                            <div class="form-group row">
+
+                                                <div class="col-sm-6 inputbox"> 
+                                                    <label class="control-label no-padding-right" for="txtMobNo">Mobile Number</label>
+                                                    <div class="clearfix"></div>
+                                                    <div style="width:24%;margin-right: 5px;padding: 10px 10px;" class="form-control pull-left">+91</div>
+                                                    <div class="pos-rel"> <input type="text" id="txtMobNo" name="txtMobNo" value="" style="width:74%;" class="form-control pull-left" maxlength="10" onblur="//checkDuplicatMobile(this.value);" onkeypress="return isNumberKey(event);" autocomplete="off">
+                                                        <input type="hidden" name="mobFlag" id="mobFlag" value="0">
+                                                        <!--<span class="mandatory" style="margin-top:10px;">*</span>-->
+                                                        <i class="fa fa-question-circle pos-abs hlpICN" id="mobHlp" data-toggle="tooltip" title="This number will be used by AURIC for all future official communications via SMS"></i>
+                                                        <label class="text-danger errMob" style="display: none;"></label></div>
+                                                </div>
+                                                
+                                                <div class="col-sm-6 inputbox email-label">
+                                                    <label class="control-label no-padding-right" for="txtEmail">Email ID (User Name)</label>
+                                                    <div class="pos-rel"> <input type="text" id="txtEmail" name="txtEmail" value="" class="form-control sentenceCase" maxlength="50" autocomplete="off" onblur="//checkDuplicatemail(this.value);">
+                                                        <i class="fa fa-question-circle hlpICN que" id="emailHlp" data-toggle="tooltip" title="This Email ID will be used by AURIC for all future official communications"></i></div>
+                                                    <input type="hidden" name="mailFlag" id="mailFlag" value="0">
+                                                    <span class="mandatory req">*</span>
+                                                    <label class="text-danger errMail" style="display: none;"></label>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group row">
+
+                                                <div class="col-sm-6 .hlpICN inputbox">  
+                                                    <label class="control-label no-padding-right" for="txtPassword">Create Password</label>
+                                                    <div class="pos-rel"><input type="password" id="txtPassword" name="txtPassword" value="" class="form-control pull-left" maxlength="15" autocomplete="off">
+                                                        <i class="fa fa-question-circle hlpICN" id="passHlp" data-toggle="tooltip" title="Password should be alphanumeric and consist of atleast one upper case letter, special character and should be 8-15 character long"></i>
+                                                        <span class="mandatory" style="margin-top: 10px;">*</span>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="col-sm-6 inputbox"> <label class="control-label no-padding-right" for="txtCpassword">Confirm Password</label>
+                                                    <input type="password" id="txtCpassword" name="txtCpassword" value="" class="form-control sentenceCase" maxlength="15" autocomplete="off">
+                                                    <span class="mandatory req" style="margin-top: 10px;">*</span>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-sm-12 text-red inputbox" style="margin-top: 10px;">Note :  <small>Unique ID / Email ID / Mobile Number and Password will be used for login purposes</small></div>
+                                            </div>
+
+                                            <div class="form-group row" >
+
+                                                <div class="col-sm-12 inputbox" style="display: none;"> 
+                                                    <label class="control-label no-padding-right" for="txtAddress">Address</label>
+                                                    <div class="clearfix"></div>
+                                                    <input type="text" id="txtAddress" name="txtAddress" placeholder="" class="form-control" maxlength="500" autocomplete="off" onkeypress="return isCharKey(event);" value="">
+                                                </div>
+                                                <div class="col-sm-1" style="display: none;"></div>
+
+                                                <div class="col-sm-5 inputbox" style="display: none;"> 
+                                                    <label class="control-label no-padding-right" for="selVentureType">Venture Type</label>
+                                                    <div class="clearfix"></div>
+                                                    <select class="form-control pull-left" id="selVentureType" name="selVentureType" onchange="showVentureTypeRange(this.value);"><option value="0">--Select--</option><option value="120">FDI</option><option value="117">Large Scale Industries (LSI)</option><option value="116">Medium Scale Industries (MSI)</option><option value="118">Mega Project</option><option value="115">Small Scale Industries(SSI)</option><option value="119">Ultra Mega Project</option></select>
+                                                    <span class="mandatory" style="margin-top: 10px;">*</span>
+                                                </div>
+                                            </div>
+
+                                            
+                                        </div>
+                                    </div>
+
+                                    <div class="panel-footer" id="btnContainer">
+                                        <div class="arch-regd">
+                                            <div class="col-sm-12 center">
+                                                <input class="btnlogin" type="button" onclick="window.location.href = '../apply-login.html'" value="Back">
+                                               <!--  <input type="hidden" name="userType" id="userType" value=""  /> -->
+                                                <input class="btnlogin btnregister" type="submit" id="btnSubmit" name="btnSubmit" value="Register" onclick="return validator();" style="width:100px;">
+												
+                                                <!--<input class="btn btn-warning" type="reset" value="Reset" >-->
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                               
+
+
+                               
+
+                            </div>
+                        </div>
+						<div class="clearfix"></div>
+	</div>
+</section>
+
+
+<div class="loginfooter">
+                        <span class="text-white">&copy; 2019, Aurangabad Industrial Township Ltd. All Rights Reserved.</span>  <br>
+                        <span class="text-white footersmalltxt">Design &amp; Developed by <a href="http://www.csmpl.com/" title="CSM Technologies" target="_blank" class="text-white">CSM Technologies</a></span>
+						
+                    </div>
+	
+
+	
+<div class="modal fade in" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" >
+  <div class="modal-dialog">
+    <div class="modal-content text-center">
+      <div class="modal-body no-padding">
+        <h2 class="alertMessage"></h2>
+        <div class="form-group">
+          <div class="center"> <a class=" btn btn-danger btn-sm" id="btnAlertOk" style="width:100px; margin-top:40px;">Ok</a> </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+	<script>		
+		
+$(document).ready(function(){
+    //$('[data-toggle="tooltip"]').tooltip(); 
+	      
+
+});
+</script>
+	<script>
+   function viewAlert(msg, ctrlId, redLoc)
+    {
+        $('#btnAlertOk').off('click');
+        if (typeof (ctrlId) == 'undefined')
+        {
+            ctrlId = '';
+        }
+        if (typeof (redLoc) == 'undefined')
+        {
+            redLoc = '';
+        }
+        $('#alertModal').modal({backdrop: 'static', keyboard: false});
+        $('.alertMessage').html(msg);
+        $('#btnAlertOk').on('click', function () {
+            $('#alertModal').modal('hide');
+            if (ctrlId != '')
+            {
+                $('#' + ctrlId).focus();
+            }
+            if (redLoc != '')
+            {
+                window.location.href = redLoc;
+            }
+        });
+
+    }
+$(document).ready(function(){
+
+		if($('.loginbluebg').height() <= $('.loginpanelnew').height()) {
+			$('.loginbluebg').height($('.loginpanelnew').height() - 30);
+		}		
+	
+    //$('[data-toggle="tooltip"]').tooltip(); 
+});
+</script>
+
+
+			
+</div>
+ </form>
+
+
+
+
+<!-- footer -->
+ 

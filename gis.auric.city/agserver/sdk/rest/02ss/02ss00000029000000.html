@@ -1,0 +1,518 @@
+<html lang="en" xml:lang="en">
+<!-- Mirrored from gis.auric.city/agserver/sdk/rest/02ss/02ss00000029000000.htm by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 03:04:05 GMT -->
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="description" content="Catalog http://&amp;lt;host&amp;gt;/&amp;lt;instance&amp;gt;/rest/serviceshttp://&amp;lt;host&amp;gt;/&amp;lt;instance&amp;gt;/rest/services/&amp;lt;folderName&amp;gt;Map ServiceData Reviewer Map ServiceGeocode ServiceGP ServiceGeometry ServiceImage ServiceLinear Referencing ServiceNetwork ServiceFeature ServiceGeoData ServiceGlobe ServiceMobile ServiceRelational Catalog ServiceScene ServiceStream Service9.3 Description The Catalog resource is the root node and initial entry point into an ArcGIS Server host. This resource represents a catalog of folders and services published on the host. The current version of the server is also returned in the response (introduced at 9.3.1). The value of the version is a number such that its value at"><meta name="content-language" content="en"><link href="rsrc/htmlhelp.html" rel="stylesheet" type="text/css"><title>ArcGIS REST API - ArcGIS Services - 
+   Catalog
+  </title>
+                <script type="text/javascript" language="JavaScript">
+                    var pathL  = self.location.pathname.split ("../../../../index.html");
+                    var fname = pathL[pathL.length-1];
+                    var i = fname.lastIndexOf (".htm");
+                    if (i>=0) {
+                    fname = fname.substring (0, i)
+                    } else {
+                    //??
+                    }
+                    if (self.location.hash) {
+				    		      fname = fname + self.location.hash;
+						        }
+                    self.location.replace ("../index.html#//" + fname);
+                </script>
+                </head><!--Publication GUID: [GUID-289408B4-3EC8-4C16-9DB8-B1778E780E58]--><!--Topic GUID: [GUID-CE3061FB-10D6-4C78-95C0-32189E1F7D61]--><body><div id="content"><div class="header"><h1>
+   Catalog
+  </h1><div id="breadcrumb"></div></div>
+    <div class="restmd" purpose="restmd"><ul purpose="restmd" class="restmd list-plain"><li><span class="restkey post-1">URL:</span><span class="restval"> http://&lt;host&gt;/&lt;instance&gt;/rest/services<span class="restverb"></span><br>http://&lt;host&gt;/&lt;instance&gt;/rest/services/&lt;folderName&gt;<span class="restverb"></span><br></span></li><li><span class="restkey post-1">Child Resources:</span><span class="restval"><a class="xref" rel="02ss/02ss0000006v000000.htm" href="02ss/02ss0000006v000000.html">Map Service</a>,<a class="xref" rel="02ss/02ss000000tz000000.htm" href="02ss/02ss000000tz000000.html">Data Reviewer Map Service</a>,<a class="xref" rel="02ss/02ss0000003n000000.htm" href="02ss/02ss0000003n000000.html">Geocode Service</a>,<a class="xref" rel="02ss/02ss00000039000000.htm" href="02ss/02ss00000039000000.html">GP Service</a>,<a class="xref" rel="02ss/02ss00000028000000.htm" href="02ss/02ss00000028000000.html">Geometry Service</a>,<a class="xref" rel="02ss/02ss00000021000000.htm" href="02ss/02ss00000021000000.html">Image Service</a>,<a class="xref" rel="02ss/02ss0000011v000000.htm" href="02ss/02ss0000011v000000.html">Linear Referencing Service</a>,<a class="xref" rel="02ss/02ss00000058000000.htm" href="02ss/02ss00000058000000.html">Network Service</a>,<a class="xref" rel="02ss/02ss0000007v000000.htm" href="02ss/02ss0000007v000000.html">Feature Service</a>,<a class="xref" rel="02ss/02ss0000006m000000.htm" href="02ss/02ss0000006m000000.html">GeoData Service</a>,<a class="xref" rel="02ss/02ss0000007p000000.htm" href="02ss/02ss0000007p000000.html">Globe Service</a>,<a class="xref" rel="02ss/02ss0000004q000000.htm" href="02ss/02ss0000004q000000.html">Mobile Service</a>,<a class="xref" rel="02ss/02ss00000101000000.htm" href="02ss/02ss00000101000000.html">Relational Catalog Service</a>,<a class="xref" rel="02ss/02ss000000q8000000.htm" href="02ss/02ss000000q8000000.html">Scene Service</a>,<a class="xref" rel="02ss/02ss000000pp000000.htm" href="02ss/02ss000000pp000000.html">Stream Service</a></span></li><li><span class="restkey post-1">Version Introduced:</span><span class="restval">9.3</span></li></ul></div>
+    <div class="section1" id="GUID-E9F4049C-0E0B-461D-84C6-284F014460B9" purpose="section1"><h2>Description</h2><p id="GUID-5ABF02B9-9797-4B1A-B679-8795FAC888B7">The <span class="usertext">Catalog</span> resource is the root node and initial entry point
+into an ArcGIS Server host. This resource represents a catalog of
+folders and services published on the host.</p><p id="GUID-4D32BEE4-48E9-47B3-BF38-40A7549BA1B0">The current version of the server is also returned in the
+response (introduced at 9.3.1). The value of the version is a
+number such that its value at a future release is guaranteed to be
+greater than its value at a previous release.</p></div>
+    <div class="section1" id="GUID-5293CC1E-3BC6-4657-A3F4-9C554C2ED772" purpose="section1"><h2>
+        Request parameters
+      </h2><p id="GUID-B28B6205-5477-4839-8430-803667DF1B41">
+        <div class="block_table" id="GUID-F446F093-2688-41FD-8A2D-095C63C27E76" purpose="block_table"><span class="table_title"></span><table class="table"><colgroup width="200pt"></colgroup><colgroup width="*"></colgroup><tr purpose="thead"><th class="th" purpose="th" rowspan="1" colspan="1">
+                  <p id="GUID-5EB55B57-BA8D-4FCB-9BB6-05723E9E8E5B">Parameter</p>
+                </th><th class="th" purpose="th" rowspan="1" colspan="1">
+                  <p id="GUID-5F2D36EA-D6F6-4800-968E-91ED9494A3DA">Details</p>
+                </th></tr><tbody>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">f</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-EEF29B8A-EA0F-4FCA-9BFE-7B42666AD728">Description: The response format. The default response format is html.</p>
+                  <p id="GUID-B7EF5CB5-BAB8-4CFC-88C8-16D58D06D741">Values: html | json | kmz | sitemap | geositemap</p>
+                  <p id="GUID-47C6BE30-420E-4182-B478-275FCAD052E8">
+                    <div class="notes" id="GUID-BF9F0242-EE35-417C-8B9D-47CA867B5ED2"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody">
+                      <p id="GUID-0C9FF5F6-A898-4748-9AD5-F4F35A14DFBF"> Support for the <span class="usertext">sitemap</span> and <span class="usertext">geositemap</span> formats was added at 9.3 SP1. </p>
+                    </div></div>
+                  </p>
+                  <p id="GUID-DB8DF3D4-F13F-43C5-AE12-5BEC59838ABF">The <span class="usertext">sitemap</span> and <span class="usertext">geositemap</span> formats generate XML sitemaps that can be submitted to various search engines. The <span class="usertext">sitemap</span> format includes the Services Directory URLs to all your services. The <span class="usertext">geositemap</span> format includes the KMZ footprint URLs to your map and image services. Note that if you've enabled security, an empty sitemap will be generated.</p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">option</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-5E62E821-2760-4931-B1AD-2FAE75A69621">This parameter was added at 10.1.</p>
+                  <p id="GUID-A94BE87B-66D5-4022-9B18-3B656E3E6D94">Description: If <span class="usertext">option</span> is <span class="usertext">footprints</span>, footprints of all map, feature, and image services in that folder are returned as a feature collection. This feature collection can be viewed in an arcgis.com map. This is supported when f=json only.
+
+</p>
+                  <p id="GUID-7EAA2B7E-47E0-44CD-BB8E-D2FAD96CCA09">Value: footprints </p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">outSR</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-F6F852B5-66FD-4684-ABA2-5E73A881EDA6">This parameter was added at 10.1.</p>
+                  <p id="GUID-303E5F1B-3F43-40DB-884C-14C0BD5BD5FC">Description: The spatial reference of the geometry returned in footprints. This
+parameter is supported only when
+<span class="usertext">option=footprints</span> is specified. 
+</p>
+                  <p id="GUID-185EE6B6-ABCA-4540-A233-115C7B87ECE9">The spatial reference should be specified as a well-known ID.
+
+</p>
+                  <p id="GUID-19C085C2-9CA6-432D-B9E7-96E9E16781D4">If <span class="usertext">outSR</span> is not specified, the geometry
+is returned in <span class="usertext">GCS_WGS_1984</span>.
+</p>
+                </td>
+              </tr>
+            </tbody><caption class="table_desc"></caption></table></div>
+      </p></div>
+    <div class="section1" id="GUID-FEC4FFBC-92D2-4DED-9754-D8780A43B82A" purpose="section1"><h2>Example usage</h2><p id="GUID-94CDC9F8-3693-4668-945F-FD9C1E14BB5A">URL for the root directory on sampleserver1:
+      </p><p id="GUID-97A4B84D-0EDD-4F16-8E9D-11E099BD9CB1">
+        <a target="_blank" class="xref" href="http://sampleserver1.arcgisonline.com/ARCGIS/REST/SERVICES" rel="HTTP://SAMPLESERVER1.ARCGISONLINE.COM/ARCGIS/REST/SERVICES">http://sampleserver1.arcgisonline.com/arcgis/rest/services</a>
+      </p></div>
+    <div class="section1" id="GUID-80947847-3059-4058-A2BF-C4C873AC317A" purpose="section1"><h2>JSON response syntax</h2><p id="GUID-993B2B38-5787-42B3-BF44-0D653916EC44">
+        <div class="notes" id="GUID-5364996A-0E3A-4CBC-AAD2-E2B60D299316"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody">
+          <p id="GUID-C29E0D13-84BB-4667-BE10-3D7558CFE207"> The <span class="usertext">currentVersion</span> property was added to the JSON response at 9.3.1. </p>
+        </div></div>
+      </p><p id="GUID-7E5E64B6-BDCC-4090-B67C-9D70928CBB17">
+        <div class="codeblock" purpose="codeblock">
+          <div class="codeblockdesc" purpose="codeblockdesc">
+            
+          </div>
+          <div class="highlight"><pre><code><span class="p">{</span><span class="s2">&quot;currentVersion&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">currentVersion</span><span class="o">&gt;</span><span class="p">,</span><span class="s2">&quot;folders&quot;</span><span class="o">:</span><span class="p">[</span><span class="s2">&quot;&lt;folderName1&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;folderName2&gt;&quot;</span><span class="p">],</span><span class="s2">&quot;services&quot;</span><span class="o">:</span><span class="p">[</span>    <span class="p">{</span><span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;serviceName1&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;serviceType1&gt;&quot;</span><span class="p">},</span>    <span class="p">{</span><span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;serviceName2&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;serviceType2&gt;&quot;</span><span class="p">}]}</span>
+</code></pre></div>
+
+        </div>
+      </p></div>
+    <div class="section1" id="ESRI_SECTION1_42207CBE5C184578BBF62A23758FD8B0" purpose="section1"><h2>JSON response syntax (when <span class="usertext">option=footprints</span>)</h2><p id="GUID-6843532B-12DA-4417-9C14-33EED5B9B9FB">
+        <div class="codeblock" purpose="codeblock">
+          <div class="codeblockdesc" purpose="codeblockdesc">
+            
+          </div>
+          <div class="highlight"><pre><code>{
+    &quot;featureCollection&quot;: {
+        &quot;layers&quot;: [
+            {
+                &quot;layerDefinition&quot;: {
+                    &quot;type&quot;: &quot;Feature Layer&quot;,
+                    &quot;geometryType&quot;: &quot;esriGeometryPoint&quot;,
+                    &quot;extent&quot;: {
+                        &lt;envelope&gt;
+                    }
+                },
+                &quot;objectIdField&quot;: &quot;id&quot;,
+                &quot;displayFieldName&quot;: &quot;name&quot;,
+                &quot;drawingInfo&quot;: {
+                    &quot;renderer&quot;: {
+                        &quot;type&quot;: &quot;simple&quot;,
+                        &quot;label&quot;: &lt;label&gt;,
+                        &quot;description&quot;: &quot;&lt;description&gt;&quot;,
+                        &quot;symbol&quot;: {
+                            &quot;height&quot;: &lt;height&gt;,
+                            &quot;xoffset&quot;: &lt;xoffset&gt;,
+                            &quot;yoffset&quot;: &lt;yoffset&gt;,
+                            &quot;width&quot;: &lt;width&gt;,
+                            &quot;contentType&quot;: &quot;image/png&quot;,
+                            &quot;type&quot;: &quot;esriPMS&quot;,
+                            &quot;imageData&quot;: &quot;&lt;imageData&gt;&quot;,
+                            &quot;url&quot;: &quot;&lt;url&gt;&quot;
+                        }
+                    }
+                },
+                &quot;fields&quot;: [
+                    {
+                        &quot;name&quot;: &quot;id&quot;,
+                        &quot;alias&quot;: &quot;ID&quot;,
+                        &quot;type&quot;: &quot;esriFieldTypeOID&quot;
+                    },
+                    {
+                        &quot;name&quot;: &quot;title&quot;,
+                        &quot;alias&quot;: &quot;Title&quot;,
+                        &quot;type&quot;: &quot;esriFieldTypeString&quot;
+                    },
+                    {
+                        &quot;name&quot;: &quot;type&quot;,
+                        &quot;alias&quot;: &quot;Type&quot;,
+                        &quot;type&quot;: &quot;esriFieldTypeString&quot;
+                    },
+                    {
+                        &quot;name&quot;: &quot;thumbnail&quot;,
+                        &quot;alias&quot;: &quot;Thumbnail&quot;,
+                        &quot;type&quot;: &quot;esriFieldTypeString&quot;
+                    },
+                    {
+                        &quot;name&quot;: &quot;xmin&quot;,
+                        &quot;alias&quot;: &quot;xmin&quot;,
+                        &quot;type&quot;: &quot;esriFieldTypeDouble&quot;
+                    },
+                    {
+                        &quot;name&quot;: &quot;ymin&quot;,
+                        &quot;alias&quot;: &quot;ymin&quot;,
+                        &quot;type&quot;: &quot;esriFieldTypeDouble&quot;
+                    },
+                    {
+                        &quot;name&quot;: &quot;xmax&quot;,
+                        &quot;alias&quot;: &quot;xmax&quot;,
+                        &quot;type&quot;: &quot;esriFieldTypeDouble&quot;
+                    },
+                    {
+                        &quot;name&quot;: &quot;ymax&quot;,
+                        &quot;alias&quot;: &quot;ymax&quot;,
+                        &quot;type&quot;: &quot;esriFieldTypeDouble&quot;
+                    },
+                    {
+                        &quot;name&quot;: &quot;link&quot;,
+                        &quot;alias&quot;: &quot;Link&quot;,
+                        &quot;type&quot;: &quot;esriFieldTypeString&quot;
+                    },
+                    {
+                        &quot;name&quot;: &quot;arcgisJslink&quot;,
+                        &quot;alias&quot;: &quot;ArcgisJsLink&quot;,
+                        &quot;type&quot;: &quot;esriFieldTypeString&quot;
+                    }
+                ]
+            },
+            &quot;featureSet&quot;: {
+                &quot;geometryType&quot;: &quot;esriGeometryPoint&quot;,
+                &quot;spatialReference&quot;: {
+                    &quot;wkid&quot;: &lt;wkid&gt;
+                },
+                &quot;features&quot;: [
+                    {
+                        &quot;geometry&quot;: {
+                            &lt;point&gt;
+                        },
+                        &quot;attributes&quot;: {
+                            &quot;id&quot;: &lt;id0&gt;,
+                            &quot;title&quot;: &quot;&lt;title&gt;&quot;,
+                            &quot;summary&quot;: &quot;&lt;summary&gt;&quot;,
+                            &quot;type&quot;: &quot;&lt;serviceType&gt;&quot;,
+                            &quot;thumbnail&quot;: &quot;&lt;thumbnailUrl&gt;&quot;,
+                            &quot;xmin&quot;: &lt;xmin&gt;,
+                            &quot;ymin&quot;: &lt;ymin&gt;,
+                            &quot;xmax&quot;: &lt;xmax&gt;,
+                            &quot;ymax&quot;: &lt;ymax&gt;,
+                            &quot;link&quot;: &quot;&lt;serviceResource&gt;&quot;,
+                            &quot;arcgisJslink&quot;: &quot;&lt;View In JSAPI link&gt;&quot;
+                        }
+                    },
+                    {
+                        &quot;geometry&quot;: {
+                            &lt;point&gt;
+                        },
+                        &quot;attributes&quot;: {
+                            &quot;id&quot;: &lt;id1&gt;,
+                            &quot;title&quot;: &quot;&lt;title&gt;&quot;,
+                            &quot;summary&quot;: &quot;&lt;summary&gt;&quot;,
+                            &quot;type&quot;: &quot;&lt;serviceType&gt;&quot;,
+                            &quot;thumbnail&quot;: &quot;&lt;thumbnailUrl&gt;&quot;,
+                            &quot;xmin&quot;: &lt;xmin&gt;,
+                            &quot;ymin&quot;: &lt;ymin&gt;,
+                            &quot;xmax&quot;: &lt;xmax&gt;,
+                            &quot;ymax&quot;: &lt;ymax&gt;,
+                            &quot;link&quot;: &quot;&lt;serviceResource&gt;&quot;,
+                            &quot;arcgisJslink&quot;: &quot;&lt;View In JSAPI link&gt;&quot;
+                        }
+                    },
+                    {
+                        &quot;geometry&quot;: {
+                            &lt;point&gt;
+                        },
+                        &quot;attributes&quot;: {
+                            &quot;id&quot;: &lt;id2&gt;,
+                            &quot;title&quot;: &quot;&lt;title&gt;&quot;,
+                            &quot;summary&quot;: &quot;&lt;summary&gt;&quot;,
+                            &quot;type&quot;: &quot;&lt;serviceType&gt;&quot;,
+                            &quot;thumbnail&quot;: &quot;&lt;thumbnailUrl&gt;&quot;,
+                            &quot;xmin&quot;: &lt;xmin&gt;,
+                            &quot;ymin&quot;: &lt;ymin&gt;,
+                            &quot;xmax&quot;: &lt;xmax&gt;,
+                            &quot;ymax&quot;: &lt;ymax&gt;,
+                            &quot;link&quot;: &quot;&lt;serviceResource&gt;&quot;,
+                            &quot;arcgisJslink&quot;: &quot;&lt;View In JSAPI link&gt;&quot;
+                        }
+                    },
+                    {
+                        &quot;geometry&quot;: {
+                            &lt;point&gt;
+                        },
+                        &quot;attributes&quot;: {
+                            &quot;id&quot;: &lt;id3&gt;,
+                            &quot;title&quot;: &quot;&lt;title&gt;&quot;,
+                            &quot;summary&quot;: &quot;&lt;summary&gt;&quot;,
+                            &quot;type&quot;: &quot;&lt;serviceType&gt;&quot;,
+                            &quot;thumbnail&quot;: &quot;&lt;thumbnailUrl&gt;&quot;,
+                            &quot;xmin&quot;: &lt;xmin&gt;,
+                            &quot;ymin&quot;: &lt;ymin&gt;,
+                            &quot;xmax&quot;: &lt;xmax&gt;,
+                            &quot;ymax&quot;: &lt;ymax&gt;,
+                            &quot;link&quot;: &quot;&lt;serviceResource&gt;&quot;,
+                            &quot;arcgisJslink&quot;: &quot;&lt;View In JSAPI link&gt;&quot;
+                        }
+                    }
+                ]
+            },
+            &quot;popupInfo&quot;: {
+                &quot;title&quot;: &quot;{title}&quot;,
+                &quot;fieldInfos&quot;: [
+                    {
+                        &quot;fieldName&quot;: &quot;id&quot;,
+                        &quot;label&quot;: &quot;ID&quot;,
+                        &quot;visible&quot;: false
+                    },
+                    {
+                        &quot;fieldName&quot;: &quot;title&quot;,
+                        &quot;label&quot;: &quot;Title&quot;,
+                        &quot;visible&quot;: true
+                    },
+                    {
+                        &quot;fieldName&quot;: &quot;type&quot;,
+                        &quot;label&quot;: &quot;Type&quot;,
+                        &quot;visible&quot;: true
+                    },
+                    {
+                        &quot;fieldName&quot;: &quot;thumbnail&quot;,
+                        &quot;label&quot;: &quot;Thumbnail&quot;,
+                        &quot;visible&quot;: false
+                    },
+                    {
+                        &quot;fieldName&quot;: &quot;link&quot;,
+                        &quot;label&quot;: &quot;Link&quot;,
+                        &quot;visible&quot;: true
+                    }
+                ],
+                &quot;description&quot;: null,
+                &quot;showAttachments&quot;: false,
+                &quot;mediaInfos&quot;: [
+                    {
+                        &quot;type&quot;: &quot;image&quot;,
+                        &quot;value&quot;: {
+                            &quot;sourceURL&quot;: &quot;{thumbnail}&quot;,
+                            &quot;linkURL&quot;: &quot;{arcgisJslink}&quot;
+                        }
+                    }
+                ]
+            }
+        }
+    ]
+}
+}
+</code></pre></div>
+
+        </div>
+      </p></div>
+    <div class="section1" id="GUID-394F1573-B2A8-4694-9E0C-3D2BB49D23D8" purpose="section1"><h2>JSON response example</h2><p id="GUID-6B470106-AC99-49D4-A95A-4664F7277997">
+        <div class="codeblock" purpose="codeblock">
+          <div class="codeblockdesc" purpose="codeblockdesc">
+            
+          </div>
+          <div class="highlight"><pre><code><span class="p">{</span><span class="s2">&quot;currentVersion&quot;</span><span class="o">:</span> <span class="mf">9.31</span><span class="p">,</span><span class="s2">&quot;folders&quot;</span><span class="o">:</span><span class="p">[</span><span class="s2">&quot;Editing&quot;</span><span class="p">,</span> <span class="s2">&quot;USA&quot;</span><span class="p">],</span><span class="s2">&quot;services&quot;</span><span class="o">:</span><span class="p">[</span>    <span class="p">{</span><span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Anaheim&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;MapServer&quot;</span><span class="p">},</span>    <span class="p">{</span><span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Switzerland&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;MapServer&quot;</span><span class="p">},</span>    <span class="p">{</span><span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;USALocator&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;GeocodeServer&quot;</span><span class="p">}]}</span>
+</code></pre></div>
+
+        </div>
+      </p></div>
+    <div class="section1" id="ESRI_SECTION1_CC13AD001B6F429AA670630D7C289A9A" purpose="section1"><h2>JSON response example (when <span class="usertext">option=footprints</span>)</h2><p id="GUID-635D1702-1E78-4B60-A9D3-E8A2F39C01CA">
+        <div class="codeblock" purpose="codeblock">
+          <div class="codeblockdesc" purpose="codeblockdesc">
+            
+          </div>
+          <div class="highlight"><pre><code>{
+    &quot;featureCollection&quot;: {
+        &quot;layers&quot;: [
+            {
+                &quot;layerDefinition&quot;: {
+                    &quot;type&quot;: &quot;Feature Layer&quot;,
+                    &quot;geometryType&quot;: &quot;esriGeometryPoint&quot;,
+                    &quot;extent&quot;: {
+                        &quot;xmin&quot;: -13417361.279435791,
+                        &quot;ymin&quot;: -3308604.1160364537,
+                        &quot;xmax&quot;: 13398084.956333593,
+                        &quot;ymax&quot;: 7344059.61646361,
+                        &quot;spatialReference&quot;: {
+                            &quot;wkid&quot;: 102100
+                        }
+                    },
+                    &quot;objectIdField&quot;: &quot;id&quot;,
+                    &quot;displayFieldName&quot;: &quot;name&quot;,
+                    &quot;drawingInfo&quot;: {
+                        &quot;renderer&quot;: {
+                            &quot;type&quot;: &quot;simple&quot;,
+                            &quot;label&quot;: &quot;Maps&quot;,
+                            &quot;description&quot;: &quot;&quot;,
+                            &quot;symbol&quot;: {
+                                &quot;height&quot;: 24,
+                                &quot;xoffset&quot;: 0,
+                                &quot;yoffset&quot;: 0,
+                                &quot;width&quot;: 24,
+                                &quot;contentType&quot;: &quot;image/png&quot;,
+                                &quot;type&quot;: &quot;esriPMS&quot;,
+                                &quot;imageData&quot;: &quot;iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMU7nOPkAAAyFSURBVGhD7VlpT5znFY3dpsYsw75vg9lnmBlghmEYhn1YBswAM8CwGHAAE2yIY2zwgoOJwRhju04VN23TRnWcxm6zb06TSm3zsVJVtY1a9UNbJWr7oeoPqJUqSm7PeTyvRKO2yoIHVyrS0bvwLvfcc+95nued++77/9/nz0D/UWv06JJTf2Ct1jq65LCMLVdlPfaTvh2f/4nbdOfAnL1y+KRjafxs9WtjS85fjK9U/3ZixfXrkdOOHw8s2K8On6ps26bQPttrB+cqynvnKm7NXnHL9MU6mb3SIDOXGtT2oceaZP+yS4YXqwCHBI7Zfu4/XN712d4QwqsRZL9/znb78NfccvypNjn2ZKuc+G6bnLrWLotPt8sj32vHfocc+1aLTF2olam1ehlbqhb/bPlGCMP8dK9Cn5S3jJX8XZG45pGlm3tl7ZVuWX2xS1Ze8MoZHJ/5/l5ZutEhp5/xyCK3z+5VBCdXa6nY1U/3phBd1TFufmNyrVZWX+pGwO1y4VaPnH+tW1ZAaO1VbF/yyrmXu+Ts815ZvO6R5ef2Al6o1iFLz3bI2BmnjC07J0MU7n9/TeBYhbExYPyQpXXxLb9s3PLJpbf9INQjK0ESqyBExZZvdiq1zr3cLWeDyi1eb5e5J5ql74j19wsbLRHbTqrvcPlwVUe+6pXLP/IrUpeC2/NQZ/2NHgWlFBR7FMpQndWXupSK3C7d6BT/Q1YZPe1o33ZCPTNlSyZXphy52qwIbbzpUyCxNQS8DqUYOAmtvw5iwf2LwesuQNH113xwvUrxPVR+bNsJBeYrLmYVJ8rIaacixKDPvuhVJFSwb/gUmQvYXqBar4Psm7zOJ+dRhpdRnixHzwNmaR83LW07oZFHHMf1xgQxubJVYFRm5QUYAMqKRrAK8LxSiT2F3uE++2gDJJmEE0+1SuNAsXjGTUe3ndDkmqvG0ZErkfER4t5XIpdAiKTWEbSy6xvATS8Idio7X7wOZ0PPkKjquR/6pG3EKFV4hv9I+d5tJ8QAOqcs7xRXpEm4bpfUDxXLOkrtTrDon1dRgs93KVLLPwAxWDfVUeWJ3umbs4vemMhy+0vPbKnuniCEeVpl85DhtrVJL1EJEWKpy5Lp9TpZQfAMnKCVa/vcHn68SWwtuZKUHSe1/kKBuczeE2S0IPadqpxo3mcUe+seScuNFV1ShOSbkqXWVyB9xypkYqUGxlElXdNlYnPnSGRSpKTiurreAhiC8el7hsz0Rm3E5DmXf+p8zct9c1ZpGiySam+elNVnirkqTYqtyZID08g1JkvanjhJ0sfIHlOiuDpzxY3yBK62jRl33hOEJlaqR5H130wi+xOrLvSDFQpYBD0lzfsM0goEjtw55wZRDxT0jJvF+6BFAnPWDwLztuZ7gggWal8ZWay8hvWNPHyVS4UGwRoHo32ZCt4zViKe/SUgZpbe2VJFyjdTxj4RLBkUBo/bP0QStr9vjn3Tff/AvP3tnlmrWuMcwTxs/7JTqcOASaj9gRLpmDRJ5wEzlcASgWRKOV8T/8Pl0nWoVIZPVkpg3i6Yqd+YuVIftm1KjSw6vtM6ZpLxlVpMd1owZbHLwHyFIqIIoZw6xk04Nkv3QYsMgFAfSWAfizrpx7FvtlztY2kuAwuVJHVzWwhNPOoaZn+0oQ+OfqNF9mH1SWW6kX3PeIlSoAfZ7xgzglQJygxKzNtkENDKjdd0HyyV3sM2GT/rkqnzdSopMJeFkJLix43+OdvP6vuKJXDcIYvPdCBo8x0jQIDuwWKlEpVg76j+AaGRTb2lFAThtlEjklCGFatTZq40QqFqlt8HmAJlhowUHK0QAX9gb8+Xg5eb5BSW1fa2PSpw9oWzMw/zsSLxQkEq03PIgt5hr9hVD5FsL9SBRYsTtt6JY35fYNk9eKFevNOlAvs/EzJCwyfsvR40u7UlD98FWtVKs9CaokhRoYrWHLE265Vds+x8IMNSG11E80PFwFGbImXDNSTEfarLkpt7okXaJ9FvC/Z3QkZocME+04SyKm3Qy5Gvu9VHj7zSZMkojMcgmqWMoNZfAII50oqSYsCji3YZX65SNs1kkLTJlaH6TY1NGFgnMX7NXG6QpiGDdByw/C2khBr6i6SsIZuuBFNoFmtTtujiwiUpI1oM9jTVG83DBmkIFEl9X6E0I2CNqNWtV+fYR2NnqtR1tuYcObhRK7OPuaXGXyRt+0tCR6j/qK3P1ZUnBke6GjRnvlqv3I3ztmhMSCNBLCEjSnLLksXWqpfRhXKZOVeleobKYq3DgBVpV0++FFWkYoqUq9QePOmQGh8IjRnfC5lCwwt2Cwh9nFkUr8rG/zDqf71WlVdSlk4iY8IkMna36OLDJRGKNfXkSGDGJC5foVjqcyTfmi45JcmShfsz8uMlPT8OE9ZqWfh2q7j8xVK1N0/cw8bfhYwQXwRlfpVTkihpCIZLBCy/5dDlOjiUBcEmKDK6hHCJS44EoiQlO1ZyLSmSiSV6YlY0iOpAPlrS8mJVrx1GqXmnrWJ0ZYmru0AaA0XvhpQQvlFP0QBScmIkIU0HU0gRN1abAwsV0gKl6HqJmToEHoW+0kl8KvejJR7HBAml5seKsSpd6gMYtw5a0ZN6Mddkqv7C2PRcSAlhcN3pnTa/lY8lAdWIQJnpsPROyY6RQluqCqwY5pBjTlSllW1IhHJJWD5gC+SjvwrLUqSgPFXKGmnzdL1MccHG2Wsnr3lCNvvWfgLZwZ9EOibN7/PDSDgIhevCJCx8l4RF7JKYRJCDelz3ZBaQENZB5mS15TGRBoW4sNsDYrkgZkISnPiesP+M83qo1CEZgouwLwFfHjxRUYRvAO8aUDp0OH5LCI++Q47GEBEDc4DrRcagp7BVvQUldYmRKMkYSdHHwhTi4XRp6uPI8HH7T09da4sKBaF/IYIXfgXgVD/cUqdPx+D4VA0sONeSKNHJERKXEomvP7slLDJMdoNUUiYMIOhoXKnGoZ+SUJ5pBXFidKKPeguxjrI/P/9kc8zdJKMpwq1SBNgF7AYiAX6ZiQUSgCQENYCR/+16fOjgQGttyJDqtiyx1aWjn1IlH2WVaUAfmVKkEGNPGdyxvp8GUPpHLCGmg8pr77wrvDarcn9QERKJBuKBZCANyAL2AHlAfm5JggcD5dWuB823p1acMvGI/SPfIcttfHP7iDOMlhHjP3pny/4MVV8Hpkyu9KSg4kwYE3dXfqr8JBmqwtqOCxLJwDaHBAADYAJKgXLACrQWFBj/UNfofq+vb+gVQ6HB63A4hvYPjQz1+/o7s7KyeE9qMDFUOhyg+kzcXSGlNb6mDMlQFQahBwqAEqAMsANVgAuoBeqQjXOOSodUO6vFUGBYDv6f15EwyRcBVDUdSARiAP6EQlJUiu/fMqU0dTaXGZXRyDCY0iARkmgA3EArwB+BPTt37LwVGRElGenZH4fvCj+Ac03B63h9ZTARVCkXoNokpSlFw6FKW0Jqc6nxwSwFZo/9wl6hMpZgUFSDREiC36K9AH/8Hdhx3473oyKjxGKx/DV4nv/3ABww6wEnQLVIikqxF5k09qhWeltKSHM0voAv4guZTSNgA2qCZBhkJ9AN+IBeYAT4ky5KJyUlpl9i3w/0BIl1YNsSJOXAthRgkpgsmsMnVfrCZadZ9ObeoS2zLGgAZoC9QHUYGAOkKhqZPuz3A6eBx4HjAM9tJsUksARZfjSQYkAPpAAcBthLWtl9IRvXbmb9khCdjRljff8nQvzpkKVGBRg0gyfmg2QCn4IQy46OyR7VCG2ZOWgKMUMaISpEN2LJ0dlYctVAI0AjoEok1R0kRrVmgIkgSR7zf7yG1/IeGgmdkS757xTackKbS449xHLQA3Q4mkIFoDkcG53GQLXY/OwpKkPFSILHJMJSY5mSDBPCZ9DCWcr8bMUe4qBNI9rSkqO7aKbAeo4BWHZUiY7EjGqk6FY0iHqAfUHXY9AElSC4z/Mkwt7jPVSZ/cgE6QGWGxPH8Y6VsSUDrNZDGiGt7PgS1jYzqM0QCrGvDawMjmMLA6VqJEgweIL7VISuRlVYZryX7sbeoYOyrDV1trTcNhuDphJLYDMpBpANsKdITJv6UDUGq01/SJQuxmOepyK0fd7De2nVGpkY7HOI4Ax+szpbYtufnMcxYxopvpjZ5EDLEmRQzDIDZC8wWJYRy1IDj6kGJ6+8ViPCZ3A6RWU0MqyKzVOfL0wIz1NzKI0UH86MbV42MADWu0aM9U9yLEc2NwOmggT3CZ6nGjQXli6JxABUnsnSlNlyMiT0P/n3TwJZjWQIaMQeAAAAAElFTkSuQmCC&quot;,
+                                &quot;url&quot;: &quot;http://sampleserver/arcgis/rest/static/images/GreenShinyPin.png&quot;
+                            }
+                        }
+                    },
+                    &quot;fields&quot;: [
+                        {
+                            &quot;name&quot;: &quot;id&quot;,
+                            &quot;alias&quot;: &quot;ID&quot;,
+                            &quot;type&quot;: &quot;esriFieldTypeOID&quot;
+                        },
+                        {
+                            &quot;name&quot;: &quot;title&quot;,
+                            &quot;alias&quot;: &quot;Title&quot;,
+                            &quot;type&quot;: &quot;esriFieldTypeString&quot;
+                        },
+                        {
+                            &quot;name&quot;: &quot;type&quot;,
+                            &quot;alias&quot;: &quot;Type&quot;,
+                            &quot;type&quot;: &quot;esriFieldTypeString&quot;
+                        },
+                        {
+                            &quot;name&quot;: &quot;thumbnail&quot;,
+                            &quot;alias&quot;: &quot;Thumbnail&quot;,
+                            &quot;type&quot;: &quot;esriFieldTypeString&quot;
+                        },
+                        {
+                            &quot;name&quot;: &quot;link&quot;,
+                            &quot;alias&quot;: &quot;Link&quot;,
+                            &quot;type&quot;: &quot;esriFieldTypeString&quot;
+                        },
+                        {
+                            &quot;name&quot;: &quot;arcgisJslink&quot;,
+                            &quot;alias&quot;: &quot;ArcgisDotComLink&quot;,
+                            &quot;type&quot;: &quot;esriFieldTypeString&quot;
+                        }
+                    ]
+                },
+                &quot;featureSet&quot;: {
+                    &quot;geometryType&quot;: &quot;esriGeometryPoint&quot;,
+                    &quot;spatialReference&quot;: {
+                        &quot;wkid&quot;: 102100
+                    },
+                    &quot;features&quot;: [
+                        {
+                            &quot;geometry&quot;: {
+                                &quot;x&quot;: -4110976.4722963073,
+                                &quot;y&quot;: -1200585.1408432242
+                            },
+                            &quot;attributes&quot;: {
+                                &quot;id&quot;: 0,
+                                &quot;title&quot;: &quot;Maps/Brazil&quot;,
+                                &quot;type&quot;: &quot;MapServer&quot;,
+                                &quot;thumbnail&quot;: &quot;http://sampleserver/arcgis/rest/services/Maps/Brazil/MapServer/info/thumbnail&quot;,
+                                &quot;xmin&quot;: -4254455.8606807785,
+                                &quot;ymin&quot;: -1273247.593581636,
+                                &quot;xmax&quot;: -3967497.083911836,
+                                &quot;ymax&quot;: -1127922.6881048125,
+                                &quot;link&quot;: &quot;http://sampleserver/arcgis/rest/services/Maps/Brazil/MapServer&quot;,
+                                &quot;arcgisJslink&quot;: &quot;http://www.arcgis.com/home/webmap/viewer.html?url=http%3A%2F%2Fsampleserver%2Farcgis%2Frest%2Fservices%2FMaps%2FBrazil%2FMapServer&amp;source=sd&quot;
+                            }
+                        },
+                        {
+                            &quot;geometry&quot;: {
+                                &quot;x&quot;: -13275825.10565813,
+                                &quot;y&quot;: 4497582.1039284635
+                            },
+                            &quot;attributes&quot;: {
+                                &quot;id&quot;: 1,
+                                &quot;title&quot;: &quot;Maps/CaliforniaDEM&quot;,
+                                &quot;type&quot;: &quot;ImageServer&quot;,
+                                &quot;thumbnail&quot;: &quot;http://sampleserver/arcgis/rest/services/Maps/CaliforniaDEM/ImageServer/info/thumbnail&quot;,
+								&quot;xmin&quot;: -4254455.8606807785,
+                                &quot;ymin&quot;: -1273247.593581636,
+                                &quot;xmax&quot;: -3967497.083911836,
+                                &quot;ymax&quot;: -1127922.6881048125,
+                                &quot;link&quot;: &quot;http://sampleserver/arcgis/rest/services/Maps/CaliforniaDEM/ImageServer&quot;,
+                                &quot;arcgisJslink&quot;: &quot;http://www.arcgis.com/home/webmap/viewer.html?url=http%3A%2F%2Fsampleserver%2Farcgis%2Frest%2Fservices%2FMaps%2FCaliforniaDEM%2FImageServer&amp;source=sd&quot;
+                            }
+                        },
+                        {
+                            &quot;geometry&quot;: {
+                                &quot;x&quot;: -13569208.159400005,
+                                &quot;y&quot;: 5676326.031612823
+                            },
+                            &quot;attributes&quot;: {
+                                &quot;id&quot;: 2,
+                                &quot;title&quot;: &quot;Maps/CascadeLandsat&quot;,
+                                &quot;type&quot;: &quot;ImageServer&quot;,
+                                &quot;thumbnail&quot;: &quot;http://sampleserver/arcgis/rest/services/Maps/CascadeLandsat/ImageServer/info/thumbnail&quot;,
+								&quot;xmin&quot;: -4254455.8606807785,
+                                &quot;ymin&quot;: -1273247.593581636,
+                                &quot;xmax&quot;: -3967497.083911836,
+                                &quot;ymax&quot;: -1127922.6881048125,
+                                &quot;link&quot;: &quot;http://sampleserver/arcgis/rest/services/Maps/CascadeLandsat/ImageServer&quot;,
+                                &quot;arcgisJslink&quot;: &quot;http://www.arcgis.com/home/webmap/viewer.html?url=http%3A%2F%2Fsampleserver%2Farcgis%2Frest%2Fservices%2FMaps%2FCascadeLandsat%2FImageServer&amp;source=sd&quot;
+                            }
+                        }
+                    ]
+                },
+                &quot;popupInfo&quot;: {
+                    &quot;title&quot;: &quot;{title} ({type})&quot;,
+                    &quot;fieldInfos&quot;: [
+                        {
+                            &quot;fieldName&quot;: &quot;id&quot;,
+                            &quot;label&quot;: &quot;ID&quot;,
+                            &quot;visible&quot;: false
+                        },
+                        {
+                            &quot;fieldName&quot;: &quot;title&quot;,
+                            &quot;label&quot;: &quot;Title&quot;,
+                            &quot;visible&quot;: true
+                        },
+                        {
+                            &quot;fieldName&quot;: &quot;type&quot;,
+                            &quot;label&quot;: &quot;Type&quot;,
+                            &quot;visible&quot;: true
+                        },
+                        {
+                            &quot;fieldName&quot;: &quot;thumbnail&quot;,
+                            &quot;label&quot;: &quot;Thumbnail&quot;,
+                            &quot;visible&quot;: false
+                        },
+                        {
+                            &quot;fieldName&quot;: &quot;link&quot;,
+                            &quot;label&quot;: &quot;Link&quot;,
+                            &quot;visible&quot;: true
+                        }
+                    ],
+                    &quot;description&quot;: null,
+                    &quot;showAttachments&quot;: false,
+                    &quot;mediaInfos&quot;: [
+                        {
+                            &quot;type&quot;: &quot;image&quot;,
+                            &quot;value&quot;: {
+                                &quot;sourceURL&quot;: &quot;{thumbnail}&quot;,
+                                &quot;linkURL&quot;: &quot;{arcgisJslink}&quot;
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
+</code></pre></div>
+
+        </div>
+      </p></div>
+  <div class="footer"> Copyright © 1995-2017 Esri. All rights reserved. </div></div></body>
+<!-- Mirrored from gis.auric.city/agserver/sdk/rest/02ss/02ss00000029000000.htm by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 03:04:18 GMT -->
+</html>

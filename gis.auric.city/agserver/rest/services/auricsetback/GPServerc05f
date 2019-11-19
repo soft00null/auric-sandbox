@@ -1,0 +1,10 @@
+{
+ "currentVersion": 10.6,
+ "serviceDescription": "",
+ "tasks": [
+  "GenerateSetback2"
+ ],
+ "executionType": "esriExecutionTypeAsynchronous",
+ "resultMapServerName": "auricsetback",
+ "maximumRecords": 1000
+}

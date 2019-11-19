@@ -1,0 +1,67 @@
+{
+ "currentVersion": 10.6,
+ "serviceDescription": "",
+ "mapName": "Layers",
+ "description": "",
+ "copyrightText": "",
+ "supportsDynamicLayers": true,
+ "layers": [
+  {
+   "id": 0,
+   "name": "Not Available Plots",
+   "parentLayerId": -1,
+   "defaultVisibility": true,
+   "subLayerIds": null,
+   "minScale": 0,
+   "maxScale": 0
+  }
+ ],
+ "tables": [],
+ "spatialReference": {
+  "wkid": 4326,
+  "latestWkid": 4326
+ },
+ "singleFusedMapCache": false,
+ "initialExtent": {
+  "xmin": 75.47935930164844,
+  "ymin": 19.891739605718143,
+  "xmax": 75.528138252268,
+  "ymax": 19.903018250885786,
+  "spatialReference": {
+   "wkid": 4326,
+   "latestWkid": 4326
+  }
+ },
+ "fullExtent": {
+  "xmin": 75.50436664400007,
+  "ymin": 19.867982867000023,
+  "xmax": 75.55464390000003,
+  "ymax": 19.892812310000068,
+  "spatialReference": {
+   "wkid": 4326,
+   "latestWkid": 4326
+  }
+ },
+ "minScale": 0,
+ "maxScale": 0,
+ "units": "esriDecimalDegrees",
+ "supportedImageFormatTypes": "PNG32,PNG24,PNG,JPG,DIB,TIFF,EMF,PS,PDF,GIF,SVG,SVGZ,BMP",
+ "documentInfo": {
+  "Title": "",
+  "Author": "",
+  "Comments": "",
+  "Subject": "",
+  "Category": "",
+  "AntialiasingMode": "None",
+  "TextAntialiasingMode": "Force",
+  "Keywords": ""
+ },
+ "capabilities": "Data,Map,Query",
+ "supportedQueryFormats": "JSON, AMF, geoJSON",
+ "exportTilesAllowed": false,
+ "supportsDatumTransformation": true,
+ "maxRecordCount": 10000,
+ "maxImageHeight": 4096,
+ "maxImageWidth": 4096,
+ "supportedExtensions": "KmlServer, WFSServer, WMSServer"
+}

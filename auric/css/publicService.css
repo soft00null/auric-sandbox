@@ -1,0 +1,92 @@
+.service-bg{
+    padding: 20px 0;
+}
+.services{padding-top:20px;}
+.service-bg .product-item:hover {
+    box-shadow: 0px 8px 13px rgba(0, 0, 0, 0.15);
+    background-color: #064469;
+}
+
+.service-bg .product-item {
+    margin-bottom: 30px;
+    border: #064469 1px solid;
+    transition: all 0.3s ease 0s;
+    padding: 10px 10px;
+}
+.service-bg .product-img{
+   padding:8px 0px;	
+}
+.service-bg .product-img img {
+   /* width: 100%;*/
+	vertical-align: middle;
+	border: 0;
+}
+.service-bg .product-info {
+       padding:10px;
+    text-align: center;
+}
+.service-bg .product-info p{
+    font-size:12px;
+	/*color:#9a9a9a;*/
+line-height: 22px;
+}
+.service-bg .more-info {
+    /*border: #ddd 1px solid;*/
+	border-top:none;
+       padding: 0px 0 10px;
+    text-align: center;
+	color:#d6ad31;
+}
+.service-bg .more-info a{
+	color:#d6ad31;
+}
+.service-bg .product-title {
+    color: #000000;
+    font-size: 16px;
+    font-weight: bold;
+	line-height: 18px;
+    margin: 5px 0px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+.product-img span{
+    display: block;
+    height: 90px;
+    width: 90px;
+    border-radius: 100%;
+    margin: auto;
+    background: #064469;
+    border: 1px solid #064469;
+    padding: 20px;
+    text-align: center;
+    }
+	.product-img span i{font-size: 40px;
+    color: #fff}
+	
+	
+	
+	.product-item:hover h6,.product-item:focus h6,.product-item:hover p,.product-item:focus p,.product-item:hover a,.product-item:focus a{color:#fff}
+	
+	.product-item:hover .product-img span{ background: #fff;}
+	.product-item:hover .product-img span i{color: #064469;}
+	.service-box{padding:10px 25px;}
+	.service-box a{text-decoration:none;}
+	.service-box a p{color:#000;}
+    .ps-logo{width: 100%;}
+@media screen and (max-width: 1366px)
+{
+	.service-bg .product-info{    padding: 5px 10px !important;}
+	.service-bg .product-title{font-size: 12px;}
+	.service-bg .product-info p{font-size: 11px;}
+	.service-bg .product-info p{line-height: 16px !important;}
+	.service-bg .product-item{    margin-bottom: 30px;}
+	.service-box{padding:0px 15px;}
+	.service-bg .product-item{padding: 12px 5px 5px 5px;}
+	.service-bg .product-img {padding: 5px 0px;}
+	
+	.product-img span{height: 70px; width: 70px; padding:15px 10px;}
+}
+
+

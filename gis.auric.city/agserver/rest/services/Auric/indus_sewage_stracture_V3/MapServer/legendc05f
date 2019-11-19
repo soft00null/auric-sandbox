@@ -1,0 +1,21 @@
+{
+ "layers": [
+  {
+   "layerId": 0,
+   "layerName": "auric.postgres.shendra_plots",
+   "layerType": "Feature Layer",
+   "minScale": 0,
+   "maxScale": 0,
+   "legend": [
+    {
+     "label": "Industrial Sewage Structure",
+     "url": "e2d2d50b63bfaf3313c36c24b7d54116",
+     "imageData": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAGZJREFUOI3t0UEKgDAMRNFfKHjBHtMLdhVXFa1pSoIIorPrQB8Jydyc/IPvBEXpUhQUgJVlLwq19SpqgResvS3UnLDHFNQ1YSjPgoWqrj1adwYmQHr0gLmvfEKV3j3h9HMUdOWD4Aa18RafJYLlrwAAAABJRU5ErkJggg==",
+     "contentType": "image/png",
+     "height": 20,
+     "width": 20
+    }
+   ]
+  }
+ ]
+}

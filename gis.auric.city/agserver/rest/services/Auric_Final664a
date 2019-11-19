@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:geo="http://www.google.com/geo/schemas/sitemap/1.0">
+<url>
+<loc>https://gis.auric.city/agserver/rest/services/Auric_Final/Access_tapping_05132019/MapServer?f=kmz</loc>
+<geo:geo>
+<geo:format>kmz</geo:format>
+</geo:geo>
+</url>
+<url>
+<loc>https://gis.auric.city/agserver/rest/services/Auric_Final/Auric_plotLayer/MapServer?f=kmz</loc>
+<geo:geo>
+<geo:format>kmz</geo:format>
+</geo:geo>
+</url>
+<url>
+<loc>https://gis.auric.city/agserver/rest/services/Auric_Final/SectorPlan_v3/MapServer?f=kmz</loc>
+<geo:geo>
+<geo:format>kmz</geo:format>
+</geo:geo>
+</url>
+<url>
+<loc>https://gis.auric.city/agserver/rest/services/Auric_Final/Shendra_plot_V3_PlotControlSheet/MapServer?f=kmz</loc>
+<geo:geo>
+<geo:format>kmz</geo:format>
+</geo:geo>
+</url>
+</urlset>

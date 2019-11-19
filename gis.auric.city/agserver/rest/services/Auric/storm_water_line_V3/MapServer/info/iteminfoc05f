@@ -1,0 +1,33 @@
+{
+ "culture": "en-US",
+ "name": "storm_water_line_V3",
+ "guid": "BE25237B-CD65-4007-843D-79EBB515CB05",
+ "catalogPath": "",
+ "snippet": "",
+ "description": "",
+ "summary": "",
+ "title": "storm_water_line_V3",
+ "tags": [],
+ "type": "Map Service",
+ "typeKeywords": [
+  "Data",
+  "Service",
+  "Map Service",
+  "ArcGIS Server"
+ ],
+ "thumbnail": "thumbnail/thumbnail.png",
+ "url": "",
+ "extent": [
+  [
+   75.504345888,
+   19.867992358
+  ],
+  [
+   75.5546955350001,
+   19.893014748
+  ]
+ ],
+ "spatialReference": "GCS_WGS_1984",
+ "accessInformation": "",
+ "licenseInfo": ""
+}

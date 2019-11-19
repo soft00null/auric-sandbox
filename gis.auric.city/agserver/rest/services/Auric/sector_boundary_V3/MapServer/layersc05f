@@ -1,0 +1,148 @@
+{
+ "layers": [
+  {
+   "currentVersion": 10.6,
+   "id": 0,
+   "name": "auric.postgres.shendra_plots",
+   "type": "Feature Layer",
+   "description": "",
+   "geometryType": "esriGeometryPolygon",
+   "sourceSpatialReference": {
+    "wkid": 4326,
+    "latestWkid": 4326
+   },
+   "copyrightText": "",
+   "parentLayer": null,
+   "subLayers": [],
+   "minScale": 0,
+   "maxScale": 0,
+   "drawingInfo": {
+    "renderer": {
+     "type": "uniqueValue",
+     "field1": "sector",
+     "field2": null,
+     "field3": null,
+     "defaultSymbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       0,
+       0,
+       0
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        255
+       ],
+       "width": 4
+      }
+     },
+     "defaultLabel": "<all other values>",
+     "uniqueValueInfos": [],
+     "fieldDelimiter": ","
+    },
+    "transparency": 0,
+    "labelingInfo": null
+   },
+   "defaultVisibility": true,
+   "extent": {
+    "xmin": 75.50413599300003,
+    "ymin": 19.867764255000054,
+    "xmax": 75.55484078600006,
+    "ymax": 19.894531567000058,
+    "spatialReference": {
+     "wkid": 4326,
+     "latestWkid": 4326
+    }
+   },
+   "hasAttachments": false,
+   "htmlPopupType": "esriServerHTMLPopupTypeAsHTMLText",
+   "displayField": "sector",
+   "typeIdField": null,
+   "subtypeFieldName": null,
+   "fields": [
+    {
+     "name": "sector",
+     "type": "esriFieldTypeString",
+     "alias": "sector",
+     "length": 50,
+     "domain": null
+    },
+    {
+     "name": "geom",
+     "type": "esriFieldTypeGeometry",
+     "alias": "geom",
+     "domain": null
+    },
+    {
+     "name": "gid",
+     "type": "esriFieldTypeOID",
+     "alias": "gid",
+     "domain": null
+    },
+    {
+     "name": "objectid",
+     "type": "esriFieldTypeDouble",
+     "alias": "objectid",
+     "domain": null
+    },
+    {
+     "name": "objectid_1",
+     "type": "esriFieldTypeDouble",
+     "alias": "objectid_1",
+     "domain": null
+    },
+    {
+     "name": "objectid_2",
+     "type": "esriFieldTypeDouble",
+     "alias": "objectid_2",
+     "domain": null
+    },
+    {
+     "name": "shape_leng",
+     "type": "esriFieldTypeDouble",
+     "alias": "shape_leng",
+     "domain": null
+    },
+    {
+     "name": "shape_area",
+     "type": "esriFieldTypeDouble",
+     "alias": "shape_area",
+     "domain": null
+    }
+   ],
+   "indexes": null,
+   "subtypes": [],
+   "relationships": [],
+   "canModifyLayer": true,
+   "canScaleSymbols": false,
+   "hasLabels": false,
+   "capabilities": "Data,Map,Query",
+   "maxRecordCount": 1000,
+   "supportsStatistics": true,
+   "supportsAdvancedQueries": true,
+   "supportedQueryFormats": "JSON, AMF, geoJSON",
+   "ownershipBasedAccessControlForFeatures": {"allowOthersToQuery": true},
+   "useStandardizedQueries": true,
+   "advancedQueryCapabilities": {
+    "useStandardizedQueries": true,
+    "supportsStatistics": true,
+    "supportsOrderBy": true,
+    "supportsDistinct": true,
+    "supportsPagination": true,
+    "supportsTrueCurve": true,
+    "supportsReturningQueryExtent": true,
+    "supportsQueryWithDistance": true,
+    "supportsSqlExpression": true
+   },
+   "supportsDatumTransformation": true
+  }
+ ],
+ "tables": []
+}

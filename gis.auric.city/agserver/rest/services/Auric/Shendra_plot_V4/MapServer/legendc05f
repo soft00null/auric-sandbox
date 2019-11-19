@@ -1,0 +1,112 @@
+{
+ "layers": [
+  {
+   "layerId": 0,
+   "layerName": "Auric Plots",
+   "layerType": "Feature Layer",
+   "minScale": 0,
+   "maxScale": 0,
+   "legend": [
+    {
+     "label": "Allotted",
+     "url": "77e2460d43551e550d64199ecc4415de",
+     "imageData": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAH5JREFUOI3tlEEKwCAMBA30ueY15r/bU6DBbkljSy/NbRXHjAS39nBtrwF771iFmZmEDscYTUTEMwBkszcUgL4JAMecgXtNb3h2MANX1RmYUWQml8pZeEq5AqPKVRhVrsKo8idjwy4rjw277B+bNRhVVtXwL97JZiYB6AurtQOh6AQqNo+zQAAAAABJRU5ErkJggg==",
+     "contentType": "image/png",
+     "height": 20,
+     "width": 20,
+     "values": [
+      "Allotted"
+     ]
+    },
+    {
+     "label": "Commercial",
+     "url": "00a5935bd0785b472b47f02963cb76a3",
+     "imageData": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAAADsQBlSsOGwAAADlJREFUOI1jYaAyYKGlgf+pYB4jqgvzKTBzIiMDAwONvTxq4KiBowaOGojDQGgRRCZgRDeQItNgAACOoQPlkCSSYAAAAABJRU5ErkJggg==",
+     "contentType": "image/png",
+     "height": 20,
+     "width": 20,
+     "values": [
+      "Commercial"
+     ]
+    },
+    {
+     "label": "Industrial",
+     "url": "69d1d486310cd05b7a85fe31093aec7c",
+     "imageData": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAD1JREFUOI1jYaAyYKGlgf+pYB4jigsXy58l26TYh8YMDAw09vKogaMGjho4aiB2A2FFEJmAEd1ARkpMgwEAL84FxO250NoAAAAASUVORK5CYII=",
+     "contentType": "image/png",
+     "height": 20,
+     "width": 20,
+     "values": [
+      "Industrial"
+     ]
+    },
+    {
+     "label": "Open Space",
+     "url": "f40b7df6387a5db82c8e486810bf9df7",
+     "imageData": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAEZJREFUOI1jYaAyYKGZgTk5Of8pNWzKlCmMKC60nTyFbMMO5+YwMDDQ0sujBo4aOGrgqIE4DYQVQeSAKVOmMKIYCBOgFAAA1ZYMZ01pKiwAAAAASUVORK5CYII=",
+     "contentType": "image/png",
+     "height": 20,
+     "width": 20,
+     "values": [
+      "Open Space"
+     ]
+    },
+    {
+     "label": "PAP",
+     "url": "5d5a3316d46444c270ff34ebdf80d76e",
+     "imageData": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAD1JREFUOI1jYaAyYKGlgf+pYB4jiguvL7tPtkmaUYoMDAw09vKogaMGjho4aiB2A2FFEJmAEd1ARkpMgwEA6SUE92uPmtIAAAAASUVORK5CYII=",
+     "contentType": "image/png",
+     "height": 20,
+     "width": 20,
+     "values": [
+      "PAP"
+     ]
+    },
+    {
+     "label": "PAP Lad",
+     "url": "5d5a3316d46444c270ff34ebdf80d76e",
+     "imageData": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAD1JREFUOI1jYaAyYKGlgf+pYB4jiguvL7tPtkmaUYoMDAw09vKogaMGjho4aiB2A2FFEJmAEd1ARkpMgwEA6SUE92uPmtIAAAAASUVORK5CYII=",
+     "contentType": "image/png",
+     "height": 20,
+     "width": 20,
+     "values": [
+      "PAP Lad"
+     ]
+    },
+    {
+     "label": "Public Semi public/ Amenities",
+     "url": "fc093984922be0972d3162f7951ae2fc",
+     "imageData": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAAADsQBlSsOGwAAADlJREFUOI1jYaAyYKGlgf+pYB4jigv/h1Jg0moITVMvjxo4auCogaMGYjcQVgSRCRjRDWSkyDgoAACZkwP/r1UNTQAAAABJRU5ErkJggg==",
+     "contentType": "image/png",
+     "height": 20,
+     "width": 20,
+     "values": [
+      "Public Semi public/ Amenities"
+     ]
+    },
+    {
+     "label": "Residential",
+     "url": "4aee6fec32be2922598ee19c57d26c5e",
+     "imageData": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAAADsQBlSsOGwAAADxJREFUOI1jYaAyYKGlgf+pYB4jigv//y8h3yTGHgYGBhp7edTAUQNHDRw1ELuBsCKITMCIbiAjJabBAADhAgThx8AHJgAAAABJRU5ErkJggg==",
+     "contentType": "image/png",
+     "height": 20,
+     "width": 20,
+     "values": [
+      "Residential"
+     ]
+    },
+    {
+     "label": "Road",
+     "url": "1141e79b126b1c828af7eb7326848459",
+     "imageData": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAEZJREFUOI1jYaAyYKGZgTk5Of8pNWzKlCmMKC50d3cn27CdO3cyMDDQ0sujBo4aOGrgqIE4DYQVQeSAKVOmMKIYCBOgFAAABnYM9h6FkDcAAAAASUVORK5CYII=",
+     "contentType": "image/png",
+     "height": 20,
+     "width": 20,
+     "values": [
+      "Road"
+     ]
+    }
+   ]
+  }
+ ]
+}

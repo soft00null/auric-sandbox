@@ -1,0 +1,211 @@
+{
+ "layers": [
+  {
+   "currentVersion": 10.6,
+   "id": 0,
+   "name": "auric.postgres.shendra_plots",
+   "type": "Feature Layer",
+   "description": "",
+   "geometryType": "esriGeometryPolyline",
+   "sourceSpatialReference": {
+    "wkid": 4326,
+    "latestWkid": 4326
+   },
+   "copyrightText": "",
+   "parentLayer": null,
+   "subLayers": [],
+   "minScale": 0,
+   "maxScale": 0,
+   "drawingInfo": {
+    "renderer": {
+     "type": "simple",
+     "symbol": {
+      "type": "esriSLS",
+      "style": "esriSLSSolid",
+      "color": [
+       169,
+       0,
+       230,
+       255
+      ],
+      "width": 3
+     },
+     "label": "Industrial Sewage",
+     "description": ""
+    },
+    "transparency": 0,
+    "labelingInfo": [
+     {
+      "labelPlacement": "esriServerLinePlacementAboveAlong",
+      "where": null,
+      "labelExpression": "[name]",
+      "useCodedValues": true,
+      "symbol": {
+       "type": "esriTS",
+       "color": [
+        0,
+        0,
+        0,
+        255
+       ],
+       "backgroundColor": null,
+       "borderLineColor": null,
+       "borderLineSize": null,
+       "verticalAlignment": "bottom",
+       "horizontalAlignment": "center",
+       "rightToLeft": false,
+       "angle": 0,
+       "xoffset": 0,
+       "yoffset": 0,
+       "kerning": true,
+       "haloColor": null,
+       "haloSize": null,
+       "font": {
+        "family": "Arial",
+        "size": 11,
+        "style": "normal",
+        "weight": "bold",
+        "decoration": "none"
+       }
+      },
+      "minScale": 0,
+      "maxScale": 0
+     }
+    ]
+   },
+   "defaultVisibility": true,
+   "extent": {
+    "xmin": 75.50741869600006,
+    "ymin": 19.869459758000062,
+    "xmax": 75.55418679900004,
+    "ymax": 19.892194931000063,
+    "spatialReference": {
+     "wkid": 4326,
+     "latestWkid": 4326
+    }
+   },
+   "hasAttachments": false,
+   "htmlPopupType": "esriServerHTMLPopupTypeAsHTMLText",
+   "displayField": "name",
+   "typeIdField": null,
+   "subtypeFieldName": null,
+   "fields": [
+    {
+     "name": "geom",
+     "type": "esriFieldTypeGeometry",
+     "alias": "geom",
+     "domain": null
+    },
+    {
+     "name": "gid",
+     "type": "esriFieldTypeOID",
+     "alias": "gid",
+     "domain": null
+    },
+    {
+     "name": "autogenera",
+     "type": "esriFieldTypeDouble",
+     "alias": "autogenera",
+     "domain": null
+    },
+    {
+     "name": "name",
+     "type": "esriFieldTypeString",
+     "alias": "name",
+     "length": 254,
+     "domain": null
+    },
+    {
+     "name": "networknam",
+     "type": "esriFieldTypeString",
+     "alias": "networknam",
+     "length": 254,
+     "domain": null
+    },
+    {
+     "name": "insidediam",
+     "type": "esriFieldTypeDouble",
+     "alias": "insidediam",
+     "domain": null
+    },
+    {
+     "name": "outsidedia",
+     "type": "esriFieldTypeDouble",
+     "alias": "outsidedia",
+     "domain": null
+    },
+    {
+     "name": "length",
+     "type": "esriFieldTypeDouble",
+     "alias": "length",
+     "domain": null
+    },
+    {
+     "name": "slope",
+     "type": "esriFieldTypeDouble",
+     "alias": "slope",
+     "domain": null
+    },
+    {
+     "name": "startinver",
+     "type": "esriFieldTypeDouble",
+     "alias": "startinver",
+     "domain": null
+    },
+    {
+     "name": "endinvert",
+     "type": "esriFieldTypeDouble",
+     "alias": "endinvert",
+     "domain": null
+    },
+    {
+     "name": "structures",
+     "type": "esriFieldTypeString",
+     "alias": "structures",
+     "length": 254,
+     "domain": null
+    },
+    {
+     "name": "structuree",
+     "type": "esriFieldTypeString",
+     "alias": "structuree",
+     "length": 254,
+     "domain": null
+    },
+    {
+     "name": "partsizena",
+     "type": "esriFieldTypeString",
+     "alias": "partsizena",
+     "length": 254,
+     "domain": null
+    }
+   ],
+   "indexes": null,
+   "subtypes": [],
+   "relationships": [],
+   "canModifyLayer": true,
+   "canScaleSymbols": false,
+   "hasLabels": true,
+   "capabilities": "Data,Map,Query",
+   "maxRecordCount": 10000,
+   "supportsStatistics": true,
+   "supportsAdvancedQueries": true,
+   "supportedQueryFormats": "JSON, AMF, geoJSON",
+   "ownershipBasedAccessControlForFeatures": {"allowOthersToQuery": true},
+   "useStandardizedQueries": true,
+   "advancedQueryCapabilities": {
+    "useStandardizedQueries": true,
+    "supportsStatistics": true,
+    "supportsOrderBy": true,
+    "supportsDistinct": true,
+    "supportsPagination": true,
+    "supportsTrueCurve": true,
+    "supportsReturningQueryExtent": true,
+    "supportsQueryWithDistance": true,
+    "supportsSqlExpression": true
+   },
+   "supportsDatumTransformation": true
+  }
+ ],
+ "tables": []
+}

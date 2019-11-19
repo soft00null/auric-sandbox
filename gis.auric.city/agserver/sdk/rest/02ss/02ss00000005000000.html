@@ -1,0 +1,642 @@
+<html lang="en" xml:lang="en">
+<!-- Mirrored from gis.auric.city/agserver/sdk/rest/02ss/02ss00000005000000.htm by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 03:15:42 GMT -->
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="description" content="Dynamic Layer / Table http:// &amp;lt;mapservice-url&amp;gt;/dynamicLayerQueryQuery Related RecordsGenerate RendererFeatureMap10.1 Description A dynamic layer / table resource represents a single layer / table of a map service published by ArcGIS Server or of a registered workspace. This resource is supported only when the map service supports dynamic layers, as indicated by supportsDynamicLayers on the map service resource. For a dynamic layer / table based on an existing map service layer, this resource returns updated information based on any changes to the data. For"><meta name="content-language" content="en"><link href="rsrc/htmlhelp.html" rel="stylesheet" type="text/css"><title>ArcGIS REST API - ArcGIS Services - 
+   Dynamic Layer / Table
+  </title>
+                <script type="text/javascript" language="JavaScript">
+                    var pathL  = self.location.pathname.split ("../../../../index.html");
+                    var fname = pathL[pathL.length-1];
+                    var i = fname.lastIndexOf (".htm");
+                    if (i>=0) {
+                    fname = fname.substring (0, i)
+                    } else {
+                    //??
+                    }
+                    if (self.location.hash) {
+				    		      fname = fname + self.location.hash;
+						        }
+                    self.location.replace ("../index.html#//" + fname);
+                </script>
+                </head><!--Publication GUID: [GUID-289408B4-3EC8-4C16-9DB8-B1778E780E58]--><!--Topic GUID: [GUID-4BA66912-C7E4-4898-AB35-A7B9D72B3A0B]--><body><div id="content"><div class="header"><h1>
+   Dynamic Layer / Table
+  </h1><div id="breadcrumb"></div></div>
+    <div class="restmd" purpose="restmd"><ul purpose="restmd" class="restmd list-plain"><li><span class="restkey post-1">URL:</span><span class="restval">http:// <a class="xref" rel="02ss/02ss0000006v000000.htm" href="02ss/02ss0000006v000000.html">&lt;mapservice-url&gt;</a>/dynamicLayer<span class="restverb"></span><br></span></li><li><span class="restkey post-1">Operations:</span><span class="restval"><a class="xref" rel="02ss/02ss00000081000000.htm" href="02ss/02ss00000081000000.html">Query</a>,<a class="xref" rel="02ss/02ss00000008000000.htm" href="02ss/02ss00000008000000.html">Query Related Records</a>,<a class="xref" rel="02ss/02ss0000004m000000.htm" href="02ss/02ss0000004m000000.html">Generate Renderer</a></span></li><li><span class="restkey post-1">Child Resources:</span><span class="restval"><a class="xref" rel="02ss/02ss00000095000000.htm" href="02ss/02ss00000095000000.html">Feature</a></span></li><li><span class="restkey post-1">Required Capability:</span><span class="restval">Map</span></li><li><span class="restkey post-1">Version Introduced:</span><span class="restval">10.1</span></li></ul></div>
+    <div class="section1" id="GUID-50B81F69-E6A2-4413-88D8-BE41BAB16F63" purpose="section1"><h2>Description</h2><p id="GUID-27C5D65D-9C14-465A-B8A5-63367201D2E0">A dynamic layer / table resource represents a single layer /
+table of a map service published by ArcGIS Server or of a
+registered workspace. This resource is supported only when the map
+service supports dynamic layers, as indicated by
+<span class="usertext">supportsDynamicLayers</span> on the map service resource.</p><p id="GUID-15FCF927-0064-46E0-A1FE-142D18E03869">For a dynamic layer / table based on an existing map service
+layer, this resource returns updated information based on any
+changes to the data. For example, consider the case of a time-aware
+layer in a map service. Prior to 10.1 the layer resource for such a
+layer would return information based on data that was cached the
+last time the service was refreshed. At 10.1, there are couple of
+options to retrieve updated temporal extents - pass
+<span class="usertext">returnUpdates</span> parameter to static layer resource or
+request the layer via <span class="usertext">dynamicLayer</span> resource, which
+would return the most current information rather than returning the
+cached information.
+</p><p id="GUID-A25D7262-0795-4D3C-BB1A-80D6E02914ED"><div class="notes" id="GUID-E3DCEB08-AF7A-474D-BDA7-F357FF411974"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody"><p id="GUID-5B854372-6C14-41D6-BBF1-99D5E902433D">If a map service layer is based on non-real-time data, it
+is optimal to use layer resource rather than dynamic layer resource
+to retrieve information regarding such a layer / table.</p></div></div></p><p id="GUID-4D7AE263-CEBB-497B-A36F-E25F32B5FBA0">If <span class="usertext">dynamicLayer</span> resource lists
+<span class="usertext">canModifyLayer</span> to be false, then only the label
+properties specified in <span class="usertext">drawingInfo</span> are honored. Use
+<span class="usertext">showLabels</span> to turn on/off labels and use
+<span class="usertext">labelingInfo</span> to specify how the labels are drawn.</p><p id="GUID-50924F05-B83D-42A6-BB7A-9750B3A395C8"><span class="usertext">supportsStatistics</span> and <span class="usertext">supportsAdvancedQueries</span> are dependent on the layer data source.</p><p id="GUID-860DC995-9BD3-4D2D-8C57-DFDD4F1EDA62"><span class="usertext">supportsStatistics</span> would return <i>false</i> in the following scenarios:<ul purpose="ul" id="UL_02A43BE6FF6E43A2812C360B49F753BE"><li purpose="li" id="LI_AC729B4435A4455890C77AE0D675AAAE">The layer / table resides in a workspace other than an enterprise or file geodatabase.</li><li purpose="li" id="LI_41FEE6C5086B431BA1DDF7D386CA9F66">The layer / table is a Query Layer - a layer / table that is defined by a SQL query (e.g. a layer from a database, a geodatabase archived layer, etc).</li><li purpose="li" id="LI_AE1C69C1599E4CE5BE419CCFF06E37EA">The layer / table has more than one join defined on it.</li><li purpose="li" id="LI_4EF6DA71307541019611EDA7E5691551">The layer / table is joined with another layer / table from a different workspace.</li><li purpose="li" id="LI_ACA2498B939646E1A239430B8BA6F826">The layer / table has an "outer" join and where the workspace is a pre-10.1 Geodatabase and application server connection is used.</li></ul></p><p id="GUID-9509D5A0-A598-4F9A-9F07-924386EAC5C9"><span class="usertext">supportsAdvancedQueries</span> would return false in the following scenarios:<ul purpose="ul" id="UL_EB681636E39944ABB49933BBDC67CF3D"><li purpose="li" id="LI_B0085CFA1817422891AA46051364FB37">The layer / table resides in a workspace other than an enterprise database or File Geodatabase.</li><li purpose="li" id="LI_8BB33C16FB574934B92DB7E385722A1A">The layer / table is joined with another layer / table from a different workspace.</li></ul></p></div>
+    <div class="section1" id="ESRI_SECTION1_15FBF369CFE44A938D53C50E8A573E86" purpose="section1"><h2>New in 10.3</h2><p id="GUID-AC94A8C3-525A-45FA-AEE8-76F3F691FAAE"><ul purpose="ul" id="UL_1791EA35223E413BA3F9BE962F6B07D4"><li purpose="li" id="LI_33BF7906A507488B805602090CAEAFE6">All properties related to query are grouped inside <span class="usertext">advancedQueryCapabilities</span>.</li><li purpose="li" id="LI_DBCF34F9EDAD4F83A721868E57061300"> A new property is reported to indicate whether the leyer supports pagination in a query result<span class="usertext">supportsPagination</span>.</li><li purpose="li" id="LI_EBEC48CC085E45DCA82C5F1F27BFA2BF"><span class="usertext">supportsTrueCurve</span> is always true and indicates whether the service supports accepting and returning true curves as a segment of a polyline or polygon.</li><li purpose="li" id="LI_2506E9135F874DB9A8194DA8E7E36A9C"><span class="usertext">supportsAdvancedQueries</span> is splitted into <span class="usertext">supportsOrderBy</span> and <span class="usertext">supportsDistinct</span></li></ul></p></div><div class="section1" id="ESRI_SECTION1_6D446EB7E8664015A46F3D347F5298D4" purpose="section1"><h2>New in 10.2</h2><p id="GUID-EA880F61-111C-411C-9FF4-6BA1277939BA"><ul purpose="ul" id="UL_A59010F64CB44BA5B240A8882C8AD7F8"><li purpose="li" id="LI_1C2E0ECE0C8D483D94E13BBF69F0CDE7">A new property is reported to indicate whether the layer requires the use of standardized queries - <span class="usertext">useStandardizedQueries</span>. A value of <span class="usertext">true</span> indicates the layer requires the use of standardized queries, a value of <span class="usertext">false</span> indicates otherwise. Learn more about <a class="xref" target="_blank" rel="http://server.arcgis.com/en/server/latest/administer/linux/about-standardized-queries.htm" href="http://server.arcgis.com/en/server/latest/administer/linux/about-standardized-queries.htm">standardized queries</a>.</li><li purpose="li" id="LI_824096B1011242808F121E3457E84577"> Layer / table resources no longer report the existing definition expression set in the source map document.</li></ul></p></div><div class="section1" id="ESRI_SECTION1_25453044E36B43519C04EFE992AE94AF" purpose="section1"><h2>New in 10.1 SP1</h2><p id="GUID-62FDF745-EDBA-4EA3-823D-F217D0B0DF7D"> <ul purpose="ul" id="UL_5784572F29624254BE65D146079C1157"> <li purpose="li" id="LI_4AB9D0637E124A98BD72FDA2E9C462E0">If ownership-based access control is enabled on features, <span class="usertext">ownershipBasedAccessControlForFeatures</span> property of a layer will include an <span class="usertext">allowOthersToQuery</span> property.</li> </ul> </p></div>
+        <div class="section1" id="GUID-086ECABE-8B05-4290-9A48-CA1125901A10" purpose="section1"><h2>Response Parameters</h2><p id="GUID-BE2BDD1B-04C8-4386-B6CE-A404629D8E06">
+        <div class="block_table" id="GUID-D998A157-DB06-4232-A8C9-792474BCF40E" purpose="block_table"><span class="table_title"></span><table class="table"><colgroup width="200pt"></colgroup><colgroup width="*"></colgroup><tr purpose="thead"><th class="th" purpose="th" rowspan="1" colspan="1">
+                  <p id="GUID-12580C2F-EBD6-4B19-B42E-332E62F88C11">Parameter</p>
+                </th><th class="th" purpose="th" rowspan="1" colspan="1">
+                  <p id="GUID-0305BB5F-2BC0-48CE-99AA-1F95C9FF656E">Details</p>
+                  </th></tr><tbody>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">f</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-96537508-F629-48FC-B0D0-D1052697BACB">Description: The response format. The default response format is html.</p><p id="GUID-1F995962-2AD5-4204-A3C7-83BD7ED6F117">Values: html | json | pjson</p>
+                </td>
+              </tr><tr><td purpose="entry" rowspan="1" colspan="1"><span class="usertext">layer</span></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-67061E5C-D1C4-4F03-8510-A8D89F73F634">Description: Dynamic layer/table source definition.</p><p id="GUID-80670B06-F19E-4D63-A658-D13E8C0B661A"><div class="notes" id="GUID-C58A22AA-9E94-4F22-A910-55CE44892A3B"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody"><p id="GUID-CF23D993-D242-47B2-97EE-EE3C548CA663">Assigning each layer an unique value for <span class="usertext">id</span> would ensure that clients can correctly map the results back to the layer. This value should be different from any of the existing map service layer <span class="usertext">id</span>.</p></div></div></p><p id="GUID-90249908-DCEC-466A-8092-0E595BF45477">Syntax:<div class="codeblock" purpose="codeblock"><div class="codeblockdesc" purpose="codeblockdesc"></div><div class="highlight"><pre><code>{
+    &quot;id&quot;: &lt;layerOrTableId&gt;,
+    &quot;source&quot;: &lt;layer source&gt;, //required
+    &quot;definitionExpression&quot;: &quot;&lt;definitionExpression&gt;&quot;,
+    &quot;drawingInfo&quot;: 
+    {
+      &quot;renderer&quot;: &lt;renderer&gt;,
+      &quot;transparency&quot;: &lt;transparency&gt;,
+      &quot;scaleSymbols&quot;: &lt;true | false&gt;,
+      &quot;showLabels&quot;: &lt;true | false&gt;,
+      &quot;labelingInfo&quot;: &lt;labeling info&gt;
+    },
+    &quot;layerTimeOptions&quot;: //supported only for time enabled map layers
+    {
+      &quot;useTime&quot; : &lt;true | false&gt;,
+      &quot;timeDataCumulative&quot; : &lt;true | false&gt;,
+      &quot;timeOffset&quot; : &lt;timeOffset&gt;,
+      &quot;timeOffsetUnits&quot; : &quot;&lt;esriTimeUnitsCenturies | esriTimeUnitsDays | esriTimeUnitsDecades | 
+                             esriTimeUnitsHours | esriTimeUnitsMilliseconds | esriTimeUnitsMinutes | 
+                             esriTimeUnitsMonths | esriTimeUnitsSeconds | esriTimeUnitsWeeks | esriTimeUnitsYears |
+                             esriTimeUnitsUnknown&gt;&quot;
+    }
+  }
+</code></pre></div>
+</div></p></td></tr>
+            </tbody><caption class="table_desc"></caption></table></div>
+      </p></div>
+    <div class="section1" id="GUID-CDFEE634-396C-41C0-9F07-9010EE8EFABC" purpose="section1"><h2>Example Usage</h2><p id="GUID-8F907E15-5C2C-4860-96F0-612FDCC391E6">
+        Example 1: Get information about layerId 3 in the Census map service on servicesbeta2 using dynamicLayer:
+      </p><p id="GUID-D97B76EB-4515-4239-B271-CEEB9C3936EB"><a target="_blank" class="xref" href="http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/dynamicLayer?layer={%22id%22:101,%22definitionExpression%22:%22%5C%22sub_region%5C%22%20like%20'Pacific'%22,%22source%22:{%22type%22:%22mapLayer%22,%22mapLayerId%22:3}}&amp;f=html" rel="http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/dynamicLayer?layer={&quot;id&quot;:101,&quot;definitionExpression&quot;:&quot;%5C&quot;sub_region%5C&quot; like 'Pacific'&quot;,&quot;source&quot;:{&quot;type&quot;:&quot;mapLayer&quot;,&quot;mapLayerId&quot;:3}}&amp;f=html">http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/dynamicLayer?layer={"id":101,"definitionExpression":"\"sub_region\" like 'Pacific'","source":{"type":"mapLayer","mapLayerId":3}}&amp;f=html</a></p></div>
+    <div class="section1" id="GUID-749B04E8-48FE-4AD5-8FFF-5349FCDEC40B" purpose="section1"><h2>JSON Response Syntax</h2><p id="GUID-383BD46B-A93A-4048-8B74-A3535EE1FA93">
+        <div class="codeblock" purpose="codeblock">
+          <div class="codeblockdesc" purpose="codeblockdesc">
+            
+          </div>
+          <div class="highlight"><pre><code><span class="p">{</span>
+<span class="s2">&quot;currentVersion&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">currentVersion</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">layerOrTableId</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;layerOrTableName&gt;&quot;</span><span class="p">,</span>
+<span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;layerOrTableType&gt;&quot;</span><span class="p">,</span> <span class="c1">//for tables, the type will be &quot;Table&quot;</span>
+<span class="s2">&quot;description&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;description&gt;&quot;</span><span class="p">,</span>
+<span class="s2">&quot;definitionExpression&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;definitionExpression&gt;&quot;</span><span class="p">,</span>
+
+<span class="c1">//properties specific to layers only</span>
+<span class="s2">&quot;geometryType&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;geometryType&gt;&quot;</span><span class="p">,</span>
+<span class="s2">&quot;hasZ&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span><span class="o">|</span><span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span> <span class="c1">//added in 10.1</span>
+<span class="s2">&quot;hasM&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span><span class="o">|</span><span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span> <span class="c1">//added in 10.1</span>
+<span class="s2">&quot;copyrightText&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;copyrightText&gt;&quot;</span><span class="p">,</span>
+<span class="s2">&quot;parentLayer&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">parentLayerId</span><span class="o">&gt;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;parentLayerName&gt;&quot;</span><span class="p">},</span>
+<span class="s2">&quot;subLayers&quot;</span> <span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">subLayerId1</span><span class="o">&gt;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;subLayerName1&gt;&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">subLayerId2</span><span class="o">&gt;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;subLayerName2&gt;&quot;</span><span class="p">}</span>
+<span class="p">],</span>
+<span class="s2">&quot;minScale&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">minScale</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="s2">&quot;maxScale&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">maxScale</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="s2">&quot;extent&quot;</span> <span class="o">:</span>  <span class="o">&lt;</span><span class="nx">envelope</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="s2">&quot;timeInfo&quot;</span> <span class="o">:</span> <span class="p">{</span>
+  <span class="s2">&quot;startTimeField&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;startTimeFieldName&gt;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;endTimeField&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;endTimeFieldName&gt;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;trackIdField&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;trackIdFieldName&gt;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;timeExtent&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="o">&lt;</span><span class="nx">startTime</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="nx">endTime</span><span class="o">&gt;</span><span class="p">],</span>
+  <span class="s2">&quot;timeReference&quot;</span> <span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;timeZone&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;timeZone&gt;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;respectsDaylightSaving&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;timeInterval&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">timeInterval</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="s2">&quot;timeIntervalUnits&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;timeIntervalUnits&gt;&quot;</span><span class="p">,</span>
+  <span class="c1">//the default time-related export options for this layer</span>
+  <span class="s2">&quot;exportOptions&quot;</span> <span class="o">:</span> <span class="p">{</span> 
+    <span class="c1">//If true, use the time extent specified by the time parameter</span>
+    <span class="s2">&quot;useTime&quot;</span> <span class="o">:</span> <span class="o">&lt;</span> <span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span> <span class="o">&gt;</span><span class="p">,</span>
+    <span class="c1">//If true, draw all the features from the beginning of time for that data</span>
+    <span class="s2">&quot;timeDataCumulative&quot;</span> <span class="o">:</span> <span class="o">&lt;</span> <span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span> <span class="o">&gt;</span><span class="p">,</span>
+    <span class="c1">//Time offset for this layer so that it can be overlaid on the top of a previous or future time period</span>
+    <span class="s2">&quot;timeOffset&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">timeOffset1</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;timeOffsetUnits&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;esriTimeUnitsCenturies | esriTimeUnitsDays | esriTimeUnitsDecades | </span>
+<span class="s2">                             esriTimeUnitsHours | esriTimeUnitsMilliseconds | esriTimeUnitsMinutes | </span>
+<span class="s2">                             esriTimeUnitsMonths | esriTimeUnitsSeconds | esriTimeUnitsWeeks | esriTimeUnitsYears |</span>
+<span class="s2">                             esriTimeUnitsUnknown&gt;&quot;</span>
+  <span class="p">}</span>
+  <span class="s2">&quot;hasLiveData&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="p">},</span>
+
+<span class="s2">&quot;drawingInfo&quot;</span> <span class="o">:</span> <span class="p">{</span>
+  <span class="s2">&quot;renderer&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">renderer</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="s2">&quot;transparency&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">transparency</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="s2">&quot;labelingInfo&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">labelingInfo</span><span class="o">&gt;</span>
+<span class="p">},</span>
+
+<span class="s2">&quot;hasAttachments&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span>
+
+<span class="s2">&quot;htmlPopupType&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;esriServerHTMLPopupTypeNone | esriServerHTMLPopupTypeAsURL | esriServerHTMLPopupTypeAsHTMLText&gt;&quot;</span><span class="p">,</span>
+
+<span class="c1">//layer / table field information</span>
+<span class="s2">&quot;displayField&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;displayFieldName&gt;&quot;</span><span class="p">,</span>
+<span class="s2">&quot;typeIdField&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;typeIFieldName&gt;&quot;</span><span class="p">,</span>
+<span class="s2">&quot;fields&quot;</span> <span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;fieldName1&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;fieldType1&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;fieldAlias1&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;length1&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;domain&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">domain1</span><span class="o">&gt;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;fieldName2&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;fieldType2&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;fieldAlias2&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;length2&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;domain&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">domain2</span><span class="o">&gt;</span><span class="p">}</span>
+<span class="p">],</span>
+<span class="s2">&quot;types&quot;</span> <span class="o">:</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">typeId1</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;typeName1&gt;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;domains&quot;</span> <span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;&lt;domainField11&gt;&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">domain11</span><span class="o">&gt;</span><span class="p">,</span>
+      <span class="s2">&quot;&lt;domainField12&gt;&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">domain12</span><span class="o">&gt;</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">typeId2</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;typeName2&gt;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;domains&quot;</span> <span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;&lt;domainField11&gt;&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">domain21</span><span class="o">&gt;</span><span class="p">,</span>
+      <span class="s2">&quot;&lt;domainField12&gt;&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">domain22</span><span class="o">&gt;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">],</span>
+
+<span class="s2">&quot;relationships&quot;</span> <span class="o">:</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">relationshipId1</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;relationshipName1&gt;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;relatedTableId&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">relatedTableId1</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;role&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;esriRelRoleOrigin&gt;|&lt;esriRelRoleDestination&gt;&quot;</span><span class="p">;,</span><span class="c1">//Added at 10.1</span>
+    <span class="s2">&quot;cardinality&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;esriRelCardinalityOneToOne&gt;|&lt;esriRelCardinalityOneToMany&gt;|&lt;esriRelCardinalityManyToMany&gt;&quot;</span><span class="p">;,</span><span class="c1">//Added at 10.1</span>
+    <span class="s2">&quot;keyField&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;keyFieldName2&gt;&quot;</span><span class="p">,</span><span class="c1">//Added at 10.1</span>
+    <span class="s2">&quot;isComposite&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span><span class="o">&gt;|&lt;</span><span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span><span class="c1">//Added at 10.1</span>
+    <span class="s2">&quot;relationshipTableId&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">attributedRelationshipClassTableId</span><span class="o">&gt;</span><span class="p">,</span>  <span class="c1">//Added in 10.1. Returned only for attributed relationships</span>
+    <span class="s2">&quot;keyFieldInRelationshipTable&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;key field in AttributedRelationshipClass table that matches keyField&gt;&quot;</span> <span class="c1">//Added in 10.1. Returned only for attributed relationships</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">relationshipId2</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;relationshipName2&gt;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;relatedTableId&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">relatedTableId2</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;role&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;esriRelRoleOrigin&gt;|&lt;esriRelRoleDestination&gt;&quot;</span><span class="p">;,</span><span class="c1">//Added at 10.1</span>
+    <span class="s2">&quot;cardinality&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;esriRelCardinalityOneToOne&gt;|&lt;esriRelCardinalityOneToMany&gt;|&lt;esriRelCardinalityManyToMany&gt;&quot;</span><span class="p">;,</span><span class="c1">//Added at 10.1</span>
+    <span class="s2">&quot;keyField&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;keyFieldName2&gt;&quot;</span><span class="p">,</span><span class="c1">//Added at 10.1</span>
+    <span class="s2">&quot;isComposite&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span><span class="o">&gt;|&lt;</span><span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span><span class="c1">//Added at 10.1</span>
+    <span class="s2">&quot;relationshipTableId&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">attributedRelationshipClassTableId</span><span class="o">&gt;</span><span class="p">,</span>  <span class="c1">//Added in 10.1. Returned only for attributed relationships</span>
+    <span class="s2">&quot;keyFieldInRelationshipTable&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;key field in AttributedRelationshipClass table that matches keyField&gt;&quot;</span> <span class="c1">//Added in 10.1. Returned only for attributed relationships</span>
+  <span class="p">}</span>
+<span class="p">],</span>
+<span class="s2">&quot;maxRecordCount&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">recordCount</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="s2">&quot;canModifyLayer&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="k">if</span> <span class="nx">the</span> <span class="nx">layer</span> <span class="o">/</span> <span class="nx">table</span> <span class="nx">supports</span> <span class="nx">statistical</span> <span class="nx">functions</span> <span class="k">in</span> <span class="nx">query</span> <span class="nx">operation</span>
+<span class="s2">&quot;supportsStatistics&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="k">if</span> <span class="nx">the</span> <span class="nx">layer</span> <span class="o">/</span> <span class="nx">table</span> <span class="nx">supports</span> <span class="nx">orderBy</span> <span class="nx">parameter</span> <span class="k">in</span> <span class="nx">query</span> <span class="nx">operation</span>
+<span class="s2">&quot;supportsAdvancedQueries&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="c1">//new at 10.1 - if the layer has labels defined on it.</span>
+<span class="s2">&quot;hasLabels&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="c1">//new at 10.1 - if the layer renderers its symbols based on scale.</span>
+<span class="s2">&quot;canScaleSymbols&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="c1">//comma separated list of supported capabilities - e.g. &quot;Map,Query,Data&quot;</span>
+<span class="s2">&quot;capabilities&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;capabilities&gt;&quot;</span><span class="p">,</span>
+<span class="c1">//comma separated list of supported query output formats - e.g. &quot;JSON, AMF&quot;</span>
+<span class="s2">&quot;supportedQueryFormats&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;supported query output formats&gt;&quot;</span><span class="p">,</span>
+<span class="c1">//effectiveMinScale and effectiveMaxScale are returned only for dynamic map layers.</span>
+<span class="s2">&quot;effectiveMinScale&quot;</span><span class="o">:&lt;</span><span class="nx">effective</span> <span class="nx">minimum</span> <span class="nx">scale</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="s2">&quot;effectiveMaxScale&quot;</span><span class="o">:&lt;</span><span class="nx">effective</span> <span class="nx">maximummum</span> <span class="nx">scale</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="c1">//true if the layer is versioned.</span>
+<span class="s2">&quot;isDataVersioned&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="c1">//new at 10.1 SP1.</span>
+<span class="s2">&quot;ownershipBasedAccessControlForFeatures&quot;</span><span class="o">:</span> 
+<span class="p">{</span>
+ <span class="s2">&quot;allowOthersToQuery&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span>
+<span class="p">},</span>
+<span class="c1">//new at 10.2</span>
+<span class="s2">&quot;useStandardizedQueries&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+        </div>
+      </p></div>
+    <div class="section1" id="GUID-D1D60EF6-92D7-4265-A0AC-828045F09F38" purpose="section1"><h2>JSON Response Example</h2><p id="GUID-50D2CEBE-203C-4FF3-8496-270ED92E4831">
+        <div class="codeblock" purpose="codeblock">
+          <div class="codeblockdesc" purpose="codeblockdesc">
+            
+          </div>
+          <div class="highlight"><pre><code><span class="p">{</span>
+ <span class="s2">&quot;currentVersion&quot;</span><span class="o">:</span> <span class="mf">10.1</span><span class="p">,</span>
+ <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;states&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Feature Layer&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;This service presents various population statistics from Census 2000, including total population, population density, racial counts, and more. The map service presents statistics at the state, county, block group, and block point levels.\n&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;definitionExpression&quot;</span><span class="o">:</span> <span class="s2">&quot;\&quot;sub_region\&quot; like &#39;Pacific&#39;&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;geometryType&quot;</span><span class="o">:</span> <span class="s2">&quot;esriGeometryPolygon&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;copyrightText&quot;</span><span class="o">:</span> <span class="s2">&quot;US Bureau of the Census: http://www.census.gov&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;subLayers&quot;</span><span class="o">:</span> <span class="p">[</span>
+  
+ <span class="p">],</span>
+ <span class="s2">&quot;minScale&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+ <span class="s2">&quot;maxScale&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+ <span class="s2">&quot;drawingInfo&quot;</span><span class="o">:</span> <span class="p">{</span>
+  <span class="s2">&quot;renderer&quot;</span><span class="o">:</span> <span class="p">{</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;simple&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;symbol&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSFS&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSFSSolid&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="p">[</span>
+     <span class="mi">0</span><span class="p">,</span>
+     <span class="mi">0</span><span class="p">,</span>
+     <span class="mi">0</span><span class="p">,</span>
+     <span class="mi">0</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;outline&quot;</span><span class="o">:</span> <span class="p">{</span>
+     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSLS&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSLSSolid&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">255</span>
+     <span class="p">],</span>
+     <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="mi">2</span>
+    <span class="p">}</span>
+   <span class="p">},</span>
+   <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;transparency&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+  <span class="s2">&quot;labelingInfo&quot;</span><span class="o">:</span> <span class="kc">null</span>
+ <span class="p">},</span>
+ <span class="s2">&quot;defaultVisibility&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+ <span class="s2">&quot;extent&quot;</span><span class="o">:</span> <span class="p">{</span>
+  <span class="s2">&quot;xmin&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">178.21759836267427</span><span class="p">,</span>
+  <span class="s2">&quot;ymin&quot;</span><span class="o">:</span> <span class="mf">18.921786344664099</span><span class="p">,</span>
+  <span class="s2">&quot;xmax&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">66.969271036229316</span><span class="p">,</span>
+  <span class="s2">&quot;ymax&quot;</span><span class="o">:</span> <span class="mf">71.406235367068575</span><span class="p">,</span>
+  <span class="s2">&quot;spatialReference&quot;</span><span class="o">:</span> <span class="p">{</span>
+   <span class="s2">&quot;wkid&quot;</span><span class="o">:</span> <span class="mi">4269</span><span class="p">,</span>
+   <span class="s2">&quot;latestWkid&quot;</span><span class="o">:</span> <span class="mi">4269</span>
+  <span class="p">}</span>
+ <span class="p">},</span>
+ <span class="s2">&quot;hasAttachments&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+ <span class="s2">&quot;htmlPopupType&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+ <span class="s2">&quot;displayField&quot;</span><span class="o">:</span> <span class="s2">&quot;STATE_NAME&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;typeIdField&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+ <span class="s2">&quot;fields&quot;</span><span class="o">:</span> <span class="p">[</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;OBJECTID&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeOID&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;OBJECTID&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;STATE_NAME&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;STATE_NAME&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;length&quot;</span><span class="o">:</span> <span class="mi">25</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;STATE_FIPS&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;STATE_FIPS&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;length&quot;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;SUB_REGION&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;SUB_REGION&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;length&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;STATE_ABBR&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;STATE_ABBR&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;length&quot;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;POP2000&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;POP2000&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;POP2007&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;POP2007&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;POP00_SQMI&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;POP00_SQMI&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;POP07_SQMI&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;POP07_SQMI&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;WHITE&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;WHITE&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;BLACK&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;BLACK&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;AMERI_ES&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;AMERI_ES&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;ASIAN&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;ASIAN&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;HAWN_PI&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;HAWN_PI&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;OTHER&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;OTHER&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;MULT_RACE&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;MULT_RACE&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;HISPANIC&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;HISPANIC&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;MALES&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;MALES&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;FEMALES&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;FEMALES&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;AGE_UNDER5&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;AGE_UNDER5&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;AGE_5_17&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;AGE_5_17&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;AGE_18_21&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;AGE_18_21&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;AGE_22_29&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;AGE_22_29&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;AGE_30_39&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;AGE_30_39&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;AGE_40_49&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;AGE_40_49&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;AGE_50_64&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;AGE_50_64&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;AGE_65_UP&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;AGE_65_UP&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;MED_AGE&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;MED_AGE&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;MED_AGE_M&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;MED_AGE_M&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;MED_AGE_F&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;MED_AGE_F&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;HOUSEHOLDS&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;HOUSEHOLDS&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;AVE_HH_SZ&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;AVE_HH_SZ&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;HSEHLD_1_M&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;HSEHLD_1_M&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;HSEHLD_1_F&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;HSEHLD_1_F&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;MARHH_CHD&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;MARHH_CHD&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;MARHH_NO_C&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;MARHH_NO_C&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;MHH_CHILD&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;MHH_CHILD&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;FHH_CHILD&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;FHH_CHILD&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;FAMILIES&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;FAMILIES&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;AVE_FAM_SZ&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;AVE_FAM_SZ&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;HSE_UNITS&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;HSE_UNITS&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;VACANT&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;VACANT&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;OWNER_OCC&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;OWNER_OCC&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;RENTER_OCC&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;RENTER_OCC&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;NO_FARMS97&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;NO_FARMS97&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;AVG_SIZE97&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;AVG_SIZE97&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;CROP_ACR97&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;CROP_ACR97&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;AVG_SALE97&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;AVG_SALE97&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;SQMI&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;SQMI&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Shape&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeGeometry&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;Shape&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Shape_Length&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;Shape_Length&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Shape_Area&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;Shape_Area&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;domain&quot;</span><span class="o">:</span> <span class="kc">null</span>
+  <span class="p">}</span>
+ <span class="p">],</span>
+ <span class="s2">&quot;relationships&quot;</span><span class="o">:</span> <span class="p">[</span>
+  
+ <span class="p">],</span>
+ <span class="s2">&quot;canModifyLayer&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+ <span class="s2">&quot;canScaleSymbols&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+ <span class="s2">&quot;hasLabels&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+ <span class="s2">&quot;capabilities&quot;</span><span class="o">:</span> <span class="s2">&quot;Map,Query,Data&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;maxRecordCount&quot;</span><span class="o">:</span> <span class="mi">1000</span><span class="p">,</span>
+ <span class="s2">&quot;supportsStatistics&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+ <span class="s2">&quot;supportsAdvancedQueries&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+ <span class="s2">&quot;supportedQueryFormats&quot;</span><span class="o">:</span> <span class="s2">&quot;JSON, AMF&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">101</span><span class="p">,</span>
+ <span class="s2">&quot;ownershipBasedAccessControlForFeatures&quot;</span><span class="o">:</span> 
+ <span class="p">{</span>
+  <span class="s2">&quot;allowOthersToQuery&quot;</span><span class="o">:</span> <span class="kc">true</span>
+ <span class="p">},</span>
+ <span class="c1">//new at 10.2</span>
+ <span class="s2">&quot;useStandardizedQueries&quot;</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">}</span>
+</code></pre></div>
+
+        </div>
+      </p></div>
+  <div class="footer"> Copyright © 1995-2017 Esri. All rights reserved. </div></div></body>
+<!-- Mirrored from gis.auric.city/agserver/sdk/rest/02ss/02ss00000005000000.htm by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 03:15:45 GMT -->
+</html>

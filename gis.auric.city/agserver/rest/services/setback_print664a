@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:geo="http://www.google.com/geo/schemas/sitemap/1.0">
+<url>
+<loc>https://gis.auric.city/agserver/rest/services/setback_print/PrintPopups_112019_last1/MapServer?f=kmz</loc>
+<geo:geo>
+<geo:format>kmz</geo:format>
+</geo:geo>
+</url>
+<url>
+<loc>https://gis.auric.city/agserver/rest/services/setback_print/PrintPopups_11/MapServer?f=kmz</loc>
+<geo:geo>
+<geo:format>kmz</geo:format>
+</geo:geo>
+</url>
+<url>
+<loc>https://gis.auric.city/agserver/rest/services/setback_print/PrintPopups_1231_2/MapServer?f=kmz</loc>
+<geo:geo>
+<geo:format>kmz</geo:format>
+</geo:geo>
+</url>
+</urlset>

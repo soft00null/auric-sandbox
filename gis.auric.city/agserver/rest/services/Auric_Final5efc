@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>https://gis.auric.city/agserver/rest/services/Auric_Final/Access_tapping_05132019/MapServer</loc>
+</url>
+<url>
+<loc>https://gis.auric.city/agserver/rest/services/Auric_Final/Auric_plotLayer/MapServer</loc>
+</url>
+<url>
+<loc>https://gis.auric.city/agserver/rest/services/Auric_Final/GenerateSetback_07252019/GPServer</loc>
+</url>
+<url>
+<loc>https://gis.auric.city/agserver/rest/services/Auric_Final/GenerateSetback_07_19_2019/GPServer</loc>
+</url>
+<url>
+<loc>https://gis.auric.city/agserver/rest/services/Auric_Final/GenerateSetback_p1/GPServer</loc>
+</url>
+<url>
+<loc>https://gis.auric.city/agserver/rest/services/Auric_Final/PrintPopups2_07_19_2019/GPServer</loc>
+</url>
+<url>
+<loc>https://gis.auric.city/agserver/rest/services/Auric_Final/PrintPopups2_15_07_19/GPServer</loc>
+</url>
+<url>
+<loc>https://gis.auric.city/agserver/rest/services/Auric_Final/SectorPlan_v3/MapServer</loc>
+</url>
+<url>
+<loc>https://gis.auric.city/agserver/rest/services/Auric_Final/Shendra_plot_V3_PlotControlSheet/MapServer</loc>
+</url>
+<url>
+<loc>https://gis.auric.city/agserver/rest/services/Auric_Final/test_buffer/GPServer</loc>
+</url>
+</urlset>

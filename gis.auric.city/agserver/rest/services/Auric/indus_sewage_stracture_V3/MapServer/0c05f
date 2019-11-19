@@ -1,0 +1,137 @@
+{
+ "currentVersion": 10.6,
+ "id": 0,
+ "name": "auric.postgres.shendra_plots",
+ "type": "Feature Layer",
+ "description": "",
+ "geometryType": "esriGeometryPoint",
+ "sourceSpatialReference": {
+  "wkid": 4326,
+  "latestWkid": 4326
+ },
+ "copyrightText": "",
+ "parentLayer": null,
+ "subLayers": [],
+ "minScale": 0,
+ "maxScale": 0,
+ "drawingInfo": {
+  "renderer": {
+   "type": "simple",
+   "symbol": {
+    "type": "esriSMS",
+    "style": "esriSMSCircle",
+    "color": [
+     173,
+     0,
+     14,
+     255
+    ],
+    "size": 6,
+    "angle": 0,
+    "xoffset": 0,
+    "yoffset": 0,
+    "outline": {
+     "color": [
+      0,
+      0,
+      0,
+      255
+     ],
+     "width": 1
+    }
+   },
+   "label": "Industrial Sewage Structure",
+   "description": ""
+  },
+  "transparency": 0,
+  "labelingInfo": null
+ },
+ "defaultVisibility": true,
+ "extent": {
+  "xmin": 75.50741869600006,
+  "ymin": 19.869459758000062,
+  "xmax": 75.55418679900004,
+  "ymax": 19.892194931000063,
+  "spatialReference": {
+   "wkid": 4326,
+   "latestWkid": 4326
+  }
+ },
+ "hasAttachments": false,
+ "htmlPopupType": "esriServerHTMLPopupTypeAsHTMLText",
+ "displayField": "name",
+ "typeIdField": null,
+ "subtypeFieldName": null,
+ "fields": [
+  {
+   "name": "geom",
+   "type": "esriFieldTypeGeometry",
+   "alias": "geom",
+   "domain": null
+  },
+  {
+   "name": "gid",
+   "type": "esriFieldTypeOID",
+   "alias": "gid",
+   "domain": null
+  },
+  {
+   "name": "autogenera",
+   "type": "esriFieldTypeDouble",
+   "alias": "autogenera",
+   "domain": null
+  },
+  {
+   "name": "name",
+   "type": "esriFieldTypeString",
+   "alias": "name",
+   "length": 254,
+   "domain": null
+  },
+  {
+   "name": "networknam",
+   "type": "esriFieldTypeString",
+   "alias": "networknam",
+   "length": 254,
+   "domain": null
+  },
+  {
+   "name": "partsizena",
+   "type": "esriFieldTypeString",
+   "alias": "partsizena",
+   "length": 254,
+   "domain": null
+  },
+  {
+   "name": "rimelevati",
+   "type": "esriFieldTypeDouble",
+   "alias": "rimelevati",
+   "domain": null
+  }
+ ],
+ "indexes": null,
+ "subtypes": [],
+ "relationships": [],
+ "canModifyLayer": true,
+ "canScaleSymbols": false,
+ "hasLabels": false,
+ "capabilities": "Data,Map,Query",
+ "maxRecordCount": 10000,
+ "supportsStatistics": true,
+ "supportsAdvancedQueries": true,
+ "supportedQueryFormats": "JSON, AMF, geoJSON",
+ "ownershipBasedAccessControlForFeatures": {"allowOthersToQuery": true},
+ "useStandardizedQueries": true,
+ "advancedQueryCapabilities": {
+  "useStandardizedQueries": true,
+  "supportsStatistics": true,
+  "supportsOrderBy": true,
+  "supportsDistinct": true,
+  "supportsPagination": true,
+  "supportsTrueCurve": true,
+  "supportsReturningQueryExtent": true,
+  "supportsQueryWithDistance": true,
+  "supportsSqlExpression": true
+ },
+ "supportsDatumTransformation": true
+}

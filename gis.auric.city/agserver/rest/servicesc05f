@@ -1,0 +1,75 @@
+{
+ "currentVersion": 10.6,
+ "folders": [
+  "Auric",
+  "Auric_Final",
+  "Auric_setback",
+  "Auric_Setback_2019",
+  "Auric_Staging",
+  "bidkin_stg",
+  "setback_print",
+  "Utilities"
+ ],
+ "services": [
+  {
+   "name": "asd",
+   "type": "FeatureServer"
+  },
+  {
+   "name": "asd",
+   "type": "MapServer"
+  },
+  {
+   "name": "auric_print_251019",
+   "type": "GPServer"
+  },
+  {
+   "name": "auricsetback",
+   "type": "GPServer"
+  },
+  {
+   "name": "HostAuric_47",
+   "type": "FeatureServer"
+  },
+  {
+   "name": "HostAuric_47",
+   "type": "MapServer"
+  },
+  {
+   "name": "HostAuric_55555555",
+   "type": "MapServer"
+  },
+  {
+   "name": "HostAuric__new_1",
+   "type": "FeatureServer"
+  },
+  {
+   "name": "HostAuric__new_1",
+   "type": "MapServer"
+  },
+  {
+   "name": "HostAuric_kkkkk",
+   "type": "MapServer"
+  },
+  {
+   "name": "HostAuric_New_4",
+   "type": "FeatureServer"
+  },
+  {
+   "name": "HostAuric_New_4",
+   "type": "MapServer"
+  },
+  {
+   "name": "HostAuric_new_5",
+   "type": "MapServer"
+  },
+  {
+   "name": "PrintPopups6ybgtrb",
+   "type": "GPServer"
+  },
+  {
+   "name": "SampleWorldCities",
+   "type": "MapServer"
+  }
+ ]
+}

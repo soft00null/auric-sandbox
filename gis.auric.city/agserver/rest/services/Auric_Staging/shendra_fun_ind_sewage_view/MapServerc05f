@@ -1,0 +1,67 @@
+{
+ "currentVersion": 10.6,
+ "serviceDescription": "",
+ "mapName": "Layers",
+ "description": "",
+ "copyrightText": "",
+ "supportsDynamicLayers": true,
+ "layers": [
+  {
+   "id": 0,
+   "name": "auric_stg.public.shendra_fun_ind_sewage_view",
+   "parentLayerId": -1,
+   "defaultVisibility": true,
+   "subLayerIds": null,
+   "minScale": 0,
+   "maxScale": 0
+  }
+ ],
+ "tables": [],
+ "spatialReference": {
+  "wkid": 4326,
+  "latestWkid": 4326
+ },
+ "singleFusedMapCache": false,
+ "initialExtent": {
+  "xmin": 75.51185460885004,
+  "ymin": 19.879812202431562,
+  "xmax": 75.51215064415005,
+  "ymax": 19.88001140031378,
+  "spatialReference": {
+   "wkid": 4326,
+   "latestWkid": 4326
+  }
+ },
+ "fullExtent": {
+  "xmin": 75.51186806500004,
+  "ymin": 19.87982478600003,
+  "xmax": 75.51213718800005,
+  "ymax": 19.87988688300004,
+  "spatialReference": {
+   "wkid": 4326,
+   "latestWkid": 4326
+  }
+ },
+ "minScale": 0,
+ "maxScale": 0,
+ "units": "esriDecimalDegrees",
+ "supportedImageFormatTypes": "PNG32,PNG24,PNG,JPG,DIB,TIFF,EMF,PS,PDF,GIF,SVG,SVGZ,BMP",
+ "documentInfo": {
+  "Title": "",
+  "Author": "",
+  "Comments": "",
+  "Subject": "",
+  "Category": "",
+  "AntialiasingMode": "None",
+  "TextAntialiasingMode": "Force",
+  "Keywords": ""
+ },
+ "capabilities": "Data,Map,Query",
+ "supportedQueryFormats": "JSON, AMF, geoJSON",
+ "exportTilesAllowed": false,
+ "supportsDatumTransformation": true,
+ "maxRecordCount": 1000,
+ "maxImageHeight": 4096,
+ "maxImageWidth": 4096,
+ "supportedExtensions": "KmlServer, WFSServer, WMSServer"
+}

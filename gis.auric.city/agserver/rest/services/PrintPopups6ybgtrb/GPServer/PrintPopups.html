@@ -1,0 +1,641 @@
+<html lang="en">
+
+<!-- Mirrored from gis.auric.city/agserver/rest/services/PrintPopups6ybgtrb/GPServer/PrintPopups by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 03:34:29 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Task: PrintPopups</title>
+<link href="../../../static/main.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<table width="100%" class="userTable">
+<tr>
+<td class="titlecell">
+ArcGIS REST Services Directory
+</td>
+<td align="right">
+<a href="../../../../login/index51c3.html?returnUrl=https://gis.auric.city/agserver/rest/services">Login</a>
+</td>
+</tr>
+</table>
+<table width="100%" class="navTable">
+<tr valign="top">
+<td class="breadcrumbs">
+<a href="../../../services.html">Home</a>
+&gt; <a href="../../../services.html">services</a>
+&gt; <a href="../GPServer.html">PrintPopups6ybgtrb (GPServer)</a>
+&gt; <a href="PrintPopups.html">PrintPopups</a>
+</td>
+<td align="right">
+<a href="../../../../sdk/rest/02ss/02ss00000057000000.html" target="_blank">Help</a> | <a href="PrintPopups45be.html?f=help" target="_blank">API Reference</a>
+</td>
+</tr>
+</table>
+<table>
+<tr>
+<td class="apiref">
+<a href="PrintPopupsc05f.html?f=pjson" target="_blank">JSON</a>
+</td>
+</tr>
+</table>
+<h2>Task: PrintPopups</h2>
+<div class="rbody">
+<b>Display Name:</b> PrintPopups <br/><br/>
+<b>Description:</b> Print popups <br/><br/>
+<b>Category:</b> <br/><br/>
+<b>Help URL:</b> <a href="../../../directories/arcgisoutput/PrintPopups6ybgtrb_GPServer/PrintPopups6ybgtrb/PrintPopups.html" target="_blank">https://gis.auric.city/agserver/rest/directories/arcgisoutput/PrintPopups6ybgtrb_GPServer/PrintPopups6ybgtrb/PrintPopups.htm</a> <br/><br/>
+<b>Execution Type:</b> esriExecutionTypeAsynchronous <br/><br/>
+<b>Parameters:</b> <br/>
+<ul>
+<b>Parameter:</b> Web_Map_as_JSON <br/>
+<ul>
+<b>Data Type:</b> GPString <br/>
+<b>Display Name</b> Web_Map_as_JSON <br/>
+<b>Description:</b> sdsf <br/>
+<b>Direction:</b> esriGPParameterDirectionInput <br/>
+<b>Default Value: </b> {"operationalLayers":[{"url":"https://services8.arcgis.com/peVM1Q289CQybPLa/ArcGIS/rest/services/Auric_Building/FeatureServer"},{"url":"https://gis.auric.city/agserver/rest/services//Auric_setback/GenerateSetback_1210/MapServer"}],"layoutOptions":{"titleText":"Simple WebMap JSON example"},"version":"1.4","exportOptions":{"outputSize":[1500,1500]},"gids":[522],"sector":["10"],"mapOptions":{"extent":{"xmin":8408378.859477352,"xmax":8408507.846962584,"ymin":2258981.71542835,"ymax":2259206.2491989387},"spatialReference":102100},"attributes":{"PlotNo":["176"],"Area":[21243.596],"FSI":"1","landuse":"Residential","setback":"6","front_rear":"6,3","sidesetbacK":"3","ParkingRequirements":"As per llA-DCR","Builtup":[21243.596],"loading/Unloading":"As per llA-DCR","PlotAccess":"As shown in plan","openspace":"10%","BoundaryWall":"Refer to urban Design Guidlines"}}
+<br/>
+<b>Parameter Type:</b> esriGPParameterTypeRequired <br/>
+<b>Category:</b> <br/>
+</ul>
+<br/>
+<b>Parameter:</b> Output_File <br/>
+<ul>
+<b>Data Type:</b> GPDataFile <br/>
+<b>Display Name</b> Output_File <br/>
+<b>Description:</b> asegg <br/>
+<b>Direction:</b> esriGPParameterDirectionOutput <br/>
+<b>Default Value: </b> <br/>
+<b>Parameter Type:</b> esriGPParameterTypeRequired <br/>
+<b>Category:</b> <br/>
+</ul>
+<br/>
+<b>Parameter:</b> Layer1 <br/>
+<ul>
+<b>Data Type:</b> GPFeatureRecordSetLayer <br/>
+<b>Display Name</b> Layer1 <br/>
+<b>Description:</b> Layer1 <br/>
+<b>Direction:</b> esriGPParameterDirectionInput <br/>
+<b>Default Value: </b> <ul>
+<b>Geometry Type:</b> esriGeometryPolygon <br/>
+<b>HasZ: true </b><br/>
+<b>HasM: true </b> <br/>
+<b>Spatial Reference:</b> 4326
+&nbsp;(4326)
+<br/> <br/>
+<b>Fields:</b> <ul>
+<li>
+FID
+<i>
+(
+type: esriFieldTypeOID
+, alias: FID
+)
+</i>
+</li>
+<li>
+gid
+<i>
+(
+type: esriFieldTypeInteger
+, alias: gid
+)
+</i>
+</li>
+<li>
+objectid
+<i>
+(
+type: esriFieldTypeDouble
+, alias: objectid
+)
+</i>
+</li>
+<li>
+landuse
+<i>
+(
+type: esriFieldTypeString
+, alias: landuse
+, length: 50
+)
+</i>
+</li>
+<li>
+area_hecta
+<i>
+(
+type: esriFieldTypeDouble
+, alias: area_hecta
+)
+</i>
+</li>
+<li>
+basefsi
+<i>
+(
+type: esriFieldTypeDouble
+, alias: basefsi
+)
+</i>
+</li>
+<li>
+poss_fsi
+<i>
+(
+type: esriFieldTypeDouble
+, alias: poss_fsi
+)
+</i>
+</li>
+<li>
+plot_numbe
+<i>
+(
+type: esriFieldTypeString
+, alias: plot_numbe
+, length: 50
+)
+</i>
+</li>
+<li>
+area_sqm
+<i>
+(
+type: esriFieldTypeDouble
+, alias: area_sqm
+)
+</i>
+</li>
+<li>
+land_detai
+<i>
+(
+type: esriFieldTypeString
+, alias: land_detai
+, length: 70
+)
+</i>
+</li>
+<li>
+industrial
+<i>
+(
+type: esriFieldTypeString
+, alias: industrial
+, length: 50
+)
+</i>
+</li>
+<li>
+sector
+<i>
+(
+type: esriFieldTypeString
+, alias: sector
+, length: 50
+)
+</i>
+</li>
+<li>
+allotment
+<i>
+(
+type: esriFieldTypeString
+, alias: allotment
+, length: 254
+)
+</i>
+</li>
+<li>
+old_pl_no
+<i>
+(
+type: esriFieldTypeString
+, alias: old_pl_no
+, length: 50
+)
+</i>
+</li>
+<li>
+new_plot
+<i>
+(
+type: esriFieldTypeString
+, alias: new_plot
+, length: 50
+)
+</i>
+</li>
+<li>
+remarks
+<i>
+(
+type: esriFieldTypeString
+, alias: remarks
+, length: 254
+)
+</i>
+</li>
+<li>
+layer
+<i>
+(
+type: esriFieldTypeString
+, alias: layer
+, length: 50
+)
+</i>
+</li>
+<li>
+loading_un
+<i>
+(
+type: esriFieldTypeString
+, alias: loading_un
+, length: 50
+)
+</i>
+</li>
+<li>
+openspace
+<i>
+(
+type: esriFieldTypeString
+, alias: openspace
+, length: 50
+)
+</i>
+</li>
+<li>
+ground_cov
+<i>
+(
+type: esriFieldTypeString
+, alias: ground_cov
+, length: 50
+)
+</i>
+</li>
+<li>
+setback
+<i>
+(
+type: esriFieldTypeString
+, alias: setback
+, length: 50
+)
+</i>
+</li>
+<li>
+sidesetbac
+<i>
+(
+type: esriFieldTypeString
+, alias: sidesetbac
+, length: 50
+)
+</i>
+</li>
+<li>
+front_rear
+<i>
+(
+type: esriFieldTypeString
+, alias: front_rear
+, length: 50
+)
+</i>
+</li>
+<li>
+shape_leng
+<i>
+(
+type: esriFieldTypeDouble
+, alias: shape_leng
+)
+</i>
+</li>
+<li>
+trees
+<i>
+(
+type: esriFieldTypeInteger
+, alias: trees
+)
+</i>
+</li>
+<li>
+Shape_Length
+<i>
+(
+type: esriFieldTypeDouble
+, alias: Shape_Length
+)
+</i>
+</li>
+<li>
+Shape_Area
+<i>
+(
+type: esriFieldTypeDouble
+, alias: Shape_Area
+)
+</i>
+</li>
+</ul> <b>Features:</b> <i>None.</i><br/><br/>
+</ul>
+<br/>
+<b>Parameter Type:</b> esriGPParameterTypeRequired <br/>
+<b>Category:</b> <br/>
+</ul>
+<br/>
+<b>Parameter:</b> DataFrame2Layer <br/>
+<ul>
+<b>Data Type:</b> GPFeatureRecordSetLayer <br/>
+<b>Display Name</b> DataFrame2Layer <br/>
+<b>Description:</b> dd <br/>
+<b>Direction:</b> esriGPParameterDirectionInput <br/>
+<b>Default Value: </b> <ul>
+<b>Geometry Type:</b> esriGeometryPolygon <br/>
+<b>HasZ: true </b><br/>
+<b>HasM: true </b> <br/>
+<b>Spatial Reference:</b> 4326
+&nbsp;(4326)
+<br/> <br/>
+<b>Fields:</b> <ul>
+<li>
+FID
+<i>
+(
+type: esriFieldTypeOID
+, alias: FID
+)
+</i>
+</li>
+<li>
+gid
+<i>
+(
+type: esriFieldTypeInteger
+, alias: gid
+)
+</i>
+</li>
+<li>
+objectid
+<i>
+(
+type: esriFieldTypeDouble
+, alias: objectid
+)
+</i>
+</li>
+<li>
+landuse
+<i>
+(
+type: esriFieldTypeString
+, alias: landuse
+, length: 50
+)
+</i>
+</li>
+<li>
+area_hecta
+<i>
+(
+type: esriFieldTypeDouble
+, alias: area_hecta
+)
+</i>
+</li>
+<li>
+basefsi
+<i>
+(
+type: esriFieldTypeDouble
+, alias: basefsi
+)
+</i>
+</li>
+<li>
+poss_fsi
+<i>
+(
+type: esriFieldTypeDouble
+, alias: poss_fsi
+)
+</i>
+</li>
+<li>
+plot_numbe
+<i>
+(
+type: esriFieldTypeString
+, alias: plot_numbe
+, length: 50
+)
+</i>
+</li>
+<li>
+area_sqm
+<i>
+(
+type: esriFieldTypeDouble
+, alias: area_sqm
+)
+</i>
+</li>
+<li>
+land_detai
+<i>
+(
+type: esriFieldTypeString
+, alias: land_detai
+, length: 70
+)
+</i>
+</li>
+<li>
+industrial
+<i>
+(
+type: esriFieldTypeString
+, alias: industrial
+, length: 50
+)
+</i>
+</li>
+<li>
+sector
+<i>
+(
+type: esriFieldTypeString
+, alias: sector
+, length: 50
+)
+</i>
+</li>
+<li>
+allotment
+<i>
+(
+type: esriFieldTypeString
+, alias: allotment
+, length: 254
+)
+</i>
+</li>
+<li>
+old_pl_no
+<i>
+(
+type: esriFieldTypeString
+, alias: old_pl_no
+, length: 50
+)
+</i>
+</li>
+<li>
+new_plot
+<i>
+(
+type: esriFieldTypeString
+, alias: new_plot
+, length: 50
+)
+</i>
+</li>
+<li>
+remarks
+<i>
+(
+type: esriFieldTypeString
+, alias: remarks
+, length: 254
+)
+</i>
+</li>
+<li>
+layer
+<i>
+(
+type: esriFieldTypeString
+, alias: layer
+, length: 50
+)
+</i>
+</li>
+<li>
+loading_un
+<i>
+(
+type: esriFieldTypeString
+, alias: loading_un
+, length: 50
+)
+</i>
+</li>
+<li>
+openspace
+<i>
+(
+type: esriFieldTypeString
+, alias: openspace
+, length: 50
+)
+</i>
+</li>
+<li>
+ground_cov
+<i>
+(
+type: esriFieldTypeString
+, alias: ground_cov
+, length: 50
+)
+</i>
+</li>
+<li>
+setback
+<i>
+(
+type: esriFieldTypeString
+, alias: setback
+, length: 50
+)
+</i>
+</li>
+<li>
+sidesetbac
+<i>
+(
+type: esriFieldTypeString
+, alias: sidesetbac
+, length: 50
+)
+</i>
+</li>
+<li>
+front_rear
+<i>
+(
+type: esriFieldTypeString
+, alias: front_rear
+, length: 50
+)
+</i>
+</li>
+<li>
+shape_leng
+<i>
+(
+type: esriFieldTypeDouble
+, alias: shape_leng
+)
+</i>
+</li>
+<li>
+trees
+<i>
+(
+type: esriFieldTypeInteger
+, alias: trees
+)
+</i>
+</li>
+<li>
+Shape_Length
+<i>
+(
+type: esriFieldTypeDouble
+, alias: Shape_Length
+)
+</i>
+</li>
+<li>
+Shape_Area
+<i>
+(
+type: esriFieldTypeDouble
+, alias: Shape_Area
+)
+</i>
+</li>
+</ul> <b>Features:</b> <i>None.</i><br/><br/>
+</ul>
+<br/>
+<b>Parameter Type:</b> esriGPParameterTypeRequired <br/>
+<b>Category:</b> <br/>
+</ul>
+<br/>
+</ul>
+<br/><br/>
+<b>Supported Operations</b>:
+&nbsp;&nbsp;<a href="PrintPopups/submitJob.html">Submit Job</a>
+</div>
+<br/><br/>
+</body>
+
+<!-- Mirrored from gis.auric.city/agserver/rest/services/PrintPopups6ybgtrb/GPServer/PrintPopups by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 03:34:29 GMT -->
+</html>

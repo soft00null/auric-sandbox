@@ -1,0 +1,244 @@
+#ubertoolbar {
+    z-index: 1000 !important;
+    position: relative !important;
+    top: -30px;
+    right: 15px;
+    width: 275px;
+    height: 0px;
+    float: right;	
+}
+
+/* clear the float from #ubertoolbar */
+#contentWrapper {
+	clear: both;
+}
+
+#docWrapper #breadcrumb {
+    font-size: 75%;
+}
+
+
+#ubertoolbar #navbuttons {
+}
+
+#ubertoolbar .navbarButton {
+	padding: 1px;
+}
+
+.feedbackButton, .feedbackButton:link {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	padding: 1px;
+	text-decoration: none;
+	background-repeat : no-repeat;
+	background-image: url(images/feedback.html);
+}
+
+.feedbackButton:hover {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	padding: 1px;
+	text-decoration: none;
+	background-repeat : no-repeat;
+	background-image: url(images/feedback_h.html);
+}
+
+.emailButton, .emailButton:link {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	padding: 1px;
+	text-decoration: none;
+	background-repeat : no-repeat;
+	background-image: url(images/mail.html);
+}
+
+.emailButton:hover {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	padding: 1px;
+	text-decoration: none;
+	background-repeat : no-repeat;
+	background-image: url(images/mail_h.html);
+}
+
+.printButton, .printButton:link {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	padding: 1px;
+	text-decoration: none;
+	background-repeat : no-repeat;
+	background-image: url(images/print.html);
+}
+
+.printButton:hover {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	padding: 1px;
+	text-decoration: none;
+	background-repeat : no-repeat;
+	background-image: url(images/print_h.html);
+}
+
+.prevButton, .prevButton:link {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	padding: 1px;
+	text-decoration: none;
+	background-repeat : no-repeat;
+	background-image: url(images/previous.html);
+}
+
+.prevButton:hover {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	padding: 1px;
+	text-decoration: none;
+	background-repeat : no-repeat;
+	background-image: url(images/previous_h.html);
+}
+
+.noprevButton, .noprevButton:link {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	padding: 1px;
+	text-decoration: none;
+	background-repeat : no-repeat;
+	background-image: url(images/previous_dis.html);
+}
+
+.noprevButton:hover {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	padding: 1px;
+	text-decoration: none;
+	background-repeat : no-repeat;
+	background-image: url(images/previous_dis.html);
+}
+
+.nextButton, .nextButton:link {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	padding: 1px;
+	text-decoration: none;
+	background-repeat : no-repeat;
+	background-image: url(images/next.html);
+}
+
+.nextButton:hover {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	padding: 1px;
+	text-decoration: none;
+	background-repeat : no-repeat;
+	background-image: url(images/next_h.html);
+}
+
+.nonextButton, .nonextButton:link {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	padding: 1px;
+	text-decoration: none;
+	background-repeat : no-repeat;
+	background-image: url(images/next_dis.html);
+}
+
+.nonextButton:hover {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	padding: 1px;
+	text-decoration: none;
+	background-repeat : no-repeat;
+	background-image: url(images/next_dis.html);
+}
+
+
+#ddbox {
+	display: inline;
+	text-align:center;
+}
+
+#ddclick {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	padding: 1px;
+	margin-left: 3px;
+	text-decoration: none;
+	background-repeat : no-repeat;
+	background-image: url(images/go.html);
+}
+
+#ddclick:hover {
+  display: inline-block;
+  width: 24px;
+	height: 24px;
+	padding: 1px;
+	margin-left: 3px;
+	text-decoration: none;
+	background-repeat : no-repeat;
+	background-image: url(images/go_h.html);
+}
+
+
+#dropdown {
+	width: 60px;
+	border: 1px solid #a5acb2;
+	margin-top: 0px;
+  align:top;
+}
+
+
+.navbarspacer {
+	display: inline;
+	width: 6px;
+}
+
+.txtbox {
+	border: 1px solid #a5acb2;
+}
+
+.txtlbl {
+	color: #666666;
+	font-size: .8em;
+}
+
+.fdbk_head{
+  color: #024672;
+  font-size: 20px;
+}
+
+#feedbackForm {
+  margin-left: 20px;
+  margin-top: 20px;
+
+}
+
+#feedbackForm table{
+  border-top: 1px solid #C4C3C3;
+  border-bottom: 1px solid #C4C3C3;
+  padding: 13px;
+  background: url('images/esri_back.html') no-repeat bottom right;
+}
+
+#feedbackForm td {
+	background: none;
+	border: 0px solid white;
+}
+
+#feedbackForm p{
+  padding-bottom: 20px;
+}

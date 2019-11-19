@@ -1,0 +1,1042 @@
+<html lang="en" xml:lang="en">
+<!-- Mirrored from gis.auric.city/agserver/sdk/rest/02ss/02ss0000005t000000.htm by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 02:54:18 GMT -->
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="description" content="All Layers and Tables http:// &amp;lt;mapservice-url&amp;gt;/layersMap10.0 Description The layers resource represents all the layers and stand-alone tables under a map service published using ArcGIS Server. It provides basic information about the layers and tables such as name, type, parent and sub-layers, fields, min and max scales, extent, and copyright text. New at 10.6returnDomainNames is a parameter on the layer resource where domain information includes only the domain name. The domain names can be matched with"><meta name="content-language" content="en"><link href="rsrc/htmlhelp.html" rel="stylesheet" type="text/css"><title>ArcGIS REST API - ArcGIS Services - 
+   All Layers and Tables
+  </title>
+                <script type="text/javascript" language="JavaScript">
+                    var pathL  = self.location.pathname.split ("../../../../index.html");
+                    var fname = pathL[pathL.length-1];
+                    var i = fname.lastIndexOf (".htm");
+                    if (i>=0) {
+                    fname = fname.substring (0, i)
+                    } else {
+                    //??
+                    }
+                    if (self.location.hash) {
+				    		      fname = fname + self.location.hash;
+						        }
+                    self.location.replace ("../index.html#//" + fname);
+                </script>
+                </head><!--Publication GUID: [GUID-289408B4-3EC8-4C16-9DB8-B1778E780E58]--><!--Topic GUID: [GUID-3CE81986-9DEA-4D3B-B336-6FD0443E1EC4]--><body><div id="content"><div class="header"><h1>
+   All Layers and Tables
+  </h1><div id="breadcrumb"></div></div>
+    <div class="restmd" purpose="restmd"><ul purpose="restmd" class="restmd list-plain"><li><span class="restkey post-1">URL:</span><span class="restval">http:// <a class="xref" rel="02ss/02ss0000006v000000.htm" href="02ss/02ss0000006v000000.html">&lt;mapservice-url&gt;</a>/layers<span class="restverb"></span><br></span></li><li><span class="restkey post-1">Required Capability:</span><span class="restval">Map</span></li><li><span class="restkey post-1">Version Introduced:</span><span class="restval">10.0</span></li></ul></div>
+    <div class="section1" id="GUID-7DD49BA5-A9C1-49B0-B9DD-212E81B8CF8A" purpose="section1"><h2>Description</h2><p id="GUID-EEB1095E-BDA9-4591-A592-13564B93F7F0">
+        The <span class="usertext">layers</span> resource represents all the layers and stand-alone tables under a map 
+      service published using <span purpose="ph" varid="ArcGISforServer" translate="no">ArcGIS Server</span>. It provides basic
+information about the layers and tables such as name, type,
+parent and sub-layers, fields, min and max scales, extent, and
+copyright text.
+</p></div>
+    <div class="section1" id="ESRI_SECTION1_C62CF8D2135D4BE09E7DED0F58FA7C29" purpose="section1"><h2>New at 10.6</h2><p id="GUID-D33CAD07-311D-414B-981E-5AC076CC7B54"><ul purpose="ul" id="UL_19664F394F944A5C830E6D80EE23900B"><li purpose="li" id="LI_FB47DF83A45744EFA948126039322746"><span class="usertext">returnDomainNames</span> is a parameter on the layer resource where domain information includes only the domain name. The domain names can be matched with the full domain information as returned by the <a class="xref" rel="02ss/02ss000000t7000000.htm" href="02ss/02ss000000t7000000.html">queryDomains</a> operation. This approach is a more efficient way to work with domains as it requires returning the full domain information only once instead of with each layer.</li></ul></p></div><div class="section1" id="ESRI_SECTION1_6D446EB7E8664015A46F3D347F5298D4" purpose="section1"><h2>New at 10.2</h2><p id="GUID-EA880F61-111C-411C-9FF4-6BA1277939BA"><ul purpose="ul" id="UL_A59010F64CB44BA5B240A8882C8AD7F8"><li purpose="li" id="LI_1C2E0ECE0C8D483D94E13BBF69F0CDE7">A new property is reported to indicate whether the layer requires the use of  standardized queries: <span class="usertext">useStandardizedQueries</span>. A value of <span class="usertext">true</span> indicates the layer requires the use of standardized queries, a value of <span class="usertext">false</span> indicates otherwise. Learn more about <a class="xref" target="_blank" rel="http://server.arcgis.com/en/server/latest/administer/linux/about-standardized-queries.htm" href="http://server.arcgis.com/en/server/latest/administer/linux/about-standardized-queries.htm">standardized queries</a>.</li></ul></p></div><div class="section1" id="ESRI_SECTION1_7527EC4EA5324D2CA00898A199A018DB" purpose="section1"><h2>New at 10.1 
+
+SP1</h2><p id="GUID-7FBEB730-3498-4ED6-BA86-6DBD372DBFD2"> <ul purpose="ul" id="UL_629C131E4D2D45AC959296C9E65ABA89"> <li purpose="li" id="LI_EB53B1938BB44FFCA50F551AC3AFD34B">If ownership-based access control is enabled on 
+
+features, the <span class="usertext">ownershipBasedAccessControlForFeatures</span> property of a layer will 
+
+include an <span class="usertext">allowOthersToQuery</span> property.</li> </ul> 
+
+</p></div><div class="section1" id="ESRI_SECTION1_9580187EF92741EF8959D2DBF1A5E102" purpose="section1"><h2>New at 10.1</h2><p id="GUID-0EE63C6C-9FFD-493C-82A9-771FFFBC6D53">Support for 
+
+<span class="usertext">dynamicLayers</span> was added.
+</p></div><div class="section1" id="GUID-587B044B-AF0B-464F-B192-3BDC2C1D7E46" purpose="section1"><h2>
+        Request parameters
+      </h2><p id="GUID-9BFDCC1B-8F11-4413-BB5C-5368A673BB1A">
+        <div class="block_table" id="GUID-A94AC426-B8ED-436D-BC47-BE0C3A41C7AA" purpose="block_table"><span class="table_title"></span><table class="table"><colgroup width="200pt"></colgroup><colgroup width="*"></colgroup><tr purpose="thead"><th class="th" purpose="th" rowspan="1" colspan="1">
+                  <p id="GUID-2174FDB5-4E01-444C-B6F7-EBD7E39006A0">Parameter</p>
+                </th><th class="th" purpose="th" rowspan="1" colspan="1">
+                  <p id="GUID-FDACD6D1-7DBF-48A3-AF61-A2D222DEB1AD">Details</p>
+                </th></tr><tbody>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">f</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-F30EFDFB-0C1C-48ED-8406-D6E5A2CF4643">Description: The response format. The default response format is <span class="usertext">html</span>.</p><p id="GUID-2739BE7D-7F1B-4D09-B116-497E7895C771">Values: <span class="usertext">html | json</span></p>
+                </td>
+              </tr><tr><td purpose="entry" rowspan="1" colspan="1"><span class="usertext">dynamicLayers</span></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-77AC7E89-525D-4E53-8DBA-0F453F67D4CB">This 
+
+option was added at 10.1.</p><p id="GUID-0242639F-C130-45C1-BC09-8D5A3E3B2397">Description: Dynamic layers definition. This parameter is required to 
+
+generate a layers resource for dynamic layers.<div class="notes" id="GUID-E324DBD4-D19A-403E-B4EA-4F3BE210ACB5"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody"><p id="GUID-92C39347-5A52-4C92-B2AB-00109897E60D"><span class="usertext">supportsDynamicLayers</span> on the map service 
+
+resource
+should be <span class="usertext">true</span> to use the <span class="usertext">dynamicLayers</span>
+property when requesting layers resource.
+</p></div></div></p><p id="GUID-AA6A5CE9-F9D2-4816-A822-0F6359198164">Syntax: <span class="usertext">[dynamicLayer1,dynamicLayer2,...,dynamicLayerN]</span></p></td></tr><tr><td purpose="entry" rowspan="1" colspan="1"><span class="usertext">returnDomainNames</span></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-6E7CA512-3F89-49BD-9947-4023A31DEBDA">This parameter was added at 10.6</p><p id="GUID-7DDFBEDA-A086-49F7-B374-43BCD54B103E">Description: If value is <span class="usertext">true</span>, then domain information provided in the layer includes only the domain name. To get the full domain information, use the <a class="xref" rel="02ss/02ss00000107000000.htm" href="02ss/02ss00000107000000.html">queryDomains</a> operation in the service resource. This domains included in the layer can be used to linked to the full domain information via the domain name. If the value is <span class="usertext">false</span> or not set, then  full domain information is included in the layer as it was in past releases.</p></td></tr>
+            </tbody><caption class="table_desc"></caption></table></div>
+      </p></div>
+    
+    <div class="section1" id="GUID-5E019EEE-90D6-4182-8686-9D99BD694871" purpose="section1"><h2>Example usage</h2><p id="GUID-FD20008F-0B09-4206-80F7-9EFF5ECFE621">
+        Example 1: 
+      </p><p id="GUID-E9006C9D-9DFF-4B3E-84D9-3116D3CF34BB"><a target="_blank" class="xref" href="http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/layers" rel="http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/layers">http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/layers</a>
+
+</p><p id="GUID-92D53EB5-59A4-416E-BC5F-B678B6A14D5F">Example 2: Using <span class="usertext">dynamicLayers</span></p><p id="GUID-33A084D7-B651-4072-A573-9BF716BA8648"> <a target="_blank" class="xref" href="http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/layers?dynamicLayers=[{%22id%22:101,%22source%22:{%22type%22:%22mapLayer%22,%22mapLayerId%22:0}}]&amp;amp;f=pjson" rel="http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/layers?dynamicLayers=[{&quot;id&quot;:101,&quot;source&quot;:{&quot;type&quot;:&quot;mapLayer&quot;,&quot;mapLayerId&quot;:0}}]&amp;amp;f=pjson">http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/layers?dynamicLayers=[{"id":101,"source":{"type":"mapLayer","mapLayerId":0}}]&amp;amp;f=pjson</a></p></div>
+    <div class="section1" id="GUID-FEF42584-FA5B-4342-BE39-35EB92C80DEE" purpose="section1"><h2>JSON response syntax</h2><p id="GUID-84D0673D-EF79-427C-8910-E9B50F661809">
+        <div class="codeblock" purpose="codeblock">
+          <div class="codeblockdesc" purpose="codeblockdesc">
+            
+          </div>
+          <div class="highlight"><pre><code><span class="p">{</span>
+<span class="s2">&quot;layers&quot;</span> <span class="o">:</span> <span class="p">[</span>
+   <span class="p">{</span>
+     <span class="o">&lt;</span><span class="nx">layer1</span><span class="o">&gt;</span>
+   <span class="p">},</span>
+   <span class="p">{</span>
+     <span class="o">&lt;</span><span class="nx">layer2</span><span class="o">&gt;</span>
+   <span class="p">}</span>
+ <span class="p">],</span> 
+ <span class="s2">&quot;tables&quot;</span> <span class="o">:</span> <span class="p">[</span>
+   <span class="p">{</span>
+     <span class="o">&lt;</span><span class="nx">table1</span><span class="o">&gt;</span>
+   <span class="p">},</span>
+   <span class="p">{</span>
+     <span class="o">&lt;</span><span class="nx">table2</span><span class="o">&gt;</span>
+   <span class="p">}</span>
+ <span class="p">]</span>   
+<span class="p">}</span>
+</code></pre></div>
+
+        </div>
+      </p></div>
+    <div class="section1" id="GUID-40F93789-4D48-4A94-9D96-D0ACD2F54E2A" purpose="section1"><h2>JSON response example</h2><p id="GUID-0842275F-D8DA-4169-8798-AA6F1D9A3B5F">
+        <div class="codeblock" purpose="codeblock">
+          <div class="codeblockdesc" purpose="codeblockdesc">
+            
+          </div>
+          <div class="highlight"><pre><code><span class="p">{</span>
+  <span class="s2">&quot;layers&quot;</span> <span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span> 
+      <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Wells&quot;</span><span class="p">,</span> 
+      <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;Feature Layer&quot;</span><span class="p">,</span> 
+      <span class="s2">&quot;description&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> 
+      <span class="s2">&quot;definitionExpression&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> 
+      <span class="s2">&quot;geometryType&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriGeometryPoint&quot;</span><span class="p">,</span> 
+      <span class="s2">&quot;copyrightText&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> 
+      <span class="s2">&quot;parentLayer&quot;</span> <span class="o">:</span> <span class="kc">null</span><span class="p">,</span> 
+      <span class="s2">&quot;subLayers&quot;</span> <span class="o">:</span> <span class="p">[],</span> 
+      <span class="s2">&quot;minScale&quot;</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span> 
+      <span class="s2">&quot;maxScale&quot;</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span> 
+      <span class="s2">&quot;defaultVisibility&quot;</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span> 
+      <span class="s2">&quot;extent&quot;</span> <span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;xmin&quot;</span> <span class="o">:</span> <span class="o">-</span><span class="mf">102.048629</span><span class="p">,</span> 
+        <span class="s2">&quot;ymin&quot;</span> <span class="o">:</span> <span class="mf">5.6843418860808</span><span class="nx">E</span><span class="o">-</span><span class="mi">14</span><span class="p">,</span> 
+        <span class="s2">&quot;xmax&quot;</span> <span class="o">:</span> <span class="mf">5.6843418860808</span><span class="nx">E</span><span class="o">-</span><span class="mi">14</span><span class="p">,</span> 
+        <span class="s2">&quot;ymax&quot;</span> <span class="o">:</span> <span class="mf">40.0020000000001</span><span class="p">,</span> 
+        <span class="s2">&quot;spatialReference&quot;</span> <span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;wkid&quot;</span> <span class="o">:</span> <span class="mi">4267</span>
+        <span class="p">}</span>
+      <span class="p">},</span> 
+      <span class="s2">&quot;hasAttachments&quot;</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span> 
+      <span class="s2">&quot;timeInfo&quot;</span> <span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;startTimeField&quot;</span> <span class="o">:</span> <span class="s2">&quot;COMPLETION&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;endTimeField&quot;</span> <span class="o">:</span> <span class="s2">&quot;PLUG_DATE&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;trackIdField&quot;</span> <span class="o">:</span> <span class="kc">null</span><span class="p">,</span> 
+        <span class="s2">&quot;timeExtent&quot;</span> <span class="o">:</span> <span class="p">[</span>
+          <span class="o">-</span><span class="mi">2556057600000</span><span class="p">,</span> 
+          <span class="mi">1246060800000</span>
+        <span class="p">],</span> <span class="s2">&quot;timeReference&quot;</span> <span class="o">:</span> <span class="kc">null</span><span class="p">,</span> 
+        <span class="s2">&quot;timeInterval&quot;</span> <span class="o">:</span> <span class="mi">3</span><span class="p">,</span> 
+        <span class="s2">&quot;timeIntervalUnits&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriTimeUnitsYears&quot;</span><span class="p">,</span> 
+        <span class="s2">&quot;exportOptions&quot;</span> <span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;useTime&quot;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span> 
+          <span class="s2">&quot;timeDataCumulative&quot;</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="s2">&quot;timeOffset&quot;</span> <span class="o">:</span> <span class="kc">null</span><span class="p">,</span> <span class="s2">&quot;timeOffsetUnits&quot;</span> <span class="o">:</span> <span class="kc">null</span>
+        <span class="p">}</span>
+      <span class="p">},</span> 
+      <span class="s2">&quot;drawingInfo&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="s2">&quot;renderer&quot;</span> <span class="o">:</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;simple&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;symbol&quot;</span> <span class="o">:</span> 
+          <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriSMS&quot;</span><span class="p">,</span> 
+            <span class="s2">&quot;style&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriSMSCircle&quot;</span><span class="p">,</span> 
+            
+            <span class="s2">&quot;color&quot;</span> <span class="o">:</span> <span class="p">[</span>
+              <span class="mi">166</span><span class="p">,</span> 
+              <span class="mi">36</span><span class="p">,</span> 
+              <span class="mi">0</span><span class="p">,</span> 
+              <span class="mi">255</span>
+            <span class="p">],</span> 
+            <span class="s2">&quot;size&quot;</span> <span class="o">:</span> <span class="mi">4</span><span class="p">,</span> 
+            <span class="s2">&quot;angle&quot;</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span> 
+            <span class="s2">&quot;xoffset&quot;</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span> 
+            <span class="s2">&quot;yoffset&quot;</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span> 
+            <span class="s2">&quot;outline&quot;</span> <span class="o">:</span> 
+            <span class="p">{</span>
+              <span class="s2">&quot;color&quot;</span> <span class="o">:</span> <span class="p">[</span>
+                <span class="mi">0</span><span class="p">,</span> 
+                <span class="mi">0</span><span class="p">,</span> 
+                <span class="mi">0</span><span class="p">,</span> 
+                <span class="mi">255</span>
+              <span class="p">],</span> 
+              <span class="s2">&quot;width&quot;</span> <span class="o">:</span> <span class="mi">1</span>
+            <span class="p">}</span>
+          <span class="p">},</span> 
+          <span class="s2">&quot;label&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;description&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">},</span> 
+        <span class="s2">&quot;scaleSymbols&quot;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span> 
+        <span class="s2">&quot;transparency&quot;</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span> 
+        <span class="s2">&quot;labelingInfo&quot;</span> <span class="o">:</span> <span class="kc">null</span><span class="p">},</span> 
+      <span class="s2">&quot;displayField&quot;</span> <span class="o">:</span> <span class="s2">&quot;FIELD_NAME&quot;</span><span class="p">,</span> 
+      <span class="s2">&quot;fields&quot;</span> <span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;OBJECTID&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeOID&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;OBJECTID&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Shape&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeGeometry&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;Shape&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;KID&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;KID&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;STATE_CODE&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeSmallInteger&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;STATE_CODE&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;COUNTY_COD&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeSmallInteger&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;COUNTY_COD&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;API_WELL_N&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;API_WELL_N&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;API_WORKOV&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;API_WORKOV&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">4</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;FIELD_NAME&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;FIELD_NAME&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">40</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;FIELD_KID&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;FIELD_KID&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;LEASE_NAME&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;LEASE_NAME&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">60</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;WELL_NAME&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;WELL_NAME&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">40</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;WELL_CLASS&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;WELL_CLASS&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">50</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;OPERATOR_N&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;OPERATOR_N&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">100</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;OPERATOR_K&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;OPERATOR_K&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;LATITUDE&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;LATITUDE&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;LATITUDE_L&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;LATITUDE_L&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;LATITUDE_1&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;LATITUDE_1&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;LATITUDE_D&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;LATITUDE_D&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">1</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;LONGITUDE&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;LONGITUDE&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;LONGITUDE_&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;LONGITUDE_&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;LONGITUDE1&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;LONGITUDE1&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;LONGITUD_1&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;LONGITUD_1&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">1</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;LONGITUD_2&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;LONGITUD_2&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">20</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;PRINCIPAL_&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;PRINCIPAL_&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">20</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;TOWNSHIP&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeSmallInteger&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;TOWNSHIP&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;TOWNSHIP_D&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;TOWNSHIP_D&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">1</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;RANGE&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeSmallInteger&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;RANGE&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;RANGE_DIRE&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;RANGE_DIRE&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">1</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;SECTION&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeSmallInteger&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;SECTION&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;SUBDIVISIO&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;SUBDIVISIO&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">2</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;SUBDIVIS_1&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;SUBDIVIS_1&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">2</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;SUBDIVIS_2&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;SUBDIVIS_2&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">2</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;SUBDIVIS_3&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;SUBDIVIS_3&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">2</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;SPOT&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;SPOT&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">2</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;FEET_NORTH&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;FEET_NORTH&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;FEET_EAST_&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;FEET_EAST_&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;REFERENCE_&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;REFERENCE_&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">2</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;MEETS_AND_&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;MEETS_AND_&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">254</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;ELEVATION_&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;ELEVATION_&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">40</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;ELEVATION&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;ELEVATION&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;ROTARY_TOT&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;ROTARY_TOT&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;ROTARY_T_1&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;ROTARY_T_1&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">60</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;STATUS&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;STATUS&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">20</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;DATA_SOURC&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;DATA_SOURC&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">40</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;SPUD_DATE&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDate&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;SPUD_DATE&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">8</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;PERMIT_DAT&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDate&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;PERMIT_DAT&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">8</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;COMPLETION&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDate&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;COMPLETION&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">8</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;OLD_API_NU&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;OLD_API_NU&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">200</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;OLD_LOCATI&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;OLD_LOCATI&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">200</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;OLD_WELL_N&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;OLD_WELL_N&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">254</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;UPDATE_INI&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;UPDATE_INI&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">30</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;UPDATE_DAT&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDate&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;UPDATE_DAT&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">8</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;API_NUMBER&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;API_NUMBER&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">40</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;PLUG_DATE&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDate&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;PLUG_DATE&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">8</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;SKIP_IT&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;SKIP_IT&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">2</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;OLD_FOOTAG&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;OLD_FOOTAG&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">200</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;OLD_QUARTE&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;OLD_QUARTE&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">200</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;COMMENTS&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;COMMENTS&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">254</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;ELEVATION1&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;ELEVATION1&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;ELEVATIO_1&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;ELEVATIO_1&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;ELEVATIO_2&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;ELEVATIO_2&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;ELEVATIO_3&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;ELEVATIO_3&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;TOP_CARD_C&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;TOP_CARD_C&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">30</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;TOP_CARD_1&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDate&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;TOP_CARD_1&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">8</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;INITIAL_PR&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;INITIAL_PR&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;INITIAL__1&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;INITIAL__1&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;INITIAL__2&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;INITIAL__2&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;WELL_HEADE&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;WELL_HEADE&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;GAS_LEASE_&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;GAS_LEASE_&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;OIL_LEASE_&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;OIL_LEASE_&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;GAS_LEASE1&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;GAS_LEASE1&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">100</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;OIL_LEASE1&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;OIL_LEASE1&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">100</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;PRODUCING_&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;PRODUCING_&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">100</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;PRODUCING1&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;PRODUCING1&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">100</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;PRODUCIN_1&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;PRODUCIN_1&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;PRODUCIN_2&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;PRODUCIN_2&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">40</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;ROTARY_T_2&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;ROTARY_T_2&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;BOTTOM_HOL&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeSmallInteger&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;BOTTOM_HOL&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;BOTTOM_H_1&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;BOTTOM_H_1&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">40</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;API_NUMB_1&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;API_NUMB_1&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">14</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;WELL_TYPE&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;WELL_TYPE&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">20</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;WELL_DEPTH_SEALEVEL&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;WELL_DEPTH_SEALEVEL&quot;</span><span class="p">}</span>
+      <span class="p">],</span> 
+      <span class="s2">&quot;relationships&quot;</span> <span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="mi">3</span><span class="p">,</span> 
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Well 2 Tops&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;relatedTableId&quot;</span> <span class="o">:</span> <span class="mi">2</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span> 
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Wells 2 Field&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;relatedTableId&quot;</span> <span class="o">:</span> <span class="mi">1</span><span class="p">}</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;maxRecordCount&quot;</span> <span class="o">:</span> <span class="mi">1000</span><span class="p">,</span>
+      <span class="s2">&quot;canModifyLayer&quot;</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">&quot;supportsStatistics&quot;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">&quot;supportsAdvancedQueries&quot;</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">&quot;hasLabels&quot;</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">&quot;canScaleSymbols&quot;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">&quot;capabilities&quot;</span> <span class="o">:</span> <span class="s2">&quot;Map,Query,Data&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;supportedQueryFormats&quot;</span> <span class="o">:</span> <span class="s2">&quot;JSON, AMF&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;ownershipBasedAccessControlForFeatures&quot;</span><span class="o">:</span> 
+      <span class="p">{</span>
+        <span class="s2">&quot;allowOthersToQuery&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">},</span> 
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span> 
+      <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;KSFields3&quot;</span><span class="p">,</span> 
+      <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;Feature Layer&quot;</span><span class="p">,</span> 
+      <span class="s2">&quot;description&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> 
+      <span class="s2">&quot;definitionExpression&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> 
+      <span class="s2">&quot;geometryType&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriGeometryPolygon&quot;</span><span class="p">,</span> 
+      <span class="s2">&quot;copyrightText&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> 
+      <span class="s2">&quot;parentLayer&quot;</span> <span class="o">:</span> <span class="kc">null</span><span class="p">,</span> 
+      <span class="s2">&quot;subLayers&quot;</span> <span class="o">:</span> <span class="p">[],</span> 
+      <span class="s2">&quot;minScale&quot;</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span> 
+      <span class="s2">&quot;maxScale&quot;</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span> 
+      <span class="s2">&quot;defaultVisibility&quot;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span> 
+      <span class="s2">&quot;extent&quot;</span> <span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;xmin&quot;</span> <span class="o">:</span> <span class="o">-</span><span class="mf">102.049575703</span><span class="p">,</span> 
+        <span class="s2">&quot;ymin&quot;</span> <span class="o">:</span> <span class="mf">36.99545613</span><span class="p">,</span> 
+        <span class="s2">&quot;xmax&quot;</span> <span class="o">:</span> <span class="o">-</span><span class="mf">94.602935923</span><span class="p">,</span> 
+        <span class="s2">&quot;ymax&quot;</span> <span class="o">:</span> <span class="mf">40.002644049</span><span class="p">,</span> 
+        <span class="s2">&quot;spatialReference&quot;</span> <span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;wkid&quot;</span> <span class="o">:</span> <span class="mi">4267</span>
+        <span class="p">}</span>
+      <span class="p">},</span> 
+      <span class="s2">&quot;hasAttachments&quot;</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span> 
+      <span class="s2">&quot;drawingInfo&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="s2">&quot;renderer&quot;</span> <span class="o">:</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;uniqueValue&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;field1&quot;</span> <span class="o">:</span> <span class="s2">&quot;PROD_GAS&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;field2&quot;</span> <span class="o">:</span> <span class="s2">&quot;PROD_OIL&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;field3&quot;</span> <span class="o">:</span> <span class="kc">null</span><span class="p">,</span> 
+          <span class="s2">&quot;fieldDelimiter&quot;</span> <span class="o">:</span> <span class="s2">&quot;, &quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;defaultSymbol&quot;</span> <span class="o">:</span> 
+          <span class="p">{</span>
+            <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriSFS&quot;</span><span class="p">,</span> 
+            <span class="s2">&quot;style&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriSFSSolid&quot;</span><span class="p">,</span> 
+            
+            <span class="s2">&quot;color&quot;</span> <span class="o">:</span> <span class="p">[</span>
+              <span class="mi">199</span><span class="p">,</span> 
+              <span class="mi">215</span><span class="p">,</span> 
+              <span class="mi">252</span><span class="p">,</span> 
+              <span class="mi">255</span>
+            <span class="p">],</span> 
+            <span class="s2">&quot;outline&quot;</span> <span class="o">:</span> 
+            <span class="p">{</span>
+              <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriSLS&quot;</span><span class="p">,</span> 
+              <span class="s2">&quot;style&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriSLSSolid&quot;</span><span class="p">,</span> 
+              
+              <span class="s2">&quot;color&quot;</span> <span class="o">:</span> <span class="p">[</span>
+                <span class="mi">110</span><span class="p">,</span> 
+                <span class="mi">110</span><span class="p">,</span> 
+                <span class="mi">110</span><span class="p">,</span> 
+                <span class="mi">255</span>
+              <span class="p">],</span> 
+              <span class="s2">&quot;width&quot;</span> <span class="o">:</span> <span class="mf">0.4</span>
+            <span class="p">}</span>
+          <span class="p">},</span> 
+          <span class="s2">&quot;defaultLabel&quot;</span> <span class="o">:</span> <span class="s2">&quot;\u003call other values\u003e&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;uniqueValueInfos&quot;</span> <span class="o">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="s2">&quot;value&quot;</span> <span class="o">:</span> <span class="s2">&quot; ,  &quot;</span><span class="p">,</span> 
+              <span class="s2">&quot;label&quot;</span> <span class="o">:</span> <span class="s2">&quot; ,  &quot;</span><span class="p">,</span> 
+              <span class="s2">&quot;description&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> 
+              <span class="s2">&quot;symbol&quot;</span> <span class="o">:</span> 
+              <span class="p">{</span>
+                <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriSFS&quot;</span><span class="p">,</span> 
+                <span class="s2">&quot;style&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriSFSSolid&quot;</span><span class="p">,</span> 
+                
+                <span class="s2">&quot;color&quot;</span> <span class="o">:</span> <span class="p">[</span>
+                  <span class="mi">204</span><span class="p">,</span> 
+                  <span class="mi">204</span><span class="p">,</span> 
+                  <span class="mi">204</span><span class="p">,</span> 
+                  <span class="mi">255</span>
+                <span class="p">],</span> 
+                <span class="s2">&quot;outline&quot;</span> <span class="o">:</span> 
+                <span class="p">{</span>
+                  <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriSLS&quot;</span><span class="p">,</span> 
+                  <span class="s2">&quot;style&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriSLSSolid&quot;</span><span class="p">,</span> 
+                  
+                  <span class="s2">&quot;color&quot;</span> <span class="o">:</span> <span class="p">[</span>
+                    <span class="mi">110</span><span class="p">,</span> 
+                    <span class="mi">110</span><span class="p">,</span> 
+                    <span class="mi">110</span><span class="p">,</span> 
+                    <span class="mi">255</span>
+                  <span class="p">],</span> 
+                  <span class="s2">&quot;width&quot;</span> <span class="o">:</span> <span class="mf">0.4</span>
+                <span class="p">}</span>
+              <span class="p">}</span>
+            <span class="p">},</span> 
+            <span class="p">{</span>
+              <span class="s2">&quot;value&quot;</span> <span class="o">:</span> <span class="s2">&quot;No, No&quot;</span><span class="p">,</span> 
+              <span class="s2">&quot;label&quot;</span> <span class="o">:</span> <span class="s2">&quot;No, No&quot;</span><span class="p">,</span> 
+              <span class="s2">&quot;description&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> 
+              <span class="s2">&quot;symbol&quot;</span> <span class="o">:</span> 
+              <span class="p">{</span>
+                <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriSFS&quot;</span><span class="p">,</span> 
+                <span class="s2">&quot;style&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriSFSSolid&quot;</span><span class="p">,</span> 
+                
+                <span class="s2">&quot;color&quot;</span> <span class="o">:</span> <span class="p">[</span>
+                  <span class="mi">204</span><span class="p">,</span> 
+                  <span class="mi">204</span><span class="p">,</span> 
+                  <span class="mi">204</span><span class="p">,</span> 
+                  <span class="mi">255</span>
+                <span class="p">],</span> 
+                <span class="s2">&quot;outline&quot;</span> <span class="o">:</span> 
+                <span class="p">{</span>
+                  <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriSLS&quot;</span><span class="p">,</span> 
+                  <span class="s2">&quot;style&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriSLSSolid&quot;</span><span class="p">,</span> 
+                  
+                  <span class="s2">&quot;color&quot;</span> <span class="o">:</span> <span class="p">[</span>
+                    <span class="mi">110</span><span class="p">,</span> 
+                    <span class="mi">110</span><span class="p">,</span> 
+                    <span class="mi">110</span><span class="p">,</span> 
+                    <span class="mi">255</span>
+                  <span class="p">],</span> 
+                  <span class="s2">&quot;width&quot;</span> <span class="o">:</span> <span class="mf">0.4</span>
+                <span class="p">}</span>
+              <span class="p">}</span>
+            <span class="p">},</span> 
+            <span class="p">{</span>
+              <span class="s2">&quot;value&quot;</span> <span class="o">:</span> <span class="s2">&quot;No, Yes&quot;</span><span class="p">,</span> 
+              <span class="s2">&quot;label&quot;</span> <span class="o">:</span> <span class="s2">&quot;No, Yes&quot;</span><span class="p">,</span> 
+              <span class="s2">&quot;description&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> 
+              <span class="s2">&quot;symbol&quot;</span> <span class="o">:</span> 
+              <span class="p">{</span>
+                <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriSFS&quot;</span><span class="p">,</span> 
+                <span class="s2">&quot;style&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriSFSSolid&quot;</span><span class="p">,</span> 
+                
+                <span class="s2">&quot;color&quot;</span> <span class="o">:</span> <span class="p">[</span>
+                  <span class="mi">56</span><span class="p">,</span> 
+                  <span class="mi">168</span><span class="p">,</span> 
+                  <span class="mi">0</span><span class="p">,</span> 
+                  <span class="mi">255</span>
+                <span class="p">],</span> 
+                <span class="s2">&quot;outline&quot;</span> <span class="o">:</span> 
+                <span class="p">{</span>
+                  <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriSLS&quot;</span><span class="p">,</span> 
+                  <span class="s2">&quot;style&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriSLSSolid&quot;</span><span class="p">,</span> 
+                  
+                  <span class="s2">&quot;color&quot;</span> <span class="o">:</span> <span class="p">[</span>
+                    <span class="mi">110</span><span class="p">,</span> 
+                    <span class="mi">110</span><span class="p">,</span> 
+                    <span class="mi">110</span><span class="p">,</span> 
+                    <span class="mi">255</span>
+                  <span class="p">],</span> 
+                  <span class="s2">&quot;width&quot;</span> <span class="o">:</span> <span class="mf">0.4</span>
+                <span class="p">}</span>
+              <span class="p">}</span>
+            <span class="p">},</span> 
+            <span class="p">{</span>
+              <span class="s2">&quot;value&quot;</span> <span class="o">:</span> <span class="s2">&quot;Yes, No&quot;</span><span class="p">,</span> 
+              <span class="s2">&quot;label&quot;</span> <span class="o">:</span> <span class="s2">&quot;Yes, No&quot;</span><span class="p">,</span> 
+              <span class="s2">&quot;description&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> 
+              <span class="s2">&quot;symbol&quot;</span> <span class="o">:</span> 
+              <span class="p">{</span>
+                <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriSFS&quot;</span><span class="p">,</span> 
+                <span class="s2">&quot;style&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriSFSSolid&quot;</span><span class="p">,</span> 
+                
+                <span class="s2">&quot;color&quot;</span> <span class="o">:</span> <span class="p">[</span>
+                  <span class="mi">230</span><span class="p">,</span> 
+                  <span class="mi">0</span><span class="p">,</span> 
+                  <span class="mi">0</span><span class="p">,</span> 
+                  <span class="mi">255</span>
+                <span class="p">],</span> 
+                <span class="s2">&quot;outline&quot;</span> <span class="o">:</span> 
+                <span class="p">{</span>
+                  <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriSLS&quot;</span><span class="p">,</span> 
+                  <span class="s2">&quot;style&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriSLSSolid&quot;</span><span class="p">,</span> 
+                  
+                  <span class="s2">&quot;color&quot;</span> <span class="o">:</span> <span class="p">[</span>
+                    <span class="mi">110</span><span class="p">,</span> 
+                    <span class="mi">110</span><span class="p">,</span> 
+                    <span class="mi">110</span><span class="p">,</span> 
+                    <span class="mi">255</span>
+                  <span class="p">],</span> 
+                  <span class="s2">&quot;width&quot;</span> <span class="o">:</span> <span class="mf">0.4</span>
+                <span class="p">}</span>
+              <span class="p">}</span>
+            <span class="p">},</span> 
+            <span class="p">{</span>
+              <span class="s2">&quot;value&quot;</span> <span class="o">:</span> <span class="s2">&quot;Yes, Yes&quot;</span><span class="p">,</span> 
+              <span class="s2">&quot;label&quot;</span> <span class="o">:</span> <span class="s2">&quot;Yes, Yes&quot;</span><span class="p">,</span> 
+              <span class="s2">&quot;description&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> 
+              <span class="s2">&quot;symbol&quot;</span> <span class="o">:</span> 
+              <span class="p">{</span>
+                <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriSFS&quot;</span><span class="p">,</span> 
+                <span class="s2">&quot;style&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriSFSSolid&quot;</span><span class="p">,</span> 
+                
+                <span class="s2">&quot;color&quot;</span> <span class="o">:</span> <span class="p">[</span>
+                  <span class="mi">168</span><span class="p">,</span> 
+                  <span class="mi">112</span><span class="p">,</span> 
+                  <span class="mi">0</span><span class="p">,</span> 
+                  <span class="mi">255</span>
+                <span class="p">],</span> 
+                <span class="s2">&quot;outline&quot;</span> <span class="o">:</span> 
+                <span class="p">{</span>
+                  <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriSLS&quot;</span><span class="p">,</span> 
+                  <span class="s2">&quot;style&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriSLSSolid&quot;</span><span class="p">,</span> 
+                  
+                  <span class="s2">&quot;color&quot;</span> <span class="o">:</span> <span class="p">[</span>
+                    <span class="mi">110</span><span class="p">,</span> 
+                    <span class="mi">110</span><span class="p">,</span> 
+                    <span class="mi">110</span><span class="p">,</span> 
+                    <span class="mi">255</span>
+                  <span class="p">],</span> 
+                  <span class="s2">&quot;width&quot;</span> <span class="o">:</span> <span class="mf">0.4</span>
+                <span class="p">}</span>
+              <span class="p">}</span>
+            <span class="p">}</span>
+          <span class="p">]</span>
+        <span class="p">},</span> 
+        <span class="s2">&quot;scaleSymbols&quot;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span> 
+        <span class="s2">&quot;transparency&quot;</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span> 
+        <span class="s2">&quot;brightness&quot;</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span> 
+        <span class="s2">&quot;contrast&quot;</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span> 
+        <span class="s2">&quot;labelingInfo&quot;</span> <span class="o">:</span> <span class="kc">null</span><span class="p">},</span> 
+      <span class="s2">&quot;displayField&quot;</span> <span class="o">:</span> <span class="s2">&quot;FIELD_NAME&quot;</span><span class="p">,</span> 
+      <span class="s2">&quot;fields&quot;</span> <span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;OBJECTID&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeOID&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;OBJECTID&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Shape&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeGeometry&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;Shape&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;FIELD_KID&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;FIELD_KID&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">25</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;APPROXACRE&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;APPROXACRE&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;FIELD_NAME&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;FIELD_NAME&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">150</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;STATUS&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;STATUS&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">50</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;PROD_GAS&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;PROD_GAS&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">3</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;PROD_OIL&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;PROD_OIL&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">3</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;ACTIVEPROD&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;ACTIVEPROD&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">10</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;CUMM_OIL&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;CUMM_OIL&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;MAXOILWELL&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;MAXOILWELL&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;LASTOILPRO&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;LASTOILPRO&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;LASTOILWEL&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;LASTOILWEL&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;LASTODATE&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;LASTODATE&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">50</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;CUMM_GAS&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;CUMM_GAS&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;MAXGASWELL&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;MAXGASWELL&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;LASTGASPRO&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;LASTGASPRO&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;LASTGASWEL&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;LASTGASWEL&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;LASTGDATE&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;LASTGDATE&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">50</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;AVGDEPTH&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;AVGDEPTH&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;AVGDEPTHSL&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;AVGDEPTHSL&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;POLYDATE&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDate&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;POLYDATE&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">8</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;FIELD_TYPE&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;FIELD_TYPE&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">5</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;FIELD_KIDN&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;FIELD_KIDN&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Shape_Length&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;Shape_Length&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Shape_Area&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;Shape_Area&quot;</span><span class="p">}</span>
+      <span class="p">],</span> 
+      <span class="s2">&quot;relationships&quot;</span> <span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span> 
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Field 2 Wells&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;relatedTableId&quot;</span> <span class="o">:</span> <span class="mi">0</span><span class="p">}</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;maxRecordCount&quot;</span> <span class="o">:</span> <span class="mi">1000</span><span class="p">,</span>
+      <span class="s2">&quot;canModifyLayer&quot;</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">&quot;supportsStatistics&quot;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">&quot;supportsAdvancedQueries&quot;</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">&quot;hasLabels&quot;</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">&quot;canScaleSymbols&quot;</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">&quot;capabilities&quot;</span> <span class="o">:</span> <span class="s2">&quot;Map,Query,Data&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;supportedQueryFormats&quot;</span> <span class="o">:</span> <span class="s2">&quot;JSON, AMF&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;ownershipBasedAccessControlForFeatures&quot;</span><span class="o">:</span> 
+      <span class="p">{</span>
+        <span class="s2">&quot;allowOthersToQuery&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">],</span> 
+  <span class="s2">&quot;tables&quot;</span> <span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span> 
+      <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;KSTOPS&quot;</span><span class="p">,</span> 
+      <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;Table&quot;</span><span class="p">,</span> 
+      <span class="s2">&quot;description&quot;</span> <span class="o">:</span> <span class="kc">null</span><span class="p">,</span> 
+      <span class="s2">&quot;definitionExpression&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> 
+      <span class="s2">&quot;hasAttachments&quot;</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span> 
+      <span class="s2">&quot;displayField&quot;</span> <span class="o">:</span> <span class="s2">&quot;KID&quot;</span><span class="p">,</span> 
+      <span class="s2">&quot;fields&quot;</span> <span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;OBJECTID&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeOID&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;OBJECTID&quot;</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;KID&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;KID&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">255</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;API_NUMBER&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;API_NUMBER&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">255</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;API_NUM_NODASH&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;API_NUM_NODASH&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">255</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;LONGITUDE&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;LONGITUDE&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">255</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;LATITUDE&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;LATITUDE&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">255</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;ELEVATION&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;ELEVATION&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">255</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;ELEV_REF&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;ELEV_REF&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">255</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;FORMATION&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;FORMATION&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">255</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;TOP&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;TOP&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">255</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;BASE&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;BASE&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">255</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;SOURCE&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;SOURCE&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">255</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;UPDATED&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;UPDATED&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">255</span><span class="p">},</span> 
+        <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;KIDN&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;KIDN&quot;</span><span class="p">}</span>
+      <span class="p">],</span> 
+      <span class="s2">&quot;relationships&quot;</span> <span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="mi">3</span><span class="p">,</span> 
+          <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Tops 2 Well&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;relatedTableId&quot;</span> <span class="o">:</span> <span class="mi">0</span><span class="p">}</span>
+      <span class="p">],</span>
+      <span class="s2">&quot;maxRecordCount&quot;</span> <span class="o">:</span> <span class="mi">1000</span><span class="p">,</span>
+      <span class="s2">&quot;canModifyLayer&quot;</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">&quot;supportsStatistics&quot;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">&quot;supportsAdvancedQueries&quot;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="s2">&quot;hasLabels&quot;</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">&quot;canScaleSymbols&quot;</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+      <span class="s2">&quot;capabilities&quot;</span> <span class="o">:</span> <span class="s2">&quot;Map,Query,Data&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;supportedQueryFormats&quot;</span> <span class="o">:</span> <span class="s2">&quot;JSON, AMF&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;ownershipBasedAccessControlForFeatures&quot;</span><span class="o">:</span> 
+      <span class="p">{</span>
+        <span class="s2">&quot;allowOthersToQuery&quot;</span><span class="o">:</span> <span class="kc">true</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+        </div>
+      </p></div>
+  <div class="footer"> Copyright © 1995-2017 Esri. All rights reserved. </div></div></body>
+<!-- Mirrored from gis.auric.city/agserver/sdk/rest/02ss/02ss0000005t000000.htm by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 02:54:21 GMT -->
+</html>

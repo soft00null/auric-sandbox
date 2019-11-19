@@ -1,0 +1,12 @@
+{
+ "layers": [
+  {
+   "layerId": 0,
+   "layerName": "auric.postgres.shendra_plots",
+   "layerType": "Feature Layer",
+   "minScale": 0,
+   "maxScale": 0,
+   "legend": []
+  }
+ ]
+}

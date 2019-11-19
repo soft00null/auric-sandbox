@@ -1,0 +1,114 @@
+{
+ "currentVersion": 10.6,
+ "folders": [],
+ "services": [
+  {
+   "name": "setback_print/ExportWebMap_1228",
+   "type": "GPServer"
+  },
+  {
+   "name": "setback_print/PrintPopups_112019_11",
+   "type": "GPServer"
+  },
+  {
+   "name": "setback_print/PrintPopups_112019_2",
+   "type": "GPServer"
+  },
+  {
+   "name": "setback_print/PrintPopups_112019_5",
+   "type": "GPServer"
+  },
+  {
+   "name": "setback_print/PrintPopups_112019_6",
+   "type": "GPServer"
+  },
+  {
+   "name": "setback_print/PrintPopups_112019_7",
+   "type": "GPServer"
+  },
+  {
+   "name": "setback_print/PrintPopups_112019_last1",
+   "type": "GPServer"
+  },
+  {
+   "name": "setback_print/PrintPopups_112019_last1",
+   "type": "MapServer"
+  },
+  {
+   "name": "setback_print/PrintPopups_112019_last",
+   "type": "GPServer"
+  },
+  {
+   "name": "setback_print/PrintPopups_11",
+   "type": "GPServer"
+  },
+  {
+   "name": "setback_print/PrintPopups_11",
+   "type": "MapServer"
+  },
+  {
+   "name": "setback_print/PrintPopups_1231_2",
+   "type": "GPServer"
+  },
+  {
+   "name": "setback_print/PrintPopups_1231_2",
+   "type": "MapServer"
+  },
+  {
+   "name": "setback_print/PrintPopups_1231_45",
+   "type": "GPServer"
+  },
+  {
+   "name": "setback_print/PrintPopups_1231_4",
+   "type": "GPServer"
+  },
+  {
+   "name": "setback_print/PrintPopups_1231_5",
+   "type": "GPServer"
+  },
+  {
+   "name": "setback_print/PrintPopups_1231_6",
+   "type": "GPServer"
+  },
+  {
+   "name": "setback_print/PrintPopups_1231_eve2",
+   "type": "GPServer"
+  },
+  {
+   "name": "setback_print/PrintPopups_1231_eve3",
+   "type": "GPServer"
+  },
+  {
+   "name": "setback_print/PrintPopups_1231_eve54",
+   "type": "GPServer"
+  },
+  {
+   "name": "setback_print/PrintPopups_1231_eve_last1",
+   "type": "GPServer"
+  },
+  {
+   "name": "setback_print/PrintPopups_1231_eve_last",
+   "type": "GPServer"
+  },
+  {
+   "name": "setback_print/PrintPopups_1231_eve",
+   "type": "GPServer"
+  },
+  {
+   "name": "setback_print/PrintPopups_1231_sdf",
+   "type": "GPServer"
+  },
+  {
+   "name": "setback_print/PrintPopups_1231",
+   "type": "GPServer"
+  },
+  {
+   "name": "setback_print/PrintPopups_check",
+   "type": "GPServer"
+  },
+  {
+   "name": "setback_print/PrintPopups_dankey",
+   "type": "GPServer"
+  }
+ ]
+}

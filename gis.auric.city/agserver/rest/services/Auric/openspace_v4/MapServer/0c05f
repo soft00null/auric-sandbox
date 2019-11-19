@@ -1,0 +1,575 @@
+{
+ "currentVersion": 10.6,
+ "id": 0,
+ "name": "auric.postgres.ShendraPGMap",
+ "type": "Feature Layer",
+ "description": "",
+ "geometryType": "esriGeometryPolygon",
+ "sourceSpatialReference": {
+  "wkid": 4326,
+  "latestWkid": 4326
+ },
+ "copyrightText": "",
+ "parentLayer": null,
+ "subLayers": [],
+ "minScale": 0,
+ "maxScale": 0,
+ "drawingInfo": {
+  "renderer": {
+   "type": "uniqueValue",
+   "field1": "landuse",
+   "field2": null,
+   "field3": null,
+   "defaultSymbol": {
+    "type": "esriSFS",
+    "style": "esriSFSSolid",
+    "color": [
+     252,
+     225,
+     210,
+     255
+    ],
+    "outline": {
+     "type": "esriSLS",
+     "style": "esriSLSSolid",
+     "color": [
+      110,
+      110,
+      110,
+      255
+     ],
+     "width": 0.4
+    }
+   },
+   "defaultLabel": "<all other values>",
+   "uniqueValueInfos": [
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       0,
+       112,
+       255,
+       255
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        255
+       ],
+       "width": 1
+      }
+     },
+     "value": "Commercial",
+     "label": "Commercial",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       162,
+       35,
+       204,
+       255
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        255
+       ],
+       "width": 1
+      }
+     },
+     "value": "Industrial",
+     "label": "Industrial",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       152,
+       230,
+       0,
+       255
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        255
+       ],
+       "width": 1
+      }
+     },
+     "value": "Open Space",
+     "label": "Open Space",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       215,
+       166,
+       222,
+       255
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        255
+       ],
+       "width": 1
+      }
+     },
+     "value": "PAP",
+     "label": "PAP",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       215,
+       166,
+       222,
+       255
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        255
+       ],
+       "width": 1
+      }
+     },
+     "value": "PAP Lad",
+     "label": "PAP Lad",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       255,
+       85,
+       0,
+       255
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        110,
+        110,
+        110,
+        255
+       ],
+       "width": 0.4
+      }
+     },
+     "value": "Public Semi public/ Amenities",
+     "label": "Public Semi public/ Amenities",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       255,
+       255,
+       115,
+       255
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        255
+       ],
+       "width": 1
+      }
+     },
+     "value": "Residential",
+     "label": "Residential",
+     "description": ""
+    },
+    {
+     "symbol": {
+      "type": "esriSFS",
+      "style": "esriSFSSolid",
+      "color": [
+       156,
+       156,
+       156,
+       255
+      ],
+      "outline": {
+       "type": "esriSLS",
+       "style": "esriSLSSolid",
+       "color": [
+        0,
+        0,
+        0,
+        255
+       ],
+       "width": 1
+      }
+     },
+     "value": "Road",
+     "label": "Road",
+     "description": ""
+    }
+   ],
+   "fieldDelimiter": ","
+  },
+  "transparency": 0,
+  "labelingInfo": [
+   {
+    "labelPlacement": "esriServerPolygonPlacementAlwaysHorizontal",
+    "where": null,
+    "labelExpression": "[plot_numbe]",
+    "useCodedValues": true,
+    "symbol": {
+     "type": "esriTS",
+     "color": [
+      0,
+      197,
+      255,
+      255
+     ],
+     "backgroundColor": null,
+     "borderLineColor": null,
+     "borderLineSize": null,
+     "verticalAlignment": "bottom",
+     "horizontalAlignment": "left",
+     "rightToLeft": false,
+     "angle": 0,
+     "xoffset": 0,
+     "yoffset": 0,
+     "kerning": true,
+     "haloColor": null,
+     "haloSize": null,
+     "font": {
+      "family": "Arial",
+      "size": 12,
+      "style": "normal",
+      "weight": "bold",
+      "decoration": "none"
+     }
+    },
+    "minScale": 15000.000000000175,
+    "maxScale": 0
+   }
+  ]
+ },
+ "defaultVisibility": true,
+ "extent": {
+  "xmin": 75.50413599300003,
+  "ymin": 19.867764255000054,
+  "xmax": 75.55484078600006,
+  "ymax": 19.894531567000058,
+  "spatialReference": {
+   "wkid": 4326,
+   "latestWkid": 4326
+  }
+ },
+ "hasAttachments": false,
+ "htmlPopupType": "esriServerHTMLPopupTypeAsHTMLText",
+ "displayField": "landuse",
+ "typeIdField": null,
+ "subtypeFieldName": null,
+ "fields": [
+  {
+   "name": "landuse",
+   "type": "esriFieldTypeString",
+   "alias": "landuse",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "area_hecta",
+   "type": "esriFieldTypeDouble",
+   "alias": "area_hecta",
+   "domain": null
+  },
+  {
+   "name": "plot_numbe",
+   "type": "esriFieldTypeString",
+   "alias": "plot_numbe",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "area_sqm",
+   "type": "esriFieldTypeDouble",
+   "alias": "area_sqm",
+   "domain": null
+  },
+  {
+   "name": "industrial",
+   "type": "esriFieldTypeString",
+   "alias": "industrial",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "sector",
+   "type": "esriFieldTypeString",
+   "alias": "sector",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "old_pl_no",
+   "type": "esriFieldTypeString",
+   "alias": "old_pl_no",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "new_plot",
+   "type": "esriFieldTypeString",
+   "alias": "new_plot",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "remarks",
+   "type": "esriFieldTypeString",
+   "alias": "remarks",
+   "length": 254,
+   "domain": null
+  },
+  {
+   "name": "geom",
+   "type": "esriFieldTypeGeometry",
+   "alias": "geom",
+   "domain": null
+  },
+  {
+   "name": "intgid",
+   "type": "esriFieldTypeOID",
+   "alias": "intgid",
+   "domain": null
+  },
+  {
+   "name": "cornerplot",
+   "type": "esriFieldTypeString",
+   "alias": "cornerplot",
+   "length": 10,
+   "domain": null
+  },
+  {
+   "name": "allotmentstatus",
+   "type": "esriFieldTypeString",
+   "alias": "allotmentstatus",
+   "length": 60000,
+   "domain": null
+  },
+  {
+   "name": "basefsi",
+   "type": "esriFieldTypeDouble",
+   "alias": "basefsi",
+   "domain": null
+  },
+  {
+   "name": "permbuiltup",
+   "type": "esriFieldTypeDouble",
+   "alias": "permbuiltup",
+   "domain": null
+  },
+  {
+   "name": "decfrontage",
+   "type": "esriFieldTypeString",
+   "alias": "decfrontage",
+   "length": 10,
+   "domain": null
+  },
+  {
+   "name": "decfrontage2",
+   "type": "esriFieldTypeString",
+   "alias": "decfrontage2",
+   "length": 10,
+   "domain": null
+  },
+  {
+   "name": "latitude",
+   "type": "esriFieldTypeDouble",
+   "alias": "latitude",
+   "domain": null
+  },
+  {
+   "name": "longitude",
+   "type": "esriFieldTypeDouble",
+   "alias": "longitude",
+   "domain": null
+  },
+  {
+   "name": "poss_fsi",
+   "type": "esriFieldTypeDouble",
+   "alias": "poss_fsi",
+   "domain": null
+  },
+  {
+   "name": "setback",
+   "type": "esriFieldTypeString",
+   "alias": "setback",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "sidesetbac",
+   "type": "esriFieldTypeString",
+   "alias": "sidesetbac",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "front_rear",
+   "type": "esriFieldTypeString",
+   "alias": "front_rear",
+   "length": 50,
+   "domain": null
+  },
+  {
+   "name": "trees",
+   "type": "esriFieldTypeInteger",
+   "alias": "trees",
+   "domain": null
+  },
+  {
+   "name": "intbookstatus",
+   "type": "esriFieldTypeString",
+   "alias": "intbookstatus",
+   "length": 10,
+   "domain": null
+  },
+  {
+   "name": "availablestatus",
+   "type": "esriFieldTypeString",
+   "alias": "availablestatus",
+   "length": 10,
+   "domain": null
+  },
+  {
+   "name": "plotopenstatus",
+   "type": "esriFieldTypeString",
+   "alias": "plotopenstatus",
+   "length": 10,
+   "domain": null
+  },
+  {
+   "name": "decfrontage3",
+   "type": "esriFieldTypeString",
+   "alias": "decfrontage3",
+   "length": 10,
+   "domain": null
+  },
+  {
+   "name": "decfrontage4",
+   "type": "esriFieldTypeString",
+   "alias": "decfrontage4",
+   "length": 10,
+   "domain": null
+  },
+  {
+   "name": "roadname",
+   "type": "esriFieldTypeString",
+   "alias": "roadname",
+   "length": 100,
+   "domain": null
+  },
+  {
+   "name": "allotment",
+   "type": "esriFieldTypeString",
+   "alias": "allotment",
+   "length": 254,
+   "domain": null
+  },
+  {
+   "name": "land_detai",
+   "type": "esriFieldTypeString",
+   "alias": "land_detai",
+   "length": 70,
+   "domain": null
+  },
+  {
+   "name": "ment_price",
+   "type": "esriFieldTypeDouble",
+   "alias": "ment_price",
+   "domain": null
+  },
+  {
+   "name": "rent_price",
+   "type": "esriFieldTypeDouble",
+   "alias": "rent_price",
+   "domain": null
+  },
+  {
+   "name": "flr",
+   "type": "esriFieldTypeString",
+   "alias": "flr",
+   "length": 20,
+   "domain": null
+  }
+ ],
+ "indexes": null,
+ "subtypes": [],
+ "relationships": [],
+ "canModifyLayer": true,
+ "canScaleSymbols": false,
+ "hasLabels": true,
+ "capabilities": "Data,Map,Query",
+ "maxRecordCount": 1000,
+ "supportsStatistics": true,
+ "supportsAdvancedQueries": true,
+ "hasZ": true,
+ "hasM": true,
+ "supportedQueryFormats": "JSON, AMF, geoJSON",
+ "ownershipBasedAccessControlForFeatures": {"allowOthersToQuery": true},
+ "useStandardizedQueries": true,
+ "advancedQueryCapabilities": {
+  "useStandardizedQueries": true,
+  "supportsStatistics": true,
+  "supportsOrderBy": true,
+  "supportsDistinct": true,
+  "supportsPagination": true,
+  "supportsTrueCurve": true,
+  "supportsReturningQueryExtent": true,
+  "supportsQueryWithDistance": true,
+  "supportsSqlExpression": true
+ },
+ "supportsDatumTransformation": true
+}

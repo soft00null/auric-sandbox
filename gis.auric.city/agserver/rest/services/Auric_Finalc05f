@@ -1,0 +1,46 @@
+{
+ "currentVersion": 10.6,
+ "folders": [],
+ "services": [
+  {
+   "name": "Auric_Final/Access_tapping_05132019",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric_Final/Auric_plotLayer",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric_Final/GenerateSetback_07252019",
+   "type": "GPServer"
+  },
+  {
+   "name": "Auric_Final/GenerateSetback_07_19_2019",
+   "type": "GPServer"
+  },
+  {
+   "name": "Auric_Final/GenerateSetback_p1",
+   "type": "GPServer"
+  },
+  {
+   "name": "Auric_Final/PrintPopups2_07_19_2019",
+   "type": "GPServer"
+  },
+  {
+   "name": "Auric_Final/PrintPopups2_15_07_19",
+   "type": "GPServer"
+  },
+  {
+   "name": "Auric_Final/SectorPlan_v3",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric_Final/Shendra_plot_V3_PlotControlSheet",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric_Final/test_buffer",
+   "type": "GPServer"
+  }
+ ]
+}

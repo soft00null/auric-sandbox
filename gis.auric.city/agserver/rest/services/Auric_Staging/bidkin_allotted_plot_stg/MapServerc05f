@@ -1,0 +1,67 @@
+{
+ "currentVersion": 10.6,
+ "serviceDescription": "",
+ "mapName": "Layers",
+ "description": "",
+ "copyrightText": "",
+ "supportsDynamicLayers": true,
+ "layers": [
+  {
+   "id": 0,
+   "name": "bidkin_stg.public.bidkin_plot_master_allotted",
+   "parentLayerId": -1,
+   "defaultVisibility": true,
+   "subLayerIds": null,
+   "minScale": 0,
+   "maxScale": 0
+  }
+ ],
+ "tables": [],
+ "spatialReference": {
+  "wkid": 4326,
+  "latestWkid": 4326
+ },
+ "singleFusedMapCache": false,
+ "initialExtent": {
+  "xmin": 75.32509642597489,
+  "ymin": 19.702791039405447,
+  "xmax": 75.32666562129484,
+  "ymax": 19.703446587411698,
+  "spatialReference": {
+   "wkid": 4326,
+   "latestWkid": 4326
+  }
+ },
+ "fullExtent": {
+  "xmin": 75.32528793500006,
+  "ymin": 19.702592950000053,
+  "xmax": 75.32630689300004,
+  "ymax": 19.703443529000026,
+  "spatialReference": {
+   "wkid": 4326,
+   "latestWkid": 4326
+  }
+ },
+ "minScale": 0,
+ "maxScale": 0,
+ "units": "esriDecimalDegrees",
+ "supportedImageFormatTypes": "PNG32,PNG24,PNG,JPG,DIB,TIFF,EMF,PS,PDF,GIF,SVG,SVGZ,BMP",
+ "documentInfo": {
+  "Title": "",
+  "Author": "",
+  "Comments": "",
+  "Subject": "",
+  "Category": "",
+  "AntialiasingMode": "None",
+  "TextAntialiasingMode": "Force",
+  "Keywords": ""
+ },
+ "capabilities": "Data,Map,Query",
+ "supportedQueryFormats": "JSON, AMF, geoJSON",
+ "exportTilesAllowed": false,
+ "supportsDatumTransformation": true,
+ "maxRecordCount": 1000,
+ "maxImageHeight": 4096,
+ "maxImageWidth": 4096,
+ "supportedExtensions": "KmlServer, WFSServer, WMSServer"
+}

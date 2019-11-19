@@ -1,0 +1,67 @@
+{
+ "currentVersion": 10.6,
+ "serviceDescription": "",
+ "mapName": "Layers",
+ "description": "",
+ "copyrightText": "",
+ "supportsDynamicLayers": true,
+ "layers": [
+  {
+   "id": 0,
+   "name": "auric.postgres.shendra_plots",
+   "parentLayerId": -1,
+   "defaultVisibility": true,
+   "subLayerIds": null,
+   "minScale": 0,
+   "maxScale": 0
+  }
+ ],
+ "tables": [],
+ "spatialReference": {
+  "wkid": 4326,
+  "latestWkid": 4326
+ },
+ "singleFusedMapCache": false,
+ "initialExtent": {
+  "xmin": 75.50931293844462,
+  "ymin": 19.874334299385428,
+  "xmax": 75.51458820349455,
+  "ymax": 19.876272370374682,
+  "spatialReference": {
+   "wkid": 4326,
+   "latestWkid": 4326
+  }
+ },
+ "fullExtent": {
+  "xmin": 75.50532689100004,
+  "ymin": 19.86879542300005,
+  "xmax": 75.55463810900005,
+  "ymax": 19.89183618900006,
+  "spatialReference": {
+   "wkid": 4326,
+   "latestWkid": 4326
+  }
+ },
+ "minScale": 0,
+ "maxScale": 0,
+ "units": "esriDecimalDegrees",
+ "supportedImageFormatTypes": "PNG32,PNG24,PNG,JPG,DIB,TIFF,EMF,PS,PDF,GIF,SVG,SVGZ,BMP",
+ "documentInfo": {
+  "Title": "",
+  "Author": "",
+  "Comments": "",
+  "Subject": "",
+  "Category": "",
+  "AntialiasingMode": "None",
+  "TextAntialiasingMode": "Force",
+  "Keywords": ""
+ },
+ "capabilities": "Data,Map,Query",
+ "supportedQueryFormats": "JSON, AMF, geoJSON",
+ "exportTilesAllowed": false,
+ "supportsDatumTransformation": true,
+ "maxRecordCount": 10000,
+ "maxImageHeight": 4096,
+ "maxImageWidth": 4096,
+ "supportedExtensions": "KmlServer, WFSServer, WMSServer"
+}

@@ -1,0 +1,69 @@
+<html lang="en" xml:lang="en">
+<!-- Mirrored from gis.auric.city/agserver/sdk/rest/02ss/02ss00000039000000.htm by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 03:34:29 GMT -->
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="description" content="GP Service http://&amp;lt;catalog-url&amp;gt;/&amp;lt;serviceName&amp;gt;/GPServerTask9.3 Description Geoprocessing is a fundamental part of enterprise GIS operations. Geoprocessing provides GIS users with data analysis, data management, and data conversion tools.A geoprocessing service represents a collection of published tools that perform tasks necessary for manipulating and analyzing geographic information across a wide range of disciplines. Each tool performs one or more operations, such as projecting a data set from one map projection to another, adding fields to a table, or"><meta name="content-language" content="en"><link href="rsrc/htmlhelp.html" rel="stylesheet" type="text/css"><title>ArcGIS REST API - ArcGIS Services - 
+   GP Service
+  </title>
+                <script type="text/javascript" language="JavaScript">
+                    var pathL  = self.location.pathname.split ("../../../../index.html");
+                    var fname = pathL[pathL.length-1];
+                    var i = fname.lastIndexOf (".htm");
+                    if (i>=0) {
+                    fname = fname.substring (0, i)
+                    } else {
+                    //??
+                    }
+                    if (self.location.hash) {
+				    		      fname = fname + self.location.hash;
+						        }
+                    self.location.replace ("../index.html#//" + fname);
+                </script>
+                </head><!--Publication GUID: [GUID-289408B4-3EC8-4C16-9DB8-B1778E780E58]--><!--Topic GUID: [GUID-A393461A-1A4D-4D45-8914-3F1AFA57AB2B]--><body><div id="content"><div class="header"><h1>
+   GP Service
+  </h1><div id="breadcrumb"></div></div>
+    <div class="restmd" purpose="restmd"><ul purpose="restmd" class="restmd list-plain"><li><span class="restkey post-1">URL:</span><span class="restval">http://<a class="xref" rel="02ss/02ss00000029000000.htm" href="02ss/02ss00000029000000.html">&lt;catalog-url&gt;</a>/&lt;serviceName&gt;/GPServer<span class="restverb"></span><br></span></li><li><span class="restkey post-1">Child Resources:</span><span class="restval"><a class="xref" rel="02ss/02ss0000004n000000.htm" href="02ss/02ss0000004n000000.html">Task</a></span></li><li><span class="restkey post-1">Version Introduced:</span><span class="restval">9.3</span></li></ul></div>
+    <div class="section1" id="GUID-C88835B6-A983-4AC6-B1B8-42B8F1997B78" purpose="section1"><h2>Description</h2><p id="GUID-E1ADC8AD-9008-4248-A7A2-5B9B90CF8F41">Geoprocessing is a fundamental part of enterprise GIS operations. Geoprocessing provides GIS users with data analysis, data management, and data conversion tools.</p><p id="GUID-DCFA8AF2-C01B-4405-BA8F-CB608A233C7A">A geoprocessing service represents a collection of published tools that perform tasks necessary for manipulating and analyzing geographic information across a wide range of disciplines. Each tool performs one or more operations, such as projecting a data set from one map projection to another, adding fields to a table, or creating buffer zones around features. A tool accepts input (such as feature sets, tables, and property values), executes operations using the input data, and generates output for presentation in a map or further processing by the client. Tools can be executed synchronously (in sequence) or asynchronously. When used with the REST API, a geoprocessing service should always be published as a pooled service.</p><p id="GUID-4566DEDB-15FF-4D29-AB24-BDFC1B83DF15">Use a geoprocessing service to do the following:<ul purpose="ul" id="UL_61A48FAA3AC6421ABD547BCA2A4CD3CF"><li purpose="li" id="LI_B42C3C041F854E0881099E2E0561D7DE">List available tools and their input/output properties</li><li purpose="li" id="LI_308B53F207DD4016887516CF13FA30E5">Execute a task synchronously</li><li purpose="li" id="LI_CF218C2376E94B26B78F690C70957BC4">Submit a job to a task asynchronously</li><li purpose="li" id="LI_17370D568934475D85BCABC22750FF37">Get job details, including job status</li><li purpose="li" id="LI_1C623F6AA2F04ACCA6D3A29420CEAE13">Display results using a map service</li><li purpose="li" id="LI_DA1D9CD3FC444029B94BF701C277D414">Retrieve results for further processing by the client</li></ul></p><p id="GUID-D66F3171-1EA7-4761-ABC5-0EEB37552168">Many GIS tasks involve the repetition of work, and this creates the need for a framework to provide automation of workflows. Geoprocessing services answer this need by using a model to combine a series of operations in a sequence, then exposing the model as a tool.</p><p id="GUID-B168F694-9C3E-41B2-AA76-1A5A4F53AA58">The REST API GP Service resource provides basic information associated with the service, such as the service description, the tasks provided, the execution type, and the result's map server name.</p><p id="GUID-6B9B1C6A-8588-4AEC-9E10-6FAAD0770329">The GP Service resource has operations that return results after a task is successfully completed. The supported operations are as follows:<ul purpose="ul" id="UL_C06133CB802849D6B9FDF11C8BF31748"><li purpose="li" id="LI_F74EBA9824D7413E8C2FAFE4F1082066"><a class="xref" rel="02ss/02ss0000004s000000.htm" href="02ss/02ss0000004s000000.html">Execute task</a>—Used when the execution type is synchronous. When a task is executed synchronously, a user must wait for the results.</li><li purpose="li" id="LI_40D82AB35DC54B1890C8D8C38B4B1B04"><a class="xref" rel="02ss/02ss00000012000000.htm" href="02ss/02ss00000012000000.html">Submit job</a>—Used when the execution type is asynchronous. When a job is submitted asynchronously, a user can do other things while awaiting notice that the task is completed.</li></ul></p></div>
+    <div class="section1" id="GUID-6C4B04ED-FCF1-4B12-9CF2-CF2846F031BC" purpose="section1"><h2>
+        Request parameters
+      </h2><p id="GUID-E59BF596-DDF7-44C7-A189-91FF8792D939">
+        <div class="block_table" id="GUID-9531D2FC-66E3-4749-BAF6-D629398D6750" purpose="block_table"><span class="table_title"></span><table class="table"><colgroup width="200pt"></colgroup><colgroup width="*"></colgroup><tr purpose="thead"><th class="th" purpose="th" rowspan="1" colspan="1">
+                  <p id="GUID-40E8FDD9-83CF-4AEB-A3D9-D60188AB9AAF">Parameter</p>
+                </th><th class="th" purpose="th" rowspan="1" colspan="1">
+                  <p id="GUID-0BB79C09-463B-4E75-980C-E6D24737E068">Details</p>
+                </th></tr><tbody>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">f</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-A6559DC6-B30B-4F6C-80A1-C88E3BE6CF91">Description: The response format. The default response format is html.</p><p id="GUID-86C6D767-D1C5-4D36-9F35-171008103FE3">Values: html | json</p>
+                </td>
+              </tr>
+            </tbody><caption class="table_desc"></caption></table></div>
+      </p></div>
+    <div class="section1" id="GUID-7A94D5B3-FBEC-4B45-9007-A86982A506D4" purpose="section1"><h2>Example usage</h2><p id="GUID-EA38AC82-C972-4FE5-B7E0-F43226ECFD08">URL for the ESRI_DriveTime_US GP Service on sampleserver1.
+      </p><p id="GUID-3B7F59B8-F3AE-4398-8F03-10DAB6EE7268"><a target="_blank" class="xref" href="http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Network/ESRI_DriveTime_US/GPServer" rel="http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Network/ESRI_DriveTime_US/GPServer">http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Network/ESRI_DriveTime_US/GPServer</a></p></div>
+    <div class="section1" id="GUID-AAD0ACCF-F3EF-44AE-B9AE-1A4C6C899BC0" purpose="section1"><h2>JSON response syntax</h2><p id="GUID-312B3543-94F8-4AA7-BC0D-A992313761CB">
+        <div class="codeblock" purpose="codeblock">
+          <div class="codeblockdesc" purpose="codeblockdesc">
+            
+          </div>
+          <div class="highlight"><pre><code><span class="p">{</span><span class="s2">&quot;currentVersion&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">currentVersion</span><span class="o">&gt;</span><span class="p">,</span><span class="s2">&quot;serviceDescription&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;serviceDescription&gt;&quot;</span><span class="p">,</span><span class="s2">&quot;tasks&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;&lt;taskName1&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;taskName2&gt;&quot;</span><span class="p">],</span><span class="s2">&quot;executionType&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;executionType&gt;&quot;</span><span class="p">,</span><span class="s2">&quot;resultMapServerName&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;resultMapServerName&gt;&quot;</span><span class="p">,</span><span class="s2">&quot;maximumRecords&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">maximumRecords</span><span class="o">&gt;</span><span class="c1">//Added at 10.1}</span>
+</code></pre></div>
+
+        </div>
+      </p></div>
+    <div class="section1" id="GUID-EAA1F7E5-386C-4744-9E33-EC85372F0103" purpose="section1"><h2>JSON response example</h2><p id="GUID-6AF5456C-0C40-425F-82A0-3BE835BEDE52">
+        <div class="codeblock" purpose="codeblock">
+          <div class="codeblockdesc" purpose="codeblockdesc">
+            
+          </div>
+          <div class="highlight"><pre><code><span class="p">{</span><span class="s2">&quot;currentVersion&quot;</span><span class="o">:</span> <span class="mf">10.1</span><span class="p">,</span><span class="s2">&quot;serviceDescription&quot;</span> <span class="o">:</span> <span class="s2">&quot;Test Geoprocessing Service Description&quot;</span><span class="p">,</span><span class="s2">&quot;tasks&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;BufferPointsByRef&quot;</span><span class="p">,</span><span class="s2">&quot;BufferLinesByRef&quot;</span><span class="p">,</span><span class="s2">&quot;BufferPolygonsByRef&quot;</span><span class="p">],</span><span class="s2">&quot;executionType&quot;</span><span class="o">:</span> <span class="s2">&quot;esriExecutionTypeAsynchronous&quot;</span><span class="p">,</span><span class="s2">&quot;resultMapServerName&quot;</span><span class="o">:</span> <span class="s2">&quot;BufferByRef&quot;</span><span class="p">,</span><span class="s2">&quot;maximumRecords&quot;</span><span class="o">:</span> <span class="mi">1000</span><span class="p">}</span>
+</code></pre></div>
+
+        </div>
+      </p></div>
+  <div class="footer"> Copyright © 1995-2017 Esri. All rights reserved. </div></div></body>
+<!-- Mirrored from gis.auric.city/agserver/sdk/rest/02ss/02ss00000039000000.htm by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 03:34:29 GMT -->
+</html>

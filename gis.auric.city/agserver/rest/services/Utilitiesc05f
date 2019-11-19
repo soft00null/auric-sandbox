@@ -1,0 +1,10 @@
+{
+ "currentVersion": 10.6,
+ "folders": [],
+ "services": [
+  {
+   "name": "Utilities/RasterUtilities",
+   "type": "GPServer"
+  }
+ ]
+}

@@ -1,0 +1,21 @@
+{
+ "layers": [
+  {
+   "layerId": 0,
+   "layerName": "auric.postgres.shendra_plots",
+   "layerType": "Feature Layer",
+   "minScale": 0,
+   "maxScale": 0,
+   "legend": [
+    {
+     "label": "Fire Fighting",
+     "url": "618c0eba9f301fb5c86dcb5068a423c4",
+     "imageData": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAD9JREFUOI1jYaAyYBk1cNRAMg38v5LhPzUMYwxnYGShlmEMDBCHUd/LjOEMjFT1MoxBDQMZGIZMshk1cHAZCAAlnwxRYcxBOQAAAABJRU5ErkJggg==",
+     "contentType": "image/png",
+     "height": 20,
+     "width": 20
+    }
+   ]
+  }
+ ]
+}

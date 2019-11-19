@@ -1,0 +1,549 @@
+<html lang="en" xml:lang="en">
+<!-- Mirrored from gis.auric.city/agserver/sdk/rest/02ss/02ss0000001v000000.htm by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 03:16:16 GMT -->
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="description" content="Generate Renderer (Map Service\Layer) http:// &amp;lt;layer-url&amp;gt;/generateRendererMap10.1 Description generateRenderer operation is performed on a layer / table resource. This operation groups data using the supplied classificationDef (classification definition) and an optional where clause. The result is a renderer object. Use baseSymbol and colorRamp to define the symbols assigned to each class. If the operation is performned on a table, the result is a renderer object containing the data classes and no symbols. You can provide arguments to the generateRenderer operation as query parameters defined"><meta name="content-language" content="en"><link href="rsrc/htmlhelp.html" rel="stylesheet" type="text/css"><title>ArcGIS REST API - ArcGIS Services - 
+   Generate Renderer (Map Service\Layer)</title>
+                <script type="text/javascript" language="JavaScript">
+                    var pathL  = self.location.pathname.split ("../../../../index.html");
+                    var fname = pathL[pathL.length-1];
+                    var i = fname.lastIndexOf (".htm");
+                    if (i>=0) {
+                    fname = fname.substring (0, i)
+                    } else {
+                    //??
+                    }
+                    if (self.location.hash) {
+				    		      fname = fname + self.location.hash;
+						        }
+                    self.location.replace ("../index.html#//" + fname);
+                </script>
+                </head><!--Publication GUID: [GUID-289408B4-3EC8-4C16-9DB8-B1778E780E58]--><!--Topic GUID: [GUID-115808C8-801D-4E38-8045-35D15DEFE5AA]--><body><div id="content"><div class="header"><h1>
+   Generate Renderer (Map Service\Layer)</h1><div id="breadcrumb"></div></div>
+    <div class="restmd" purpose="restmd"><ul purpose="restmd" class="restmd list-plain"><li><span class="restkey post-1">URL:</span><span class="restval">http:// <a class="xref" rel="02ss/02ss00000089000000.htm" href="02ss/02ss00000089000000.html">&lt;layer-url&gt;</a>/generateRenderer<span class="restverb"></span><br></span></li><li><span class="restkey post-1">Required Capability:</span><span class="restval">Map</span></li><li><span class="restkey post-1">Version Introduced:</span><span class="restval">10.1</span></li></ul></div>
+    <div class="section1" id="GUID-BB6D740C-A97B-40DD-BA95-8FAACC4BBC88" purpose="section1"><h2>Description</h2><p id="GUID-019872C0-7E6C-48D8-B186-78090A083F51"><span class="usertext">generateRenderer</span> operation is performed on a <a class="xref" rel="02ss/02ss00000089000000.htm" href="02ss/02ss00000089000000.html">layer / table resource</a>. This operation groups data using the
+supplied <span class="usertext">classificationDef</span> (classification definition)
+and an optional <span class="usertext">where</span> clause. The result is a <a class="xref" rel="02ss/02ss0000002v000000.htm" href="02ss/02ss0000002v000000.html">renderer</a> object. Use <span class="usertext">baseSymbol</span> and
+<span class="usertext">colorRamp</span> to define the symbols assigned to each
+class. If the operation is performned on a table, the result is a
+<a class="xref" rel="02ss/02ss0000002v000000.htm" href="02ss/02ss0000002v000000.html">renderer</a> object containing the data classes and no symbols.</p><p id="GUID-DF0106B8-E65F-4E63-AD61-1DF06B9FE0C5">You can provide arguments to the <span class="usertext">generateRenderer</span>
+operation as query parameters defined in the parameters table
+below.</p><div class="notes" id="GUID-063B8D99-04FA-4B4A-9A94-DCD8D78CC506"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody"><p id="GUID-CDCE3CDF-9015-4383-99FE-D1EA0C220AD5">When generating a  class breaks renderer map server uses <span class="usertext">maxSampleSize</span> configuration property set on the map service to determine the number of records to sample. In rare cases these classes might not include the  minimum or maximum value in the data.  </p></div></div></div>
+    <div class="section1" id="GUID-25172F14-1F62-44EE-BBB7-9A51D529416E" purpose="section1"><h2>
+        Request Parameters
+      </h2><p id="GUID-C6ADE2BD-0465-428C-BB9D-AB6BAF578627">
+        <div class="block_table" id="GUID-48CD1C19-BED5-4947-9787-C6510A2357CD" purpose="block_table"><span class="table_title"></span><table class="table"><colgroup width="200pt"></colgroup><colgroup width="*"></colgroup><tr purpose="thead"><th class="th" purpose="th" rowspan="1" colspan="1">
+                  <p id="GUID-8FBF35B8-5658-4392-82C5-4325224F0094">Parameter</p>
+                </th><th class="th" purpose="th" rowspan="1" colspan="1">
+                  <p id="GUID-DC09AEE6-9E75-453E-92EE-682035451C77">Details</p>
+                </th></tr><tbody>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">f</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-90462ED9-36F8-4E5C-8291-EA1127B25255">Description: The response format. The default response format is html.</p><p id="GUID-7B110E0A-C4A5-4E30-87A6-6F5A6FBD64EF">Values: html | json</p>
+                </td>
+              </tr><tr><td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">classificationDef</span>
+                </td><td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-FEE627E1-73B0-4349-B428-37E4373BBCC0">Description: The definition using which the parameter is generated.</p><p id="GUID-BC5448E9-6FC0-4B38-AFB1-B9A5F7862924"><div class="notes" id="GUID-D0E57525-74BA-4B1C-AC4D-EC6F2A036B29"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody"><p id="GUID-AFFA5F39-7B03-4678-8E4E-843DA5561FCF">Use either one of <span class="usertext">ClassBreaks</span> or <span class="usertext">UniqueValue</span> classification definition.</p><p id="GUID-9B61C8EC-CB2D-44A4-9AAD-D37F4BD3A943">Syntax: <span class="usertext">classificationDef = </span><a class="xref" rel="02ss/02ss00000007000000.htm" href="02ss/02ss00000007000000.html">classification definition</a></p></div></div></p>
+                <p id="GUID-9309FE12-F0E6-4F93-A87E-0B8D2B4EA490">Example: <div class="codeblock" purpose="codeblock"><div class="codeblockdesc" purpose="codeblockdesc"></div><div class="highlight"><pre><code>//classBreaks classification definition
+classificationDef = {
+  &quot;type&quot;: &quot;classBreaksDef&quot;,
+  &quot;classificationField&quot;: &quot;POP2010&quot;,
+  &quot;classificationMethod&quot;: &quot;esriClassifyNaturalBreaks&quot;,
+  &quot;breakCount&quot;: 5,
+  &quot;normalizationType&quot;: &quot;esriNormalizeByField&quot;,
+  &quot;normalizationField&quot;: &quot;Area&quot;
+}
+
+//uniqueValue classification definition with symbology
+classificationDef = {
+  &quot;type&quot;: &quot;uniqueValueDef&quot;,
+  &quot;uniqueValueFields&quot;: [&quot;Type&quot;, &quot;AdminClass&quot;],
+  &quot;fieldDelimiter&quot;: &quot;,&quot;,
+  &quot;baseSymbol&quot;:
+  {
+    &quot;type&quot;: &quot;esriSLS&quot;,
+    &quot;style&quot;: &quot;esriSLSSolid&quot;,
+    &quot;width&quot;: 2
+  },
+  &quot;colorRamp&quot;:
+  {
+    &quot;type&quot;: &quot;algorithmic&quot;,
+    &quot;fromColor&quot;: [115,76,0,255],
+    &quot;toColor&quot;: [255,25,86,255],
+    &quot;algorithm&quot;: &quot;esriHSVAlgorithm&quot;
+  }
+}
+</code></pre></div>
+</div></p></td></tr><tr><td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">where</span>
+                </td><td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-650DC1DA-9456-4F2D-89B2-3AA560696CE8">Description: A where clause for which the data needs to be classified. Any legal SQL where clause operation on the fields in the layer/table is allowed.</p><p id="GUID-668717DC-7541-4A9B-98D4-83D2DC8CF582">Example: <div class="codeblock" purpose="codeblock"><div class="codeblockdesc" purpose="codeblockdesc"></div><div class="highlight"><pre><code>where = POP2000 &gt; 350000
+</code></pre></div>
+</div></p>
+                </td></tr><tr><td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">gdbVersion</span>
+                </td><td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-625F3BFE-77FA-4AC5-B3A6-441B405C2AFF">Description: GeoDatabase version to query. This parameter applies only if <span class="usertext">hasVersionedData</span> property of the service and <span class="usertext">isDataVersioned</span> property of the layer(s) queried are <span class="usertext">true</span>. If this is not specified, query will apply to published map's version.</p><p id="GUID-2D248B5B-DAFC-4705-AEFC-F73EFFB1978E">Syntax: <span class="usertext">gdbVersion=&lt;geodatabase version&gt;</span></p>
+                <p id="GUID-C7E0C897-86CF-4E56-BE51-DD988C1B47D6">Example: <span class="usertext">gdbVersion=sde.USER1</span></p></td></tr>
+            </tbody><caption class="table_desc"></caption></table></div>
+      </p></div>
+    
+    <div class="section1" id="GUID-4CF7791E-AB08-41BB-BE12-917CCC0C8F3A" purpose="section1"><h2>Example Usage</h2><p id="GUID-7E5793EF-0580-4291-BC75-316F22AA6B65">
+         Example 1: Generate Renderer using a unique value classification definition, when baseSymbol is missing then map server would assign an appropriate baseSymbol:</p><p id="GUID-A32DE898-90DA-4504-88DB-6C4712FC406A"><a target="_blank" class="xref" href="http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/3/generateRenderer?classificationDef={%22type%22:%22uniqueValueDef%22,%22uniqueValueFields%22:[%22sub_region%22],%22fieldDelimiter%22:%20%22,%20%22,%20%22colorRamp%22:{%22type%22:%22algorithmic%22,%22fromColor%22:[115,76,0,255],%22toColor%22:[255,25,86,255],%22algorithm%22:%20%22esriHSVAlgorithm%22}}&amp;where=&amp;gdbVersion=&amp;f=pjson" rel="http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/3/generateRenderer?classificationDef={&quot;type&quot;:&quot;uniqueValueDef&quot;,&quot;uniqueValueFields&quot;:[&quot;sub_region&quot;],&quot;fieldDelimiter&quot;:%20&quot;,%20&quot;,%20&quot;colorRamp&quot;:{&quot;type&quot;:&quot;algorithmic&quot;,&quot;fromColor&quot;:[115,76,0,255],&quot;toColor&quot;:[255,25,86,255],&quot;algorithm&quot;:%20&quot;esriHSVAlgorithm&quot;}}&amp;where=&amp;gdbVersion=&amp;f=pjson">http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/3/generateRenderer?classificationDef={"type":"uniqueValueDef","uniqueValueFields":["sub_region"],"fieldDelimiter": ", ", "colorRamp":{"type":"algorithmic","fromColor":[115,76,0,255],"toColor":[255,25,86,255],"algorithm": "esriHSVAlgorithm"}}&amp;where=&amp;gdbVersion=&amp;f=pjson</a></p><p id="GUID-356C361E-FF2A-40E6-B1BB-2A28B5A9200A">
+Example 2: Generate Renderer using a class breaks
+classification definition:</p><p id="GUID-BCAAB7E3-C326-4DE9-B90B-A8DD5747592C"><a target="_blank" class="xref" href="http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/3/generateRenderer?classificationDef={%22breakCount%22:5,%22type%22:%22classBreaksDef%22,%22classificationField%22:%22pop2007%22,%22classificationMethod%22:%22esriClassifyQuantile%22,%22baseSymbol%22:{%22type%22:%22esriSMS%22,%22style%22:%22esriSMSSquare%22,%22color%22:[56,125,221,255],%22size%22:10.5,%22angle%22:23,%22xOffset%22:-10,%22yOffset%22:null,%22outline%22:null}}&amp;where=&amp;gdbVersion=&amp;f=pjson" rel="http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/3/generateRenderer?classificationDef={%22breakCount%22:5,%22type%22:%22classBreaksDef%22,%22classificationField%22:%22pop2007%22,%22classificationMethod%22:%22esriClassifyQuantile%22,%22baseSymbol%22:{%22type%22:%22esriSMS%22,%22style%22:%22esriSMSSquare%22,%22color%22:[56,125,221,255],%22size%22:10.5,%22angle%22:23,%22xOffset%22:-10,%22yOffset%22:null,%22outline%22:null}}&amp;where=&amp;gdbVersion=&amp;f=pjson">http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/3/generateRenderer?classificationDef={"breakCount":5, "type":"classBreaksDef","classificationField":"pop2007","classificationMethod":"esriClassifyQuantile","baseSymbol":{"type":"esriSMS","style":"esriSMSSquare","color":[56,125,221,255],"size":10.5,"angle":23,"xOffset":-10,"yOffset":null,"outline":null}}&amp;where=&amp;gdbVersion=&amp;f=pjson</a></p></div>
+    <div class="section1" id="GUID-33AB7F97-9553-4C59-9073-69C884EE3B01" purpose="section1"><h2>JSON Response Syntax (when classificationDef type is uniqueValueDef)
+</h2><p id="GUID-97575E81-B5B2-445B-90DA-952A5EF9F565">
+        <div class="codeblock" purpose="codeblock">
+          <div class="codeblockdesc" purpose="codeblockdesc">
+            
+          </div>
+          <div class="highlight"><pre><code><span class="p">{</span>
+  <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;uniqueValue&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;field1&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;field1&gt;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;field2&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;field2&gt;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;field3&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;field3&gt;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;fieldDelimiter&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;fieldDelimiter&gt;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;defaultSymbol&quot;</span> <span class="o">:</span>  <span class="o">&lt;</span><span class="nx">symbol</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="s2">&quot;defaultLabel&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;defaultLabel&gt;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;uniqueValueInfos&quot;</span> <span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;value&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;value1&gt;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;count&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;number of features with value1&gt;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;label&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;label1&gt;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;description&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;description1&gt;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;symbol&quot;</span> <span class="o">:</span>  <span class="o">&lt;</span><span class="nx">symbol1</span><span class="o">&gt;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;value&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;value2&gt;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;count&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;number of features with value2&gt;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;label&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;label2&gt;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;description&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;description2&gt;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;symbol&quot;</span> <span class="o">:</span>  <span class="o">&lt;</span><span class="nx">symbol2</span><span class="o">&gt;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+        </div>
+      </p></div>
+    <div class="section1" id="GUID-3D2DA457-FC77-4A92-904D-A0E6F02C5D07" purpose="section1"><h2>JSON Response Example (when classificationDef type is uniqueValueDef)
+</h2><p id="GUID-331A27EA-909B-4A6F-A3F9-B8539D69B5B8">
+        <div class="codeblock" purpose="codeblock">
+          <div class="codeblockdesc" purpose="codeblockdesc">
+            
+          </div>
+          <div class="highlight"><pre><code><span class="p">{</span>
+ <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;uniqueValue&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;field1&quot;</span><span class="o">:</span> <span class="s2">&quot;sub_region&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;field2&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;field3&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;fieldDelimiter&quot;</span><span class="o">:</span> <span class="s2">&quot;, &quot;</span><span class="p">,</span>
+ <span class="s2">&quot;defaultSymbol&quot;</span><span class="o">:</span> <span class="p">{</span>
+  <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSFS&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSFSSolid&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="p">[</span>
+   <span class="mi">110</span><span class="p">,</span>
+   <span class="mi">110</span><span class="p">,</span>
+   <span class="mi">110</span><span class="p">,</span>
+   <span class="mi">255</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;outline&quot;</span><span class="o">:</span> <span class="p">{</span>
+   <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSLS&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSLSSolid&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="mi">0</span><span class="p">,</span>
+    <span class="mi">255</span>
+   <span class="p">],</span>
+   <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="mi">1</span>
+  <span class="p">}</span>
+ <span class="p">},</span>
+ <span class="s2">&quot;defaultLabel&quot;</span><span class="o">:</span> <span class="s2">&quot;\u003call other values\u003e&quot;</span><span class="p">,</span>
+ <span class="s2">&quot;uniqueValueInfos&quot;</span><span class="o">:</span> <span class="p">[</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;East North Central&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;count&quot;</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+   <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;East North Central&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;symbol&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSFS&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSFSSolid&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;outline&quot;</span><span class="o">:</span> <span class="p">{</span>
+     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSLS&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSLSSolid&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">255</span>
+     <span class="p">],</span>
+     <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="p">[</span>
+     <span class="mi">115</span><span class="p">,</span>
+     <span class="mi">77</span><span class="p">,</span>
+     <span class="mi">0</span><span class="p">,</span>
+     <span class="mi">255</span>
+    <span class="p">]</span>
+   <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;East South Central&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;count&quot;</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
+   <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;East South Central&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;symbol&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSFS&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSFSSolid&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;outline&quot;</span><span class="o">:</span> <span class="p">{</span>
+     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSLS&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSLSSolid&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">255</span>
+     <span class="p">],</span>
+     <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="p">[</span>
+     <span class="mi">92</span><span class="p">,</span>
+     <span class="mi">130</span><span class="p">,</span>
+     <span class="mi">3</span><span class="p">,</span>
+     <span class="mi">255</span>
+    <span class="p">]</span>
+   <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;Middle Atlantic&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;count&quot;</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+   <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Middle Atlantic&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;symbol&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSFS&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSFSSolid&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;outline&quot;</span><span class="o">:</span> <span class="p">{</span>
+     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSLS&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSLSSolid&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">255</span>
+     <span class="p">],</span>
+     <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="p">[</span>
+     <span class="mi">14</span><span class="p">,</span>
+     <span class="mi">148</span><span class="p">,</span>
+     <span class="mi">4</span><span class="p">,</span>
+     <span class="mi">255</span>
+    <span class="p">]</span>
+   <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;Mountain&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;count&quot;</span><span class="o">:</span> <span class="mi">8</span><span class="p">,</span>
+   <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Mountain&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;symbol&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSFS&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSFSSolid&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;outline&quot;</span><span class="o">:</span> <span class="p">{</span>
+     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSLS&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSLSSolid&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">255</span>
+     <span class="p">],</span>
+     <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="p">[</span>
+     <span class="mi">7</span><span class="p">,</span>
+     <span class="mi">166</span><span class="p">,</span>
+     <span class="mi">97</span><span class="p">,</span>
+     <span class="mi">255</span>
+    <span class="p">]</span>
+   <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;New England&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;count&quot;</span><span class="o">:</span> <span class="mi">6</span><span class="p">,</span>
+   <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;New England&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;symbol&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSFS&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSFSSolid&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;outline&quot;</span><span class="o">:</span> <span class="p">{</span>
+     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSLS&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSLSSolid&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">255</span>
+     <span class="p">],</span>
+     <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="p">[</span>
+     <span class="mi">9</span><span class="p">,</span>
+     <span class="mi">149</span><span class="p">,</span>
+     <span class="mi">184</span><span class="p">,</span>
+     <span class="mi">255</span>
+    <span class="p">]</span>
+   <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;Pacific&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;count&quot;</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+   <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Pacific&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;symbol&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSFS&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSFSSolid&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;outline&quot;</span><span class="o">:</span> <span class="p">{</span>
+     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSLS&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSLSSolid&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">255</span>
+     <span class="p">],</span>
+     <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="p">[</span>
+     <span class="mi">14</span><span class="p">,</span>
+     <span class="mi">45</span><span class="p">,</span>
+     <span class="mi">201</span><span class="p">,</span>
+     <span class="mi">255</span>
+    <span class="p">]</span>
+   <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;South Atlantic&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;count&quot;</span><span class="o">:</span> <span class="mi">9</span><span class="p">,</span>
+   <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;South Atlantic&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;symbol&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSFS&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSFSSolid&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;outline&quot;</span><span class="o">:</span> <span class="p">{</span>
+     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSLS&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSLSSolid&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">255</span>
+     <span class="p">],</span>
+     <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="p">[</span>
+     <span class="mi">112</span><span class="p">,</span>
+     <span class="mi">18</span><span class="p">,</span>
+     <span class="mi">219</span><span class="p">,</span>
+     <span class="mi">255</span>
+    <span class="p">]</span>
+   <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;West North Central&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;count&quot;</span><span class="o">:</span> <span class="mi">7</span><span class="p">,</span>
+   <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;West North Central&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;symbol&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSFS&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSFSSolid&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;outline&quot;</span><span class="o">:</span> <span class="p">{</span>
+     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSLS&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSLSSolid&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">255</span>
+     <span class="p">],</span>
+     <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="p">[</span>
+     <span class="mi">237</span><span class="p">,</span>
+     <span class="mi">21</span><span class="p">,</span>
+     <span class="mi">216</span><span class="p">,</span>
+     <span class="mi">255</span>
+    <span class="p">]</span>
+   <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="s2">&quot;West South Central&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;count&quot;</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
+   <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;West South Central&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;symbol&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSFS&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSFSSolid&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;outline&quot;</span><span class="o">:</span> <span class="p">{</span>
+     <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSLS&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;style&quot;</span><span class="o">:</span> <span class="s2">&quot;esriSLSSolid&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">0</span><span class="p">,</span>
+      <span class="mi">255</span>
+     <span class="p">],</span>
+     <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;color&quot;</span><span class="o">:</span> <span class="p">[</span>
+     <span class="mi">255</span><span class="p">,</span>
+     <span class="mi">25</span><span class="p">,</span>
+     <span class="mi">87</span><span class="p">,</span>
+     <span class="mi">255</span>
+    <span class="p">]</span>
+   <span class="p">}</span>
+  <span class="p">}</span>
+ <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+        </div>
+      </p></div>
+  <div class="section1" id="ESRI_SECTION1_DB322E12627446A1BC275F471F585F42" purpose="section1"><h2>JSON Response Syntax (when classificationDeftype is <i>classBreaksDef</i>)</h2><p id="GUID-477C2AC0-9DDA-4CDA-8350-E49E3F9B344D"><div class="codeblock" purpose="codeblock"><div class="codeblockdesc" purpose="codeblockdesc"></div><div class="highlight"><pre><code>{
+  &quot;type&quot; : &quot;classBreaks&quot;,
+  &quot;field&quot; : &quot;&lt;field&gt;&quot;,
+  &quot;classificationMethod&quot; : &quot;&lt;classification method&gt;&quot;, 
+  &quot;normalizationType&quot; : &quot;&lt;esriNormalizeByField | esriNormalizeByLog | esriNormalizeByPercentOfTotal&gt;&quot;,
+  &quot;normalizationField&quot; : &quot;&lt;normalization field&gt;&quot;, //when normalizationType is esriNormalizeByField
+  &quot;normalizationTotal&quot; : &lt;total value&gt;, //when normalizationType is esriNormalizeByPercentOfTotal
+  &quot;minValue&quot; : &lt;minValue&gt;,
+  &quot;classBreakInfos&quot; : [
+    {
+      &quot;classMinValue&quot; : &lt;classMinValue1&gt;, //optional
+      &quot;classMaxValue&quot; : &lt;classMaxValue1&gt;,
+      &quot;label&quot; : &quot;&lt;label1&gt;&quot;,
+      &quot;description&quot; : &quot;&lt;description1&gt;&quot;,
+      &quot;symbol&quot; :  &lt;symbol1&gt;
+    },
+    {
+      &quot;classMinValue&quot; : &lt;classMinValue2&gt;,
+      &quot;classMaxValue&quot; : &lt;classMaxValue2&gt;,
+      &quot;label&quot; : &quot;&lt;label2&gt;&quot;,
+      &quot;description&quot; : &quot;&lt;description2&gt;&quot;,
+      &quot;symbol&quot; :  &lt;symbol2&gt;
+    }
+  ]
+}
+</code></pre></div>
+</div></p></div><div class="section1" id="ESRI_SECTION1_803DF714BB5F4441BDF20455C52650C9" purpose="section1"><h2>JSON Response Example (when classificationDeftype is <i>classBreaksDef</i>)</h2><p id="GUID-12401EB0-1F7C-4322-8448-B7B5958CBE25"><div class="codeblock" purpose="codeblock"><div class="codeblockdesc" purpose="codeblockdesc"></div><div class="highlight"><pre><code>{
+ &quot;type&quot;: &quot;classBreaks&quot;,
+ &quot;field&quot;: &quot;pop2007&quot;,
+ &quot;minValue&quot;: 523174,
+ &quot;classBreakInfos&quot;: [
+  {
+   &quot;classMaxValue&quot;: 1352536,
+   &quot;label&quot;: &quot;523174 - 1352536&quot;,
+   &quot;description&quot;: &quot;&quot;,
+   &quot;symbol&quot;: {
+    &quot;type&quot;: &quot;esriSMS&quot;,
+    &quot;style&quot;: &quot;esriSMSSquare&quot;,
+    &quot;size&quot;: 10.5,
+    &quot;angle&quot;: 23,
+    &quot;xoffset&quot;: -10,
+    &quot;yoffset&quot;: 0,
+    &quot;color&quot;: [
+     0,
+     255,
+     0,
+     255
+    ]
+   }
+  },
+  {
+   &quot;classMaxValue&quot;: 2969306,
+   &quot;label&quot;: &quot;1352537 - 2969306&quot;,
+   &quot;description&quot;: &quot;&quot;,
+   &quot;symbol&quot;: {
+    &quot;type&quot;: &quot;esriSMS&quot;,
+    &quot;style&quot;: &quot;esriSMSSquare&quot;,
+    &quot;size&quot;: 10.5,
+    &quot;angle&quot;: 23,
+    &quot;xoffset&quot;: -10,
+    &quot;yoffset&quot;: 0,
+    &quot;color&quot;: [
+     0,
+     255,
+     128,
+     255
+    ]
+   }
+  },
+  {
+   &quot;classMaxValue&quot;: 5360578,
+   &quot;label&quot;: &quot;2969307 - 5360578&quot;,
+   &quot;description&quot;: &quot;&quot;,
+   &quot;symbol&quot;: {
+    &quot;type&quot;: &quot;esriSMS&quot;,
+    &quot;style&quot;: &quot;esriSMSSquare&quot;,
+    &quot;size&quot;: 10.5,
+    &quot;angle&quot;: 23,
+    &quot;xoffset&quot;: -10,
+    &quot;yoffset&quot;: 0,
+    &quot;color&quot;: [
+     0,
+     255,
+     255,
+     255
+    ]
+   }
+  },
+  {
+   &quot;classMaxValue&quot;: 8891611,
+   &quot;label&quot;: &quot;5360579 - 8891611&quot;,
+   &quot;description&quot;: &quot;&quot;,
+   &quot;symbol&quot;: {
+    &quot;type&quot;: &quot;esriSMS&quot;,
+    &quot;style&quot;: &quot;esriSMSSquare&quot;,
+    &quot;size&quot;: 10.5,
+    &quot;angle&quot;: 23,
+    &quot;xoffset&quot;: -10,
+    &quot;yoffset&quot;: 0,
+    &quot;color&quot;: [
+     0,
+     128,
+     255,
+     255
+    ]
+   }
+  },
+  {
+   &quot;classMaxValue&quot;: 37483448,
+   &quot;label&quot;: &quot;8891612 - 37483448&quot;,
+   &quot;description&quot;: &quot;&quot;,
+   &quot;symbol&quot;: {
+    &quot;type&quot;: &quot;esriSMS&quot;,
+    &quot;style&quot;: &quot;esriSMSSquare&quot;,
+    &quot;size&quot;: 10.5,
+    &quot;angle&quot;: 23,
+    &quot;xoffset&quot;: -10,
+    &quot;yoffset&quot;: 0,
+    &quot;color&quot;: [
+     0,
+     0,
+     255,
+     255
+    ]
+   }
+  }
+ ]
+}
+</code></pre></div>
+</div></p></div><div class="footer"> Copyright © 1995-2017 Esri. All rights reserved. </div></div></body>
+<!-- Mirrored from gis.auric.city/agserver/sdk/rest/02ss/02ss0000001v000000.htm by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 03:16:17 GMT -->
+</html>

@@ -1,0 +1,106 @@
+{
+ "currentVersion": 10.6,
+ "folders": [],
+ "services": [
+  {
+   "name": "Auric_Setback_2019/Access_tapping_0214_1",
+   "type": "FeatureServer"
+  },
+  {
+   "name": "Auric_Setback_2019/Access_tapping_0214_1",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric_Setback_2019/Access_tapping_0214_2",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric_Setback_2019/Access_tapping_0214_3",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric_Setback_2019/Access_tapping_0214_4",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric_Setback_2019/Access_tapping_0214_5",
+   "type": "FeatureServer"
+  },
+  {
+   "name": "Auric_Setback_2019/Access_tapping_0214_5",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric_Setback_2019/Access_tapping_0214_8",
+   "type": "FeatureServer"
+  },
+  {
+   "name": "Auric_Setback_2019/Access_tapping_0214_8",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric_Setback_2019/Access_tapping_0214_accesspoint",
+   "type": "FeatureServer"
+  },
+  {
+   "name": "Auric_Setback_2019/Access_tapping_0214_accesspoint",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric_Setback_2019/Access_tapping_0214_tapping_point_1",
+   "type": "FeatureServer"
+  },
+  {
+   "name": "Auric_Setback_2019/Access_tapping_0214_tapping_point_1",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric_Setback_2019/Access_tapping_0214_tapping_point",
+   "type": "FeatureServer"
+  },
+  {
+   "name": "Auric_Setback_2019/Access_tapping_0214_tapping_point",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric_Setback_2019/Access_tapping_0214",
+   "type": "FeatureServer"
+  },
+  {
+   "name": "Auric_Setback_2019/Access_tapping_0214",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric_Setback_2019/Access_tapping_02262019",
+   "type": "FeatureServer"
+  },
+  {
+   "name": "Auric_Setback_2019/Access_tapping_02262019",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric_Setback_2019/Auric_0206_1",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric_Setback_2019/Auric_0206_",
+   "type": "FeatureServer"
+  },
+  {
+   "name": "Auric_Setback_2019/Auric_0206_",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric_Setback_2019/Auric_0206",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric_Setback_2019/Auric_Host_8",
+   "type": "FeatureServer"
+  },
+  {
+   "name": "Auric_Setback_2019/Auric_Host_8",
+   "type": "MapServer"
+  }
+ ]
+}

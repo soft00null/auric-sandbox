@@ -1,0 +1,33 @@
+{
+ "culture": "en-US",
+ "name": "rec_water_line_V3",
+ "guid": "0B381D32-2098-495D-82CB-57F764B1DE4D",
+ "catalogPath": "",
+ "snippet": "",
+ "description": "",
+ "summary": "",
+ "title": "rec_water_line_V3",
+ "tags": [],
+ "type": "Map Service",
+ "typeKeywords": [
+  "Data",
+  "Service",
+  "Map Service",
+  "ArcGIS Server"
+ ],
+ "thumbnail": "thumbnail/thumbnail.png",
+ "url": "",
+ "extent": [
+  [
+   75.505326891,
+   19.8687954230001
+  ],
+  [
+   75.5546381090001,
+   19.8918361890001
+  ]
+ ],
+ "spatialReference": "GCS_WGS_1984",
+ "accessInformation": "",
+ "licenseInfo": ""
+}

@@ -1,0 +1,14 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+gis.auric.city	TRUE	/agserver/rest	FALSE	1999999999	AGS_ROLES	419jqfa+uOZgYod4xPOQ8Q=="
+www.auric.city	TRUE	/	FALSE	1999999999	SERVERID	web1
+servicesappauric.auric.city	TRUE	/	FALSE	1999999999	SERVERID	web1
+lms.auric.city	TRUE	/	FALSE	1999999999	SERVERID	web1
+lms.auric.city	TRUE	/	FALSE	1999999999	PHPSESSID	eq3ar0cg84ngsgcrq556dr3ftm
+servicesappauric.auric.city	TRUE	/	FALSE	1999999999	PHPSESSID	fes2mdl79rek3mder2odmaiv3c
+www.auric.city	TRUE	/	FALSE	1999999999	PHPSESSID	urlg5nh40sk3noaqftchqeehpd
+.facebook.com	TRUE	/	FALSE	1999999999	sb	rlfTXYX6tcgJJtycE3UTaG5r
+.google.com	TRUE	/	FALSE	1999999999	NID	191=oiTlYWlSduNIXnZ3XcEkIDg4TYqKGLmxVRNwlWs8Wo-BMtxrPp3XUJZ-sZzeG2mpVqjKMFXAY_TidoKhqnoZnyR-Rk01NoyqrIL6GYhEd1f-Al6xbPHCFrvbkQXfC8xqv_oCD210r-IDfEuEzzAm78YORpo6wXWZqq21-OFwZ3U
+accounts.google.com	TRUE	/	FALSE	1999999999	GAPS	1:1GgHu9wTALcB7-Nc8P0_ntgdXsVvVw:AIcdJvBNpi9zxRmi
+accounts.google.com	TRUE	/	FALSE	1999999999	Priority	HIGH
+

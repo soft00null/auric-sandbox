@@ -1,0 +1,339 @@
+  
+    <!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from www.auric.city/smart-login by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 02:24:36 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>AURIC - Aurangabad Industrial City | Maharashtra</title>
+<!-- custom-theme -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="title" content="AURIC - Aurangabad Industrial City  Maharashtra, Shendra, Bidkin, AURIC,AITL, Investment Opportunity, Industry in Maharastra, Industrial Smart City, DMIC, MIDC, Shendra industrial area in aurangabad">
+<meta name="keywords" content="AURIC - Aurangabad Industrial City  Maharashtra, Shendra, Bidkin, AURIC, AITL, Investment Opportunity, Industry in Maharastra, Industrial Smart City, DMIC, MIDC, Industrial Smart in India, Industrial Smart Aurangabad, Shendra industrial area in aurangabad, The Golden Address, Ease of Doing Business, Quality of Life, Master Plan">
+<meta name="description" content="AURIC is a planned & greenfield smart industrial city developed across 10,000 acres in Maharashtra, as part of the Delhi-Mumbai Industrial Corridor (DMIC).">
+<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+<!-- //custom-theme -->
+<!--<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">	
+<link href="css/owl.carousel.css" rel="stylesheet" type="text/css" media="all" />
+<!--<link href="css/owl.theme.default.css" rel="stylesheet" type="text/css" media="all" />-->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/auric.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/form.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/custom1.css" rel="stylesheet" type="text/css" media="all" />
+
+<link href="css/custom.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/hover.css" rel="stylesheet" type="text/css" media="all" />
+<!--<link href="css/font-awesome.css" rel="stylesheet" type="text/css" media="all" />-->
+<link href="css/blog.css" rel="stylesheet" type="text/css" media="all" />
+<link href="css/icomoon.css" rel="stylesheet" />
+<!-- js -->
+
+
+<!-- //js -->
+<!-- font-awesome-icons -->
+<!--<link href="css/font-awesome.css" rel="stylesheet"> -->
+<!-- //font-awesome-icons -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<!--<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>-->
+<script src="https://code.jquery.com/jquery-2.1.4.min.js" integrity="sha256-8WqyJLuWKRBVhxXIL1jBDD7SDxU936oZkCnxQbWwJVw=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/jquery.liMarquee.js"></script>
+
+
+</head>
+<body><style>
+.contentWrapper {padding-top: 0;}
+</style>
+<link href="css/auric-login.css" rel="stylesheet" type="text/css">
+<!-- <script src="https://servicesappauric.auric.city/js/md5.js"></script> -->
+<!-- <script src="https://servicesappauric.auric.city/js/validatorchklist.js"></script> -->
+<!--<script src="https://servicesappauric.auric.city/js/loadComponent.js"></script>-->
+<script src="js/loadJson.js"></script>
+<!-- <script src="js/bootstrap.min.js"></script> -->
+<form method="post" name="frm-auric" id="frm-auric" enctype="multipart/form-data" autocomplete="off">
+<input type="hidden" name="txtUserName" id="hUsername">
+<input type="hidden" name="txtPassword" id="hPassword">
+
+<script type="text/javascript" language="JavaScript">
+  $("#frm-auric").submit(function() {
+    $("#hUsername").val($("#txtUserName").val());
+    $("#hPassword").val($("#txtPassword").val());
+  });
+  $("#txtUserName,#txtPassword").keypress(function(e) {
+    if (e.which == 13) {
+      $("#frm-auric").submit();
+    }
+  });
+</script>
+<!-- NODE SOCKET -->
+<!-- <script src="SMART_CARD_NODE_URL/socket.io/socket.io.js"></script> -->
+<script type="text/javascript">
+  $(function () {
+    $('#txtUserName').focus();
+    
+    // var socket = io.connect("SMART_CARD_NODE_URL",{reconnect:true});
+    // socket.on("connect", function () {
+    //  console.log("connected..")
+    // });
+    // socket.on("getSmartCard", function (data) {
+    //  console.log(data);
+    //  // console.log( _.size(data) );
+    //  getQrData(data);
+    // });
+    // socket.on("disconnect", function () {
+    // });
+
+    $("#qrRed").click(function(){
+
+      var qrdata = $("#hdn_qr").val();
+      var smartUrl = '../servicesappauric.auric.city/smartCardValidate.html';
+      var smartUrl = smartUrl+'/'+ qrdata;
+      
+      if (!blankCheck('txtUserName', 'QR code cannot be left blank'))
+        return false;
+
+      if(qrdata!='')
+      {
+        window.location.href = smartUrl;
+      }
+
+    });
+    scanresult();
+  });
+
+  function scanresult() 
+  {
+    // do whatever you like here
+    var encText = $("#txtUserName").val().trim();
+    if(encText !='')
+    {
+      //getQrData(encText);
+      //var smartUrl = '';
+      //var smartUrl = smartUrl+'/'+ encText;
+      //window.location.href = smartUrl;
+      $("form").attr("action","../servicesappauric.auric.city/smartCardValidate.html");
+      $("form").submit();
+      //$("#txtUserName").val('');
+    }  
+    //console.log(dd);
+    setTimeout(scanresult, 5000);
+  }
+  
+</script>
+<!-- NODE SOCKET -->
+  <div class="contentWrapper">
+    <section class="grievancelogin active innerpage">
+      <div class="container logincontainer">
+        <div class="row">
+          <div class="col-md-3 col-md-offset-2 col-sm-4 col-sm-offset-1 loginbluebg">
+           <a href="index.html" title="Home" class="back-home"><i class="fa fa-home " aria-hidden="true"></i></a> 
+            <a href="apply-login.html" title="Back to previous" class="back-prev"><i class="fa fa-reply" aria-hidden="true"></i></a>
+            <div class="clearfix"></div>
+            <span class="logobg"> <img src="images/auric_logo2.jpg" alt="AURIC" title="AURIC" class="login-logo"> <!--<h5>e-Land Management System, AITL</h5>--></span> 
+             <span class="logo-img"> <img src="images/auriclogo.jpg" border="0" align="absmiddle" alt="AURIC"></span>                       
+			   <div class="clearfix"></div>
+			</div>
+          <div class="col-md-5 col-sm-6 padding0 loginpanelnew">
+            <!-- <div class="loginBox"> -->
+            <div>
+              <div class="panel panel-login  page-height">
+                <h2 id="loginTitle">Login to AURIC Portal</h2>
+                <h2 id="passwordTitle" style="display:none;">Get to your password</h2>
+                <div class="panel-body">
+                  <div class="form-group input-group-lg" id="userID">
+                    <div class="col-sm-12 inputbox">
+                      <div class="input-group">
+                        <input type="text" class="form-control" id="txtUserName" name="txtUserName" autocomplete="off" required onmouseover="this.focus();">
+                        <a href="javascript:void(0);" id="qrRed" class="input-group-addon" style="color: #064469;"><i class="fa fa-arrow-circle-right"></i></a>
+                        <input type="hidden" name="hdn_type" value="99">
+                      </div>
+                      <input type="hidden" id="hdn_qr" value="">
+                      <div class="text-center" style="padding-top: 5px;">
+                          Please Scan your card through QR Code Scanner  
+                        </div>
+                    </div>
+                  </div>
+                 
+                  
+                  <div class="form-group">
+                    <div class="col-sm-12 inputbox text-center">
+                      <b style="font-size: 1.5em;">OR</b><br/>
+                      <a href="smart-loginCam.html" class="btnlogin">Use Webcam to scan your card</a>
+                      <input type="hidden" name="hdn_qs" id="hdn_qs">
+                    </div>
+
+                    <div class="clearfix"></div>
+                  </div>
+                  
+                 <div class="form-group mb0" >
+                    <div class="col-sm-6 col-xs-12 inputbox">
+                      <div class="">
+                       
+                      </div>
+                    </div>
+                    <div class="col-sm-6 col-xs-12 inputbox">  </div>
+                    <div class="clearfix"></div>
+                  </div>
+                </div>
+                
+																<div class="panel-footer" style="display: ">
+									<div class="row">
+										<div class="col-sm-7 col-xs-12">
+											<h4>New user ?</h4> Click for Register to Apply &amp; Access Services
+										</div>
+										<div class="col-sm-5 col-xs-12">
+											
+											<a href="apply-register/5.html" class="btnlogin btnregister pull-right m-r-10">Click to register</a>
+											
+										</div>
+										<div class="clearfix"></div>
+									</div>
+								</div>
+								              </div>
+              <div class="clearfix hidden-sm" style="height: 20px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="clearfix"></div>
+    <div class="loginfooter"> <span class="text-center text-white">&copy; 2019, Aurangabad Industrial Township Ltd. All Rights Reserved.</span>
+      <div class="clearfix"></div>
+      <span class="text-center text-white footersmalltxt">Design &amp; Developed by <a href="http://www.csmpl.com/" title="CSM Technologies" target="_blank" class="text-white">CSM Technologies</a></span> </div>
+  </div>
+  <div class="modal fade in" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" >
+    <div class="modal-dialog">
+      <div class="modal-content text-center">
+        <div class="modal-body no-padding">
+          <h2 class="alertMessage"></h2>
+          <div class="form-group">
+            <div class="center"> <a class=" btn btn-danger btn-sm" id="btnAlertOk" style="width:100px; margin-top:30px;">Ok</a> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<script>
+	
+	$( document ).ready( function () {	
+		
+		if($('.loginbluebg').height() <= $('.loginpanelnew').height()) {
+			$('.loginbluebg').height($('.loginpanelnew').height() - 50);
+		}	
+			
+		
+	});
+	
+	
+	//======== Function for get cookie value By Ashok Kumar Samal On 01/02/2018 =========
+function removeCookie(cname) 
+{    
+  document.cookie = cname+"=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+}
+  function setCookie(cname,cvalue,exdays) 
+{
+  removeCookie(cname);
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays*60*60*1000));
+  var expires = "expires=" + d.toGMTString();
+  document.cookie = cname+"="+cvalue+"; "+expires;
+}
+function getCookie(cname) 
+{
+  var name = cname + "=";
+  var ca = document.cookie.split(';');
+  for(var i=0; i<ca.length; i++) 
+  {
+    var c = ca[i];
+    while (c.charAt(0)==' ') c = c.substring(1);
+    if (c.indexOf(name) != -1) 
+    {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+	
+	function validator(flag)
+	{
+		if (flag == 1) {
+			if (!blankCheck('txtUserName', 'User Id cannot be left blank'))
+				return false;
+			if (!checkSpecialChar('txtUserName'))
+				return false;
+			if (!maxLength('txtUserName', 50, 'User Id'))
+				return false;
+			if (!blankCheck('txtPassword', 'Password cannot be left blank'))
+				return false;
+			if (!checkSpecialChar('txtPassword'))
+				return false;
+			if (!maxLength('txtPassword', 30, 'Password'))
+				return false;
+			if (!blankCheck('txtCaptcha', 'Captcha code cannot be left blank'))
+				return false;			
+			
+			$('#hdn_qs').val('L');
+			$('form').submit();
+		} else if (flag == 2) {
+			if (!blankCheck('txtEmailID', 'Email ID cannot left blank'))
+				return false;
+			if (!validEmail('txtEmailID'))
+				return false;
+
+			/*if (!blankCheck('txtMobNo', 'Mobile Number cannot left blank'))
+			 return false;*/
+
+			if (!checkSpecialChar('txtMobNo'))
+				return false;
+			if (!validateNumber('txtMobNo'))
+				return false;
+			if (!equalLength('txtMobNo', 10, 'Mobile Number'))
+				return false;
+
+			if (!blankCheck('txtCaptcha', 'Captcha code cannot left blank'))
+				return false;
+			$('#hdn_qs').val('F');
+			$('form').submit();
+		}
+	}
+	
+	
+            function viewAlert(msg, ctrlId, redLoc)
+            {
+                $('#btnAlertOk').off('click');
+                if (typeof (ctrlId) == 'undefined')
+                {
+                    ctrlId = '';
+                }
+                if (typeof (redLoc) == 'undefined')
+                {
+                    redLoc = '';
+                }
+                //$('#alertModal').modal({backdrop: 'static', keyboard: false});
+                $('#alertModal').show();
+                $('.alertMessage').html(msg);
+                $('#btnAlertOk').on('click', function () 
+                {
+                    $('#alertModal').hide();
+                    if (ctrlId != '')
+                    {
+                        $(".form-content").hide();
+                        $("#" + ctrlId).closest(".form-content").show();
+                        $('#' + ctrlId).focus();
+                        $("hr").css('border-bottom', '1px solid #ccc');
+                        $('#' + ctrlId).closest(".form-group").next('hr').css('border-bottom', '1px solid #f00');
+                        $('#' + ctrlId).closest('.widget-main').css('border', '1px solid #f59942');
+                        scrollToPosition(ctrlId);
+                    }
+                    if (redLoc != '')
+                    {
+                        window.location.href = redLoc;
+                    }
+                });
+
+            }
+</script> 

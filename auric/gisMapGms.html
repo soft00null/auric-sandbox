@@ -1,0 +1,2509 @@
+  
+    
+<!DOCTYPE HTML>
+<html>
+
+<!-- Mirrored from www.auric.city/gisMapGms by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 03:00:46 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+<title>AURIC :: GIS</title>
+<link rel="stylesheet" href="https://js.arcgis.com/4.5/esri/css/main.css">
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<!--<link rel="stylesheet" href="css/font-awesome.css" />-->
+
+<html class="no-js">
+<!--<![endif]-->
+<link rel="stylesheet" href="css/jqueryui.min.css" />
+<link rel="stylesheet" href="css/jquery-ui-slider-pips.min.css" />
+<script src="../servicesappauric.auric.city/js/jquery-2.1.1.js"></script>
+<script src="js/modernizr.js"></script>
+<script src="js/jquery-plus-ui.min.js"></script>
+<script src="js/jquery-ui-slider-pips.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+var allotedArr				= '';
+var mapClickEvt				= true;
+var distanceClickEvt		= false;
+var areaClickEvt			= false;
+var applyShow;
+
+var selectedLandUse = top.$('#selCatProp option:selected').text();
+var selLandUse = top.$('#selCatProp option:selected').val();
+
+//var serviceURL_GIS = "http://service.auric.city/mypgq.php";
+var serviceURL_GIS = "../gis.auric.city/service/mypgq.html";
+
+var serviceURL = "gisproxy.html";
+//var serviceURL = "http://52.172.218.218/Auric_MSI/gisproxy";
+
+    var topUrl      = top.window.location.pathname;
+    var hostName    = top.window.location.hostname;
+    var splitLen    = 2;
+    if (hostName.toLowerCase() == 'www.lms.auric.city' || hostName.toLowerCase() == 'lms.auric.city')
+    {
+        splitLen    = 1;
+    }
+    var pageName    = topUrl.split('index.html')[splitLen];
+    var ventureType = top.$('#selVentureType').val();
+    $(document).ready(function() 
+    {
+ //console.log('Testing data GMS');
+        $('#smallMenu').on('click', function() {
+            $('#gisMenu').slideToggle();
+        });
+   
+
+        if (Number(ventureType) > 0) {
+            if (Number(ventureType) <= 117) {
+                $('#chkMSMEAvail').click();
+            } else {
+                $('#chkMegaAvail').click();
+            }
+        }
+
+        if (selLandUse > 0) {
+            $('#chkAvailPlot').click();
+            $('.landUse').each(function() {
+                if (Number($(this).data('annexure')) == selLandUse) {
+                    $(this).click();
+                }
+            });
+        }
+
+        if (pageName == 'landApplication') {
+            $('.header').hide();
+        } 
+        else 
+        {
+            $('.header').hide();
+        }
+
+
+        var windHeight = $(window).height();
+        //$('#viewDiv').css('height',Number(windHeight)-45);
+        //$('#leftPane').css('height',Number(windHeight)-80);
+        $('#viewDiv').css('height', '95vh');
+        $('#leftPane').css('height', '85vh');
+        //$('#viewDiv').hide();
+        //$('#leftPane').hide();
+        $(".accordion").on('click', function()
+        {
+            //$('.panel').hide();
+            $(".accordion").removeClass("active");
+            $(this).toggleClass("active");
+            $(this).next().slideToggle();
+        });
+
+        $('#legendIcon').on('click', function()
+        {
+    		if($('#measure-button').hasClass('active'))
+    		{
+    			$('#measure-button').click();
+    		}
+            $('.esri-basemap-gallery').hide();
+            $('.esri-legend').toggle();
+            $('#basemapIcon').removeClass('active');
+            $(this).toggleClass('active');
+        });
+        $('#basemapIcon').on('click', function() 
+        {
+    		if($('#measure-button').hasClass('active'))
+    		{
+    			$('#measure-button').click();
+    		}
+            $('.esri-legend').hide();
+            $('.esri-basemap-gallery').toggle();
+            $('#legendIcon').removeClass('active');
+            $(this).toggleClass('active');
+        });
+        $('#measure-button').on('click', function() 
+        {
+            $('.esri-legend').hide();
+            $('.esri-basemap-gallery').hide();
+            $('.divMeasurement').toggle();
+            $('#legendIcon').removeClass('active');
+            $('#basemapIcon').removeClass('active');
+            $(this).toggleClass('active');
+        });
+
+
+    });// end Document ready 
+
+    var  addrFlag = '0';
+    function fillData(sector, plot, lat, lon, gisAddr,road) 
+    {
+
+        //alert(gisAddr);
+       // console.log(sector+"=="+plot+"=="+road);
+
+        if(plot==null)
+        {
+            var jstr = JSON.parse(sector);    
+            //console.log(jstr)
+                     $('#secPlotModal').modal('show');
+                    
+                     $('#loadSecPlot').html('')
+                     var tempHTML="";
+                     for(var i=0;i<jstr.length;i++){
+                         tempHTML+='<li><i class="fa fa-angle-right" aria-hidden="true"></i> <a href="javascript:void(0)" class="seleSecPlot" data-sector="'+jstr[i].sector+'" data-plot="'+jstr[i].plot+'">Sector: <span>'+jstr[i].sector+'</span>, Plot: <span>'+jstr[i].plot+'</span></li></a>';
+                      }
+                     
+                     $('#loadSecPlot').append(tempHTML);
+                     $('.seleSecPlot').on('click', function() {
+                        top.$('#selSector').val($(this).data('sector'));
+                        top.$('#selPlots').val($(this).data('plot'));
+                        $('#secPlotModal').modal('hide');
+                    });        
+        }
+        else
+        {
+            top.$('#selSector').val(sector);
+            top.$('#selPlots').val(plot);
+        }
+
+
+    	
+    	top.$('#txtLat').val(lat+'/'+lon);
+        var addr='';
+        if(road!='')
+        {          
+            addr= "Road : "+ road+ " ;"+ gisAddr;
+        }
+        else
+        {
+            addr= gisAddr;
+             //alert("2nd"+gisAddr+"=="+addr);
+        }
+        //console.log('0');
+        if(addrFlag==0){
+            var existAaddr = '';//top.$('#location').val();
+            top.$('#location').val(existAaddr+" "+addr);
+         }else{
+            addrFlag=0;
+         }
+        top.$('#gisModal').modal('hide');
+      
+        screen_width = document.documentElement.clientWidth;
+        screen_heght = document.documentElement.clientHeight;
+       
+        if(screen_width<900)
+        {
+                android.fillData(sector+'~'+plot+'~'+lat+'~'+lon+'~'+addr);
+                // $('.esri-popup').hide();
+         }   
+                //$('.esri-popup').find('div.esri-popup__button').trigger('click');
+
+                
+    }
+
+
+</script>
+<style>
+
+@font-face {
+    font-family: Gotham-Book;
+    src: url('fonts/Gotham-Book.otf');
+}
+body {font-family: 'Gotham-Book';}
+.ui-slider-tip{width:auto!important; padding:0px 5px;}
+
+.header {
+    background-color: #064469;
+    height: 40px;
+    padding: 4px 0px 0px 10px;
+}
+.nav-pills > li > a {
+    border-radius: 0px;
+}
+.nav > li > a {
+    border-bottom: none;
+	padding:5px 15px;
+}
+.esri-widget select {
+    margin: 5px 0px 0px 0px;}
+.nav {border-bottom: 1px solid #337ab7;}
+.header img {
+    max-height: 100%;
+}
+
+.header a {
+    color: #fff;
+}
+
+#legendDiv {
+    max-height: 400;
+    overflow: auto;
+}
+
+button.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 5px 10px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+    font-weight: bold;
+}
+
+button.accordion.active,
+button.accordion:hover {
+    background-color: #ddd;
+}
+
+div.panel {
+    padding: 0 18px;
+    /*display: none;*/
+    background-color: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    margin-top: -5px;
+    margin-bottom: 0px;
+    padding-top: 10px;
+}
+
+.ui-accordion-content {
+    height: auto!important;
+}
+
+.panel ul {
+    list-style: none;
+    margin-left: -40px;
+}
+
+label {
+    
+    font-weight: 400;
+}
+
+#divLoader {
+    position: absolute;
+    z-index: 1000;
+    /*top: 45%;
+    left: 45%;*/
+	background-color: #ccc;
+    height: 100vh;
+    width: 100%;
+    opacity: 0.3;
+	padding-top:20%;
+	padding-left:45%;
+}
+
+#divLoader i {
+    font-size: 40px;
+    color: #fff;
+}
+
+.esri-legend,
+.esri-basemap-gallery {
+    display: none;
+}
+
+.esri-view-height-less-than-medium .esri-popup__main-container {
+    max-height: 300px!important;
+    width: 420px;
+}
+
+.bookPlot {
+    color: #fff!important;
+    background-color: #064469;
+    text-decoration: none!important;
+}
+
+.toolbox {
+    position: relative;
+    z-index: 100;
+    margin-bottom: -30px;
+    margin-right: 15px;
+}
+
+.toolbox .btn.active {
+    background-color: #f0eef0;
+}
+
+.esri-ui-top-right {
+    top: -13px;
+}
+
+.esri-ui-top-right .esri-widget {
+    padding-top: 30px;
+}
+
+.divMeasurement {
+    position: absolute;
+    right: 15px;
+    z-index: 2;
+    background: #fff;
+    padding: 35px 5px 5px 5px;
+    min-width: 240px;
+}
+
+.esri-legend__layer-cell img {
+    background-color: #000;
+}
+
+#smallMenu {
+    display: none;
+}
+
+.esri-widget table tr td,
+.esri-widget table tr th {
+    padding: 0.2em .7em;
+    font-size: 11px;
+}
+.gis-menu{width:280px;float:left; padding:0px 5px; margin:0px 20px 0px 0px;z-index: 99;position: relative;}
+.circle{width: 14px; height: 14px; border-radius: 50%; display: inline-block; margin: 2px 4px 0px 0px;}
+.commercial{background: #006fff;}
+.industrial{background: #a31fcd;}
+.pap{background: #d7a6df;}
+.paplad{background: #d7a6df;}
+.public{background: #ff5500;}
+.residential{background: #ffff74;}
+.road{background: #9c9c9c;}
+.open-space{background: #98e600;}
+.btn-auric-yellow, .btn-auric-yellow:hover {
+    background-color: #D4AB32;
+    border-color: #D4AB32;
+    color: #FFFFFF;
+}
+.divFilterData{display:none;position:absolute; left:360px; z-index:1; top:35px;}
+#gisMenu {display: none;}
+@media (min-width: 1280px) {
+	.divFilterData {left: 360px;}
+}
+@media (max-width: 1024px) {
+    body {font-size: 12px;}
+	.gis-menu{width:250px;}
+	.divFilterData {left: 340px;}
+}
+
+@media (max-width: 790px) {
+    #gisMenu {display: none;}
+    #smallMenu {display: inline-block;}
+	.gis-menu{width:100%;float:none;}
+	.divFilterData {left: 6%;}
+}
+
+@media (max-width: 650px) {
+	.divFilterData {display:none;}
+}
+input[type="checkbox"] {
+  display: none;
+}
+label {
+  cursor: pointer;
+}
+input[type="checkbox"] + label:before {
+  border: 1px solid #333;
+  content: "\00a0";
+  display: inline-block;
+  font: 16px/1em sans-serif;
+  height: 16px;
+  margin: 0 .25em 0 0;
+  padding: 0;
+  vertical-align: top;
+  width: 16px;
+}
+input[type="checkbox"]:checked + label:before {
+  background: #026fa7;
+  color: #fff;
+  content: "\2713";
+  text-align: center;
+}
+input[type="checkbox"]:checked + label:after {
+  font-weight: bold;
+}
+#secPlotModal .modal-dialog { width:450px;}
+#secPlotModal .modal-header { background:#013C60; color:#fff; padding: 5px 15px;}
+#secPlotModal .modal-header .close {color: #fff; filter: alpha(opacity=50); opacity: .5;}
+#secPlotModal .modal-header .close:hover { filter: alpha(opacity=20); opacity: .2;}
+#secPlotModal .modal-header h4 { font-size: 18px; }
+#secPlotModal .modal-dialog ul { list-style-type: none; margin: 0px; padding:0px;}
+#secPlotModal .modal-dialog ul li { margin-bottom:2px;}
+
+</style>
+<script src="https://js.arcgis.com/4.5/"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSefk3FdAr4w97kUXeHmy-YqXx2icWYEs"></script>
+<script>
+
+    
+
+
+/*var plotLayerURL = "https://gis.auric.city/agserver/rest/services/Auric/shendra_boundary_V2/MapServer";
+var roadLayerURL = "https://gis.auric.city/agserver/rest/services/Auric/Shendra_roads_V2/MapServer";
+var openLayerURL = "https://gis.auric.city/agserver/rest/services/Auric/openspace_v2/MapServer";
+var availableLayerURL = "https://gis.auric.city/agserver/rest/services/Auric/availablePlots_v1/MapServer"; // not created due to no data
+var notAvailLayerURL = "https://gis.auric.city/agserver/rest/services/Auric/notAvailablePlots_V2/MapServer";
+var allottedLayerURL = "https://gis.auric.city/agserver/rest/services/Auric/Allotted_plot_V2/MapServer";
+var allottedBlankLayerURL = "https://gis.auric.city/agserver/rest/services/Auric/Allotted_plot_blank_V2/MapServer";
+var queryLayerURL = "https://gis.auric.city/agserver/rest/services/Auric/Shendra_plot_V2/MapServer/0";
+var roadlayerURLNew="https://gis.auric.city/agserver/rest/services/Auric/Shendra_roads_new/MapServer";*/
+
+var plotLayerURL = "../gis.auric.city/agserver/rest/services/Auric/Shendra_plot_V3/MapServer.html";
+var roadLayerURL = "../gis.auric.city/agserver/rest/services/Auric/Shendra_roads_V3/MapServer.html";
+var openLayerURL = "../gis.auric.city/agserver/rest/services/Auric/openspace_v3/MapServer.html";
+var availableLayerURL = "../gis.auric.city/agserver/rest/services/Auric/availablePlots_V3/MapServer.html"; // not created due to no data
+var notAvailLayerURL = "../gis.auric.city/agserver/rest/services/Auric/notAvailablePlots_V3/MapServer.html";
+var allottedLayerURL = "../gis.auric.city/agserver/rest/services/Auric/Allotted_plot_V3/MapServer.html";
+var allottedBlankLayerURL = "../gis.auric.city/agserver/rest/services/Auric/Allotted_plot_blank_V3/MapServer.html";
+var queryLayerURL = "../gis.auric.city/agserver/rest/services/Auric/Shendra_plot_V3/MapServer/0.html";
+var roadlayerURLNew="../gis.auric.city/agserver/rest/services/Auric/Shendra_roads_new/MapServer.html";
+//var roadlayerURLNew= "https://gis.auric.city/agserver/rest/services/Auric/Shendra_roads_V2_test/MapServer"
+var sectorBoundary="../gis.auric.city/agserver/rest/services/Auric/sector_boundary_V3/MapServer.html";
+var queryLayerURLSector = "../gis.auric.city/agserver/rest/services/Auric/sector_boundary_V3/MapServer/0.html";
+var plotTextLayer = "../gis.auric.city/agserver/rest/services/Auric/Shendra_plot_V3_TextOnly/MapServer.html";
+var shendraBoundary="../gis.auric.city/agserver/rest/services/Auric/sector_boundary_base_V2/MapServer.html";
+var sectorTextOnly="../gis.auric.city/agserver/rest/services/Auric_Staging/sector_boundary_V3_text_staging/MapServer.html";
+var roadTrans="../gis.auric.city/agserver/rest/services/Auric/Shendra_roads_V2_new_blank/MapServer.html";
+
+require([
+    "esri/Map",
+    "esri/views/MapView",
+	"esri/core/watchUtils",
+    "esri/layers/FeatureLayer",
+    "esri/layers/MapImageLayer",
+    "esri/tasks/QueryTask",
+    "esri/tasks/support/Query",
+    "esri/Graphic",
+    "esri/geometry/Polygon",
+    "esri/symbols/SimpleFillSymbol",
+    "esri/widgets/Legend",
+    "esri/widgets/BasemapGallery",
+    "dojo/_base/array",
+
+    "esri/geometry/Polyline",
+    "esri/geometry/geometryEngine",
+    "esri/symbols/SimpleLineSymbol",
+    "dojo/dom",
+    "dojo/on",
+    "dojo/domReady!"
+], function(
+    Map, MapView, watchUtils, FeatureLayer, MapImageLayer, QueryTask, Query, Graphic, Polygon, SimpleFillSymbol, Legend, BasemapGallery, arrayUtils, Polyline, geometryEngine, SimpleLineSymbol, dom, on
+) {
+    var defaultZoom = 14;
+    var sectorZoom  = 15;
+    var plotZoom    = 18;
+    var peaksUrl = queryLayerURL;
+    var applyBtn = '';
+    var layer = new MapImageLayer({
+        url: plotLayerURL,
+        outFields: ["*"]
+    });
+    var roadLayer = new FeatureLayer({
+        url: roadLayerURL,
+        opacity: 0.5,
+        outFields: ["*"]
+    });
+    var layerRoadLine = new MapImageLayer({
+        url: roadlayerURLNew,
+        outFields: ["*"]
+    });
+    var openSpaceLayer = new FeatureLayer({
+        url: openLayerURL,
+        opacity: 0.5,
+        outFields: ["*"]
+    });
+    var allottedLayer = new MapImageLayer({
+        url: allottedLayerURL,
+        outFields: ["*"]
+    });
+    var allottedBlankLayer = new FeatureLayer({
+        url: allottedBlankLayerURL,
+        outFields: ["*"]
+    });
+    var availableLayer = new FeatureLayer({
+        url: availableLayerURL,
+        outFields: ["*"]
+    });
+    var notAvailableLayer = new FeatureLayer({
+        url: notAvailLayerURL,
+        outFields: ["*"]
+    });
+    var map = new Map({
+        basemap: "streets",
+        layers: [layer, roadLayer,layerRoadLine, openSpaceLayer,  allottedBlankLayer, availableLayer, notAvailableLayer]
+    });
+
+    var view = new MapView({
+        container: "viewDiv",
+        map: map,
+        center: [75.529, 19.879],
+        zoom: defaultZoom
+    });
+	$('#home-button').hide()
+	map.allLayers.on("change", function(event) {
+	});
+	//var zoomLevel=14
+	
+	
+	
+	
+	watchUtils.whenTrue(view, "stationary", function() {
+        // Get the new center of the view only when view is stationary. 
+		var zoomLevel=view.zoom;
+		if(Number(zoomLevel)!=Number(defaultZoom)){
+			$('#home-button').show()
+		}
+		else{
+			$('#home-button').hide()
+		}
+        //console.log(view.zoom)
+      });
+    var mapLocation;
+    view.on("click", function(event) {
+		if(mapClickEvt == true)
+		{
+			distanceClickEvt		= false;
+			areaClickEvt			= false;
+			mapLocation = event.mapPoint
+			view.hitTest(event)
+            .then(function(response) {
+                // do something with the result graphic
+                var graphic = response.results[0].graphic;
+                var attributes = graphic.attributes;
+
+                if(attributes.landuse=='Road' || attributes.landuse=='Open Space'){
+                    
+                    getNearestData(event, attributes,event.mapPoint.latitude,event.mapPoint.longitude)
+
+                 }
+                 else{
+                     getNearesRoad(event, attributes,attributes.sector,attributes.plot_numbe)
+                    
+                 }
+		
+                setTimeout(function() {               
+                   //showPopup(event, attributes)
+                }, 500);
+
+            });
+		}
+    });
+ var send_Data;
+function getNearestData(event, attributes,lat,lon){
+        var data = {
+                    "method": "check_road_sector_final_new",
+                    "lat": lat,
+                    "lon": lon
+                }
+                var settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "crossOrigin" : true,
+                    "url": serviceURL_GIS,
+                   //"url": "http://192.168.103.74/AITL/mypgq",
+                    "method": "POST",
+                    "headers": {
+                        "content-type": "application/json"
+                    },
+                    "processData": false,
+                    "data": JSON.stringify(data)
+                }
+
+                $.ajax(settings).done(function(response) {
+                    
+                   //console.log(JSON.parse(response));
+                   var jData=JSON.parse(response)
+var tmp=jData[0].check_road_sector_final_plot
+var tmp1=tmp.split(';')[0]
+var tmp2=tmp.split(';')[1]
+//console.log(JSON.parse(tmp1))
+//console.log(tmp2)
+
+
+                   // // var jData=JSON.parse(response)
+                   // // var data=jData[0].check_road_sector_final
+                   // //console.log(data)
+                   // //alert(data)
+                   //  var nearSec=data.split(';')[0];
+                   //  var nearRoad=data.split(';')[1];
+                   //  //alert(nearSec[0])
+                   //  var nearSec1=nearSec.split(',')
+                   //  var nearRoad1=nearRoad.split(',')
+                   //  var tSecArray=[];
+                   //  var tRoadArray=[];
+                  
+                   //  for(var i=0;i<nearSec1.length;i++){
+                   //      tSecArray.push(nearSec1[i])
+                   //      //console.log(nearSec1[i])
+                   //  }
+
+                   //  for(var j=0;j<nearRoad1.length;j++){
+                   //      tRoadArray.push(nearRoad1[j])
+                   //      //console.log(nearRoad1[j])
+                   //  }
+                   
+                    GetAddress(event, attributes,tmp1,tmp2)
+                  
+                });
+
+    }
+    function getNearesRoad(event,attributes,sec,plot){
+        var data = {
+                    "method": "return_road",
+                    "plot": plot,
+                    "sector": sec
+                }
+                var settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "crossOrigin" : true,
+                    "url": serviceURL_GIS,
+                   // "dataType": 'jsonp',
+                   //"url": "http://192.168.103.74/AITL/mypgq",
+                    "method": "POST",
+                    "headers": {
+                        "content-type": "application/json"
+                    },
+                    "processData": false,
+                    "data": JSON.stringify(data)
+                }
+
+                $.ajax(settings).done(function(response) {
+                    //console.log(response)
+                   var jData=JSON.parse(response)
+                   var roadData=jData[0].check_sector_near_road
+                    GetAddress(event, attributes,attributes.sector,roadData);
+                   //console.log(roadData)
+                   
+                });
+
+
+    }
+    function loadLocationData(lat,lon) {
+                view.graphics.removeAll();
+
+                ar = [];
+               
+                    var img = "markers/green.png";
+                    var point = {
+                        type: "point", // autocasts as new Point()
+                        longitude: lat,
+                        latitude: lon
+                    };
+                   
+                    var markerSymbol = {
+                        type: "picture-marker", // autocasts as new PictureMarkerSymbol()
+                        url: img,
+                        width: "24px",
+                        height: "24px"
+                    };
+
+                    var pointGraphic = new Graphic({
+                        geometry: point,
+                        symbol: markerSymbol
+                    });
+                    ar.push(pointGraphic)
+                //console.log(ar);
+                view.graphics.addMany(ar)
+            }
+
+
+//grievanceMapData(d)
+            function grievanceMapData(data) {
+                var settings = {
+                    "async": true,
+                    "crossDomain": true,
+                    "url": serviceURL,
+                    "method": "POST",
+                    "headers": {
+                        "content-type": "application/json"
+                    },
+                    "processData": false,
+                    "data": JSON.stringify(data)
+                }
+                
+                $.ajax(settings).done(function(response) 
+                {
+                    var data = JSON.parse(response);
+                    //console.log(data);
+                    if (data.getAllServices != undefined) 
+                    {
+                        loadGraphicData(data.getAllServices);
+                    } else {
+                        view.graphics.removeAll();
+                        //alert(data.errorMsg)
+                    }
+                    $('#divLoader').hide();
+
+                    //console.log(JSON.parse(response));
+                });
+                
+            }
+
+            // Load Graphics Data 
+             function loadGraphicData(obj) {
+                //console.log(obj);
+                view.graphics.removeAll();
+
+                ar = [];
+                for (var i = 0; i < obj.length; i++) {
+                    var img = "";
+                    var point = {
+                        type: "point", // autocasts as new Point()
+                        longitude: obj[i].longitude,
+                        latitude: obj[i].latitude
+                    };
+                  
+            var tempClass = 'style="font-weight:bold;"';
+                    if (obj[i].complain_status == 1) 
+                    {
+                        tempClass = 'style="color:#1081e0 ;font-weight:bold;"';
+                        img = "markers/1.png";
+                    } else if (obj[i].complain_status == 2) 
+                    {
+                        tempClass = 'style="color:#1d3a47 ;font-weight:bold;"';
+                        img = "markers/2.png";
+                    } else if (obj[i].complain_status == 3) 
+                    {
+                        tempClass = 'style="color:#d90022 ;font-weight:bold;"';
+                        img = "markers/3.png";
+                    }
+                    else if (obj[i].complain_status == 4) 
+                    {
+                        tempClass = 'style="color:#2200f2 ;font-weight:bold;"';
+                        img = "markers/4.png";
+                    }
+                    else if (obj[i].complain_status == 8) 
+                    {
+                        tempClass = 'style="color:#d90022 ;font-weight:bold;"';
+                        img = "markers/3.png";
+                    }
+                    else {
+                        tempClass = 'style="color:#92dd5a ;font-weight:bold;"';
+                        img = "markers/5.png";
+                    }
+
+
+
+
+
+                    var markerSymbol = {
+                        type: "picture-marker", // autocasts as new PictureMarkerSymbol()
+                        url: img,
+                        width: "48px",
+                        height: "48px"
+                    };
+					
+					if(obj[i].document!='')
+                        {
+                            imgFile = '<tr><td> Image </td><td><img height="100" width="100" src="'+obj[i].document+'"></td></tr>';
+                        }
+                        else
+                        {
+                            imgFile ='';
+                        }
+
+                    var titleData = obj[i].gms_type+"(#"+obj[i].ticket_no+")";
+                    var contentData = '<table cellpadding="5" cellspacing="5"><tbody><tr><th>Ticket No.</th><td>' + obj[i].ticket_no + '</td></tr><tr><th>Grievance Type</th><td>' + obj[i].gms_type + '</td></tr><tr><th>Department</th><td>' + obj[i].department_name + '</td></tr><tr><th>Complaint Mode</th><td>' + obj[i].complain_mode + '</td></tr><tr><th>Sector No.</th><td>' + obj[i].sector + '</td></tr><tr><th>Plot No.</th><td>' + obj[i].plot + '</td></tr><tr><th>Complaint On</th><td>' + obj[i].lodgedOn + '</td></tr><tr><th>Category</th><td>' + obj[i].category_name + '</td></tr><tr><th>Sub Category</th><td>' + obj[i].subcategory_name + '</td></tr><tr><th>Complaint By</th><td>' + obj[i].contact_person + '</td></tr><tr><th>Contact No.</th><td>' + obj[i].contact_no + '</td></tr><tr><th>e-Mail</th><td>' + obj[i].email + '</td></tr><tr><th>Status</th><td '+tempClass+'>' + obj[i].COMPLAINT_STATUS + '</td></tr><tr><th>Detail</th><td>' + obj[i].complain_details + '</td></tr>'+imgFile+'</tbody></table>';
+                    var pointGraphic = new Graphic({
+                        geometry: point,
+                        symbol: markerSymbol,
+                        popupTemplate: { // autocasts as new PopupTemplate()
+                            title: titleData,
+                            content: contentData
+                        }
+                    });
+                    if(i==0){
+                        view.popup.open({
+                    // Set the popup's title to the coordinates of the location
+                    title: titleData,
+                    content: contentData,
+                    location: point // Set the location of the popup to the clicked location
+                    });
+                    }
+                    ar.push(pointGraphic)
+                }
+                view.graphics.addMany(ar)
+                var tmpGeom=ar[0].geometry
+                view.goTo(tmpGeom); 
+                setTimeout(function() {
+                    view.zoom=18
+                }, 1000);
+            }
+
+
+function GetAddress(evt,data,sec,road) {
+       
+        var lat = evt.mapPoint.latitude;
+                var lon = evt.mapPoint.longitude ;
+                var address=""
+            var latlng = new google.maps.LatLng(lat, lon);
+                            loadLocationData(lon,lat);
+                            var geocoder = geocoder = new google.maps.Geocoder();
+            geocoder.geocode({ 'latLng': latlng }, function (results, status) {
+                if (status == google.maps.GeocoderStatus.OK) {
+                    if (results[1]) {
+                       
+                        address=results[1].formatted_address;
+                        showPopup(evt,data,address,sec,road)
+                        
+                    }
+                    else{
+                        
+                        showPopup(evt,data,'address not available',sec,road)
+                       
+                    }
+                }
+                else{
+                    
+                    showPopup(evt,data,'',sec,road)
+                }
+                
+            });
+            
+        }
+ 
+    function showPopup(evt,data,gisAddress='',sec,road) 
+    {
+       
+        var arrayOfStrings = road;
+        //alert(gisAddress);
+        
+       
+				// var lat = Math.round(evt.mapPoint.latitude * 1000) / 1000;
+    //     		var lon = Math.round(evt.mapPoint.longitude * 1000) / 1000;
+
+
+                var lat =evt.mapPoint.latitude;
+                var lon =evt.mapPoint.longitude;
+                var typeRoad= '';
+
+				var plotDetails	= '';
+                var applyShow;
+                if(data)
+                {    
+
+
+                    if(data.landuse == 'Road' )
+                    {
+                        var typeRoad = 'Near by ';
+                    }
+                    else
+                    {
+                        typeRoad= data.landuse
+                    }   
+
+    				if (data.landuse == 'Road' || data.landuse == 'Open Space')
+    				{
+    					plotDetails	= '<tr><th>Land Use</th><td><b>'+data.landuse+'</b></td></tr>';
+    				}
+    				else
+    				{
+
+
+    					plotDetails	= '<tr><th>Land Use</th><td><b>'+typeRoad+'</b></td></tr><tr><th>Sector</th><td><b><span id="secNo">'+data.sec+'</span></b></td></tr><tr><th>Plot</th><td><b><span id="plNo">'+data.plot_numbe+'</span></b></td></tr><tr><th>Address</th><td><b><span id="plNo">'+gisAddress+'</span></b></td></tr>';
+    				}
+
+                    if(data.sector==null)
+                    {
+
+                        applyShow = "<a id='gisTooltips' href='javascript:void(0);' class='btn btn-sm bookPlot' data-val='" + sec + "," + data.plot_numbe + "," + lat + "," + lon + ";' onclick='fillData(&quot;" + sec + "&quot;,&quot;" + data.plot_numbe + "&quot;, &quot;" + lat + "&quot;, &quot;" + lon + "&quot;, &quot;" + gisAddress + "&quot;,&quot;" + road + "&quot;);'> <i class='fa fa-arrow-right'></i></a>";
+                    }
+                else
+                    {
+                   
+                    road='';
+                    applyShow = "<a id='gisTooltips' href='javascript:void(0);' class='btn btn-sm bookPlot' data-val='" + data.sector + "," + data.plot_numbe + "," + lat + "," + lon + ";' onclick='fillData(&quot;" + data.sector + "&quot;,&quot;" + data.plot_numbe + "&quot;, &quot;" + lat + "&quot;, &quot;" + lon + "&quot;, &quot;" + gisAddress + "&quot;,&quot;" + road + "&quot;);'>  <i class='fa fa-arrow-right'></i></a>";
+                }
+				
+				var titleData	= 'Map Address';
+				var contentData	= '<table><tbody>'+plotDetails+'<tr><th>Lattitude</th><td><b>'+lat+'</b></td></tr><tr><th>Longitude</th><td><b>'+lon+'</b></td></tr></tbody></table>'+applyShow;	
+
+                //var arrayOfStrings = road.split(',');
+                //
+
+
+
+                                    if(data.sector==null){
+                        
+                        fillData(sec, data.plot_numbe , lat , lon ,' Address : '+gisAddress,arrayOfStrings );
+                    }
+                    else{
+                          
+                        fillData(data.sector, data.plot_numbe , lat , lon , typeRoad+' Plot, Address: '+gisAddress,arrayOfStrings );
+                    }
+                    
+                    
+               
+            }
+        }
+
+    /* var legend = new Legend({
+        view: view,
+        layerInfos: [{
+            layer: layer,
+            title: "Legend"
+        }]
+    }); 
+    view.ui.add(legend, "top-right");*/
+    var basemapGallery = new BasemapGallery({
+        view: view
+    });
+
+	//["Imagery","Open Street Map","Topographic","National Geographic","Streets"]
+    // Add the widget to the top-right corner of the view
+    view.ui.add(basemapGallery, "top-right");
+	view.ui.add("home-button", "top-left");
+    var qTask = new QueryTask({
+        url: peaksUrl
+    });
+    var params = new Query({
+        returnGeometry: true,
+        outFields: ["*"]
+    });
+
+
+
+    function filterFeatureData(landUseQry, availableQry, areaRange, areaFrom, areaTo, cornerVal) {
+
+                masterdataTemp = []
+                if (availableQry != '' && landUseQry != '' && areaRange != '') {
+                    if (cornerVal != '') {
+                        if (type == "1") {
+                            for (var i = 0; i < masterData.length; i++) {
+                                if (masterData[i].availablestatus == "1" && landArray.indexOf(masterData[i].landuse) != -1 && masterData[i].area_sqm >= Number(areaFrom) && masterData[i].area_sqm <= Number(areaTo) && masterData[i].cornerplot == cornerVal) {
+                                    masterdataTemp.push(masterData[i])
+                                }
+                            }
+                        } else if (type == "2") {
+                            for (var i = 0; i < masterData.length; i++) {
+                                if ((masterData[i].availablestatus == "1" && masterData[i].landuse == "Industrial") && landArray.indexOf(masterData[i].landuse) != -1 && masterData[i].area_sqm >= Number(areaFrom) && masterData[i].area_sqm <= Number(areaTo) && masterData[i].cornerplot == cornerVal) {
+                                    masterdataTemp.push(masterData[i])
+                                }
+                            }
+                        } else if (type == "3") {
+                            for (var i = 0; i < masterData.length; i++) {
+                                if ((masterData[i].allotmentstatus == 'Not Allotted' && masterData[i].landuse == "Industrial") && landArray.indexOf(masterData[i].landuse) != -1 && masterData[i].area_sqm >= Number(areaFrom) && masterData[i].area_sqm <= Number(areaTo) && masterData[i].cornerplot == cornerVal) {
+                                    masterdataTemp.push(masterData[i])
+                                }
+                            }
+                        }
+                        //sectorDropdown()
+                    } else {
+                        if (type == "1") {
+                            for (var i = 0; i < masterData.length; i++) {
+                                if (masterData[i].availablestatus == "1" && landArray.indexOf(masterData[i].landuse) != -1 && masterData[i].area_sqm >= Number(areaFrom) && masterData[i].area_sqm <= Number(areaTo)) {
+                                    masterdataTemp.push(masterData[i])
+                                }
+                            }
+                        } else if (type == "2") {
+                            for (var i = 0; i < masterData.length; i++) {
+                                if ((masterData[i].availablestatus == "1" && masterData[i].landuse == "Industrial") && landArray.indexOf(masterData[i].landuse) != -1 && masterData[i].area_sqm >= Number(areaFrom) && masterData[i].area_sqm <= Number(areaTo)) {
+                                    masterdataTemp.push(masterData[i])
+                                }
+                            }
+                        } else if (type == "3") {
+                            for (var i = 0; i < masterData.length; i++) {
+                                if ((masterData[i].allotmentstatus == 'Not Allotted' && masterData[i].landuse == "Industrial") && landArray.indexOf(masterData[i].landuse) != -1 && masterData[i].area_sqm >= Number(areaFrom) && masterData[i].area_sqm <= Number(areaTo)) {
+                                    masterdataTemp.push(masterData[i])
+                                }
+                            }
+                        }
+                        //sectorDropdown()
+                    }
+                } else if (availableQry == '' && landUseQry != '' && areaRange != '') {
+                    if (cornerVal != '') {
+                        for (var i = 0; i < masterData.length; i++) {
+                            if (landArray.indexOf(masterData[i].landuse) != -1 && masterData[i].area_sqm >= Number(areaFrom) && masterData[i].area_sqm <= Number(areaTo) && masterData[i].cornerplot == cornerVal) {
+                                masterdataTemp.push(masterData[i])
+                            }
+                        }
+                        //sectorDropdown()
+                    } else {
+                        for (var i = 0; i < masterData.length; i++) {
+                            if (landArray.indexOf(masterData[i].landuse) != -1 && masterData[i].area_sqm >= Number(areaFrom) && masterData[i].area_sqm <= Number(areaTo)) {
+                                masterdataTemp.push(masterData[i])
+                            }
+                        }
+                        //sectorDropdown()
+                    }
+
+                } else if (availableQry != '' && landUseQry == '' && areaRange != '') {
+
+                    if (cornerVal != '') {
+                        if (type == "1") {
+                            for (var i = 0; i < masterData.length; i++) {
+                                if (masterData[i].availablestatus == "1" && masterData[i].area_sqm >= Number(areaFrom) && masterData[i].area_sqm <= Number(areaTo) && masterData[i].cornerplot == cornerVal) {
+                                    masterdataTemp.push(masterData[i])
+                                }
+                            }
+                        } else if (type == "2") {
+                            for (var i = 0; i < masterData.length; i++) {
+                                if ((masterData[i].availablestatus == "1" && masterData[i].landuse == "Industrial") && masterData[i].area_sqm >= Number(areaFrom) && masterData[i].area_sqm <= Number(areaTo) && masterData[i].cornerplot == cornerVal) {
+                                    masterdataTemp.push(masterData[i])
+                                }
+                            }
+                        } else if (type == "3") {
+                            for (var i = 0; i < masterData.length; i++) {
+                                if ((masterData[i].allotmentstatus == 'Not Allotted' && masterData[i].landuse == "Industrial") && masterData[i].area_sqm >= Number(areaFrom) && masterData[i].area_sqm <= Number(areaTo) && masterData[i].cornerplot == cornerVal) {
+                                    masterdataTemp.push(masterData[i])
+                                }
+                            }
+                        }
+
+                        //sectorDropdown()
+                    } else {
+                        if (type == "1") {
+                            for (var i = 0; i < masterData.length; i++) {
+                                if (masterData[i].availablestatus == "1" && masterData[i].area_sqm >= Number(areaFrom) && masterData[i].area_sqm <= Number(areaTo)) {
+                                    masterdataTemp.push(masterData[i])
+                                }
+                            }
+                        } else if (type == "2") {
+                            for (var i = 0; i < masterData.length; i++) {
+                                if ((masterData[i].availablestatus == "1" && masterData[i].landuse == "Industrial") && masterData[i].area_sqm >= Number(areaFrom) && masterData[i].area_sqm <= Number(areaTo)) {
+                                    masterdataTemp.push(masterData[i])
+                                }
+                            }
+                        } else if (type == "3") {
+                            for (var i = 0; i < masterData.length; i++) {
+                                if ((masterData[i].allotmentstatus == 'Not Allotted' && masterData[i].landuse == "Industrial") && masterData[i].area_sqm >= Number(areaFrom) && masterData[i].area_sqm <= Number(areaTo)) {
+                                    masterdataTemp.push(masterData[i])
+                                }
+                            }
+                        }
+
+                        //sectorDropdown()
+                    }
+
+                } else if (availableQry != '' && landUseQry != '' && areaRange == '') {
+
+                    if (cornerVal != '') {
+                        if (type == "1") {
+                            for (var i = 0; i < masterData.length; i++) {
+                                if (masterData[i].availablestatus == "1" && landArray.indexOf(masterData[i].landuse) != -1 && masterData[i].cornerplot == cornerVal) {
+                                    masterdataTemp.push(masterData[i])
+                                }
+                            }
+                        } else if (type == "2") {
+                            for (var i = 0; i < masterData.length; i++) {
+                                if ((masterData[i].availablestatus == "1" && masterData[i].landuse == "Industrial") && landArray.indexOf(masterData[i].landuse) != -1 && masterData[i].cornerplot == cornerVal) {
+                                    masterdataTemp.push(masterData[i])
+                                }
+                            }
+                        } else if (type == "3") {
+                            for (var i = 0; i < masterData.length; i++) {
+                                if ((masterData[i].allotmentstatus == 'Not Allotted' && masterData[i].landuse == "Industrial") && landArray.indexOf(masterData[i].landuse) != -1 && masterData[i].cornerplot == cornerVal) {
+                                    masterdataTemp.push(masterData[i])
+                                }
+                            }
+                        }
+
+                        //sectorDropdown()
+                    } else {
+                        if (type == "1") {
+                            for (var i = 0; i < masterData.length; i++) {
+                                if (masterData[i].availablestatus == "1" && landArray.indexOf(masterData[i].landuse) != -1) {
+                                    masterdataTemp.push(masterData[i])
+                                }
+                            }
+                        } else if (type == "2") {
+                            for (var i = 0; i < masterData.length; i++) {
+                                if ((masterData[i].availablestatus == "1" && masterData[i].landuse == "Industrial") && landArray.indexOf(masterData[i].landuse) != -1) {
+                                    masterdataTemp.push(masterData[i])
+                                }
+                            }
+                        } else if (type == "3") {
+                           
+                            for (var i = 0; i < masterData.length; i++) {
+                                if ((masterData[i].allotmentstatus == 'Not Allotted' && masterData[i].landuse == "Industrial") && landArray.indexOf(masterData[i].landuse) != -1) {
+                                    masterdataTemp.push(masterData[i])
+                                }
+                            }
+                        }
+
+                        //sectorDropdown()
+                    }
+
+                } else if (availableQry == '' && landUseQry == '' && areaRange != '') {
+                    if (cornerVal != '') {
+                        for (var i = 0; i < masterData.length; i++) {
+                            if (masterData[i].area_sqm >= Number(areaFrom) && masterData[i].area_sqm <= Number(areaTo) && masterData[i].cornerplot == cornerVal) {
+                                masterdataTemp.push(masterData[i])
+                            }
+                        }
+                        //sectorDropdown()
+                    } else {
+                        for (var i = 0; i < masterData.length; i++) {
+                            if (masterData[i].area_sqm >= Number(areaFrom) && masterData[i].area_sqm <= Number(areaTo)) {
+                                masterdataTemp.push(masterData[i])
+                            }
+                        }
+                        //sectorDropdown()
+                    }
+
+                } else if (availableQry != '' && landUseQry == '' && areaRange == '') {
+                    if (cornerVal != '') {
+                        if (type == "1") {
+                            for (var i = 0; i < masterData.length; i++) {
+                                if (masterData[i].availablestatus == "1" && masterData[i].cornerplot == cornerVal) {
+                                    masterdataTemp.push(masterData[i])
+                                }
+                            }
+                        } else if (type == "2") {
+                            for (var i = 0; i < masterData.length; i++) {
+                                if ((masterData[i].availablestatus == "1" && masterData[i].landuse == "Industrial") && masterData[i].cornerplot == cornerVal) {
+                                    masterdataTemp.push(masterData[i])
+                                }
+                            }
+                        } else if (type == "3") {
+                            for (var i = 0; i < masterData.length; i++) {
+                                if ((masterData[i].allotmentstatus == 'Not Allotted' && masterData[i].landuse == "Industrial") && masterData[i].cornerplot == cornerVal) {
+                                    masterdataTemp.push(masterData[i])
+                                }
+                            }
+                        }
+
+                        //sectorDropdown()
+                    } else {
+
+                        if (type == "1") {
+                            for (var i = 0; i < masterData.length; i++) {
+                                if (masterData[i].availablestatus == "1") {
+                                    masterdataTemp.push(masterData[i])
+                                }
+                            }
+                        } else if (type == "2") {
+                            for (var i = 0; i < masterData.length; i++) {
+                                if (masterData[i].availablestatus == "1" && masterData[i].landuse == "Industrial") {
+                                    masterdataTemp.push(masterData[i])
+                                }
+                            }
+                        } else if (type == "3") {
+                            for (var i = 0; i < masterData.length; i++) {
+                                if (masterData[i].allotmentstatus == 'Not Allotted' && masterData[i].landuse == "Industrial") {
+                                    masterdataTemp.push(masterData[i])
+                                }
+                            }
+                        }
+
+                        //sectorDropdown()
+                    }
+
+                } else if (availableQry == '' && landUseQry != '' && areaRange == '') {
+                    if (cornerVal != '') {
+                        for (var i = 0; i < masterData.length; i++) {
+                            if (landArray.indexOf(masterData[i].landuse) != -1 && masterData[i].cornerplot == cornerVal) {
+                                masterdataTemp.push(masterData[i])
+                            }
+                        }
+                        //sectorDropdown()
+                    } else {
+                        for (var i = 0; i < masterData.length; i++) {
+                            if (landArray.indexOf(masterData[i].landuse) != -1) {
+                                masterdataTemp.push(masterData[i])
+                            }
+                        }
+                        //sectorDropdown()
+                    }
+
+                } else if (availableQry == '' && landUseQry == '' && areaRange != '') {
+                    if (cornerVal != '') {
+                        for (var i = 0; i < masterData.length; i++) {
+                            if (masterData[i].area_sqm >= Number(areaFrom) && masterData[i].area_sqm <= Number(areaTo) && masterData[i].cornerplot == cornerVal) {
+                                masterdataTemp.push(masterData[i])
+                            }
+                        }
+                        //sectorDropdown()
+                    } else {
+                        for (var i = 0; i < masterData.length; i++) {
+                            if (masterData[i].area_sqm >= Number(areaFrom) && masterData[i].area_sqm <= Number(areaTo)) {
+                                masterdataTemp.push(masterData[i])
+                            }
+                        }
+                        //sectorDropdown()
+                    }
+                } else {
+
+                    for (var i = 0; i < masterData.length; i++) {
+                        //if (masterData[i].area_sqm >= Number(areaFrom) && masterData[i].area_sqm <= Number(areaTo) || masterData[i].cornerplot == cornerVal) {
+                        masterdataTemp.push(masterData[i])
+                            //}
+                    }
+                    //sectorDropdown()
+                }
+            }
+    doQueryMaster();
+
+
+    var selArea = dom.byId("txtArea");
+    var landArray = []
+    var type = "";
+
+
+    
+    function addMarkerBySecPlot(sec,plot){
+
+        if(masterData.length==0){
+          
+            setTimeout(function(){ 
+
+                addMarkerBySecPlot(sec,plot);
+
+            },2000);
+            
+        }
+        else{ 
+            sectFlag=0;
+            $('#divLoader').hide();
+            //console.log(masterData)
+            for (var i = 0; i < masterData.length; i++) {
+                                if (masterData[i].sector == sec && masterData[i].plot_numbe == plot) {
+
+                                    var address=""
+                                    var latlng = new google.maps.LatLng(masterData[i].latitude, masterData[i].longitude);
+                                    var lati=masterData[i].latitude
+                                    var longi=masterData[i].longitude
+                                    var geocoder = geocoder = new google.maps.Geocoder();
+                                    
+                                    geocoder.geocode({ 'latLng': latlng }, function (results, status) 
+                                    {
+                                            if (status == google.maps.GeocoderStatus.OK) 
+                                            {
+                                                if (results[1]) {
+                                                address=results[1].formatted_address;
+                                               
+                                                loadMrkDataOnMap(lati,longi,sec,plot,address)
+
+                                                //alert(address)
+                                            }
+                                            else
+                                            {
+                                                 loadMrkDataOnMap(lati,longi,sec,plot,'NA')
+                                            }
+                                        }
+                                        else
+                                        {
+                                            loadMrkDataOnMap(lati,longi,sec,plot,'NA')
+                                        }
+
+                                    });
+                                   
+                                    //loadMrkDataOnMap(masterData[i].latitude,masterData[i].longitude)
+                                }
+                            }
+
+        }
+        
+    }
+    function loadMrkDataOnMap(lat,lng,sec,plot,address){
+        view.graphics.removeAll();
+        ar=[]
+        var point = {
+                        type: "point", // autocasts as new Point()
+                        longitude: lng,
+                        latitude: lat
+                    };
+        var img = "markers/1.png";
+        var markerSymbol = {
+                        type: "picture-marker", // autocasts as new PictureMarkerSymbol()
+                        url: img,
+                        width: "48px",
+                        height: "48px"
+                    };
+                    var pointGraphic = new Graphic({
+                        geometry: point,
+                        symbol: markerSymbol
+                    });
+                    ar.push(pointGraphic)
+                    view.graphics.addMany(ar);
+                    
+                view.goTo(ar[0].geometry); 
+                setTimeout(function() {
+                    fillData(sec, plot , lat , lng , address,'');
+                    view.zoom=18
+                }, 1000);
+    }
+
+    function doQuery(val) {
+        //sectFlag=0;
+                $('#megaApplyBtn').hide();
+                $(".divFilterData").html('');
+                $('#clearFilter').show();
+                type = "";
+                $('#divLoader').show();
+                view.graphics.removeAll();
+                //var area = selArea.value;			
+                var megaApplyFlag = 0;
+                var query = '';
+                var availableQry = '';
+                var landAvailQry = '';
+                if (val == 0 || val == 2) {
+                    sectorID = "";
+                    plotNumber = "";
+                }
+                if ($('#chkAvailPlot').is(':Checked')) {
+                    type = "1";
+                    landAvailQry = $('#chkAvailPlot').val();
+                    var text = $('#chkAvailPlot').data('filter');
+                    text = text + ' X';
+                    var $div = $("<a>", {
+                        id: "ancLandAvail",
+                        "class": "btn btn-default",
+                        "html": text
+                    });
+                    $div.click(function() {
+                        $('#chkAvailPlot').removeAttr('checked');
+                        doQuery(0);
+                    });
+                    $(".divFilterData").append($div);
+
+                }
+                if ($('#chkMSMEAvail').is(':Checked')) {
+                    type = "2";
+                    availableQry = $('#chkMSMEAvail').val();
+                    var text = $('#chkMSMEAvail').data('filter');
+                    text = text + ' X';
+                    var $div = $("<a>", {
+                        id: "ancMSMEAvail",
+                        "class": "btn btn-default",
+                        "html": text
+                    });
+                    $div.click(function() {
+                        $('#chkMSMEAvail').removeAttr('checked');
+                        doQuery(0);
+                    });
+                    $(".divFilterData").append($div);
+                }
+                if ($('#chkMegaAvail').is(':Checked')) {
+                    type = "3";
+                    availableQry = $('#chkMegaAvail').val();
+                    if (pageName != 'landApplication') {
+                        megaApplyFlag = 1;
+                    }
+                    var text = $('#chkMegaAvail').data('filter');
+                    text = text + ' X';
+                    var $div = $("<a>", {
+                        id: "ancMegaAvail",
+                        "class": "btn btn-default",
+                        "html": text
+                    });
+                    $div.click(function() {
+                        $('#chkMegaAvail').removeAttr('checked');
+                        doQuery(0);
+                    });
+                    $(".divFilterData").append($div);
+                }
+                availableQry = (availableQry == '') ? landAvailQry : availableQry;
+                var landUseQry = '';
+				var landUseQryCorner = '';
+                landArray = [];
+                var allPlots = 0;
+                var indPlots = 0;
+                $('.landUse').each(function(i) {
+                    if ($(this).is(':Checked')) {
+                        var landUseDiv = $(this);
+                        landArray.push($(this).val())
+                        if (landUseQry != '')
+                            landUseQry += ' OR ';
+                        landUseQry += " landuse = '" + $(this).val() + "'";
+                        if ($(this).val() == 'Industrial') {
+                            indPlots++;
+                        }
+                        allPlots++;
+                        var text = $(this).data('filter');
+                        var landUseId = $(this).attr('id');
+                        text = text + ' X';
+                        var $div = $("<a>", {
+                            id: landUseId + i,
+                            "class": "btn btn-default",
+                            "html": text
+                        });
+                        $div.click(function() {
+                            landUseDiv.removeAttr('checked');
+                            doQuery(0);
+                        });
+                        $(".divFilterData").append($div);
+                    }
+                });
+                if (megaApplyFlag == 1 && (indPlots > 0 || allPlots == 0)) {
+                    $('#megaApplyBtn').show();
+                }
+                var cornerVal = "";
+                if ($('.cornerPlot').is(':Checked')) {
+                    cornerVal = $('.cornerPlot').val()
+                    if (landUseQry != '')
+                        landUseQryCorner = " cornerplot = '" + $('.cornerPlot').val() + "'";
+						else
+						landUseQryCorner = " cornerplot = '" + $('.cornerPlot').val() + "'";
+                    //landUseQry += " cornerplot = '" + $('.cornerPlot').val() + "'";
+
+                    var text = $('.cornerPlot').data('filter');
+                    text = text + ' X';
+                    var $div = $("<a>", {
+                        id: 'ancCornerPlot',
+                        "class": "btn btn-default",
+                        "html": text
+                    });
+                    $div.click(function() {
+                        $('.cornerPlot').removeAttr('checked');
+                        doQuery(0);
+                    });
+                    $(".divFilterData").append($div);
+					
+					
+                }
+                var areaRange = '';
+                var areaFrom = $('#txtAreaFrom').val();
+                var areaTo = $('#txtAreaTo').val();
+                if (Number(areaFrom) >= 324 && Number(areaTo) > 324) {
+                    areaRange = ' (area_sqm >= ' + Number(areaFrom) + ' AND area_sqm <= ' + Number(areaTo) + ')';
+
+                    var $div = $("<a>", {
+                        id: 'ancCornerPlot',
+                        "class": "btn btn-default",
+                        "html": 'Area Range : ' + Number(areaFrom) + '-' + Number(areaTo) + ' Sqm X'
+                    });
+                    $div.click(function() {
+                        $("#scale-slider")
+                            .slider({
+                                max: 399943,
+                                min: 324,
+                                values: [324, 324],
+                                range: true
+                            });
+                        doQuery(0);
+                    });
+                    $(".divFilterData").append($div);
+                }
+                if (landUseQry != ''){
+				query = (availableQry != '') ? availableQry + ' AND (' + landUseQry + ')' : '('+landUseQry+')';
+				}
+                    
+                else
+                    query = availableQry;
+
+                if (areaRange != '' && query == '') {
+                    query = areaRange;
+                } else if (areaRange != '' && query != '') {
+                    query = query + ' AND ' + areaRange;
+                }
+
+                var sectorQuery = '';
+                if (sectorID != '' && plotNumber == '') {
+                    sectorQuery = "sector = '" + sectorID + "'";
+
+                } else if (sectorID != '' && plotNumber != '') {
+                    sectorQuery = "(sector = '" + sectorID + "'" + " AND plot_numbe = '" + plotNumber + "')";					
+                }
+
+                if (sectorID != '') {
+                    var sectorText = 'Sector ' + sectorID + ' X';
+                    var $secDiv = $("<a>", {
+                        id: 'ancSector',
+                        "class": "btn btn-default",
+                        "html": sectorText
+                    });
+                    $secDiv.click(function() {
+                        doQuery(0);
+                    });
+                    $(".divFilterData").append($secDiv);
+                }
+                if (plotNumber != '') {
+                    var text = 'Plot ' + plotNumber + ' X';
+                    var $div = $("<a>", {
+                        id: 'ancPlot',
+                        "class": "btn btn-default",
+                        "html": text
+                    });
+                    $div.click(function() {
+                        window.top.$('#selPlots').val('');
+                        //$('#selPlot').val('');
+                        doQuery(0);
+                    });
+                    $(".divFilterData").append($div);
+                }
+                if (query == '') {
+                    query = sectorQuery;
+                } else {
+                    if (sectorQuery != '') {
+                        query = query + ' AND ' + sectorQuery
+                    } else {
+                        query = query;
+                    }
+                }
+				if (query == '') {
+				query=landUseQryCorner
+				}
+				else{
+				if(landUseQryCorner!='')
+				query=query+' AND '+landUseQryCorner
+				}
+                //params.where = "area_sqm > "+area;
+                if (query == '') {
+                    $('#divLoader').hide();
+                    $('#clearFilter').hide();
+                }
+                //alert(query);
+                if (val == 2) {
+                    //doQueryMaster();
+                    setTimeout(function() {
+                        filterFeatureData(landUseQry, availableQry, areaRange, areaFrom, areaTo, cornerVal)
+                    }, 3000);
+
+                } else if (val == 0) {
+                    filterFeatureData(landUseQry, availableQry, areaRange, areaFrom, areaTo, cornerVal)
+                }
+				
+                params.where = query;
+
+                qTask.execute(params).then(getResults);
+
+            }
+
+
+    function doQueryMaster() {
+        params.where = 'intgid>0';
+        qTask.execute(params).then(getResultsMaster);
+    }
+    var masterData = []
+    var sectorMaster = [];
+    var sectorID = '';
+    var plotNumber = '';
+    var plotMaster = [];
+    var masterdataTemp = []
+
+    function getResultsMaster(response) 
+    {
+        
+        masterdataTemp = [];
+        for (var i = 0; i < response.features.length; i++) {
+            masterData.push(response.features[i].attributes)
+        }
+        masterdataTemp = masterData;
+        sectorMaster = [];
+        var plotMaster = [];
+        sectorDropdown();
+
+    }
+
+    /*Function to get filled the parent page  sector dropdown
+    function sectorDropdown() 
+    {
+
+        sectorMaster = [];
+        top.$('#selPlots').empty();
+        top.$('#selSector').empty();
+        top.$('<option/>').val('').html('--Select Plot--').appendTo('#selPlots');
+        $.each(masterdataTemp, function(index, value) {
+            if (getIndex(value.sector) == -1) {
+                if (value.sector != null) {
+                    sectorMaster.push({
+                        'id': parseInt(value.sector),
+                        'val': value.sector
+                    });
+                }
+            }
+        });
+        sectorMaster.sort(function(a, b) {
+            return a.id - b.id
+        });
+        top.$('<option/>').val('').html('--Select Sector--').appendTo('#selSector');
+        for (var i = 0; i < sectorMaster.length; i++) {
+            top.$('<option/>').val(sectorMaster[i].val).html('Sector -' + sectorMaster[i].val).appendTo('#selSector');
+        }
+    }*/
+
+
+ 
+var sectFlag=0;
+
+    window.top.$("#selSector").change(function() 
+    {
+        sectorID = window.top.$('#selSector').val();
+        //alert('ssssssssssss');
+        plotMaster = [];
+        plotNumber = '';
+        //window.top.$('#selPlots').empty();
+       //if(sectFlag==0){
+        //alert('qqqqqqqqqqq');
+        //sectFlag=1;
+        setTimeout(function(){
+            doQuery(1);
+        },1000);
+        
+       //}
+      
+// This Section Is hide due to fill plot from parent page Not From Map By: Ashok kumar Samal :: On: 22-01-2018
+        /*if (sectorID != '') {
+            $.each(masterdataTemp, function(index, value) {
+                if (plotMaster.indexOf(value.plot_numbe) === -1 && value.sector == sectorID) {
+                    if (value.plot_numbe != null) {
+                        plotMaster.push({
+                            'id': parseInt(value.plot_numbe),
+                            'val': value.plot_numbe
+                        });
+                    }
+                }
+            });
+            plotMaster.sort(function(a, b) 
+            {
+                return a.id - b.id
+            });
+            window.top.$('<option/>').val('').html('--Select Plot--').appendTo('#selPlots');
+            for (var i = 0; i < plotMaster.length; i++) 
+            {
+                window.top.$('<option/>').val(plotMaster[i].val).html('Plot no -' + plotMaster[i].val).appendTo('#selPlots');
+            }
+
+        } else {
+            window.top.$('<option/>').val('').html('--Select Plot--').appendTo('#selPlots');
+        }*/
+
+    });
+
+    window.top.$("#selPlots").change(function() 
+    {
+        $('#divLoader').show();
+        plotNumber = window.top.$('#selPlots').val();
+        if(sectFlag==0){
+            setTimeout(function(){
+            addMarkerBySecPlot(sectorID,plotNumber);
+        },2000);
+            
+        }
+        
+
+        // doQuery(1);
+    });
+
+
+    ///////////////////////////////////////
+   /* function sectorDropdown() {
+        sectorMaster = [];
+        $('#selPlot').empty();
+        $('#selSector').empty();
+        $('<option/>').val('').html('--Select Plot--').appendTo('#selPlot');
+        $.each(masterdataTemp, function(index, value) {
+            if (getIndex(value.sector) == -1) {
+                if (value.sector != null) {
+                    sectorMaster.push({
+                        'id': parseInt(value.sector),
+                        'val': value.sector
+                    });
+                }
+            }
+        });
+        sectorMaster.sort(function(a, b) {
+            return a.id - b.id
+        });
+        sectorID="";
+        plotNumber="";
+        $('<option/>').val('').html('--Select Sector--').appendTo('#selSector');
+        
+        var tempHTML="";
+        for (var i = 0; i < sectorMaster.length; i++) {
+            tempHTML+='<li><input type="checkbox" class="btnQuerySec" data-annexure="5" id=s'+sectorMaster[i].val+' name="chkLandUse111" value='+sectorMaster[i].val+' data-filter="Commercial111"><label for=s'+sectorMaster[i].val+'>Sector - '+sectorMaster[i].val+'</label></li>'
+            $('<option/>').val(sectorMaster[i].val).html('Sector -' + sectorMaster[i].val).appendTo('#selSector');
+            
+           
+        }
+        if(isLoadData==0){
+            $('#mBoundaryUL').html('');
+            isLoadData=1;
+            $('#mBoundaryUL').append(tempHTML);
+            $('.btnQuerySec').on('click', function() {
+                sectorDropdown()
+                doQuery(1);
+            });
+        }
+        
+       
+    }
+    $("#selSector").change(function() {
+        sectorID = $('#selSector').val();
+        plotMaster = [];
+        plotNumber = '';
+        $('#selPlot').empty();
+        $('.btnQuerySec').prop("checked", false);
+        doQuery(1);
+        if (sectorID != '') {
+            $.each(masterdataTemp, function(index, value) {
+                if (plotMaster.indexOf(value.plot_numbe) === -1 && value.sector == sectorID) {
+                    if (value.plot_numbe != null) {
+                        plotMaster.push({
+                            'id': parseInt(value.plot_numbe),
+                            'val': value.plot_numbe
+                        });
+                    }
+                }
+            });
+            plotMaster.sort(function(a, b) {
+                return a.id - b.id
+            });
+            $('<option/>').val('').html('--Select Plot--').appendTo('#selPlot');
+            for (var i = 0; i < plotMaster.length; i++) {
+                $('<option/>').val(plotMaster[i].val).html('Plot no -' + plotMaster[i].val).appendTo('#selPlot');
+            }
+
+        } else {
+            $('<option/>').val('').html('--Select Plot--').appendTo('#selPlot');
+        }
+
+    });
+    $("#selPlot").change(function() {
+        plotNumber = $('#selPlot').val();
+        doQuery(1);
+    });*/
+    ///////////////////////////////////
+
+    function getIndex(val) {
+        var index = -1
+        for (var i = 0; i < sectorMaster.length; i++) {
+            if (sectorMaster[i].val == val) {
+                index = i
+            }
+        }
+        return index
+    }
+
+    function getResults(response) {
+        var polygonArray = new Array();
+        var fillSymbol = new SimpleFillSymbol({
+            color: [156, 139, 79, 0],
+            outline: { // autocasts as new SimpleLineSymbol()
+                color: [255, 255, 255],
+                width: 2
+            }
+        });
+		var getRingForZoom = '';
+        for (var i = 0; i < response.features.length; i++) {
+			var zoomIdx	= Number(response.features.length)/2;
+            var geom = response.features[i].geometry;
+            var polyRing = geom.rings;
+            var polygon = new Polygon({
+                rings: polyRing
+            });
+            var pointGraphic = new Graphic({
+                geometry: polygon,
+                symbol: fillSymbol,
+                attributes: response.features[i].attributes
+            });
+            polygonArray.push(pointGraphic);
+			getRingForZoom	= polyRing[0][0];
+		
+        }
+		if(getRingForZoom!='')
+		{
+			if($('#selSector').val() !='' && $('#selPlot').val() == '')
+			{
+				view.zoom = sectorZoom;
+			}
+			else if($('#selSector').val() !='' && $('#selPlot').val() != '')
+			{
+				view.zoom = plotZoom;
+			}
+			else
+			{
+				view.zoom = defaultZoom;
+			}
+			view.center = getRingForZoom;
+		}
+        $('#divLoader').hide();
+        view.graphics.addMany(polygonArray);
+    }
+    $('.btnQuery').on('click', function() {
+        doQuery(0);
+    });
+	$('#clearFilter').on('click', function() {
+		$('input:checkbox').removeAttr('checked');
+		$("#scale-slider")
+    .slider({
+			max: 399943,
+			min: 324,
+			values: [324, 324],
+			range: true
+		});  
+		doQuery(0);
+		view.zoom = defaultZoom;
+		view.center= [75.529, 19.879];
+	});
+    doQuery(2);
+	$("#scale-slider")
+    .slider({
+		max: 399943,
+		min: 324,
+		values: [324, 324],
+		range: true
+	}).slider("float").on("slidechange", function(e,ui) {
+				var ui_values	= ui.values;
+				
+       			$('#txtAreaFrom').val(ui_values[0]);
+        		$('#txtAreaTo').val(ui_values[1]);
+				doQuery(0);
+            });
+
+
+
+    /*************************** Measurement Widget *************************/
+    var measureConfig = {
+        isActive: false,
+        // meters | feet | kilometers | miles | nautical-miles | yards
+        units: "meters",
+        activeFeature: null,
+        finsishedFeature: null,
+        symbol: new SimpleLineSymbol({
+            color: "#6600FF",
+            width: 2
+        })
+    };
+    //view.ui.add("measure-button", "top-right");
+    var measureButton, pointerDownListener, pointerMoveListener,
+        doubleClickListener;
+   
+
+
+    function activateDraw() {
+        measureConfig.isActive = true;
+        //measureButton.classList.toggle("esri-draw-button-selected");
+
+        // clear previously used line features
+        clearPolyline();
+        measureConfig.finsishedFeature = null;
+        view.popup.close();
+
+        // on each pointer-down event, a vertex is added to the line
+        // allowing the user to draw a new line segment in continuation
+        // of the activeFeature
+        pointerDownListener = view.on("pointer-down", addPoint);
+
+        // on each pointer-move event, the last segment of the line
+        // is updated so that the final vertex is the location
+        // of the pointer or mouse
+        pointerMoveListener = view.on("pointer-move", function(event) {
+            updateLastVertex(event);
+            // measure the polyline on each pointer-move event
+            if (measureConfig.activeFeature) {
+                measurePolyline(measureConfig.activeFeature.geometry);
+            }
+        });
+
+        // finishes drawing the line (and measurement) and
+        // drawing is deactivated on the view
+        doubleClickListener = view.on("double-click", function(event) {
+            // stops the default double-click behavior in the view
+            event.stopPropagation();
+            // stores the final densified version of the polyline
+            finishDrawing(event);
+            // measures the final polyline
+            measurePolyline(measureConfig.finsishedFeature.geometry);
+        });
+    }
+
+    function deactivateDraw() {
+        measureConfig.isActive = false;
+        measureConfig.activeFeature = null;
+        //measureButton.classList.toggle("esri-draw-button-selected");
+        pointerDownListener.remove();
+        pointerMoveListener.remove();
+        doubleClickListener.remove();
+    }
+
+    function clearPolyline() {
+        var polylineGraphic = view.graphics.find(function(graphic) {
+            return graphic.geometry && graphic.geometry.type ===
+                "polyline";
+        });
+
+        if (polylineGraphic) {
+            view.graphics.remove(polylineGraphic);
+        }
+    }
+
+    function addPoint(pointerDownEvent) {
+        // convert screen coordinates to map coordinates
+        var point = view.toMap(pointerDownEvent);
+        // creates a line if one doesn't exist
+        if (!measureConfig.activeFeature) {
+            var line = createLine(point, point);
+            measureConfig.activeFeature = new Graphic({
+                geometry: line,
+                symbol: measureConfig.symbol
+            });
+            view.graphics.add(measureConfig.activeFeature);
+        } else {
+            // if a line does exist, add the map point as a vertex to the line
+            var newLine = addVertex(measureConfig.activeFeature.geometry,
+                point);
+            updateFeature(newLine);
+        }
+    }
+
+    function updateLastVertex(pointerMoveEvent) {
+        if (measureConfig.activeFeature) {
+            var point = view.toMap(pointerMoveEvent);
+            var polyline = measureConfig.activeFeature.geometry.clone();
+            var lastPointIndex = polyline.paths[0].length - 1;
+            var updatedLine = polyline.setPoint(0, lastPointIndex, point);
+
+            updateFeature(updatedLine);
+        }
+    }
+
+    function updateFeature(polyline) {
+        clearPolyline();
+
+        // line to measure
+        var newFeature = new Graphic({
+            geometry: polyline,
+            symbol: measureConfig.symbol
+        });
+        measureConfig.activeFeature = newFeature;
+
+        // line to display in the view. The denisified geometry
+        // represents the shortest path between the two vertices
+        // of the line segment.
+        var densifiedGraphic = newFeature.clone();
+        densifiedGraphic.geometry = densifyPolyline(newFeature.geometry);
+        view.graphics.add(densifiedGraphic);
+    }
+
+    function createLine(startPosition, endPosition) {
+
+        var startPointCoordinates = [
+            startPosition.x,
+            startPosition.y,
+        ];
+        var endPointCoordinates = [
+            endPosition.x,
+            endPosition.y,
+        ];
+
+        var line = new Polyline({
+            spatialReference: {
+                wkid: 3857
+            },
+            hasZ: false,
+            hasM: false,
+            paths: [
+                [
+                    startPointCoordinates,
+                    endPointCoordinates
+                ]
+            ]
+        });
+        return line;
+    }
+
+    function addVertex(line, newPoint) {
+        var polyline = line.clone();
+        var lastPointIndex = line.paths[0].length;
+        polyline.insertPoint(0, lastPointIndex, newPoint);
+        return polyline;
+    }
+
+    function finishDrawing(event) {
+        var point = event.mapPoint;
+
+        // adds a vertex to the end of the line at the location
+        // of the double-click
+        var polyline = measureConfig.activeFeature.geometry.clone();
+        var finalLine = addVertex(polyline, point);
+        updateFeature(finalLine);
+
+        // densifies the final line and adds it to the finishedFeature
+        // property of the config object so the user can use it
+        // for other purposes if desired.
+        var densifiedPolyline = densifyPolyline(finalLine);
+        measureConfig.finsishedFeature = new Graphic({
+            geometry: densifiedPolyline
+			/*,
+            symbol: measureConfig.symbol,
+            attributes: response.features[i].attributes*/
+        });
+
+        deactivateDraw();
+    }
+
+    function measurePolyline(polyline) {
+        // units can be: meters | feet | kilometers | miles | nautical-miles | yards
+        var length = geometryEngine.geodesicLength(polyline, measureConfig.units);
+       $('.lblMeasurement').html(numberWithCommas(length) + " " + measureConfig.units);
+    }
+
+    function numberWithCommas(x) {
+        var rounded = Math.round(x * 100) / 100;
+        return rounded.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    function densifyPolyline(geometry) {
+        return geometryEngine.geodesicDensify(geometry, 100000, "meters");
+    }
+    /***********************************************************************/
+	
+	
+	/**************** Area Measurement ************************************/
+	
+	var drawConfig = {
+          drawingSymbol: new SimpleFillSymbol({
+            color: [102, 0, 255, 0.15],
+            outline: {
+              color: "#6600FF",
+              width: 2
+            }
+          }),
+          finishedSymbol: new SimpleFillSymbol({
+            color: [102, 0, 255, 0.45],
+            outline: {
+              color: "#6600FF",
+              width: 2
+            }
+          }),
+          activePolygon: null,
+          isDrawActive: false
+        };
+	var drawButton;
+	
+		
+		
+		function activatePolygonDraw() {
+          drawConfig.isDrawActive = true;
+          //drawButton.classList.toggle("esri-draw-button-selected");
+
+          // remove the previous popup and polygon if they already exist
+          clearPolygon();
+          view.popup.close();
+
+          pointerDownListener = view.on("pointer-down", function(event) {
+            event.stopPropagation();
+            var point = createPoint(event);
+            addPolygonVertex(point);
+          });
+          pointerMoveListener = view.on("pointer-move", function(event) {
+		  //console.log(drawConfig.activePolygon);
+            if (drawConfig.activePolygon) {				
+              event.stopPropagation();
+
+              var point = createPoint(event);
+              updateFinalVertex(point);
+            }
+          });
+          doubleClickListener = view.on("double-click", function(event) {
+            event.stopPropagation();
+            deactivatePolygonDraw();
+
+            //var searchArea = addPolygonVertex(event.mapPoint, true);
+
+            // If an invalid search area is entered, then drawing
+            // continues and the query is not executed
+            /*if (!searchArea) {
+              return null;
+            }*/
+          });
+        }
+		
+		function deactivatePolygonDraw() {
+          drawConfig.isDrawActive = false;
+          pointerDownListener.remove();
+          pointerMoveListener.remove();
+          doubleClickListener.remove();
+          drawConfig.activePolygon = null;
+        }
+		
+		function createPoint(event) {
+          return view.toMap(event);
+        }
+		
+		function addPolygonVertex(point, isFinal) {
+
+          var polygon = drawConfig.activePolygon;
+          var ringLength;
+
+          if (!polygon) {
+            polygon = new Polygon({
+              spatialReference: {
+                wkid: 3857
+              }
+            });
+            polygon.addRing([point, point]);
+          } else {
+            ringLength = polygon.rings[0].length;
+            polygon.insertPoint(0, ringLength - 1, point);
+          }
+          drawConfig.activePolygon = polygon;
+          return redrawPolygon(polygon, isFinal);
+        }
+		
+		function redrawPolygon(polygon, finished) {
+          var geometry = finished ? geometryEngine.simplify(polygon) :
+            polygon;
+
+          if (!geometry && finished) {
+            return null;
+          }
+
+          clearPolygon();
+
+          var polygonGraphic = new Graphic({
+            geometry: geometry,
+            symbol: finished ? drawConfig.finishedSymbol : drawConfig.drawingSymbol
+          });
+          view.graphics.add(polygonGraphic);
+		  var areaUnit		= $('#selArea').val();
+		  var areaUnitText	= $('#selArea option:selected').data('unit');
+		  var area = geometryEngine.geodesicArea(geometry, areaUnit);
+		  $('.lblMeasurement').html(numberWithCommas(Math.abs(area))+' '+areaUnitText);
+          return geometry;
+        }
+		function updateFinalVertex(point) {
+          var polygon = drawConfig.activePolygon.clone();
+
+          var ringLength = polygon.rings[0].length;
+          polygon.insertPoint(0, ringLength - 1, point);
+          redrawPolygon(polygon);
+        }
+		 function clearPolygon() {
+          var polygonGraphic = view.graphics.find(function(graphic) {
+            return graphic.geometry.type === "polygon";
+          });
+
+          if (polygonGraphic) {
+            view.graphics.remove(polygonGraphic);
+          }
+        }
+		
+		view.then(function() {
+			$("#measure-button").on("click", function() {	
+				$('.lblMeasurement').html('');
+				selectTabs(1);
+				if (areaClickEvt) {
+					deactivatePolygonDraw();
+					clearPolygon();
+				}	
+				var selDistanceUnits 	= $('#selDistance').val();
+				if(!measureConfig.isActive && $("#measure-button").hasClass('active') && $("#distance-button").hasClass('active')) {	
+					activateDraw();
+					mapClickEvt			= false;
+					distanceClickEvt	= true;
+					areaClickEvt		= false;					
+				} else {			
+					deactivateDraw();
+					clearPolyline();
+					mapClickEvt			= true;
+					distanceClickEvt	= false;
+					areaClickEvt		= false;
+				}
+			});
+			$("#distance-button").on("click", function() {	
+				selectTabs(1);
+				$('.lblMeasurement').html('');
+				if (areaClickEvt) {
+					deactivatePolygonDraw();
+					clearPolygon();
+				}	
+				var selDistanceUnits 	= $('#selDistance').val();
+				if($("#measure-button").hasClass('active')) {
+					activateDraw();
+					mapClickEvt			= false;
+					distanceClickEvt	= true;
+					areaClickEvt		= false;					
+				} else {			
+					deactivateDraw();
+					clearPolyline();
+					mapClickEvt			= true;
+					distanceClickEvt	= false;
+					areaClickEvt		= false;
+				}
+			});
+			$("#area-button").on("click", function() {
+					selectTabs(2);
+					$('.lblMeasurement').html('');
+					if (!drawConfig.isDrawActive) {
+						if(distanceClickEvt)
+						{
+							deactivateDraw();
+							clearPolyline();
+						}
+					  	activatePolygonDraw();
+						distanceClickEvt	= false;
+						areaClickEvt		= true;
+					} else {
+					  	deactivatePolygonDraw();
+					  	clearPolygon();
+						distanceClickEvt	= false;
+						areaClickEvt		= false;
+					}
+			});
+			
+			
+			$('#selDistance').on('change', function() {
+				$('.lblMeasurement').html('');
+				var selUnits = $(this).data('unit');
+				measureConfig.units = selUnits;
+				if (!measureConfig.isActive) {
+					clearPolyline();
+					activateDraw();
+					mapClickEvt	= false;
+				}
+			});
+			
+			$('#selArea').on('change', function() {
+				$('.lblMeasurement').html('');
+				if (!drawConfig.isDrawActive) {
+					activatePolygonDraw();
+				}
+				else
+				{
+					deactivatePolygonDraw();
+					clearPolygon();
+				}
+			});
+		
+		$('#home-button').on('click',function() {
+				view.zoom = defaultZoom;
+				view.center= [75.529, 19.879];
+            });
+            
+            $('#chkRemoveMap').on('click',function(){
+               if($('#chkRemoveMap').is(':Checked')) 
+               {
+                   layer.visible=false;
+                   roadLayer.visible = false;
+                   openSpaceLayer.visible = false;
+               }
+               else
+               {
+                   layer.visible=true;
+                   roadLayer.visible = true;
+                   openSpaceLayer.visible = true;
+               }
+            });
+		//$('li').attr('title','Bing Maps Aerial')
+		
+		setTimeout(function(){
+			$("[title='Bing Maps Aerial']").remove();
+
+                       
+
+
+		},1000);
+
+
+		});
+	function selectTabs(slNo)
+	{		
+		$('.nav li').removeClass('active');	
+		$('#selDistance').find('option:eq(0)').prop('selected', true);
+		$('#selArea').find('option:eq(0)').prop('selected', true);
+		if(slNo==1)
+		{
+			$('#distance-button').addClass('active');
+			$('#2a').hide();
+			$('#1a').show();
+		}
+		else if(slNo == 2)
+		{
+			$('#distance-button').addClass('active');
+			$('#1a').hide();
+			$('#2a').show();
+		}
+	}
+	/*********************************************************************/	
+});
+</script>
+</head>
+<body style="overflow:hidden;">
+<a class="btn btn-auric-yellow btn-sm pull-right" id="megaApplyBtn" style="margin-top:5px; margin-right:5px; display:none;" href="login/1.html">Apply Now</a>
+<div class="header"><img src="images/auriclogo.png"> </div>
+
+<div class="pull-right toolbox"> 
+<!-- <a class="btn btn-default btn-sm" id="measure-button">Measurement</a> 
+<a class="btn btn-default btn-sm" id="basemapIcon">Basemap</a>  -->
+<a class="btn btn-default btn-sm" id="smallMenu"><i class="fa fa-bars"></i></a> </div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="row">
+        <div class="gis-menu " id="gisMenu">
+            <div class="pull-right"><a href="javascript:void(0);" id="clearFilter" style="display:none;">
+            <h4>Clear All</h4>
+            </a></div>
+          <h4>Filter</h4>
+          <div class="row" id="leftPane" style="overflow-x:auto;">
+            <div class="col-sm-12">
+              <button class="accordion">Land Availability</button>
+              <div class="panel">
+                <ul>
+                  <li>
+                    <input type="checkbox" class="btnQuery landAvailability" id="chkAvailPlot" value="availablestatus=1" data-filter="Available">
+                    <label for="chkAvailPlot">Available Plot</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" class="btnQuery landAvailability" id="chkMSMEAvail" value="availablestatus=1 AND landuse='Industrial' " data-filter="MSME">
+                    <label for="chkMSMEAvail">MSME & Large</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" class="btnQuery landAvailability" id="chkMegaAvail" value=" landuse='Industrial' AND allotmentstatus='Not Allotted' " data-filter="Priority Sector">
+                    <label for="chkMegaAvail">Priority Sector <small>(Mega, Ultra & FDI)</small></label>
+                  </li>
+                </ul>
+              </div>
+              <button class="accordion">Land Use</button>
+              <div class="panel">
+                <ul>
+                  <li>
+                    <input type="checkbox" class="btnQuery landUse" data-annexure="5" id="chkCommercial" name="chkLandUse" value="Commercial" data-filter="Commercial">
+                    <label for="chkCommercial"><span class="circle commercial"></span>Commercial</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" class="btnQuery landUse" data-annexure="4" id="chkIndustrial" name="chkLandUse" value="Industrial" data-filter="Industrial">
+                    <label for="chkIndustrial"><span class="circle industrial"></span>Industrial</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" class="btnQuery landUse" data-annexure="96" id="chkPAP" name="chkLandUse" value="PAP" data-filter="PAP">
+                    <label for="chkPAP"><span class="circle pap"></span>PAP</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" class="btnQuery landUse" id="chkPAPLad" data-annexure="96" name="chkLandUse" value="PAP Lad" data-filter="PAP Lad">
+                    <label for="chkPAPLad"><span class="circle paplad"></span>PAP Lad</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" class="btnQuery landUse" id="chkPubSemiPub" data-annexure="100" name="chkLandUse" value="Public Semi public/ Amenities" data-filter="Amenities">
+                    <label for="chkPubSemiPub"><span class="circle public"></span>Public Semi public</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" class="btnQuery landUse" id="chkResidential" data-annexure="6" name="chkLandUse" value="Residential" data-filter="Residential">
+                    <label for="chkResidential"><span class="circle residential"></span>Residential</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" class="btnQuery landUse" id="chkRoad" name="chkLandUse" value="Road" data-filter="Road">
+                    <label for="chkRoad"><span class="circle road"></span>Road</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" class="btnQuery landUse" id="chkOpenSpace" name="chkLandUse" value="Open Space" data-filter="Open Space">
+                    <label for="chkOpenSpace"><span class="circle open-space"></span>Open Space</label>
+                  </li>
+                  <li>
+                    <input type="checkbox" class="btnQuery cornerPlot" id="chkCorner" name="chkCorner" value="Yes" data-filter="Corner">
+                    <label for="chkCorner">Corner Plot</label>
+                  </li>
+                </ul>
+                  <div style="border-top:#ccc 1px solid; padding: 10px 0px;">
+                  <input type="checkbox" class="" id="chkRemoveMap" name="chkRemoveMap" value="1">
+                    <label for="chkRemoveMap">Hide Plot Layer</label>
+                  </div>
+              </div>
+              <button class="accordion">Plot By Size</button>
+              <div class="panel">
+                <div class="form-group"> <strong>Plot Area (Sqm)</strong>
+                  <div id="scale-slider" style="margin-top:10px;"></div>
+                  <!--<input id="ex2" type="text" class="span2" value="" data-slider-min="0" data-slider-max="500000" data-slider-step="1000" data-slider-value="[0,0]" />-->
+                </div>
+                <div class="form-group row" style="padding:5px 0px;">
+                  <label class="col-sm-3 col-md-3 col-xs-3 control-label no-padding-right">Min</label>
+                  <div class="col-sm-9 col-md-9 col-xs-9">
+                    <input type="text" id="txtAreaFrom" name="txtAreaFrom" class="form-control plotArea" value="324" readonly>
+                  </div>
+                </div>
+                <div class="form-group row" style="padding:5px 0px;">
+                  <label class="col-sm-3 col-md-3 col-xs-3 control-label no-padding-right">Max</label>
+                  <div class="col-sm-9 col-md-9 col-xs-9">
+                    <input type="text" id="txtAreaTo" name="txtAreaTo" class="form-control plotArea" value="324" readonly>
+                  </div>
+                  <div class="clearfix"></div>
+                </div>
+              </div>
+              <button class="accordion">Find Plot</button>
+              <div class="panel">
+                <div class="form-group"> <strong>Sector</strong>
+                  <select class="form-control" id="selSector">
+                    <option value="">--Select Sector--</option>
+                  </select>
+                </div>
+                <div class="form-group"> <strong>Plot Number</strong>
+                  <select class="form-control" id="selPlot">
+                    <option value="">--Select Plot--</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr/>
+        </div>
+        <div class="col-sm-912">
+		    <div class="divMeasurement" style="display:none;">
+            <div class="esri-ui-top-right esri-widget">
+			<div id="exTab1">
+			  <ul  class="nav nav-pills">
+				<li class="active" id="distance-button"><a href="#1a" data-toggle="tab">Distance</a></li>
+				<li id="area-button"><a href="#2a" data-toggle="tab">Area</a></li>
+			  </ul>
+			  <div class="tab-content clearfix">
+				<div class="tab-pane active" id="1a">
+             		<div class="border-bottom">
+                <select id="selDistance" class="form-control">
+                  <option value="meters" data-unit="Meters">Meters</option>
+                  <option value="kilometers" data-unit="Kilometers">Kilometers</option>
+                  <option value="feet" data-unit="Feet">Feet</option>
+                  <option value="miles" data-unit="Miles">Miles</option>
+                  <option value="yards" data-unit="Yards">Yards</option>
+                </select>
+              </div>
+				</div>
+				<div class="tab-pane" id="2a">
+				  <div class="border-bottom">
+                <select id="selArea" class="form-control">
+                  <option value="square-meters" data-unit="Sq Meters">Square-Meters</option>
+                  <option value="acres" data-unit="Acres">Acres</option>
+                  <option value="hectares" data-unit="Hectares">Hectares</option>
+                  <option value="square-kilometers" data-unit="Sq Kilometers">Square-Kilometers</option>
+                  <option value="square-feet" data-unit="Sq Feet">Square-Feet</option>
+                  <option value="square-miles" data-unit="Sq Miles">Square-Miles</option>
+                </select>
+              </div>
+				</div>
+			  </div>
+			</div>
+			
+              <div class="text-center">
+			 	<div class="mesResult"> Measurement Results</div>
+			  
+                <label class="lblMeasurement"></label>
+              </div>
+            </div>
+          </div>
+          <div class="divFilterData"></div>
+          <div id="divLoader"><i class="fa fa-spinner fa-spin"></i></div>
+          <div id="viewDiv" class="row"></div>
+		  
+		  <!--<a id="home-button" class="esri-widget-button esri-widget esri-interactive">
+			<i class="fa fa-home"></i>
+		  </a>-->
+		  <div class="esri-widget-button esri-widget esri-interactive" role="button" title="Reset" id="home-button" style="display: flex;"><span aria-hidden="true" role="presentation" class="esri-icon esri-icon-home"></span><span class="esri-icon-font-fallback-text">Reset</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="modal fade in" id="secPlotModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" >
+<div class="modal-dialog">
+    <div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Choose Nearest Sector &amp; Plot</h4>
+      </div>
+        <div class="modal-body no-padding">
+            <ul id="loadSecPlot"></ul>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+</body>
+
+<!-- Mirrored from www.auric.city/gisMapGms by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 03:01:02 GMT -->
+</html>
+ 

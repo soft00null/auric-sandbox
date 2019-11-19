@@ -1,0 +1,94 @@
+<html lang="en">
+
+<!-- Mirrored from gis.auric.city/agserver/rest/services/asd/FeatureServer/applyEdits by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 03:34:29 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Apply Edits : (asd)</title>
+<link href="../../../static/main.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<table width="100%" class="userTable">
+<tr>
+<td class="titlecell">
+ArcGIS REST Services Directory
+</td>
+<td align="right">
+<a href="../../../../login/index51c3.html?returnUrl=https://gis.auric.city/agserver/rest/services">Login</a>
+</td>
+</tr>
+</table>
+<table width="100%" class="navTable">
+<tr valign="top">
+<td class="breadcrumbs">
+<a href="../../../services.html">Home</a>
+&gt; <a href="../../../services.html">services</a>
+&gt; <a href="../FeatureServer.html">asd (FeatureServer)</a>
+&gt; <a href="applyEdits.html"><i>applyEdits</i></a>
+</td>
+<td align="right">
+<a href="../../../../sdk/rest/02ss/02ss00000057000000.html" target="_blank">Help</a> | <a href="applyEdits45be.html?f=help" target="_blank">API Reference</a>
+</td>
+</tr>
+</table>
+<h2>Apply Edits : (asd)</h2>
+<div class="rbody">
+<i>Note: This operation is only supported via POST</i><br/><br/>
+<div style="color:#ff6666"> </div>
+<form name="sdform" action="https://gis.auric.city/agserver/rest/services/asd/FeatureServer/applyEdits" method="post">
+<table class="formTable">
+<tr valign="top">
+<td><label for="edits">Edits:</label></td>
+<td>
+<textarea id="edits" name="edits" rows="10" cols="55"></textarea>
+</td>
+</tr>
+<tr valign="top">
+<td><label for="gdbVersion">Geodatabase Version Name:</label></td>
+<td><input type="text" id="gdbVersion" name="gdbVersion" value="" /></td>
+</tr>
+<tr valign="top">
+<td>Rollback on Failure:</td>
+<td>
+<label><input type="radio" name="rollbackOnFailure" value="true" checked="true" /> True &nbsp;&nbsp;</label>
+<label><input type="radio" name="rollbackOnFailure" value="false" /> False</label>
+</td>
+</tr>
+<tr valign="top">
+<td>Use Global Ids:</td>
+<td>
+<label><input type="radio" name="useGlobalIds" value="true" /> True &nbsp;&nbsp;</label>
+<label><input type="radio" name="useGlobalIds" value="false" checked="true" /> False</label>
+</td>
+</tr>
+<tr valign="top">
+<td>Return Edit Moment:</td>
+<td>
+<input type="radio" name="returnEditMoment" value="true" /> True &nbsp;&nbsp;
+<input type="radio" name="returnEditMoment" value="false" checked="true" /> False
+</td>
+</tr>
+<tr>
+<td><label for="f">Format:</label></td>
+<td>
+<select id="f" name="f">
+<option value="html">HTML</option>
+<option value="pjson">JSON</option>
+</select>
+</td>
+</tr>
+<tr>
+<td colspan="2" align="left">
+<input type="submit" value="Apply Edits" />
+</td>
+</tr>
+</table>
+</form>
+<script type="text/javascript">
+document.forms.sdform.edits.focus();
+</script>
+</div>
+<br/><br/>
+</body>
+
+<!-- Mirrored from gis.auric.city/agserver/rest/services/asd/FeatureServer/applyEdits by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 03:34:29 GMT -->
+</html>

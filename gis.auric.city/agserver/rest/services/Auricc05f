@@ -1,0 +1,134 @@
+{
+ "currentVersion": 10.6,
+ "folders": [],
+ "services": [
+  {
+   "name": "Auric/Allotted_plot_blank_V3",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric/Allotted_plot_blank_V4",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric/Allotted_plot_V3",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric/Allotted_plot_V4",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric/availablePlots_V3",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric/availablePlots_V4",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric/elect_cable_high_V3",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric/fire_fight_line_V3",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric/fire_fighting_stracture_V3",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric/indus_sewage_stracture_V3",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric/indus_sewage_V3",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric/notAvailablePlots_V3",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric/notAvailablePlots_V4",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric/openspace_v3",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric/openspace_v4",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric/rec_water_line_V3",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric/resi_swarge_stracture_V3",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric/sector_boundary_V3_text",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric/sector_boundary_V3",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric/shendra_boundary_V3",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric/Shendra_plot_V3_liveText",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric/Shendra_plot_V3_TextOnly",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric/Shendra_plot_V3",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric/Shendra_plot_V4_liveText",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric/Shendra_plot_V4_TextOnly",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric/Shendra_plot_V4",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric/Shendra_roads_V2_new_blank",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric/Shendra_roads_V3",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric/Shendra_roads_V4_new_blank",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric/Shendra_roads_V4",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric/storm_water_line_V3",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric/swarge_line_V3",
+   "type": "MapServer"
+  }
+ ]
+}

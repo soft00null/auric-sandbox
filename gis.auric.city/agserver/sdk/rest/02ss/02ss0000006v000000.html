@@ -1,0 +1,871 @@
+<html lang="en" xml:lang="en">
+<!-- Mirrored from gis.auric.city/agserver/sdk/rest/02ss/02ss0000006v000000.htm by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 02:51:08 GMT -->
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="description" content="Map Service http:// &amp;lt;catalog-url&amp;gt;/&amp;lt;serviceName&amp;gt;/MapServerExport MapFindGenerate KMLIdentifyGenerate RendererQueryQuery Related RecordsMap TileLayer / TableAll Layers / TablesDynamic Layer / TableFeatureImageKML ImageLegendMap Service ExtensionSchematic ServiceWMTSMap9.3 Description Map services offer access to the contents of a map hosted on a server. Map services can expose different levels of capabilities. When a map service is hosted on ArcGIS Online or Portal for ArcGIS, it exposes a set of tiled images that are used by the client for rapid map navigation."><meta name="content-language" content="en"><link href="rsrc/htmlhelp.html" rel="stylesheet" type="text/css"><title>ArcGIS REST API - ArcGIS Services - 
+   Map Service
+  </title>
+                <script type="text/javascript" language="JavaScript">
+                    var pathL  = self.location.pathname.split ("../../../../index.html");
+                    var fname = pathL[pathL.length-1];
+                    var i = fname.lastIndexOf (".htm");
+                    if (i>=0) {
+                    fname = fname.substring (0, i)
+                    } else {
+                    //??
+                    }
+                    if (self.location.hash) {
+				    		      fname = fname + self.location.hash;
+						        }
+                    self.location.replace ("../index.html#//" + fname);
+                </script>
+                </head><!--Publication GUID: [GUID-289408B4-3EC8-4C16-9DB8-B1778E780E58]--><!--Topic GUID: [GUID-EFAA6DC2-DC48-483C-871C-CD956BE4797C]--><body><div id="content"><div class="header"><h1>
+   Map Service
+  </h1><div id="breadcrumb"></div></div>
+    <div class="restmd" purpose="restmd"><ul purpose="restmd" class="restmd list-plain"><li><span class="restkey post-1">URL:</span><span class="restval">http:// <a class="xref" rel="02ss/02ss00000029000000.htm" href="02ss/02ss00000029000000.html">&lt;catalog-url&gt;</a>/&lt;serviceName&gt;/MapServer<span class="restverb"></span><br></span></li><li><span class="restkey post-1">Operations:</span><span class="restval"><a class="xref" rel="02ss/02ss00000062000000.htm" href="02ss/02ss00000062000000.html">Export Map</a>,<a class="xref" rel="02ss/02ss00000085000000.htm" href="02ss/02ss00000085000000.html">Find</a>,<a class="xref" rel="02ss/02ss00000046000000.htm" href="02ss/02ss00000046000000.html">Generate KML</a>,<a class="xref" rel="02ss/02ss000000m7000000.htm" href="02ss/02ss000000m7000000.html">Identify</a>,<a class="xref" rel="02ss/02ss0000001v000000.htm" href="02ss/02ss0000001v000000.html">Generate Renderer</a>,<a class="xref" rel="02ss/02ss0000000r000000.htm" href="02ss/02ss0000000r000000.html">Query</a>,<a class="xref" rel="02ss/02ss00000004000000.htm" href="02ss/02ss00000004000000.html">Query Related Records</a></span></li><li><span class="restkey post-1">Child Resources:</span><span class="restval"><a target="_blank" class="xref" rel="" href="#"></a>,<a target="_blank" class="xref" rel="" href="#"></a>,<a class="xref" rel="02ss/02ss0000001n000000.htm" href="02ss/02ss0000001n000000.html">Map Tile</a>,<a class="xref" rel="02ss/02ss00000089000000.htm" href="02ss/02ss00000089000000.html">Layer / Table</a>,<a class="xref" rel="02ss/02ss0000005t000000.htm" href="02ss/02ss0000005t000000.html">All Layers / Tables</a>,<a class="xref" rel="02ss/02ss00000005000000.htm" href="02ss/02ss00000005000000.html">Dynamic Layer / Table</a>,<a class="xref" rel="02ss/02ss0000008z000000.htm" href="02ss/02ss0000008z000000.html">Feature</a>,<a class="xref" rel="02ss/02ss00000082000000.htm" href="02ss/02ss00000082000000.html">Image</a>,<a class="xref" rel="02ss/02ss0000005q000000.htm" href="02ss/02ss0000005q000000.html">KML Image</a>,<a class="xref" rel="02ss/02ss0000007n000000.htm" href="02ss/02ss0000007n000000.html">Legend</a>,<a class="xref" rel="02ss/02ss00000090000000.htm" href="02ss/02ss00000090000000.html">Map Service Extension</a>,<a class="xref" rel="02ss/02ss00000099000000.htm" href="02ss/02ss00000099000000.html">Schematic Service</a>,<a class="xref" rel="02ss/02ss0000008t000000.htm" href="02ss/02ss0000008t000000.html">WMTS</a></span></li><li><span class="restkey post-1">Required Capability:</span><span class="restval">Map</span></li><li><span class="restkey post-1">Version Introduced:</span><span class="restval">9.3</span></li></ul></div>
+    <div class="section1" id="GUID-6F800AF5-ABC5-4E10-8418-7B67E5FD644D" purpose="section1"><h2>Description</h2><p id="GUID-29461E50-C730-4B71-A9F5-A5EF8457907E">Map services offer access to the contents of a map hosted on a server. Map services can expose different levels of capabilities. When a map service is hosted on <span purpose="ph" varid="ArcGISOnline" translate="no">ArcGIS Online</span> or <span purpose="ph" varid="PortalForArcGIS" translate="no">Portal for ArcGIS</span>, it exposes a set of tiled images that are used by the client for rapid map navigation. When a map service is hosted on an <span purpose="ph" varid="ArcGISforServer" translate="no">ArcGIS Server</span> site, it exposes additional functionality, such as dynamic drawing, query, and search. With <span purpose="ph" varid="ArcGISforServer" translate="no">ArcGIS Server</span>, further web services may be available through the map service root URL that allow network analysis, vector feature editing, and so forth.</p><p id="GUID-D565191B-77F8-459B-946F-ED95166D2508">The REST API Map Service resource works only with the default data frame of your published map document. This resource provides basic information about the map, including the layers that it contains, whether or not the map is cached, its spatial reference, initial and full extents, map units, and copyright text. It also provides some metadata associated with the service, such as its service description, its author, and keywords. If the map is cached, additional information about its tiling scheme, such as the origin of the cached tiles, the levels of detail, and tile size, is included.</p><p id="GUID-21EBCD5F-A58B-44B6-B7D2-6D2E5FFA8461">Map services do not expose editing capabilities. They provide read-only access to feature and attribute content.</p></div>
+    <div class="section1" id="ESRI_SECTION1_FD2E4C48DA0A4D398909699F1F83CE2F" purpose="section1"><h2>Map services hosted by <span purpose="ph" varid="ArcGISOnline" translate="no">ArcGIS Online</span> and <span purpose="ph" varid="PortalForArcGIS" translate="no">Portal for ArcGIS</span></h2><p id="GUID-C0F0B6EC-5065-469D-A144-C5C073CA0506">Map services hosted by <span purpose="ph" varid="ArcGISOnline" translate="no">ArcGIS Online</span> or <span purpose="ph" varid="PortalForArcGIS" translate="no">Portal for ArcGIS</span> can only return tiles from the server's cache; they cannot draw images dynamically, nor do they allow query of the individual features behind the map. You can support queries and informational pop-up windows in your applications by using <a class="xref" rel="02ss/02ss0000007v000000.htm" href="02ss/02ss0000007v000000.html">feature services</a> in conjunction with your map services.</p><p id="GUID-468896EB-91E4-4A33-8592-1547010C5B97">Accordingly, some of the resources, operations, and properties mentioned in this section of the documentation do not apply to map services hosted by <span purpose="ph" varid="ArcGISOnline" translate="no">ArcGIS Online</span> or <span purpose="ph" varid="PortalForArcGIS" translate="no">Portal for ArcGIS</span>.</p></div><div class="section1" id="ESRI_SECTION1_6D5050A04F534EECB6F3183FA21D2B04" purpose="section1"><h2>Map services hosted by <span purpose="ph" varid="ArcGISforServer" translate="no">ArcGIS Server</span></h2><p id="GUID-6C2C39EF-010D-425E-AE54-DE54EA29C225">Map services hosted by <span purpose="ph" varid="ArcGISforServer" translate="no">ArcGIS Server</span> support  a larger set of operations:<ul purpose="ul" id="UL_C4D52F378EBC4A2F831E66D679DD50AC"><li purpose="li" id="LI_5000ADF6FF49443CBAE88D7EEA6195A4"><a class="xref" rel="02ss/02ss00000062000000.htm" href="02ss/02ss00000062000000.html">Export map</a>—Used to export a map image from a dynamic map service. The resulting map can be used for display and be in a different projection from the original data source. When generating a map image, map services are not able to change feature rendering for an existing layer, add a dynamic layer, or change the layer draw order. </li><li purpose="li" id="LI_A9FE28C3526B44CEA8FD69D123B4EF81"><a class="xref" rel="02ss/02ss000000m7000000.htm" href="02ss/02ss000000m7000000.html">Identify</a>—Returns information about features in one or more layers based on where a user clicks on the map.</li><li purpose="li" id="LI_90BF85F9D7FA42428B0015DE0E2BD8F6"><a class="xref" rel="02ss/02ss00000085000000.htm" href="02ss/02ss00000085000000.html">Find</a>—Returns information about features in one or more fields in one or more layers based on a keyword.</li><li purpose="li" id="LI_CAA7E2A903BC4A52AA8E2755B57952CF"><a class="xref" rel="02ss/02ss00000046000000.htm" href="02ss/02ss00000046000000.html">Generate KML</a>—Generates a KML document wrapped in a KMZ file. The document contains a network link to the KML service endpoint with specified properties and parameters. This operation is valid on services that have not been restricted by using a token service. </li><li purpose="li" id="LI_CF440A20BF83406199B61ADA85BD8E4F"><a class="xref" rel="02ss/02ss0000000r000000.htm" href="02ss/02ss0000000r000000.html">Query</a> on a <a class="xref" rel="02ss/02ss00000089000000.htm" href="02ss/02ss00000089000000.html">Layer/Table</a>—Returns a subset of features in a layer or records in a table based on query criteria.</li></ul></p></div><div class="section1" id="ESRI_SECTION1_BE129DE2051F42BF98C3608661ED6E44" purpose="section1"><h2>New in 10.5</h2><ul purpose="ul" id="UL_7E5EFF1D84F247E998F7A4F26D1A930E"><li purpose="li" id="LI_7548D726CA4841AD8A5E7777FA51A4B3">Supports the following new parameters in <span class="usertext">export</span>, <span class="usertext">identify</span>, <span class="usertext">find</span> and <span class="usertext">query</span> operations.<ul purpose="ul" id="UL_39EFFDCA184B4AD09C7EB59F830B7E19"><li purpose="li" id="LI_1D977F1CD6E54A2A8E47277D3D47F6CD">datumTransformation</li><li purpose="li" id="LI_DDC253A306684CE29472C47359DFB7B2">mapRangeValues</li><li purpose="li" id="LI_205173DB2C6C4D25837EBF7411CEA41B">layerRangeValues</li><li purpose="li" id="LI_C00280BF38E34A458C91411E35814FAA">layerParameterValues</li></ul></li><li purpose="li" id="LI_71FAA479154A466A90B9DC19E02B58CE">Map service root resources includes <span class="usertext">activeRangeName</span> and <span class="usertext">currentRangeExtent</span> when the map has ranges.</li><li purpose="li" id="LI_55CD67BD82B348D3B34A9922B31AD875">Layer resources includes <span class="usertext">rangeInfos</span> and <span class="usertext">parameterInfos</span> when available.</li><li purpose="li" id="LI_762600B3B3A0402A87D73C012C161139"><span class="usertext">identify</span> and <span class="usertext">find</span> operations are enhanced with the following boolean flags to support returning unformatted values and field names when desired.<ul purpose="ul" id="UL_9A97B8C8E6EC4A7196591BE220007788"><li purpose="li" id="LI_59F45D02D4C5497E873558EC7978CFB0">returnUnformattedValues</li><li purpose="li" id="LI_CCE751332F7E4892A9053155F0FE9B20">returnFieldName</li></ul></li><li purpose="li" id="LI_28BCE0B876034EE889830CD6832CA05C">Supports sql expressions in query operation's <span class="usertext">orderBy</span>, <span class="usertext">groupByFieldsForOutStatistics</span> and <span class="usertext">outStatistics</span>. Check <span class="usertext">supportsSqlExpression</span> on resources to find out whether the layer/table allows sql expressions.</li><li purpose="li" id="LI_AC8298D01DAB42A7862437324DC24E0F"><span class="usertext">returnUpdates</span> response includes updated full spatial extent when the map contains one or more layers from enterprise geodatabases.</li></ul></div><div class="section1" id="ESRI_SECTION1_96799198568F491AB52FBFEC8C59507D" purpose="section1"><h2>New at 10.4</h2><ul purpose="ul" id="UL_00C6B34D9F524EADAACC74E6C1943CFA">
+          <li purpose="li" id="LI_045AE4742FA743E0BAF9E0F8582332E2">GeoJSON is supported as an output format of  the map service layer <a class="xref" rel="02ss/02ss0000000r000000.htm" href="02ss/02ss0000000r000000.html">query</a> operation.  </li>
+          
+        <li purpose="li" id="LI_B09B71166A834E2791BD3498F65783C7"> The <a class="xref" rel="02ss/02ss0000000r000000.htm" href="02ss/02ss0000000r000000.html">Query</a> operation supports expressions in addition to field names for <span class="usertext">orderByFields</span> and <span class="usertext">groupByFieldsForStatistics</span>.  </li></ul></div><div class="section1" id="ESRI_SECTION1_E49D54253EF4409390B7861A67D357F5" purpose="section1"><h2>New at 10.3</h2><ul purpose="ul" id="UL_45D6D0BAC6B9493BAD9A8F667E842389"><li purpose="li" id="LI_466AE04DD9F84B839717B045642AE945"> Map Service will return <span class="usertext">resampling:true|false</span>, indicating whether clients should resample tiles for areas where tiles are unavailable.  This property is not enabled by default; you can add it using the ArcGIS Server Administrator Directory.</li></ul></div><div class="section1" id="ESRI_SECTION1_B6928EA7C08B4A418DD557D7817E246A" purpose="section1"><h2>New at 10.2</h2><ul purpose="ul" id="UL_AF5F0C7B28CA4E7096A25F34E560A1D5"><li purpose="li" id="LI_A00EFD9C594443A6A4E906F0E054D08C"><a class="xref" target="_blank" rel="http://server.arcgis.com/en/server/latest/administer/linux/about-standardized-queries.htm" href="http://server.arcgis.com/en/server/latest/administer/linux/about-standardized-queries.htm">Standardized SQL queries</a> are the default way to specify a where clause or definition expression. The map service <a class="xref" rel="02ss/02ss00000089000000.htm" href="02ss/02ss00000089000000.html">Layer</a> and <a class="xref" rel="02ss/02ss00000005000000.htm" href="02ss/02ss00000005000000.html">Dynamic Layer</a> resources now report a property  <span class="usertext">useStandardizedQueries</span> to indicate the support for standardized queries. </li><li purpose="li" id="LI_738CDCFF20E948F3B3D4213A4F1B417B">Query operations on  <a class="xref" rel="02ss/02ss00000089000000.htm" href="02ss/02ss00000089000000.html">Layer</a> and <a class="xref" rel="02ss/02ss00000005000000.htm" href="02ss/02ss00000005000000.html">Dynamic Layer</a> now support specifying a <span class="usertext">gdbVersion</span> parameter in conjunction with the <span class="usertext">outStatistics</span> parameter.</li><li purpose="li" id="LI_27692C7E4A39424C87B1C11227DE7782">The <a class="xref" rel="02ss/02ss0000002v000000.htm" href="02ss/02ss0000002v000000.html">Renderer</a> object supports two new optional properties: <span class="usertext">rotationType</span> that controls the origin and direction of rotation, and <span class="usertext">rotationExpression</span>, which is a constant value or an expression that derives the angle of rotation based on the feature attribute value. When an attribute name is specified in <span class="usertext">rotationExpression</span>, it is enclosed within square brackets, for example: [Rotation].</li><li purpose="li" id="LI_3772B190EA894FD09305B5B5F71AAB28">The Map Service resource lists two new properties: <span class="usertext">exportTilesAllowed</span>, a Boolean flag that indicates whether clients can export cache tiles, and <span class="usertext">maxExportTilesCount</span> that specifies the maximum number of tiles that can be exported to a cache dataset or a tile package. </li><li purpose="li" id="LI_0A4F67D0A8544F3BA2B0F0A6E986588A">The Map Service resource lists a new property <span class="usertext">supportedExtensions</span>, a comma-separated list of extensions supported by the map service. </li></ul></div><div class="section1" id="ESRI_SECTION1_EFC9B935AE3F4D09A54E1EF69B8811D8" purpose="section1"><h2>New at 10.1 SP1</h2><ul purpose="ul" id="UL_ACBB6365D5E14D4781296FDD9F2E8EB7"> <li purpose="li" id="LI_3602E2B0CC174FAC8AAA6F539E4C3BD3">Query operations on <a class="xref" rel="02ss/02ss0000000r000000.htm" href="02ss/02ss0000000r000000.html">Layer</a> and <a class="xref" rel="02ss/02ss00000081000000.htm" href="02ss/02ss00000081000000.html">Dynamic Layer</a> support a new parameter called <span class="usertext">returnDistinctValues</span> that accepts a Boolean value. When true, query results will contain distinct values based on the fields specified in the <span class="usertext">outFields</span> parameter.</li><li purpose="li" id="LI_3D7B20BCC8944901922D6F25F4BB4BB3">Query operations on <a class="xref" rel="02ss/02ss0000000r000000.htm" href="02ss/02ss0000000r000000.html">Layer</a> and <a class="xref" rel="02ss/02ss00000081000000.htm" href="02ss/02ss00000081000000.html">Dynamic Layer</a> support the <span class="usertext">geometry</span> parameter to be
+used in conjunction with the <span class="usertext">outStatistics</span> parameter.
+</li><li purpose="li" id="LI_E2819B2A8ADC41C38B49FD990E215BB7">The <a class="xref" rel="02ss/02ss0000007n000000.htm" href="02ss/02ss0000007n000000.html">Legend</a> resource returns the height and width of the legend symbol. </li> <li purpose="li" id="LI_88E620EABB4D4BBD8D3F8EAAD02020DE">The <a class="xref" rel="02ss/02ss0000005t000000.htm" href="02ss/02ss0000005t000000.html">All Layers/Table</a>, <a class="xref" rel="02ss/02ss00000089000000.htm" href="02ss/02ss00000089000000.html">Layer</a>, and <a class="xref" rel="02ss/02ss00000005000000.htm" href="02ss/02ss00000005000000.html">Dynamic Layer</a> resources now include an <span class="usertext">ownershipBasedAccessControlForFeatures</span> flag to indicate ownership. </li></ul></div><div class="section1" id="ESRI_SECTION1_5FF2E5ECB14B4DD3A18BEFAD980CBAF2" purpose="section1"><h2>New at 10.1</h2><ul purpose="ul" id="UL_E2AE828D838148ACBD8A7E42DD295FB5"><li purpose="li" id="LI_51AC4BC0F6E74CA3A26E7023E48ADE7C">The Map Service resource supports a new parameter, <span class="usertext">returnUpdates</span>, that accepts a Boolean value. Pass this parameter to retrieve updated information from the map service. </li><li purpose="li" id="LI_9894C3C4F99E42389CA58C8196967D76">The Map Service resource has new input parameters, <span class="usertext">option</span> and <span class="usertext">outSR</span>, to support viewing of a map service footprint in arcgis.com. </li><li purpose="li" id="LI_C3666E29AB2A4C00B29C1CE673838B8E">Support for <a class="xref" rel="02ss/02ss00000005000000.htm" href="02ss/02ss00000005000000.html">dynamic layers</a> has been added to map service. This allows per request modification of renderer, joins, geodatabase version, or layer order
+for existing map service layers. If the map service has registered
+workspaces, dynamic layers also allow per request addition of
+layers based on the data from the registered workspaces. Use
+the <span class="usertext">supportsDynamicLayers</span> property on the Map Service
+resource to determine if the service supports dynamic layers.
+</li><li purpose="li" id="LI_C2A003E6E1A048EBB407B6D4B211B232">The Map Service resource contains <span class="usertext">maxRecordCount</span>, <span class="usertext">maxImageHeight</span>, and <span class="usertext">maxImageWidth</span> properties. <span class="usertext">maxRecordCount</span> represents the maximum number of records that can be returned by query, find, and identify operations. <span class="usertext">maxImageHeight</span> and <span class="usertext">maxImageWidth</span> represent the maximum image height and width, in pixels, the map service will export. </li><li purpose="li" id="LI_EA5AD41395854732B85A3AAC1BC3E441">The Map Service resource includes the <span class="usertext">tileServers</span> property, which advertises multiple subdomains on a map service endpoint. This allows the tile requests to be split across the tile servers specified in this property, for example, http://maps1.myserver.com and http://maps2.myserver.com.
+</li><li purpose="li" id="LI_EC3C8BFC4A7049D0B26ED145076E7372">The Map Service resource includes <span class="usertext">supportedQueryFormats</span>. This value indicates the supported output formats for a query operation.</li><li purpose="li" id="LI_98E282AA2ABB43129DDE9851FF58549D">The Map Service resource includes these new properties under <span class="usertext">timeInfo</span>: <span class="usertext">timeRelation</span>, <span class="usertext">defaultTimeInterval</span>, <span class="usertext">defaultTimeIntervalUnits</span>, <span class="usertext">defaultTimeWindow</span>, and <span class="usertext">hasLiveData</span>.<p id="GUID-17576521-5BD0-45BE-9A4B-7F375C0CEEEF"> <ul purpose="ul" id="OL_FC1A26E128F445A68D543ADD874C0C23"> <li purpose="li" id="LI_7EC8EF2920EF45188D13A2784B4F1A46"><span class="usertext">timeRelation</span> indicates how the start and end time of the time slider extent are processed: <span class="usertext">esriTimeRelationOverlaps</span> when start and end time of the time slider are included, <span class="usertext">esriTimeRelationOverlapsStartWithinEnd</span> when start time is included and end time is excluded, and <span class="usertext">esriTimeRelationAfterStartOverlapsEnd</span> when start time is excluded and end time is included.</li> <li purpose="li" id="LI_EE8AE69C90C14109A180FE31067BE349"><span class="usertext">defaultTimeInterval</span> and <span class="usertext">defaultTimeIntervalUnits</span> indicate the initial time slider step size. The allowed units include the following:<ul purpose="ul" id="UL_DC7C7E5BCC344B4D92F63CCFEAF2CF8F"><li purpose="li" id="LI_EABFD408D6CF4909A12F23E9689167B7"><span class="usertext">esriTimeUnitsCenturies</span></li><li purpose="li" id="LI_66A6BC379E7B485DB5EE4968EE392958"><span class="usertext">esriTimeUnitsDays</span></li><li purpose="li" id="LI_D7BD1AC37AD34D9C9A1883DBFA8299AA"><span class="usertext">esriTimeUnitsDecades</span></li><li purpose="li" id="LI_E178183D836842F4BB5C8728417D8E2C"><span class="usertext">esriTimeUnitsHours</span></li><li purpose="li" id="LI_2213ED7F5EC64911A7ED1D829A6E8A08"><span class="usertext">esriTimeUnitsMilliseconds</span></li><li purpose="li" id="LI_B0A70DCD44B84C62A66F15DBD5A5D36E"><span class="usertext">esriTimeUnitsMinutes</span></li><li purpose="li" id="LI_5349A4DD852840718D8A4FCBCD9BE363"><span class="usertext">esriTimeUnitsMonths</span></li><li purpose="li" id="LI_FC6762C5D03743069756B47CD09C7E1C"><span class="usertext">esriTimeUnitsSeconds</span></li><li purpose="li" id="LI_19909192D0A140B1BA27B41E0F3A3176"><span class="usertext">esriTimeUnitsWeeks</span></li><li purpose="li" id="LI_5B037E4EC1DF4A0190C402823DDCD6DC"><span class="usertext">esriTimeUnitsYears</span></li><li purpose="li" id="LI_9696671788C9475CB44CD13196B80ED1"><span class="usertext">esriTimeUnitsUnknown</span></li></ul> </li><li purpose="li" id="LI_561B566E81744CAA8D46C1EDC5221276"><span class="usertext">defaultTimeWindow</span> indicates the time slider window size.</li><li purpose="li" id="LI_A18274CBEABB438CA7D650D596588C1B"><span class="usertext">hasLiveData</span> returns a Boolean value. If true, export and identify operations will default the value for the <span class="usertext">time</span> parameter to be [&lt;current server time - <span class="usertext">defaultTimeWindow</span>&gt;, &lt;current server time&gt;].</li></ul> </p></li><li purpose="li" id="LI_EA3178A98237494E94583D6F33B62A21">The Map Service resource includes <span class="usertext">minScale</span> and <span class="usertext">maxScale</span> properties. For a cached map service, these values represent the minimum and maximum map scales at which the administrator has
+allowed the tiles to be built. In the case of a dynamic map service,
+these values are calculated as a union of minimum and maximum
+scales of all the map layers.
+</li><li purpose="li" id="LI_2E2A5811AFD14A488A7BEE3AADBE8CF6">The Map Service resource includes <span class="usertext">hasVersionedData</span> if any of the map layers data is versioned. When true, map service operations accept the <span class="usertext">gdbVersion</span> parameter to switch the geodatabase version.</li></ul></div><div class="section1" id="ESRI_SECTION1_2197DB2B90984F4ABD726F996FFF24FC" purpose="section1"><h2>New at 10.0 SP1</h2><ul purpose="ul" id="UL_D7B886C2269644D1A6E6E1B75E8DB5F8"><li purpose="li" id="LI_E0E3318281F84E89819330330AE2171F">Support for a <a class="xref" rel="02ss/02ss0000007n000000.htm" href="02ss/02ss0000007n000000.html">Map Service Legend</a> child resource was added.
+</li><li purpose="li" id="LI_B352B84F71E24BF39BF1F5CF8BD2F812">The Map Service resource includes scale information (<span class="usertext">minScale</span> and <span class="usertext">maxScale</span>) for layers.</li></ul></div><div class="section1" id="ESRI_SECTION1_97DAA686343648B4A3491BF631C7B9BD" purpose="section1"><h2>New at 10.0</h2><ul purpose="ul" id="UL_4BCCF7A0F3E442C185F82178C4628B3C"><li purpose="li" id="LI_20D276FF8E9F41A6BC43442CACFBD1AD">At 10 and later, in addition to layers, map services can also publish
+stand-alone tables. The response includes a new <span class="usertext">tables</span>
+property that contains some basic information about tables. The
+child layer resource is now a <a class="xref" rel="02ss/02ss00000089000000.htm" href="02ss/02ss00000089000000.html">Layer/Table resource</a> in that it represents either a layer or
+a table depending on the ID that was specified.
+</li><li purpose="li" id="LI_41F9D59E146B4963A51D4E00C9FCFDEA">Support for time-aware map services was added at 10. If the map supports
+querying and exporting maps based on time, the response will include
+a <span class="usertext">timeInfo</span> property that includes information such as
+the map's time extent and the map's native time reference. However,
+the REST API always encodes time in UTC (milliseconds
+from epoch).
+</li></ul></div><div class="section1" id="GUID-D046C316-69FE-4317-8239-8D6E36E7D17C" purpose="section1"><h2>
+        Request parameters
+      </h2><p id="GUID-C22993BF-A08D-4811-8790-A321B7BDB0E1">
+        <div class="block_table" id="GUID-D83DC9E3-F1A6-4530-8717-B1A092EF2FF1" purpose="block_table"><span class="table_title"></span><table class="table"><colgroup width="200pt"></colgroup><colgroup width="*"></colgroup><tr purpose="thead"><th class="th" purpose="th" rowspan="1" colspan="1">
+                  <p id="GUID-2605FC62-55C5-42FE-A744-4788B1C12144">Parameter</p>
+                </th><th class="th" purpose="th" rowspan="1" colspan="1">
+                  <p id="GUID-587E9360-A5E4-4025-960D-5E4B6377BC8D">Details</p>
+                </th></tr><tbody>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">f</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-65C56C84-CA77-476A-91D5-FD25B5C235E9">Description: The response format. The default response format is <span class="usertext">html</span>.</p><p id="GUID-CD35ABFE-29DF-4ACA-945B-DB031147661B">Values: <span class="usertext">html | json | kmz | lyr | nmf | jsapi | ve | gmaps</span></p>
+                </td>
+              </tr><tr><td purpose="entry" rowspan="1" colspan="1"><span class="usertext">returnUpdates</span></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-14384B11-E622-41CF-936B-2E9F92966F6C">This parameter was added at 10.1.</p><p id="GUID-15F0786A-017D-4C85-B059-C0D154295869">Description: If value is true, returns updated time extent. If the service is not time aware, returns an empty response.</p><p id="GUID-392AF783-7A36-4432-B2D1-9B09F028D857">Values: <span class="usertext">true | false</span></p></td></tr><tr><td purpose="entry" rowspan="1" colspan="1"><span class="usertext">option</span></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-D4FE63FF-CCE4-4622-80B4-9CDD964532F5">This parameter was added at 10.1.</p><p id="GUID-4C2F71DB-75B7-4F35-976C-830DD6F8C1B0">Description: If <span class="usertext">option</span> is <span class="usertext">footprints</span>, the footprint of the map service is returned as a feature collection. This feature collection can be viewed in an arcgis.com map. This is supported when <span class="usertext">f=json</span> only.</p><p id="GUID-E877FC22-AC15-4C3D-9CFC-72EBE8FFED09">Values: <span class="usertext">footprints</span></p></td></tr><tr><td purpose="entry" rowspan="1" colspan="1"><span class="usertext">outSR</span></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-D3E806F2-4C0F-4461-9AA3-946E69ADD717">This parameter was added at 10.1.</p><p id="GUID-6510D9DA-3E4A-4F0D-ADE5-7C25316C0D20">Description: The spatial reference of the geometry returned in footprints. This parameter is supported only when <span class="usertext">option=footprints</span> is specified.</p><p id="GUID-51CCE972-E133-43B9-993A-BBFE94E36D58">The spatial reference should be specified as a well-known ID.</p><p id="GUID-D987C763-0C36-40B4-ACEC-05B192B34516">If <span class="usertext">outSR</span> is not specified, the geometry is returned in <span class="usertext">GCS_WGS_1984</span>.</p></td></tr>
+            </tbody><caption class="table_desc"></caption></table></div>
+      </p></div>
+    
+    <div class="section1" id="GUID-2F651876-81C8-47C7-8883-272BFB071BEB" purpose="section1"><h2>Example usage</h2><p id="GUID-85803D89-9388-4810-8FBA-8247B8C24FBD">
+        Example: URL for the "ESRI_StateCityHighway_USA" map service on
+sampleserver1.
+</p><p id="GUID-FAFA093D-E081-40ED-8F25-FBD65EC74BC2"><a target="_blank" class="xref" href="http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StateCityHighway_USA/MapServer" rel="http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StateCityHighway_USA/MapServer">http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StateCityHighway_USA/MapServer</a></p></div>
+    <div class="section1" id="GUID-4229E05C-AE7F-429E-AB87-F5D056877003" purpose="section1"><h2>JSON response syntax</h2><p id="GUID-31FCFF2F-1718-4CFE-9840-030BB8239369">The following properties were added to the JSON response at 10.2:</p><p id="GUID-65CF23ED-1473-449A-9467-729CAA8F5939"><ul purpose="ul" id="UL_9A0960E8663D4304B519D348B6D81EE2"><li purpose="li" id="LI_A9CD02D4CBDB4E939F35FE5524837CA9"><span class="usertext">exportTilesAllowed</span></li><li purpose="li" id="LI_DFC3AFF45C9349BDABA31EF237B5C940"><span class="usertext">maxExportTilesCount</span></li><li purpose="li" id="LI_E718C7F309814989B56305EEF5B69E7D"><span class="usertext">supportedExtensions</span></li></ul></p><p id="GUID-024F0F27-D77E-4754-9F44-9E6E16045DAC">The following properties were added to the JSON response at 10.1:</p><p id="GUID-9D32F108-CA43-4480-A668-D20F96D607F7"><ul purpose="ul" id="UL_D2A7A598E55B44BE8BCC8E5F5AF09D0E"><li purpose="li" id="LI_CCA00A066BFB4F128BC25173AB738827"><span class="usertext">supportsDynamicLayers</span></li><li purpose="li" id="LI_54AAAC0BBEE94597BF5C1DABC3DE7FC5"><span class="usertext">timeInfo</span><p id="GUID-EFE403C3-2398-4797-AB5A-6C15DF8E59AD"><ul purpose="ul" id="UL_ACBA5530D5F74FBDB0886DCCDBE38E10"><li purpose="li" id="LI_0337765CE62C4B519B3D7B6655F53C2A"><span class="usertext">timeRelation</span></li><li purpose="li" id="LI_B655BD895FE74DBAB65530D0F77BA9B4"><span class="usertext">defaultTimeInterval</span></li><li purpose="li" id="LI_584B38F4AA5F40E181890E2231E73890"><span class="usertext">defaultTimeIntervalUnits</span></li><li purpose="li" id="LI_96CF1357B734460E87CD689528D23CE5"><span class="usertext">defaultTimeWindow</span></li><li purpose="li" id="LI_13C26C72911B40688FBF3CBEEC1C61F9"><span class="usertext">hasLiveData</span></li></ul></p></li><li purpose="li" id="LI_94B7023DE5A94A1195F3CD9960785013"><span class="usertext">maxRecordCount</span></li><li purpose="li" id="LI_5717A406560F41AD955526C676929E6A"><span class="usertext">maxImageHeight</span></li><li purpose="li" id="LI_337C5E071F264BCAAF3FEF38C043DDE4"><span class="usertext">maxImageWidth</span></li><li purpose="li" id="LI_2564154D30D14001BA841C1709617D2F"><span class="usertext">minScale</span></li><li purpose="li" id="LI_ADA3244C8FB34B1FB29B289955E9D59D"><span class="usertext">maxScale</span></li><li purpose="li" id="LI_729B7FD1DF31479AB1496B4B902E9E18"><span class="usertext">tileServers</span></li><li purpose="li" id="LI_71708AA922904BC581DC86082D0CED2F"><span class="usertext">supportedQueryFormats</span></li></ul></p><p id="GUID-3F0BE762-DA4C-4773-8492-5718961B4E60">The following property was added to the JSON response at 9.3.1:</p><p id="GUID-64BB7391-3542-4FDB-ACAC-2293184785BC"><ul purpose="ul" id="UL_DF3F61D3D81740FBA172AC88A1531D94"><li purpose="li" id="LI_6AF2FBDE3F83424082516DBE4A0E9B50"><span class="usertext">supportedImageFormatTypes</span></li></ul></p><p id="GUID-9E78688F-D70A-4944-9D5B-48EC7227E2C3">
+        <div class="codeblock" purpose="codeblock">
+          <div class="codeblockdesc" purpose="codeblockdesc">
+            
+          </div>
+          <div class="highlight"><pre><code><span class="p">{</span>
+<span class="s2">&quot;currentVersion&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">currentVersion</span><span class="o">&gt;</span><span class="p">,</span> <span class="c1">//Added at 10.0 SP1</span>
+<span class="s2">&quot;serviceDescription&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;serviceDescription&gt;&quot;</span><span class="p">,</span>
+<span class="s2">&quot;mapName&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;mapName&gt;&quot;</span>
+<span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;description&gt;&quot;</span><span class="p">,</span>
+<span class="s2">&quot;copyrightText&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;copyrightText&gt;&quot;</span><span class="p">,</span>
+<span class="s2">&quot;supportsDynamicLayers&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span><span class="o">|</span><span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span> <span class="c1">//Added at 10.1</span>
+<span class="s2">&quot;layers&quot;</span><span class="o">:</span> <span class="p">[</span> <span class="c1">//the spatial layers published by this service</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">layerId1</span><span class="o">&gt;</span><span class="p">,</span> 
+    <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;layerName1&gt;&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;defaultVisibility&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span><span class="o">|</span><span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span> 
+    <span class="s2">&quot;parentLayerId&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">parentLayerId1</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;subLayerIds&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="o">&lt;</span><span class="nx">subLayerId11</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="nx">subLayerId12</span><span class="o">&gt;</span><span class="p">]</span>
+    <span class="s2">&quot;minScale&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">minScale1</span><span class="o">&gt;</span><span class="p">,</span> <span class="c1">//Added at 10.0 SP1</span>
+    <span class="s2">&quot;maxScale&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">maxScale1</span><span class="o">&gt;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">layerId2</span><span class="o">&gt;</span><span class="p">,</span> 
+    <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;layerName2&gt;&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;defaultVisibility&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span><span class="o">|</span><span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span> 
+    <span class="s2">&quot;parentLayerId&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">parentLayerId2</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;subLayerIds&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="o">&lt;</span><span class="nx">subLayerId21</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="nx">subLayerId22</span><span class="o">&gt;</span><span class="p">]</span>
+    <span class="s2">&quot;minScale&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">minScale1</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;maxScale&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">maxScale1</span><span class="o">&gt;</span>
+    <span class="p">}</span>
+<span class="p">],</span>
+<span class="s2">&quot;tables&quot;</span><span class="o">:</span> <span class="p">[</span> <span class="c1">//the tables published by this service - from 10 onward</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">tableId1</span><span class="o">&gt;</span><span class="p">,</span> 
+    <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;tableName1&gt;&quot;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">tableId2</span><span class="o">&gt;</span><span class="p">,</span> 
+    <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;tableName2&gt;&quot;</span>
+    <span class="p">}</span>
+<span class="p">],</span>
+<span class="s2">&quot;spatialReference&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="o">&lt;</span><span class="nx">spatialReference</span><span class="o">&gt;</span><span class="p">},</span>
+<span class="s2">&quot;singleFusedMapCache&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="s2">&quot;tileInfo&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;rows&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">rows</span><span class="o">&gt;</span><span class="p">,</span> <span class="s2">&quot;cols&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">cols</span><span class="o">&gt;</span><span class="p">,</span> <span class="s2">&quot;dpi&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">dpi</span><span class="o">&gt;</span><span class="p">,</span> <span class="s2">&quot;format&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">format</span><span class="o">&gt;</span><span class="p">,</span> <span class="s2">&quot;compressionQuality&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">quality</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;origin&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="o">&lt;</span><span class="nx">point</span><span class="o">&gt;</span><span class="p">},</span>
+    <span class="s2">&quot;spatialReference&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="o">&lt;</span><span class="nx">spatialReference</span><span class="o">&gt;</span><span class="p">},</span>
+    <span class="s2">&quot;lods&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span><span class="s2">&quot;level&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">level1</span><span class="o">&gt;</span><span class="p">,</span> <span class="s2">&quot;resolution&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">resolution1</span><span class="o">&gt;</span><span class="p">,</span> <span class="s2">&quot;scale&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">scale1</span><span class="o">&gt;</span> <span class="p">},</span>
+        <span class="p">{</span><span class="s2">&quot;level&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">level2</span><span class="o">&gt;</span><span class="p">,</span> <span class="s2">&quot;resolution&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">resolution2</span><span class="o">&gt;</span><span class="p">,</span> <span class="s2">&quot;scale&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">scale2</span><span class="o">&gt;</span> <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">},</span>
+<span class="s2">&quot;initialExtent&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="o">&lt;</span><span class="nx">envelope</span><span class="o">&gt;</span><span class="p">},</span>
+<span class="s2">&quot;fullExtent&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="o">&lt;</span><span class="nx">envelope</span><span class="o">&gt;</span><span class="p">},</span>
+<span class="c1">//from 10 onward - if the map supports querying and exporting maps based on time</span>
+<span class="s2">&quot;timeInfo&quot;</span> <span class="o">:</span> <span class="p">{</span>
+  <span class="s2">&quot;timeExtent&quot;</span><span class="o">:</span> <span class="p">[</span><span class="o">&lt;</span><span class="nx">startTime</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="nx">endTime</span><span class="o">&gt;</span><span class="p">],</span>
+  <span class="s2">&quot;timeReference&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;timeZone&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;timeZone&gt;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;respectsDaylightSaving&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;timeRelation&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;esriTimeRelationOverlaps | esriTimeRelationOverlapsStartWithinEnd | esriTimeRelationAfterStartOverlapsEnd&gt;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;defaultTimeInterval&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">time</span> <span class="nx">interval</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="s2">&quot;defaultTimeIntervalUnits&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;esriTimeUnitsCenturies | esriTimeUnitsDays | esriTimeUnitsDecades |</span>
+<span class="s2">                             esriTimeUnitsHours | esriTimeUnitsMilliseconds | esriTimeUnitsMinutes |</span>
+<span class="s2">                             esriTimeUnitsMonths | esriTimeUnitsSeconds | esriTimeUnitsWeeks | esriTimeUnitsYears |</span>
+<span class="s2">                             esriTimeUnitsUnknown&gt;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;defaultTimeInterval&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">time</span> <span class="nx">interval</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="s2">&quot;defaultTimeWindow&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">time</span> <span class="nb">window</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="s2">&quot;hasLiveData&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="p">},</span>
+<span class="s2">&quot;units&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;units&gt;&quot;</span><span class="p">,</span>
+<span class="s2">&quot;supportedImageFormatTypes&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;supportedImageFormatTypes&gt;&quot;</span><span class="p">,</span>
+<span class="s2">&quot;documentInfo&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;&lt;key1&gt;&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;value1&gt;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;&lt;key2&gt;&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;value2&gt;&quot;</span>
+<span class="p">},</span>
+<span class="c1">//comma separated list of supported capabilities - e.g. &quot;Map,Query,Data&quot;</span>
+<span class="s2">&quot;capabilities&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;capabilities&gt;&quot;</span><span class="p">,</span>
+<span class="s2">&quot;maxRecordCount&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">maxRecordCount</span><span class="o">&gt;</span><span class="p">,</span> <span class="c1">//Added at 10.1</span>
+<span class="s2">&quot;maxImageHeight&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">maxImageHeight</span><span class="o">&gt;</span><span class="p">,</span> <span class="c1">//Added at 10.1</span>
+<span class="s2">&quot;maxImageWidth&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">maxImageWidth</span><span class="o">&gt;</span><span class="p">,</span> <span class="c1">//Added at 10.1</span>
+<span class="s2">&quot;minScale&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">minimum</span> <span class="nx">map</span> <span class="nx">scale</span><span class="o">&gt;</span><span class="p">,</span> <span class="c1">//Added at 10.1</span>
+<span class="s2">&quot;maxScale&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">maximum</span> <span class="nx">map</span> <span class="nx">scale</span><span class="o">&gt;</span><span class="p">,</span> <span class="c1">//Added at 10.1</span>
+<span class="s2">&quot;tileServers&quot;</span> <span class="o">:</span> <span class="p">[</span><span class="s2">&quot;&lt;tileServerUrl1&gt;&quot;</span><span class="p">,</span><span class="s2">&quot;&lt;tileServerUrl2&gt;&quot;</span><span class="p">,</span><span class="s2">&quot;&lt;tileServerUrl2&gt;&quot;</span><span class="p">],</span> <span class="c1">//Added at 10.1</span>
+<span class="s2">&quot;supportedQueryFormats&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;query output formats&gt;&quot;</span><span class="p">,</span>
+<span class="s2">&quot;exportTilesAllowed&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="s2">&quot;maxExportTilesCount: &lt;export tiles limit&gt;,</span>
+<span class="s2">&quot;</span><span class="nx">supportedExtensions</span><span class="s2">&quot;: &quot;</span><span class="o">&lt;</span><span class="nx">FeatureServer</span><span class="p">,</span><span class="nx">KmlServer</span><span class="p">,</span><span class="nx">MobileServer</span><span class="p">,</span><span class="nx">WCSServer</span><span class="p">,</span><span class="nx">WFSServer</span><span class="p">,</span><span class="nx">WMSServer</span><span class="p">,</span><span class="nx">NAServer</span><span class="p">,</span><span class="nx">SchematicsServer</span><span class="o">&gt;</span><span class="s2">&quot;,</span>
+<span class="s2">&quot;</span><span class="nx">resampling</span><span class="err">&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span> <span class="c1">// Added at 10.3</span>
+<span class="p">}</span>
+</code></pre></div>
+
+        </div>
+      </p></div>
+    <div class="section1" id="GUID-851467B2-B641-4C16-BE74-2BB9F032B298" purpose="section1"><h2>JSON response example</h2><p id="GUID-0FAA659C-7C52-4FAA-B43A-4A7B41DFECF7">
+        <div class="codeblock" purpose="codeblock">
+          <div class="codeblockdesc" purpose="codeblockdesc">
+            
+          </div>
+          <div class="highlight"><pre><code><span class="p">{</span>
+    <span class="s2">&quot;currentVersion&quot;</span><span class="o">:</span> <span class="mf">10.1</span><span class="p">,</span>
+    <span class="s2">&quot;serviceDescription&quot;</span><span class="o">:</span> <span class="s2">&quot;Test Map Service Description&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;mapName&quot;</span><span class="o">:</span> <span class="s2">&quot;Street Map Pro Data&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;Street Map USA&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;copyrightText&quot;</span><span class="o">:</span> <span class="s2">&quot;ESRI&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;supportsDynamicLayers&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">&quot;layers&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Cities&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;defaultVisibility&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">&quot;parentLayerId&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;subLayerIds&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="s2">&quot;minScale&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;maxScale&quot;</span><span class="o">:</span> <span class="mi">0</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;States&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;defaultVisibility&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">&quot;parentLayerId&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;subLayerIds&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="s2">&quot;minScale&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;maxScale&quot;</span><span class="o">:</span> <span class="mi">0</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Counties&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;defaultVisibility&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="s2">&quot;parentLayerId&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+            <span class="s2">&quot;subLayerIds&quot;</span><span class="o">:</span> <span class="p">[</span>
+                <span class="mi">3</span><span class="p">,</span>
+                <span class="mi">4</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;minScale&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;maxScale&quot;</span><span class="o">:</span> <span class="mi">0</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Large Counties&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;defaultVisibility&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="s2">&quot;parentLayerId&quot;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s2">&quot;subLayerIds&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="s2">&quot;minScale&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;maxScale&quot;</span><span class="o">:</span> <span class="mi">0</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
+            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Small Counties&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;defaultVisibility&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="s2">&quot;parentLayerId&quot;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="s2">&quot;subLayerIds&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+            <span class="s2">&quot;minScale&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+            <span class="s2">&quot;maxScale&quot;</span><span class="o">:</span> <span class="mi">0</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;spatialReference&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;wkid&quot;</span><span class="o">:</span> <span class="mi">4326</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;singleFusedMapCache&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;tileInfo&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;rows&quot;</span><span class="o">:</span> <span class="mi">512</span><span class="p">,</span>
+        <span class="s2">&quot;cols&quot;</span><span class="o">:</span> <span class="mi">512</span><span class="p">,</span>
+        <span class="s2">&quot;dpi&quot;</span><span class="o">:</span> <span class="mi">96</span><span class="p">,</span>
+        <span class="s2">&quot;format&quot;</span><span class="o">:</span> <span class="s2">&quot;JPEG&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;compressionQuality&quot;</span><span class="o">:</span> <span class="mi">75</span><span class="p">,</span>
+        <span class="s2">&quot;origin&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;x&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mi">130</span><span class="p">,</span>
+            <span class="s2">&quot;y&quot;</span><span class="o">:</span> <span class="mi">50</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;spatialReference&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;wkid&quot;</span><span class="o">:</span> <span class="mi">4326</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;lods&quot;</span><span class="o">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;level&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+                <span class="s2">&quot;resolution&quot;</span><span class="o">:</span> <span class="mf">8.46</span><span class="p">,</span>
+                <span class="s2">&quot;scale&quot;</span><span class="o">:</span> <span class="mi">32000</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;level&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">&quot;resolution&quot;</span><span class="o">:</span> <span class="mf">4.23</span><span class="p">,</span>
+                <span class="s2">&quot;scale&quot;</span><span class="o">:</span> <span class="mi">16000</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;level&quot;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="s2">&quot;resolution&quot;</span><span class="o">:</span> <span class="mf">2.11</span><span class="p">,</span>
+                <span class="s2">&quot;scale&quot;</span><span class="o">:</span> <span class="mi">8000</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;level&quot;</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+                <span class="s2">&quot;resolution&quot;</span><span class="o">:</span> <span class="mf">1.05</span><span class="p">,</span>
+                <span class="s2">&quot;scale&quot;</span><span class="o">:</span> <span class="mi">4000</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;level&quot;</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span>
+                <span class="s2">&quot;resolution&quot;</span><span class="o">:</span> <span class="mf">0.52</span><span class="p">,</span>
+                <span class="s2">&quot;scale&quot;</span><span class="o">:</span> <span class="mi">2000</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;initialExtent&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;xmin&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">109.55</span><span class="p">,</span>
+        <span class="s2">&quot;ymin&quot;</span><span class="o">:</span> <span class="mf">25.76</span><span class="p">,</span>
+        <span class="s2">&quot;xmax&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">86.39</span><span class="p">,</span>
+        <span class="s2">&quot;ymax&quot;</span><span class="o">:</span> <span class="mf">49.94</span><span class="p">,</span>
+        <span class="s2">&quot;spatialReference&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;wkid&quot;</span><span class="o">:</span> <span class="mi">4326</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;fullExtent&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;xmin&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mi">130</span><span class="p">,</span>
+        <span class="s2">&quot;ymin&quot;</span><span class="o">:</span> <span class="mi">24</span><span class="p">,</span>
+        <span class="s2">&quot;xmax&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mi">65</span><span class="p">,</span>
+        <span class="s2">&quot;ymax&quot;</span><span class="o">:</span> <span class="mi">50</span><span class="p">,</span>
+        <span class="s2">&quot;spatialReference&quot;</span><span class="o">:</span> <span class="p">{</span>
+            <span class="s2">&quot;wkid&quot;</span><span class="o">:</span> <span class="mi">4326</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;units&quot;</span><span class="o">:</span> <span class="s2">&quot;esriDecimalDegrees&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;supportedImageFormatTypes&quot;</span><span class="o">:</span> <span class="s2">&quot;PNG32,PNG24,PNG,JPG,DIB,TIFF,EMF,PS,PDF,GIF,SVG,SVGZ&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;documentInfo&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;Title&quot;</span><span class="o">:</span> <span class="s2">&quot;StreetMap USA.mxd&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Author&quot;</span><span class="o">:</span> <span class="s2">&quot;ESRI Data Team&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Comments&quot;</span><span class="o">:</span> <span class="s2">&quot;ESRI Data and Maps 2004&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Subject&quot;</span><span class="o">:</span> <span class="s2">&quot;Street level data for the US&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Category&quot;</span><span class="o">:</span> <span class="s2">&quot;vector&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Keywords&quot;</span><span class="o">:</span> <span class="s2">&quot;StreetMap USA&quot;</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;capabilities&quot;</span><span class="o">:</span> <span class="s2">&quot;Map,Query,Data&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;maxRecordCount&quot;</span><span class="o">:</span> <span class="mi">1000</span><span class="p">,</span>
+    <span class="s2">&quot;maxImageHeight&quot;</span><span class="o">:</span> <span class="mi">2048</span><span class="p">,</span>
+    <span class="s2">&quot;maxImageWidth&quot;</span><span class="o">:</span> <span class="mi">2048</span><span class="p">,</span>
+    <span class="s2">&quot;minScale&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;maxScale&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s2">&quot;tileServers&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;http://myserver/arcgis/rest/services/basemap/MapServer&quot;</span><span class="p">,</span><span class="s2">&quot;http://myserver2/arcgis/rest/services/basemap/MapServer&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;supportedQueryFormats&quot;</span><span class="o">:</span> <span class="s2">&quot;JSON, AMF&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;exportTilesAllowed&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;maxExportTilesCount&quot;</span><span class="o">:</span> <span class="mi">100000</span><span class="p">,</span>
+    <span class="s2">&quot;supportedExtensions&quot;</span><span class="o">:</span> <span class="s2">&quot;FeatureServer,KmlServer,MobileServer,WCSServer,WFSServer,WMSServer,NAServer,SchematicsServer&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+        </div>
+      </p><p id="GUID-E856DBFC-427E-4B08-A4AE-E3207093BA63">Example 2: When requesting updated information from the service:</p></div>
+  <div class="section1" id="ESRI_SECTION1_4AEC4C2E8CA24CA59E509DD23338DE98" purpose="section1"><h2>JSON response syntax</h2><p id="GUID-ADA2EBEA-8FB6-432B-A004-CB5AD54147FD"><div class="codeblock" purpose="codeblock"><div class="codeblockdesc" purpose="codeblockdesc"></div><div class="highlight"><pre><code><span class="p">{</span>
+  <span class="s2">&quot;timeExtent&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="o">&lt;</span><span class="nx">startTime</span><span class="o">&gt;</span><span class="p">,</span> 
+    <span class="o">&lt;</span><span class="nx">endTime</span><span class="o">&gt;</span>
+  <span class="p">],</span>
+  <span class="s2">&quot;fullExtent&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;xmin&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">xmin</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;ymin&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">ymin</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;xmax&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">xmax</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;ymax&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">ymax</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;spatialReference&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">spatialReference</span><span class="o">&gt;</span>
+ <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p></div><div class="section1" id="ESRI_SECTION1_C90D85F950D14B0FAA3BC7FDAD9649B7" purpose="section1"><h2>JSON response example</h2><p id="GUID-7434DD7D-9A61-4F5B-9268-F14772D1AF30"><div class="codeblock" purpose="codeblock"><div class="codeblockdesc" purpose="codeblockdesc"></div><div class="highlight"><pre><code><span class="p">{</span>
+  <span class="s2">&quot;timeExtent&quot;</span><span class="o">:</span>
+    <span class="p">[</span>
+      <span class="mi">1230768000000</span><span class="p">,</span> <span class="mi">1243814400000</span>
+    <span class="p">],</span>
+  <span class="s2">&quot;fullExtent&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;xmin&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">178.21759836192689</span><span class="p">,</span>
+    <span class="s2">&quot;ymin&quot;</span><span class="o">:</span> <span class="mf">18.924781799107389</span><span class="p">,</span>
+    <span class="s2">&quot;xmax&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">66.969271035924393</span><span class="p">,</span>
+    <span class="s2">&quot;ymax&quot;</span><span class="o">:</span> <span class="mf">71.406235352841463</span><span class="p">,</span>
+    <span class="s2">&quot;spatialReference&quot;</span><span class="o">:</span> <span class="p">{</span>
+       <span class="s2">&quot;wkid&quot;</span><span class="o">:</span> <span class="mi">4269</span><span class="p">,</span>
+       <span class="s2">&quot;latestWkid&quot;</span><span class="o">:</span> <span class="mi">4269</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p><p id="GUID-1F53AD31-4059-4832-8FDF-795C0A0A7F24">Example 3: When requesting footprint for a service:</p><p id="GUID-67847148-E86D-4F5B-B746-CA4B8A1616C2">URL: http://sampleserver.arcgisonline.com/arcgis/rest/services/Specialty/ESRI_StateCityHighway_USA/MapServer?f=json&amp;option=footprints&amp;outSR=102100</p></div><div class="section1" id="ESRI_SECTION1_EF0111D35340452B8EC7B792D7F51366" purpose="section1"><h2>JSON response syntax</h2><p id="GUID-DD858A8A-8318-4265-B375-0D5DB0DB2B29"><div class="codeblock" purpose="codeblock"><div class="codeblockdesc" purpose="codeblockdesc"></div><div class="highlight"><pre><code><span class="p">{</span>
+    <span class="p">{</span>
+    <span class="s2">&quot;featureCollection&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;layers&quot;</span><span class="o">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;layerDefinition&quot;</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;Feature Layer&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;geometryType&quot;</span><span class="o">:</span> <span class="s2">&quot;esriGeometryPoint&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;extent&quot;</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="o">&lt;</span><span class="nx">envelope</span><span class="o">&gt;</span>
+                    <span class="p">},</span>
+                    <span class="s2">&quot;objectIdField&quot;</span><span class="o">:</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;displayFieldName&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;displayFieldName&gt;&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;drawingInfo&quot;</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;renderer&quot;</span><span class="o">:</span> <span class="p">{</span>
+                            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;simple&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;label&gt;&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;symbol&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="mi">24</span><span class="p">,</span>
+                                <span class="s2">&quot;xoffset&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+                                <span class="s2">&quot;yoffset&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+                                <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="mi">24</span><span class="p">,</span>
+                                <span class="s2">&quot;contentType&quot;</span><span class="o">:</span> <span class="s2">&quot;image/png&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriPMS&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;imageData&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;imageData&gt;&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;imageUrl&gt;&quot;</span>
+                            <span class="p">}</span>
+                        <span class="p">}</span>
+                    <span class="p">},</span>
+                    <span class="s2">&quot;fields&quot;</span><span class="o">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;ID&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeOID&quot;</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;title&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;Title&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;summary&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;Summary&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;Description&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;tags&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;Tags&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;Type&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;thumbnail&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;Thumbnail&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;xmin&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;xmin&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;ymin&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;ymin&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;xmax&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;xmax&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;ymax&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;ymax&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;accessInformation&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;Access Information&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;licenseInfo&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;License Information&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;credits&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;Credits&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;link&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;Link&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;arcgisJslink&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;ArcgisJsLink&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span>
+                        <span class="p">}</span>
+                    <span class="p">]</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;featureSet&quot;</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;geometryType&quot;</span><span class="o">:</span> <span class="s2">&quot;esriGeometryPoint&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;spatialReference&quot;</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;wkid&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">wkid</span><span class="o">&gt;</span>
+                    <span class="p">},</span>
+                    <span class="s2">&quot;features&quot;</span><span class="o">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;geometry&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="o">&lt;</span><span class="nx">point</span><span class="o">&gt;</span>
+                            <span class="p">},</span>
+                            <span class="s2">&quot;attributes&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                                <span class="s2">&quot;title&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;title&gt;&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;summary&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;summary&gt;&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;description&gt;&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;tags&quot;</span><span class="o">:</span> <span class="s2">&quot;[\&quot;&lt;tag1&gt;\,\&quot;&lt;tag2&gt;\&quot;]&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;MapServer&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;thumbnail&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;thumbnailUrl&gt;&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;xmin&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">xmin</span><span class="o">&gt;</span><span class="p">,</span>
+                                <span class="s2">&quot;ymin&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">ymin</span><span class="o">&gt;</span><span class="p">,</span>
+                                <span class="s2">&quot;xmax&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">xmax</span><span class="o">&gt;</span><span class="p">,</span>
+                                <span class="s2">&quot;ymax&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">ymax</span><span class="o">&gt;</span><span class="p">,</span>
+                                <span class="s2">&quot;accessInformation&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;accessInformation&gt;&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;licenseInfo&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;licenseInfo&gt;&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;credits&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;credits&gt;&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;link&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;serviceResourceLink&gt;&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;arcgisJslink&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;View in JSAPI Link&gt;&quot;</span>
+                            <span class="p">}</span>
+                        <span class="p">}</span>
+                    <span class="p">]</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;popupInfo&quot;</span><span class="o">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;title&quot;</span><span class="o">:</span> <span class="s2">&quot;{title} ({type})&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;fieldInfos&quot;</span><span class="o">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;fieldName&quot;</span><span class="o">:</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;ID&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="kc">false</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;fieldName&quot;</span><span class="o">:</span> <span class="s2">&quot;title&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Title&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="kc">true</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;fieldName&quot;</span><span class="o">:</span> <span class="s2">&quot;summary&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Summary&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="kc">true</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;fieldName&quot;</span><span class="o">:</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Description&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="kc">true</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;fieldName&quot;</span><span class="o">:</span> <span class="s2">&quot;tags&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Tags&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="kc">true</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;fieldName&quot;</span><span class="o">:</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Type&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="kc">true</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;fieldName&quot;</span><span class="o">:</span> <span class="s2">&quot;thumbnail&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Thumbnail&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="kc">false</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;fieldName&quot;</span><span class="o">:</span> <span class="s2">&quot;xmin&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;xmin&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;format&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;places&quot;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+                                <span class="s2">&quot;digitSeparator&quot;</span><span class="o">:</span> <span class="kc">false</span>
+                            <span class="p">},</span>
+                            <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="kc">false</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;fieldName&quot;</span><span class="o">:</span> <span class="s2">&quot;ymin&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;ymin&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;format&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;places&quot;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+                                <span class="s2">&quot;digitSeparator&quot;</span><span class="o">:</span> <span class="kc">false</span>
+                            <span class="p">},</span>
+                            <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="kc">false</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;fieldName&quot;</span><span class="o">:</span> <span class="s2">&quot;xmax&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;xmax&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;format&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;places&quot;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+                                <span class="s2">&quot;digitSeparator&quot;</span><span class="o">:</span> <span class="kc">false</span>
+                            <span class="p">},</span>
+                            <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="kc">false</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;fieldName&quot;</span><span class="o">:</span> <span class="s2">&quot;ymax&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;ymax&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;format&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;places&quot;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+                                <span class="s2">&quot;digitSeparator&quot;</span><span class="o">:</span> <span class="kc">false</span>
+                            <span class="p">},</span>
+                            <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="kc">false</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;fieldName&quot;</span><span class="o">:</span> <span class="s2">&quot;accessInformation&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Access Information&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="kc">true</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;fieldName&quot;</span><span class="o">:</span> <span class="s2">&quot;licenseInfo&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;License Information&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="kc">true</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;fieldName&quot;</span><span class="o">:</span> <span class="s2">&quot;credits&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Credits&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="kc">true</span>
+                        <span class="p">},</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;fieldName&quot;</span><span class="o">:</span> <span class="s2">&quot;link&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Link&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="kc">true</span>
+                        <span class="p">}</span>
+                    <span class="p">],</span>
+                    <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+                    <span class="s2">&quot;showAttachments&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                    <span class="s2">&quot;mediaInfos&quot;</span><span class="o">:</span> <span class="p">[</span>
+                        <span class="p">{</span>
+                            <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;image&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Initial Extent: [{xmin}, {ymin}] - [{xmax}, {ymax}]&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="p">{</span>
+                                <span class="s2">&quot;sourceURL&quot;</span><span class="o">:</span> <span class="s2">&quot;{thumbnail}&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;linkURL&quot;</span><span class="o">:</span> <span class="s2">&quot;{arcgisJslink}&quot;</span>
+                            <span class="p">}</span>
+                        <span class="p">}</span>
+                    <span class="p">]</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p></div><div class="section1" id="ESRI_SECTION1_9EAF6D607A6B4BAE81DD0905D29054D5" purpose="section1"><h2>JSON response example</h2><p id="GUID-05082C8C-286F-4B43-B6FF-7EA0016B1417"><div class="codeblock" purpose="codeblock"><div class="codeblockdesc" purpose="codeblockdesc"></div><div class="highlight"><pre><code><span class="p">{</span>
+    <span class="s2">&quot;featureCollection&quot;</span><span class="o">:</span><span class="p">{</span>
+        <span class="s2">&quot;layers&quot;</span><span class="o">:</span><span class="p">[{</span>
+                <span class="s2">&quot;layerDefinition&quot;</span><span class="o">:</span><span class="p">{</span>
+                    <span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="s2">&quot;Feature Layer&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;geometryType&quot;</span><span class="o">:</span><span class="s2">&quot;esriGeometryPoint&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;extent&quot;</span><span class="o">:</span><span class="p">{</span><span class="s2">&quot;xmin&quot;</span><span class="o">:-</span><span class="mf">4254455.8606807785</span><span class="p">,</span><span class="s2">&quot;ymin&quot;</span><span class="o">:-</span><span class="mf">1273247.593581636</span><span class="p">,</span><span class="s2">&quot;xmax&quot;</span><span class="o">:-</span><span class="mf">3967497.083911836</span><span class="p">,</span><span class="s2">&quot;ymax&quot;</span><span class="o">:-</span><span class="mf">1127922.6881048125</span><span class="p">,</span><span class="s2">&quot;spatialReference&quot;</span><span class="o">:</span><span class="p">{</span><span class="s2">&quot;wkid&quot;</span><span class="o">:</span><span class="mi">102100</span><span class="p">}},</span>
+                    
+                    <span class="s2">&quot;objectIdField&quot;</span><span class="o">:</span><span class="s2">&quot;id&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;displayFieldName&quot;</span><span class="o">:</span><span class="s2">&quot;Maps/BrazilMapServer&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;drawingInfo&quot;</span><span class="o">:</span><span class="p">{</span>
+                        <span class="s2">&quot;renderer&quot;</span><span class="o">:</span><span class="p">{</span>
+                            <span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="s2">&quot;simple&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;label&quot;</span><span class="o">:</span><span class="s2">&quot;Maps/Brazil&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;description&quot;</span><span class="o">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;symbol&quot;</span><span class="o">:</span><span class="p">{</span>
+                                <span class="s2">&quot;height&quot;</span><span class="o">:</span><span class="mi">24</span><span class="p">,</span>
+                                <span class="s2">&quot;xoffset&quot;</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span>
+                                <span class="s2">&quot;yoffset&quot;</span><span class="o">:</span><span class="mi">0</span><span class="p">,</span>
+                                <span class="s2">&quot;width&quot;</span><span class="o">:</span><span class="mi">24</span><span class="p">,</span>
+                                <span class="s2">&quot;contentType&quot;</span><span class="o">:</span><span class="s2">&quot;image/png&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;type&quot;</span><span class="o">:</span><span class="s2">&quot;esriPMS&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;imageData&quot;</span><span class="o">:</span><span class="s2">&quot;iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAYAAADFeBvrAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAOwQAADsEBuJFr7QAAABl0RVh0U29mdHdhcmUAUGFpbnQuTkVUIHYzLjUuMU7nOPkAAA01SURBVGhD7Vn5c1X1HRVbRRMSo8QEAgmBSEIWkpCQkJCE7CRk3wMvhJAAMRuEJC/7BoEoQRbLowpURBChoYKgKGhV2mlrK3UXrWLFpT84/QPq2HHs6Tk373ZSp+1ojS90ppk5c+97ue/dz/me8znf7/e+G274/99/PwJ5rTtvK+1/2Hf18MnIsv4DYeWDh3yGXvhsyn//jZP0yYIW25Kirgf7V209eq68//ArlqGjVyxDx98o6T34fEH7Pltx9wOZk1Tat7ttYcveiJyWvefX7bmANTtPoWbPWVTfd844rtt7HuWDx1Hc8xMU9RxAftueyzmbRvK/3R0ceHVxz8GynJbdn6+//1k0PfRr1B+8hI0P/wrNR36H5kd+h5ZHX+b5K6g/8Dwqd4yicvgMyvuPIrtpx4gDy/xmtyrrPxyRVNXxl/qDv8TGI79B64lX0f3E++h8/B10/OwttPF128nX0PrY77H52Eto1vH4qyR4GRXbRqnYQds3u5ODrkqrGXiqYvgkOk+/x4J/i77zH6Dn3FV0kFD32ffQcfoKus68i45TV9B89CW0jb4O6+hbVO0VtB5/BeUDh2nHw+sdVO5/vk1+24+C48vbv9x05GUMXPgY/ec/xODFT8YIkUT7qbfQRUJSrO3EG8RrJEeSP7tinDcffRl3//g55G3eebVh5HnnSSeVu2mkYnH2emxirww++6lByjz2nL2K3qc+MNDNcynWTmWso29TzXcN0p2n36EV30D2xhGU9R7ImnRCWY3b+wPjc1Fre84g0v/0NQMi1n3uffSyaBUu6/U+yaNxfhUDT39kXNd3/hqv+Yipt5+kdrRNOqF8696dswJjUNJ72CDU++QHVOIKSbw/VuxTHxoE+njsk1pPfkgyH/N4DT1PXKU9P6Ud30NKdT/Sarr7J51Qad+BDu/gaATGl7AwjvyFT9kfY9bqOvMHdLKPVLChEl+rd3SuPuonSQ3Cxod+gfiVzUit6W6ddEIVw8cSIrPXwHm6D5at7sIgrTZw4RPDakZcP0aceIsE3zDivPnoZaNnOknO6LVnriG50orF2WuRvXlHzqQTUgEZtYOX/KPScaurO+Ism9FLq40Vy/hWGJx61yBl/SmJKfWojmHPc9eQ17IP3sGxstufspq2uV4XhCxDjy5JtLR+HppahmnuPghKLMKae08Z844KN8Be+cc5X6/f9wzCllfBfU4EYosbwHBpui7ImEWUdO9fl7jaioiMSszwC4WLxxzMW5iI2KI65LXthWXoBEp7DyGzbjvC0yxw9pgHT14XW1LHQGh/5Lohs2bkpHPF9uPFlfecOJPXshMJqzYiOq8aIUn5CIrNwPzIRPgwNHyDE+A5bxHcfYMxZ2EsonPXYpmlmdhsS66y3nhdELIMHVnDUX+7YugxWLYdZz/spAKDYE8hcXUbkle3In/z2HvLVjUhhQqm1vQh4+5B5Lfc90W+dVf6dUGEG7WbS3oeOFLSewAbbNoqnAX3OJwYh43iU6o6kLK2k8T6kdO0zSCV3TjMPhkGtwzEDhR27PvSsu3Y5PdN/YPP3lRgtV3MatrJPc7TqOU6rHzwYapznxrbIJRW3Yn09d3I2NBHJXaS1Hb+b5vWa8hpHkFmwxCKuvYj32oDV+qPVe85fcukKVXa8+BPkqt62OQnudx5gUuWfSiw3m8QMQjRTuk13Xw9gBX1gyhoGUFe8w5k1m/Rps4gnt10L893Y/XwKAra94vUiUkhZNlyrGJ57Rak1Azg7gdeRAl3nypwBUc/taYLuZtHkNWwFWlVVpLqos22oti6B4WEyMpuuVRpRf0Qz3fBsvVRVN7zOMnZsGZktN2hpPRwI69l12/jSjchv+MAmo9d5mTYPxYE9VvZ9M2GSlIio3ZgrH9IlHH+j94yFCTh5DVWDsIwd6yHUb3nKZT2H5H9vmh66JK3w0gx0QIy67Z8sShrHdbuetrYVi/KrMByFq++iGIMx6/caCRcNolkNQyyd6hQ1z5abCwscqggIxpRjPXldVv4fOGQYbs1O04jo24bKrY/OuAwQsWdtpLU6i7O7tV8LnCJO83L8ItMQkRmpaFQeMYqhKaXGXGdxabPbhqi1XahtOcBRTTyW3cbpMLTyw1CHBzk8v3Ke05xg/cC0tZvYT/ZLjmMUGG7rTGBtgpJLkPt/gvGQ4+54YmYGbCYk2iREQSxxbVUbZVhKRVf2mPDqsFDyGZMpzD5wjNWclWeY/SbMTdx3VfB+at611kkWNqQvmHwzw4lFFfWSEIl9PxhhsJzCE0tgcsdXnCfvQD+0ekGkcSKVsSVNyKutB6JLJiLThKtQ2haOd8z1mx8hnCI17VRrZVYOzKKmr0XEFPciOS1HY4jlNe6uzQ6vwb+MZmcNLtQvfsMG3vIWI+5unvDmcSmz74LvouWUYkylLbfi+rth4yekbLc6/BzHQbpJYUbcFdUGpdIa6n2RRR2HURMEQlVWa85TKHidlsYCf3Na0GkYZtsBkHlvSeNAt19/OHs5gnn22fCZbqIBSKhcBXyG3sQXVSPoKSVmBe5Aj4hyzBrwWLMnB9JLOJc9ggaDv0CS4qbsTinBssqrO86jJBuxBF+3SckBp7zIxDMLQK33/T/40yoQRYbQzKz4eI+G26ecwk/eMwJhW9YMrwCYzHdJ5BE/Ul+AWbcFWr02vq9F/nZEQTEF2BJQS3iy5vedCghjmitAsBjbjDu8ApgKCRhGXebBe33I4lK+UUmY7q3Pwv3Y18F4PaZOl+A22lFQYQ854ciIDaTfcZ5q37ECJmghFyjv1Y0bh91KCFOrjdm1A1cmMstgazl5ObBozeVCIbf4hQWlsdwyIBPaKxhLe+gGCoXz+1DrIF57C+/RUnwi0hDSMoqhKVbaN88Y7uhXtt45CWHrb7Nn0Cm6CeR9PV9H3kHx+BW9s2trh6Y6jQdU53d4XqnD9ULMfY9Xv6RJMR9UGgCZvPo5R9lYAYV8vQLw5xFKfCNSEEg1YnKrtLT06OOUkdkBG3CfkD8sLDz/gVpNT1v+tM6rtxy61mC020ecHIdCwYnN4bDHbMZFF5GrEtNl+lz4HLnXFoyGB6+YQyFKCZdOh+OVKGow/bipiO/cnEEoX8iwhveTGip7xScWDaLs/1DMYxg37ClcPX0gdsMXz79mYmp0zxwi9sMuHsHURElWgR3qiHso0A+Q1iIGf4RCFiahbiSBu6jbKcaDv7c7fskYyqio6EIMZW4lZhG6MnM7YQ74bG0pH4lZ/6LccX1CONEG5acjejMAoQnZmF+dCrmRaTCK4h9tDAZflGpCGE6xpUpAIb+yC1EnV15857fC6/xqtxkV0REbiOmE56EF+FDzCPuIub7hkSv4ERpy7y7//PKocOw9Nm+ym7Y8nlKpfWruLImJFVa/5rTdM+nXPI8SWVrA+OzPOyKa8A0cN/LT5VfJyNV5O077ERm8zhXBIggYiERTkQQkUSGv3/wB4kpaddKSy1PBAUE5cXExFjWWiotZUVluT4+PvrMTPvASGknQupr4L4XUmbjm8qIjFRREb6EPxFCLCKiiVginlhGJHI0tscsiUHc0jgE+QcN2v+v60RY5BcQUnUWcSfhRugnFJGSUrr/hCllqjPeZlLGJKNiwu1ERCKZSCMyCP0IvOLGKTeen+bsgtmz5vzNaarTBr6Xar9O1y+xD4RU8iOktkiZSilwpNKEkBpvNX2xrKDRU7+oV6RMmL0oqSEiIqFn0XmEfvxdOeWGKR+5THNBWFjYZ/b39f8VhCbMJGIpIbVESkqpFzVo6lHTehNKyEw03UA30g01msHEYiLBTkZF5hIFRBFRQlQSn7i6uCIkZOFrPC8mCu3EsnlcbicVw2M4oUHSYCkcvq7Sd7adGdHje0exLFsoAEIJ9YLUUWEqUKqYZEp5Xkb0EvuIDkLvjSelQZAFZT8FSCDhS8wgNA2ol0zbfacYNz8s/4qQkk0jJn//O0L66VBWkwIqWsULVjuZ8m9ASLZTYqpHTUITFg6mQhohk5AUUhrJcko2WS6OSCEUBFJJpArsxKRWI7HOTlKv9T9do2v1GQWJklEp+a8UmnBC4y2nHpIdfAklnEIhijATTo2uYJBaan71lJSRYiKh1yIiq8mmIqMB0XcowmVlPbZSD2nSVhBNqOWULmYoyM9uhGwnlZRIGlGTlNJKAZFEqC+UeipakBKCzvW+iKj39BmprH7UAPkSspsGTvOdnDEhE6zZQyYh03a6ibytETRXCAE8NydWFae5RYVKNREUVLygcymiVJMqspk+q3RT7yhBZWtTnQm12/hgMFWSBcaTUgFzCPWUiJlLH6mmYs3lj4gqxfRa70sRxb4+o88qqk0ybjzXFKEV/Hh1JiS2v76O04iZpHRjjaYmWllQRWmUVaB6QcXKRrKlCb2WGlq86lqTiL5DyykpY5KRK8Yvfb4zIX6fsYYySenLNWLjtw0qQH43icn/Iic7qrlVsBQUdC7ofamhcJF1RcSNkPIaLFOZCScjQv+Tf38HMj5k7OWK5X8AAAAASUVORK5CYII=&quot;</span><span class="p">,</span>
+                                <span class="s2">&quot;url&quot;</span><span class="o">:</span><span class="s2">&quot;http://sampleserver/arcgis/rest/static/images/BlueShinyPin.png&quot;</span>
+                            <span class="p">}</span>
+                        <span class="p">}</span>
+                    <span class="p">},</span>
+ <span class="s2">&quot;fields&quot;</span><span class="o">:</span> <span class="p">[</span>
+                  <span class="p">{</span>
+                      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;ID&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeOID&quot;</span>
+                  <span class="p">},</span>
+                  <span class="p">{</span>
+                      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;title&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;Title&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span>
+                  <span class="p">},</span>
+                  <span class="p">{</span>
+                      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;summary&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;Summary&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span>
+                  <span class="p">},</span>
+                  <span class="p">{</span>
+                      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;Description&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span>
+                  <span class="p">},</span>
+                  <span class="p">{</span>
+                      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;tags&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;Tags&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span>
+                  <span class="p">},</span>
+                  <span class="p">{</span>
+                      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;Type&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span>
+                  <span class="p">},</span>
+                  <span class="p">{</span>
+                      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;thumbnail&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;Thumbnail&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span>
+                  <span class="p">},</span>
+                  <span class="p">{</span>
+                      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;xmin&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;xmin&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span>
+                  <span class="p">},</span>
+                  <span class="p">{</span>
+                      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;ymin&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;ymin&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span>
+                  <span class="p">},</span>
+                  <span class="p">{</span>
+                      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;xmax&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;xmax&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span>
+                  <span class="p">},</span>
+                  <span class="p">{</span>
+                      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;ymax&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;ymax&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span>
+                  <span class="p">},</span>
+                  <span class="p">{</span>
+                      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;accessInformation&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;Access Information&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span>
+                  <span class="p">},</span>
+                  <span class="p">{</span>
+                      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;licenseInfo&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;License Information&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span>
+                  <span class="p">},</span>
+                  <span class="p">{</span>
+                      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;credits&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;Credits&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span>
+                  <span class="p">},</span>
+                  <span class="p">{</span>
+                      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;link&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;Link&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span>
+                  <span class="p">},</span>
+                  <span class="p">{</span>
+                      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;arcgisJslink&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;alias&quot;</span><span class="o">:</span> <span class="s2">&quot;ArcgisJsLink&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span>
+                  <span class="p">}</span>                  
+                <span class="p">]</span>
+
+                <span class="p">},</span>
+                <span class="s2">&quot;featureSet&quot;</span><span class="o">:</span><span class="p">{</span>
+                    <span class="s2">&quot;geometryType&quot;</span><span class="o">:</span><span class="s2">&quot;esriGeometryPoint&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;spatialReference&quot;</span><span class="o">:</span><span class="p">{</span>
+                        <span class="s2">&quot;wkid&quot;</span><span class="o">:</span><span class="mi">102100</span>
+                    <span class="p">},</span>
+                    <span class="s2">&quot;features&quot;</span><span class="o">:</span><span class="p">[{</span>
+                            <span class="s2">&quot;geometry&quot;</span><span class="o">:</span><span class="p">{</span>
+                                <span class="s2">&quot;x&quot;</span><span class="o">:-</span><span class="mf">4110976.4722963073</span><span class="p">,</span>
+                                <span class="s2">&quot;y&quot;</span><span class="o">:-</span><span class="mf">1200585.1408432242</span>
+                            <span class="p">},</span>
+                            <span class="s2">&quot;attributes&quot;</span><span class="o">:</span><span class="p">{</span>
+                                <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+                        <span class="s2">&quot;title&quot;</span><span class="o">:</span> <span class="s2">&quot;Maps/Brazil&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;summary&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;tags&quot;</span><span class="o">:</span> <span class="s2">&quot;[\&quot;Brazil\&quot;]&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;MapServer&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;thumbnail&quot;</span><span class="o">:</span> <span class="s2">&quot;http://sampleserver/arcgis/rest/services/Maps/Brazil/MapServer/info/thumbnail&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;xmin&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">4254455.8606807785</span><span class="p">,</span>
+                        <span class="s2">&quot;ymin&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">1273247.593581636</span><span class="p">,</span>
+                        <span class="s2">&quot;xmax&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">3967497.083911836</span><span class="p">,</span>
+                        <span class="s2">&quot;ymax&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">1127922.6881048125</span><span class="p">,</span>
+                        <span class="s2">&quot;accessInformation&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;licenseInfo&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;credits&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;link&quot;</span><span class="o">:</span> <span class="s2">&quot;http://sampleserver/arcgis/rest/services/Maps/Brazil/MapServer&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;arcgisJslink&quot;</span><span class="o">:</span> <span class="s2">&quot;http://sampleserver/arcgis/rest/services/Maps/Brazil/MapServer?f=jsapi&quot;</span>
+                                
+                            <span class="p">}</span>
+                        <span class="p">}</span>
+                    <span class="p">]</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;popupInfo&quot;</span><span class="o">:</span><span class="p">{</span>
+                <span class="s2">&quot;title&quot;</span><span class="o">:</span> <span class="s2">&quot;{title} ({type})&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;fieldInfos&quot;</span><span class="o">:</span> <span class="p">[</span>
+                  <span class="p">{</span>
+                      <span class="s2">&quot;fieldName&quot;</span><span class="o">:</span> <span class="s2">&quot;id&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;ID&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="kc">false</span>
+                  <span class="p">},</span>
+                  <span class="p">{</span>
+                      <span class="s2">&quot;fieldName&quot;</span><span class="o">:</span> <span class="s2">&quot;title&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Title&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="kc">true</span>
+                  <span class="p">},</span>
+                  <span class="p">{</span>
+                      <span class="s2">&quot;fieldName&quot;</span><span class="o">:</span> <span class="s2">&quot;summary&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Summary&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="kc">true</span>
+                  <span class="p">},</span>
+                  <span class="p">{</span>
+                      <span class="s2">&quot;fieldName&quot;</span><span class="o">:</span> <span class="s2">&quot;description&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Description&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="kc">true</span>
+                  <span class="p">},</span>
+                  <span class="p">{</span>
+                      <span class="s2">&quot;fieldName&quot;</span><span class="o">:</span> <span class="s2">&quot;tags&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Tags&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="kc">true</span>
+                  <span class="p">},</span>
+                  <span class="p">{</span>
+                      <span class="s2">&quot;fieldName&quot;</span><span class="o">:</span> <span class="s2">&quot;type&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Type&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="kc">true</span>
+                  <span class="p">},</span>
+                  <span class="p">{</span>
+                      <span class="s2">&quot;fieldName&quot;</span><span class="o">:</span> <span class="s2">&quot;thumbnail&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Thumbnail&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="kc">false</span>
+                  <span class="p">},</span>
+                  <span class="p">{</span>
+                      <span class="s2">&quot;fieldName&quot;</span><span class="o">:</span> <span class="s2">&quot;xmin&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;xmin&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;format&quot;</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;places&quot;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+                        <span class="s2">&quot;digitSeparator&quot;</span><span class="o">:</span>  <span class="kc">false</span>
+                      <span class="p">},</span>
+                      <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="kc">false</span>
+                  <span class="p">},</span>
+                  <span class="p">{</span>
+                      <span class="s2">&quot;fieldName&quot;</span><span class="o">:</span> <span class="s2">&quot;ymin&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;ymin&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;format&quot;</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;places&quot;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+                        <span class="s2">&quot;digitSeparator&quot;</span><span class="o">:</span>  <span class="kc">false</span>
+                      <span class="p">},</span>
+                      <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="kc">false</span>
+                  <span class="p">},</span>
+                  <span class="p">{</span>
+                      <span class="s2">&quot;fieldName&quot;</span><span class="o">:</span> <span class="s2">&quot;xmax&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;xmax&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;format&quot;</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;places&quot;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+                        <span class="s2">&quot;digitSeparator&quot;</span><span class="o">:</span>  <span class="kc">false</span>
+                      <span class="p">},</span>
+                      <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="kc">false</span>
+                  <span class="p">},</span>
+                  <span class="p">{</span>
+                      <span class="s2">&quot;fieldName&quot;</span><span class="o">:</span> <span class="s2">&quot;ymax&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;ymax&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;format&quot;</span><span class="o">:</span> <span class="p">{</span>
+                        <span class="s2">&quot;places&quot;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+                        <span class="s2">&quot;digitSeparator&quot;</span><span class="o">:</span>  <span class="kc">false</span>
+                      <span class="p">},</span>
+                      <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="kc">false</span>
+                  <span class="p">},</span>
+                  <span class="p">{</span>
+                      <span class="s2">&quot;fieldName&quot;</span><span class="o">:</span> <span class="s2">&quot;accessInformation&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Access Information&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="kc">true</span>
+                  <span class="p">},</span>
+                  <span class="p">{</span>
+                      <span class="s2">&quot;fieldName&quot;</span><span class="o">:</span> <span class="s2">&quot;licenseInfo&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;License Information&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="kc">true</span>
+                  <span class="p">},</span>
+                  <span class="p">{</span>
+                      <span class="s2">&quot;fieldName&quot;</span><span class="o">:</span> <span class="s2">&quot;credits&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Credits&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="kc">true</span>
+                  <span class="p">},</span>
+                  <span class="p">{</span>
+                      <span class="s2">&quot;fieldName&quot;</span><span class="o">:</span> <span class="s2">&quot;link&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;Link&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;visible&quot;</span><span class="o">:</span> <span class="kc">true</span>
+                  <span class="p">}</span>
+                <span class="p">],</span>
+                <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="kc">null</span><span class="p">,</span>
+                <span class="s2">&quot;showAttachments&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+                <span class="s2">&quot;mediaInfos&quot;</span><span class="o">:</span> <span class="p">[</span>
+                  <span class="p">{</span>
+                    <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;image&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;caption&quot;</span><span class="o">:</span> <span class="s2">&quot;Initial Extent: [{xmin}, {ymin}] - [{xmax}, {ymax}]&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="p">{</span>
+                      <span class="s2">&quot;sourceURL&quot;</span><span class="o">:</span> <span class="s2">&quot;{thumbnail}&quot;</span><span class="p">,</span>
+                      <span class="s2">&quot;linkURL&quot;</span><span class="o">:</span> <span class="s2">&quot;{arcgisJslink}&quot;</span>
+                    <span class="p">}</span>
+                  <span class="p">}</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+</div></p></div><div class="footer"> Copyright © 1995-2017 Esri. All rights reserved. </div></div></body>
+<!-- Mirrored from gis.auric.city/agserver/sdk/rest/02ss/02ss0000006v000000.htm by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 02:51:29 GMT -->
+</html>

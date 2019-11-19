@@ -1,0 +1,114 @@
+{
+ "currentVersion": 10.6,
+ "folders": [],
+ "services": [
+  {
+   "name": "Auric_setback/Auric_1217_1",
+   "type": "FeatureServer"
+  },
+  {
+   "name": "Auric_setback/Auric_1217_1",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric_setback/Auric_1217_2",
+   "type": "FeatureServer"
+  },
+  {
+   "name": "Auric_setback/Auric_1217_2",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric_setback/Auric_1217",
+   "type": "FeatureServer"
+  },
+  {
+   "name": "Auric_setback/Auric_1217",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric_setback/HostAuric_11",
+   "type": "FeatureServer"
+  },
+  {
+   "name": "Auric_setback/HostAuric_11",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric_setback/HostAuric_311",
+   "type": "FeatureServer"
+  },
+  {
+   "name": "Auric_setback/HostAuric_311",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric_setback/HostAuric_31215",
+   "type": "FeatureServer"
+  },
+  {
+   "name": "Auric_setback/HostAuric_31215",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric_setback/HostAuric_312",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric_setback/HostAuric_33",
+   "type": "FeatureServer"
+  },
+  {
+   "name": "Auric_setback/HostAuric_33",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric_setback/HostAuric_34",
+   "type": "FeatureServer"
+  },
+  {
+   "name": "Auric_setback/HostAuric_34",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric_setback/HostAuric_7",
+   "type": "FeatureServer"
+  },
+  {
+   "name": "Auric_setback/HostAuric_7",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric_setback/HostAuric_new",
+   "type": "FeatureServer"
+  },
+  {
+   "name": "Auric_setback/HostAuric_new",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric_setback/MyMapService_auric_1",
+   "type": "FeatureServer"
+  },
+  {
+   "name": "Auric_setback/MyMapService_auric_1",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric_setback/PrintPopups1",
+   "type": "GPServer"
+  },
+  {
+   "name": "Auric_setback/PrintPopups1",
+   "type": "MapServer"
+  },
+  {
+   "name": "Auric_setback/PrintPopups_1231_3",
+   "type": "GPServer"
+  },
+  {
+   "name": "Auric_setback/PrintPopups_12",
+   "type": "GPServer"
+  }
+ ]
+}

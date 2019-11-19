@@ -1,0 +1,67 @@
+{
+ "currentVersion": 10.6,
+ "serviceDescription": "sdf",
+ "hasVersionedData": false,
+ "supportsDisconnectedEditing": false,
+ "syncEnabled": false,
+ "supportedQueryFormats": "JSON, AMF",
+ "maxRecordCount": 1000,
+ "capabilities": "Delete,Query,Update,Uploads,Editing",
+ "description": "",
+ "copyrightText": "",
+ "spatialReference": {
+  "wkid": 4326,
+  "latestWkid": 4326
+ },
+ "initialExtent": {
+  "xmin": 75.50805154485074,
+  "ymin": 19.875177815153368,
+  "xmax": 75.53282173392144,
+  "ymax": 19.887574806993744,
+  "spatialReference": {
+   "wkid": 4326,
+   "latestWkid": 4326
+  }
+ },
+ "fullExtent": {
+  "xmin": 75.50413599610329,
+  "ymin": 19.86776429414749,
+  "xmax": 75.55484079569578,
+  "ymax": 19.894531600177288,
+  "spatialReference": {
+   "wkid": 4326,
+   "latestWkid": 4326
+  }
+ },
+ "allowGeometryUpdates": true,
+ "allowTrueCurvesUpdates": false,
+ "onlyAllowTrueCurveUpdatesByTrueCurveClients": false,
+ "supportsApplyEditsWithGlobalIds": false,
+ "supportsTrueCurve": true,
+ "units": "esriDecimalDegrees",
+ "documentInfo": {
+  "Title": "",
+  "Author": "",
+  "Comments": "",
+  "Subject": "",
+  "Category": "",
+  "Keywords": "sdf"
+ },
+ "supportsQueryDomains": true,
+ "layers": [
+  {
+   "id": 0,
+   "name": "auric_stg.public.shendra_masterplan_p3",
+   "parentLayerId": -1,
+   "defaultVisibility": true,
+   "subLayerIds": null,
+   "minScale": 0,
+   "maxScale": 0,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPolygon"
+  }
+ ],
+ "tables": [],
+ "enableZDefaults": false,
+ "allowUpdateWithoutMValues": false
+}

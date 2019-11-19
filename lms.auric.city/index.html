@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<!-- Mirrored from lms.auric.city/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 02:20:39 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta charset="utf-8">
+        <title>e-Land Management System, AITL</title>
+        <meta name="description" content="overview &amp; stats">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <!-- bootstrap & fontawesome -->
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="css/font-awesome.min.css"/>
+        <!-- text fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300"/>
+        <!-- ace styles -->
+        <link rel="stylesheet" href="css/ace.min.css"/>
+        <!--[if lte IE 9]>
+                                <link rel="stylesheet" href="https://lms.auric.city/css/ace-part2.min.css" />
+              <![endif]-->
+        <link rel="stylesheet" href="css/ace-skins.min.css"/>
+        <link rel="stylesheet" href="css/ace-rtl.min.css"/>
+        <!--[if lte IE 9]>
+                          <link rel="stylesheet" href="https://lms.auric.city/css/ace-ie.min.css" />
+              <![endif]-->
+        <!-- custom styles -->
+        <!--<link href="css/jquery.simplyscroll.css" rel="stylesheet" media="all" type="text/css">
+        <link href="https://lms.auric.city/css/menu.css" rel="stylesheet"/>
+        <link href="https://lms.auric.city/css/jquery.lightbox-0.5.css" rel="stylesheet" type="text/css" media="screen" />-->
+        <link href="css/custom.css" rel="stylesheet"/>
+        <!--<script src="https://lms.auric.city/js/jquery-1.8.2.min.js"></script>-->
+        <script src="js/jquery-2.1.1.js"></script>
+        <!-- extra custom script -->
+		<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+        <script>
+            $(document).ready(function () {
+               
+            });
+           
+            function viewAlert(msg, ctrlId, redLoc)
+            {
+                $('#btnAlertOk').off('click');
+                if (typeof (ctrlId) == 'undefined')
+                {
+                    ctrlId = '';
+                }
+                if (typeof (redLoc) == 'undefined')
+                {
+                    redLoc = '';
+                }
+                $('#alertModal').modal({backdrop: 'static', keyboard: false});
+                $('.alertMessage').html(msg);
+                $('#btnAlertOk').on('click', function () {
+                    $('#alertModal').modal('hide');
+                    if (ctrlId != '')
+                    {
+                        $(".form-content").hide();
+                        $("#" + ctrlId).closest(".form-content").show();
+                        $('#' + ctrlId).focus();
+                        $("hr").css('border-bottom','1px solid #ccc');
+                        $('#' + ctrlId).closest(".form-group").next('hr').css('border-bottom','1px solid #f00');
+                        $('#' + ctrlId).closest('.widget-main').css('border','1px solid #f59942');
+                        scrollToPosition(ctrlId);
+                    }
+                    if (redLoc != '')
+                    {
+                        window.location.href = redLoc;
+                    }
+                });
+
+            }
+            function confirmAlert(msg)
+            {
+                $('#confirmModal').modal({backdrop: 'static', keyboard: false});
+                $('.confirmMessage').html(msg);
+            }
+        </script>
+		<style>
+		.bg-color-1{
+    background-color:#c39723 !important;
+}
+.bg-color-2 {
+    background-color: #7fa91f !important;
+}
+.bg-color-3 {
+    background-color: #de594e !important;
+}
+.bg-color-4 {
+    background-color:#3485a7 !important;
+}
+
+.border-color-1 {
+    border-color: #f0c24b !important;
+	color:#b38305 !important;
+}
+.border-color-2 {
+    border-color: #b5d56a !important;
+	color:#6e9613 !important;
+}
+
+.border-color-3 {
+    border-color: #ea7066 !important;
+	color:#cc4c41 !important;
+}
+
+.border-color-4 {
+    border-color: #84bed6 !important;
+	color:#1a698a !important;
+}
+
+
+.sectionLink {
+    width: 100%;
+    height: 210px;
+    display: block;
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    border-radius: 13px;
+    text-align: center;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    -webkit-box-shadow: 0 4px 0 rgba(0,0,0,0.1);
+    -moz-box-shadow: 0 4px 0 rgba(0,0,0,0.1);
+    box-shadow: 0 4px 0 rgba(0,0,0,0.1);
+	text-decoration:none !important;
+}
+.sectionLink .linkIcon {
+    width: 100px;
+    height: 100px;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+    background-color: #ffffff;
+    border-width: 6px;
+    border-style: solid;
+    top: -50px;
+    font-size: 30px;
+    line-height: 90px;
+    color: #666666;
+	text-decoration:none !important;
+}
+.linkIcon, .locateArrow {
+    display: block;
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.sectionLink .linkText {
+  line-height: 40px;
+    display: block;
+    font-family: 'Roboto',sans-serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: #ffffff;
+    letter-spacing: 0px;
+    padding-top: 70px;
+    text-decoration: none !important;
+}
+.btn1{    background: transparent !important;
+    border: #ffcb44 2px solid !important;
+    border-radius: 0px !important;
+    font-size: 16px;
+    margin-top: 20px;
+	min-width:120px;}
+	
+.btn1:hover,.btn1:focus {background-color:rgba(255,255,255,.2) !important}
+
+.btn2{    background: transparent !important;
+    border:#ffb1aa 2px solid !important;
+    border-radius: 0px !important;
+    font-size: 16px;
+    margin-top: 20px;min-width:120px;}
+	
+.btn2:hover,.btn2:focus {background-color:rgba(255,255,255,.2) !important}	
+
+
+.btn3{background: transparent !important;
+    border: #84bed6 2px solid !important;
+    border-radius: 0px !important;
+    font-size: 16px;
+    margin-top: 20px;min-width:120px;}
+	
+.btn3:hover, .btn3:focus{background-color:rgba(255,255,255,.2) !important}	
+.sitexs{display: none;}
+.logonew{}			
+			
+		
+			
+@media(max-width:1024px){
+.sectionLink {height: 261px;}	
+			
+			
+}
+			
+			
+			
+			
+@media(max-width:768px){
+.sectionLink{height:230px;width:100%;margin:0 auto 60px;}
+.sectionLink .linkText{padding-top:60px;font-size:20px;}
+.btn1, .btn2, .btn3{margin-top:10px;}
+.site{display: none;}	
+.sitexs{display: block;}	
+.sitexs .fa{color: #fff;font-size: 20px;}	
+	
+	
+	
+	
+	
+}	
+@media(max-width:640px){
+.sectionLink{height:175px;width:70%;margin:0 auto 60px;}
+.sectionLink .linkText{padding-top:50px;font-size:24px;}
+.btn1, .btn2, .btn3{margin-top:10px;}
+}
+			
+			
+@media(max-width:480px){
+.sectionLink{height:218px;}
+}
+			
+		
+			
+@media(max-width:380px){
+.sectionLink{margin-bottom:60px;height:219px;width:95%}
+.sectionLink .linkText{padding-top:50px;font-size:20px;}
+.btn1, .btn2, .btn3{margin-top:10px;}
+	.logonew img{width: 85%;}	
+	
+	
+}
+
+
+		</style>
+    </head>
+    <body class="loginbgblue">
+       <div style="background-color:#064469; border-bottom:1px solid #c39723; box-shadow: 0px 2px 5px #c39723;">
+       
+       
+       
+        <div class="pull-right site" style="margin-top:15px; margin-right:20px;">
+		 <a class="btn btn-warning btn-lg m-t-sm" href="gisMap.html" target="_blank"><span>Site Map</span></a>
+		</div>	
+		
+		
+		
+	    <div class="pull-right sitexs" style="margin-top:20px; margin-right:20px;">
+		 <a class="m-t-sm" href="gisMap.html" target="_blank"><span><i class="fa fa-map-marker"></i></span></a>
+		</div>	
+		
+		
+		
+		
+			<div class="logonew">
+			
+			<img src="img/auric_logo.jpg">			
+			</div></div>
+            <!--[if lte IE 8]>
+            <script src="https://lms.auric.city/Application/js/html5shiv.js"></script>
+            <script src="https://lms.auric.city/Application/js/respond.min.js"></script>
+            <![endif]-->
+			            <div class="container">
+            <div class="row" style="margin-top:20%;">
+            <div class="col-sm-4">
+              <div class="sectionLink bg-color-1" id="coursesLink">
+                <i class="fa fa-file-text-o linkIcon border-color-1" aria-hidden="true"></i>
+                <span class="linkText">New Registration</span>
+				
+				<div class="col-sm-12 text-center">
+				<a href="citizen-reg-home.html" class="btn btn1">Applicant</a>
+				<a href="arch-reg-home.html" class="btn btn1">Technical Personnel</a>
+				</div>
+								
+              </div>
+            </div>
+            <!--<div class="col-sm-3">
+              <a href="https://lms.auric.city/arch-reg-home" class="sectionLink bg-color-2" id="teamLink">
+                <i class="fa fa-pencil-square-o linkIcon border-color-2" aria-hidden="true"></i>
+                <span class="linkText">Architect </br> Registration</span>
+              </a>
+            </div>-->
+            <div class="col-sm-4">
+              <div class="sectionLink bg-color-3" id="galleryLink">
+                <i class="fa fa-area-chart linkIcon border-color-3" aria-hidden="true"></i>
+                <span class="linkText">Existing Users</span>
+				 <div class="col-sm-12 text-center">
+				<a href="login/1.html" class="btn btn2">Applicant</a>
+				<a href="login/2.html" class="btn btn2">Technical Personnel</a>
+				</div>
+              </div>
+			 
+							
+            </div>
+            <div class="col-sm-4">
+              <div class="sectionLink bg-color-4" id="newsLink">
+                <i class="fa fa-unlock-alt linkIcon border-color-4" aria-hidden="true"></i>
+                <span class="linkText">Officer Portal</span>
+				 <div class="col-sm-12 text-center">
+				
+				<!--<a href="< ?php echo APPURL;?>" class="btn btn3">Login</a>-->				
+				<a href="../portallms.auric.city/index.html" class="btn btn3">Login</a>
+				</div>
+              </div>
+            </div>
+          </div>
+            <div class="row" style="margin-top:2%;">
+			 	<div class="col-sm-4 col-sm-offset-4 text-center white">&copy; 2019, e-Land Management System, AITL.<br/>
+Designed & developed by <a href="http://www.csmpl.com/" title="CSM Technologies" target="_blank" class="white">CSM Technologies</a><br/>Version 1.9</div>
+			 </div>
+		  </div>
+<div style="display:none;">Array
+(
+    [REDIRECT_UNIQUE_ID] => XdNQTdKbQhUlzC4yjPgfjgAAAAg
+    [REDIRECT_HTTPS] => on
+    [REDIRECT_STATUS] => 200
+    [UNIQUE_ID] => XdNQTdKbQhUlzC4yjPgfjgAAAAg
+    [HTTPS] => on
+    [SSL_SERVER_S_DN_C] => IN
+    [SSL_SERVER_S_DN_ST] => Maharashtra
+    [SSL_SERVER_S_DN_L] => Mumbai
+    [SSL_SERVER_S_DN_O] => Aurangabad Industrial Township Limited
+    [SSL_SERVER_S_DN_CN] => *.auric.city
+    [SSL_SERVER_I_DN_C] => BE
+    [SSL_SERVER_I_DN_O] => GlobalSign nv-sa
+    [SSL_SERVER_I_DN_CN] => GlobalSign Organization Validation CA - SHA256 - G2
+    [SSL_SERVER_SAN_DNS_0] => *.auric.city
+    [SSL_SERVER_SAN_DNS_1] => auric.city
+    [SSL_VERSION_INTERFACE] => mod_ssl/2.4.6
+    [SSL_VERSION_LIBRARY] => OpenSSL/1.0.2k-fips
+    [SSL_PROTOCOL] => TLSv1.2
+    [SSL_SECURE_RENEG] => true
+    [SSL_COMPRESS_METHOD] => NULL
+    [SSL_CIPHER] => ECDHE-RSA-AES256-GCM-SHA384
+    [SSL_CIPHER_EXPORT] => false
+    [SSL_CIPHER_USEKEYSIZE] => 256
+    [SSL_CIPHER_ALGKEYSIZE] => 256
+    [SSL_CLIENT_VERIFY] => NONE
+    [SSL_SERVER_M_VERSION] => 3
+    [SSL_SERVER_M_SERIAL] => 5BE49E1C90A483272CA96D36
+    [SSL_SERVER_V_START] => Mar 17 10:52:01 2018 GMT
+    [SSL_SERVER_V_END] => Feb  2 12:31:03 2020 GMT
+    [SSL_SERVER_S_DN] => CN=*.auric.city,O=Aurangabad Industrial Township Limited,L=Mumbai,ST=Maharashtra,C=IN
+    [SSL_SERVER_I_DN] => CN=GlobalSign Organization Validation CA - SHA256 - G2,O=GlobalSign nv-sa,C=BE
+    [SSL_SERVER_A_KEY] => rsaEncryption
+    [SSL_SERVER_A_SIG] => sha256WithRSAEncryption
+    [SSL_SESSION_ID] => 00e811d630e1b6e8ed029054054a1f5a445ef84690abf1bf049f38d6e4bca64e
+    [SSL_SESSION_RESUMED] => Resumed
+    [HTTP_REFERER] => http://www.auric.city/
+    [HTTP_HOST] => lms.auric.city
+    [HTTP_USER_AGENT] => Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)
+    [HTTP_ACCEPT] => text/html,image/png,image/jpeg,image/pjpeg,image/x-xbitmap,image/svg+xml,image/gif;q=0.9,*/*;q=0.1
+    [HTTP_ACCEPT_LANGUAGE] => en, *
+    [HTTP_ACCEPT_ENCODING] => gzip, identity;q=0.9
+    [HTTP_X_FORWARDED_PROTO] => https
+    [HTTP_X_FORWARDED_FOR] => 116.73.228.120
+    [PATH] => /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
+    [SERVER_SIGNATURE] => 
+    [SERVER_SOFTWARE] => Apache/2.4.6 (CentOS) OpenSSL/1.0.2k-fips PHP/7.1.33
+    [SERVER_NAME] => lms.auric.city
+    [SERVER_ADDR] => 10.9.51.35
+    [SERVER_PORT] => 443
+    [REMOTE_ADDR] => 10.9.51.41
+    [DOCUMENT_ROOT] => /mnt/lms.auric.city/
+    [REQUEST_SCHEME] => https
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => /mnt/lms.auric.city/
+    [SERVER_ADMIN] => root@localhost
+    [SCRIPT_FILENAME] => /mnt/lms.auric.city/index.php
+    [REMOTE_PORT] => 44598
+    [REDIRECT_QUERY_STRING] => PG=
+    [REDIRECT_URL] => /
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => GET
+    [QUERY_STRING] => PG=
+    [REQUEST_URI] => /
+    [SCRIPT_NAME] => /index.php
+    [PHP_SELF] => /index.php
+    [REQUEST_TIME_FLOAT] => 1574129741.038
+    [REQUEST_TIME] => 1574129741
+)
+</div>
+</body>
+<!-- Mirrored from lms.auric.city/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 02:21:00 GMT -->
+</html> 

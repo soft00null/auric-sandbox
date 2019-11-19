@@ -1,0 +1,78 @@
+{
+ "currentVersion": 10.6,
+ "folders": [],
+ "services": [
+  {
+   "name": "bidkin_stg/bidkin_allotted_plot_stg",
+   "type": "MapServer"
+  },
+  {
+   "name": "bidkin_stg/bidkin_available_plot_v1",
+   "type": "MapServer"
+  },
+  {
+   "name": "bidkin_stg/bidkin_available_plots_stg",
+   "type": "MapServer"
+  },
+  {
+   "name": "bidkin_stg/bidkin_blank_road_layer",
+   "type": "MapServer"
+  },
+  {
+   "name": "bidkin_stg/bidkin_boundary_stg",
+   "type": "MapServer"
+  },
+  {
+   "name": "bidkin_stg/bidkin_gate_stg",
+   "type": "MapServer"
+  },
+  {
+   "name": "bidkin_stg/bidkin_infraline_stg",
+   "type": "MapServer"
+  },
+  {
+   "name": "bidkin_stg/bidkin_openspace_stg",
+   "type": "MapServer"
+  },
+  {
+   "name": "bidkin_stg/bidkin_phase_boundary_stg",
+   "type": "MapServer"
+  },
+  {
+   "name": "bidkin_stg/bidkin_phase_boundary_text",
+   "type": "MapServer"
+  },
+  {
+   "name": "bidkin_stg/bidkin_plot_text_stg",
+   "type": "MapServer"
+  },
+  {
+   "name": "bidkin_stg/bidkin_plots_stg",
+   "type": "MapServer"
+  },
+  {
+   "name": "bidkin_stg/bidkin_road_centerline_stgV1",
+   "type": "MapServer"
+  },
+  {
+   "name": "bidkin_stg/bidkin_road_stg_v1",
+   "type": "MapServer"
+  },
+  {
+   "name": "bidkin_stg/bidkin_road_stg",
+   "type": "MapServer"
+  },
+  {
+   "name": "bidkin_stg/bidkin_sector_boundary_stg",
+   "type": "MapServer"
+  },
+  {
+   "name": "bidkin_stg/bidkin_sector_boundary_stgV1",
+   "type": "MapServer"
+  },
+  {
+   "name": "bidkin_stg/bidkin_sector_boundary_text_stg",
+   "type": "MapServer"
+  }
+ ]
+}

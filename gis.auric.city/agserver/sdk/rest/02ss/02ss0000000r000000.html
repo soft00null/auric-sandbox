@@ -1,0 +1,826 @@
+<html lang="en" xml:lang="en">
+<!-- Mirrored from gis.auric.city/agserver/sdk/rest/02ss/02ss0000000r000000.htm by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 03:16:16 GMT -->
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="description" content="Query (Map Service\Layer) http:// &amp;lt;layer-url&amp;gt;/queryData9.3 Description Prior to 10.0, the query operation could only be performed on layers. From 10.0 onward, the query operation can be performed on tables and layers. Querying annotation is supported at the layer level, however querying annotation at the sublayer level is not supported. Note that all parameters related to geometry will be ignored when querying tables. The result of this operation is a feature set. This feature set contains"><meta name="content-language" content="en"><link href="rsrc/htmlhelp.html" rel="stylesheet" type="text/css"><title>ArcGIS REST API - ArcGIS Services - 
+   Query (Map Service\Layer)</title>
+                <script type="text/javascript" language="JavaScript">
+                    var pathL  = self.location.pathname.split ("../../../../index.html");
+                    var fname = pathL[pathL.length-1];
+                    var i = fname.lastIndexOf (".htm");
+                    if (i>=0) {
+                    fname = fname.substring (0, i)
+                    } else {
+                    //??
+                    }
+                    if (self.location.hash) {
+				    		      fname = fname + self.location.hash;
+						        }
+                    self.location.replace ("../index.html#//" + fname);
+                </script>
+                </head><!--Publication GUID: [GUID-289408B4-3EC8-4C16-9DB8-B1778E780E58]--><!--Topic GUID: [GUID-FDC2079A-C2B7-4908-A832-FF8D46311E5F]--><body><div id="content"><div class="header"><h1>
+   Query (Map Service\Layer)</h1><div id="breadcrumb"></div></div>
+    <div class="restmd" purpose="restmd"><ul purpose="restmd" class="restmd list-plain"><li><span class="restkey post-1">URL:</span><span class="restval">http:// <a class="xref" rel="02ss/02ss00000089000000.htm" href="02ss/02ss00000089000000.html">&lt;layer-url&gt;</a>/query<span class="restverb"></span><br></span></li><li><span class="restkey post-1">Required Capability:</span><span class="restval">Data</span></li><li><span class="restkey post-1">Version Introduced:</span><span class="restval">9.3</span></li></ul></div>
+    <div class="section1" id="GUID-D3C94ED7-7344-4DE3-8184-B4AAE6B8A909" purpose="section1"><h2>Description</h2><div class="notes" id="GUID-BD094EAC-40F4-4765-A221-92E3F54597D8"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody">
+        <p id="GUID-05470F14-7F05-487C-AE1F-9BB90E16B0CC">Prior to 10.0, the query operation could only be performed on layers. From 10.0 onward, the query operation can be performed on  tables and layers. Querying annotation is supported at the layer level, however querying annotation at the sublayer level is not supported.</p>  
+      </div></div><p id="GUID-B8727EE8-72C2-4C39-A8BE-7542C4C37F43">Note that all parameters related to geometry will be ignored
+when querying tables.</p><p id="GUID-1EED2A88-BD35-4EF9-95B3-59F7732B7121"><note type="note" id="GUID-6009F8FB-84D7-40B5-AEBB-1EC4679290A4"></note></p><p id="GUID-6321637B-4083-49CB-8F2B-88610E5F0737">The result of this operation is a feature set. This feature set
+contains <a class="xref" rel="02ss/02ss0000008z000000.htm" href="02ss/02ss0000008z000000.html">feature objects</a> including the values for the fields requested
+by the user. For layers, if you request geometry information, the
+geometry of each feature is also returned in the feature set. For
+tables, the feature set does not include geometries.</p></div>
+    <div class="section1" id="ESRI_SECTION1_BE129DE2051F42BF98C3608661ED6E44" purpose="section1"><h2>New in 10.5</h2><ul purpose="ul" id="UL_7E5EFF1D84F247E998F7A4F26D1A930E"><li purpose="li" id="LI_7548D726CA4841AD8A5E7777FA51A4B3">Supports the following new parameters.<ul purpose="ul" id="UL_39EFFDCA184B4AD09C7EB59F830B7E19"><li purpose="li" id="LI_1D977F1CD6E54A2A8E47277D3D47F6CD"><span class="usertext">datumTransformations</span> to provide a desired datum transformation to be applied while features get projected.</li><li purpose="li" id="LI_DDC253A306684CE29472C47359DFB7B2"><span class="usertext">rangeValues</span> to set values to ranges.</li>  <li purpose="li" id="LI_C00280BF38E34A458C91411E35814FAA"><span class="usertext">parameterValues</span> to set value to parameterized filters.</li></ul></li><li purpose="li" id="LI_28BCE0B876034EE889830CD6832CA05C">Supports passing in sql expressions in <span class="usertext">outStatistics</span>. Check <span class="usertext">supportsSqlExpression</span> on resources to find out whether the layer/table allows sql expressions.</li></ul></div><div class="section1" id="ESRI_SECTION1_07CD6957564E46C5AA8EC6D5D9E66106" purpose="section1"><h2>New at 10.4</h2><p id="GUID-0BA1E8F2-7984-4C95-B5D8-FBBE4FA0187D">
+        <ul purpose="ul" id="UL_03E16F2DD581460CAC980FC4845A35C9">
+          <li purpose="li" id="LI_A9BCE92A2AFB45108EBA666A8BD00206">Supports GeoJSON as a response format.</li>
+          <li purpose="li" id="LI_224AA291958F4EA484C1EB70E75CDA52">Supports passing in expressions in <span class="usertext">orderByFields</span> and <span class="usertext">groupByFieldsForStatistics</span>. When <span class="usertext">useStandardizedQueries</span> is <span class="usertext">true</span>, you can pass in expressions that conform to StandardizedQueries specifications. Otherwise, any expressions that are supported by the underlying database can be passed in.</li>
+          
+          
+          
+        </ul>
+      </p></div><div class="section1" id="ESRI_SECTION1_53FCA21EB9BF418CA2788FB5D3CF41EF" purpose="section1"><h2>New at 10.3.1</h2><ul purpose="ul" id="UL_8B75F2B029824C21A0B709B358469123"><li purpose="li" id="LI_26988339E24E4D5BA0279F9EC15C4E31"> The
+ <span class="usertext">exceededTransferLimit</span> property is now included in the JSON response
+when paging through a query result with the resultOffset and
+resultRecordCount parameters. When <span class="usertext">exceededTransferLimit</span> is <span class="usertext">true</span>, it indicates there are more query results
+and you can continue to page through the results.  When <span class="usertext">exceededTransferLimit</span> is <span class="usertext">false</span>, it indicates that you have reached the end of
+the query results.</li></ul><div class="notes" id="GUID-A9F43838-8572-436D-9D18-EF64CAFFD128"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody"><p id="GUID-53EAAA73-0386-46E4-B03D-08C7A17A21F5"> When not using the resultOffset and
+resultRecordCount parameters, the <span class="usertext">exceededTransferLimit</span> property may also be included in the query
+results. In this case, the property will be true only if the
+number of records exceeds the maximum number configured by the
+server administrator.</p>
+
+
+
+</div></div><div class="notes" id="GUID-3ADDCE38-C3BB-4937-B085-087DE10FC85C"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody"><p id="GUID-C09D1C72-3A60-4B8E-AFE9-083F32D54329">In some cases when using the resultOffset and resultRecordCount parameters, the <span class="usertext">exceededTransferLimit</span> property may be included in the query results even though the value specified in the <span class="usertext">resultRecordCount</span> has not been exceeded. This is due to internal spatial index filtering of the query results. For this reason you should always rely on the <span class="usertext">exceededTransferLimit</span> property to determine if you should page through results rather than relying on the number of results returned from each page. In some extreme cases zero results can be returned but the <span class="usertext">exceededTransferLimit</span> property will be returned. In these cases you should continue paging though your results until <span class="usertext">exceededTransferLimit</span> is no longer returned.</p></div></div></div>
+    <div class="section1" id="ESRI_SECTION1_C215B5B43CC244A08CBD46F45D11877C" purpose="section1"><h2>New at 10.3</h2><p id="GUID-156F6476-C7DB-4F56-8811-A0747F8B5152">
+        <ul purpose="ul" id="UL_8E7C3FB69E0943AE93DCB68EE9460278">
+          <li purpose="li" id="LI_7F5932964D904DF4A97E055C28066F25">Supports pagination in a query layer. Use<span class="usertext">resultOffset</span> and  <span class="usertext">resultRecordCount</span> parameters to page through a query result.</li>
+          <li purpose="li" id="LI_E5EC452B3B8049D7A502D9DBF3006083">Note that when you pass in one of these two parameters and <span class="usertext">orderByFields</span> is left empty, the map service uses the object-id field to sort the result. For a query layer with a pseudocolumn as the object-id field (for example, FID), you must provide <span class="usertext">orderByFields</span> or else the query will fail.</li>
+          <li purpose="li" id="LI_3E56FBB092634FC99790828B7E81F568">
+            <span class="usertext">query</span> now supports true curves in an input <span class="usertext">geometry</span> parameter.</li>
+          <li purpose="li" id="LI_14A2467F30704EB58178C70394364B34">
+            <span class="usertext">query</span> now returns true curves in output geometries when the <span class="usertext">returnTrueCurves</span> parameter is set to true.</li>
+          <li purpose="li" id="LI_C27834D8FE4745CA80984DCA15A51377">Learn more about JSON Curve Objects in <a class="xref" rel="02ss/02ss0000008m000000.htm" href="02ss/02ss0000008m000000.html">Geometry Objects</a>.</li>
+        </ul>
+      </p></div>
+    <div class="section1" id="ESRI_SECTION1_6D446EB7E8664015A46F3D347F5298D4" purpose="section1"><h2>New at 10.2</h2><p id="GUID-EA880F61-111C-411C-9FF4-6BA1277939BA">
+        <ul purpose="ul" id="UL_A59010F64CB44BA5B240A8882C8AD7F8">
+          <li purpose="li" id="LI_6F6D400613904F74AA39B6EF69F126A6">The
+            <span class="usertext">where</span> parameter value must conform to the standardized queries, if the <a class="xref" rel="02ss/02ss00000089000000.htm" href="02ss/02ss00000089000000.html">layer/table</a> resource advertises <span class="usertext">useStandardizedQueries</span> is true. Learn more about <a class="xref" target="_blank" rel="http://server.arcgis.com/en/server/latest/administer/linux/about-standardized-queries.htm" href="http://server.arcgis.com/en/server/latest/administer/linux/about-standardized-queries.htm">standardized queries</a>.</li>
+          <li purpose="li" id="LI_D473C5D5470545AC8B4218FACDB73E7F">
+            <span class="usertext">outStatistics</span> now supports the <span class="usertext">gdbVersion</span> parameter.</li>
+        </ul>
+      </p></div>
+    <div class="section1" id="ESRI_SECTION1_819C77852144469496E03DE4A3D4DDB1" purpose="section1"><h2>New at 10.1 SP1</h2><p id="GUID-4E0CEB3B-C2A9-49D2-828A-4D3326B49593">
+        <ul purpose="ul" id="UL_4D0304F04E09413298C8616A3283CB17">
+          <li purpose="li" id="LI_C2D2A5F4A84B46C7AB4AC372EFB0443D">Support for a new parameter named <span class="usertext">returnDistinctValues</span> that accepts a Boolean value was added. When true, the query result would contain distinct values based on the fields specified in the <span class="usertext">outFields</span> parameter.</li>
+          <li purpose="li" id="LI_7F9B8AB294C04B83BFDD19EA4F341123">
+            <span class="usertext">outStatistics</span> now supports the <span class="usertext">geometry</span> parameter.</li>
+        </ul>
+      </p></div>
+    <div class="section1" id="ESRI_SECTION1_924B94A5F44E4BCFBF14723027D31D80" purpose="section1"><h2>New at 10.1</h2><p id="GUID-4052CF7E-4651-49B0-89AA-724B40F13B06">
+        <ul purpose="ul" id="UL_72016A7207184570BA637FCCA58479F7">
+          <li purpose="li" id="LI_96508D4491084D79B74CBDCC82FF4502">Support for <span class="usertext">orderByFields</span>, <span class="usertext">outStatistics</span>, and <span class="usertext">groupByFieldsForStatistics</span> was added for both layers and tables.</li>
+          <li purpose="li" id="LI_D399DEB051AA4939B86FB90755001957">Support for <span class="usertext">returnZ</span> and <span class="usertext">returnM</span> was added for layers. Default value for <span class="usertext">returnZ</span> and <span class="usertext">returnM</span> is false.</li>
+          <li purpose="li" id="LI_ED83F02BF4554388894505DA5FC54AC3">When output format <span class="usertext">f</span> is kmz, the result would always contain a z-value irrespective of the <span class="usertext">returnZ</span> property value. If the feature geometry does not support z, a default value of 0 would be returned for z.</li>
+          <li purpose="li" id="LI_ECD78E31F8484D3781DC3FE895F0A391">Support for the <span class="usertext">gdbVersion</span> parameter was added. Use this parameter to specify the geodatabase version to query.</li>
+          <li purpose="li" id="LI_9F5C69722E2E46558ACD0053FB9438AF">The
+            <span class="usertext">geometryPrecision</span> parameter was introduced. This option can be used to specify the number of decimal places in the response geometries returned by the query operation.</li>
+          <li purpose="li" id="LI_9108A700D8304D70B5F7D317BD597C8A">JSON response contains an optional property <span class="usertext">exceededTransferLimit</span>. This property will be true only if the number of records exceeds
+the maximum number configured by the server administrator.
+</li>
+        </ul>
+      </p></div>
+    <div class="section1" id="ESRI_SECTION1_22D8838D0A6F4CD4AC4A04996C38A2DE" purpose="section1"><h2>New at 10.0 SP1</h2><p id="GUID-AF550238-2423-410A-A38F-7EC10669DDA3">
+        <ul purpose="ul" id="UL_106932CB734C4BD888145993749881DC">
+          <li purpose="li" id="LI_C27E4DB5069B4F0AA1E0F721357A98D4">At 10.0 SP1, support for returning the count (number of features/records) that would be returned by a query was added for both layers and tables.</li>
+        </ul>
+      </p></div>
+    <div class="section1" id="ESRI_SECTION1_82E4156162D94876AD99F2BA800A7E72" purpose="section1"><h2>New at 10.0</h2><p id="GUID-CA47365C-B09D-4D57-B916-712004E2387D">
+        <ul purpose="ul" id="UL_BC61764B4BBB4AA5A74DC760C66C15FB">
+          <li purpose="li" id="LI_6FE0EB1871114047A7D1EF7D5FE86BF2">Support for querying layers and tables based on time was added at 10.0. For time-aware layers, users can use the time parameter to specify the time instant or the time extent to query.</li>
+          <li purpose="li" id="LI_E84429B9EDA54532A211F2A3C3A05C2D">A new <span class="usertext">returnIdsOnly</span> parameter was introduced. If set to <span class="usertext">false</span> (default), the response will be a feature set. If <span class="usertext">true</span>, the response will be an array of object IDs.</li>
+          <li purpose="li" id="LI_DFB76D7B4A1048AC81ADF1FCCECC7888">Note that while there is a limit on the number of features included in the feature set response, there is no limit on the number of object IDs returned in the ID array response. Clients can exploit this to get all the query conforming object IDs by specifying <span class="usertext">returnIdsOnly=true</span> and subsequently requesting feature sets for subsets of object IDs.</li>
+          <li purpose="li" id="LI_9A894391B8154E0D83DD4C956362C92B">Support for query based on <span class="usertext">objectIds</span> was added.</li>
+          <li purpose="li" id="LI_FE4FC9988886498F82D56BCD53A2E8F0">Support for <span class="usertext">f=amf</span> was added.</li>
+          <li purpose="li" id="LI_10C2940CEA114947972760D54A8613D8">Support for <span class="usertext">generalizing</span> geometries returned by the query operation was added.</li>
+          <li purpose="li" id="LI_4E66B5A91D754576A1E90FB128B43617">The
+            <span class="usertext">query</span> operation returns an additional <span class="usertext">fields</span> array (JSON and AMF only) that contains array of field information for returned values. This array contains only fields specified in the <span class="usertext">outFields</span> parameter. See <a class="xref" rel="02ss/02ss00000089000000.htm" href="02ss/02ss00000089000000.html">Layer/Table</a> for details on fields. <div class="notes" id="GUID-CC0AE94D-2A0C-4FB7-B688-C8B2CDF225EF"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody"><p id="GUID-5688A6DC-2356-4A76-9D0E-6F8AD40A42D1">The <span class="usertext">domains</span> member is not included in field information objects returned with the response.</p></div></div></li>
+          <li purpose="li" id="LI_D9196F2A471B4E80A8578BF29C2220D9">The
+            <span class="usertext">fieldAliases</span> member is deprecated.</li>
+        </ul>
+      </p><p id="GUID-6BB0E983-6E77-4111-8A46-770665CDFAD8">You can provide arguments to the query operation as query parameters defined in the parameters table below.</p></div>
+    <div class="section1" id="GUID-BA3B02CD-BD10-4F19-BFB5-72A04D49D005" purpose="section1"><h2>
+        Request Parameters
+      </h2><p id="GUID-BF585125-FCA5-425C-B1AA-670E870619D0">
+        <div class="block_table" id="GUID-2C557A80-20F6-402D-A755-DD0A8F384418" purpose="block_table"><span class="table_title"></span><table class="table"><colgroup width="272.25pt"></colgroup><colgroup width="1.00*"></colgroup><tr purpose="thead"><th class="th" purpose="th" rowspan="1" colspan="1">
+                  <p id="GUID-DAC522ED-ECC1-4A6F-A1CE-12F8DC78D682">Parameter</p>
+                </th><th class="th" purpose="th" rowspan="1" colspan="1">
+                  <p id="GUID-065D4BA4-3A49-49BF-85C7-8509011F5D57">Details</p>
+                </th></tr><tbody>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">f</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-6707A1A1-85B4-4A47-B689-9A4CDC736A83">Description:  The response format. The default response format is HTML.</p>
+                  <p id="GUID-498468BB-BD0B-4191-9582-B9647F8A5435">
+                    <div class="notes" id="GUID-9A04A5D5-4A1C-499D-BA52-9CD053A99E4E"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody">
+                      <p id="GUID-DB982053-87F7-4122-A376-B0F287DC7187">
+                        <span class="usertext">f=kmz</span> would always return z-values.</p>
+                    </div></div>
+                  </p>
+                  <p id="GUID-5368EDF7-F062-40C7-B24E-2A69155EAF02">Values:  html | json | geojson | kmz | amf (default, when <span class="usertext">returnIdsOnly=false</span> and <span class="usertext">returnCountOnly=false</span>) </p>
+                  <p id="GUID-A40ABE26-05B8-4C80-B894-BF0866EAA8F4">Values: html | json | amf (when <span class="usertext">outStatistics</span> is specified)</p>
+                  <p id="GUID-FF69E161-7523-4296-A46D-4F17FF3CAD3A">Values: html | json | geojson (when either <span class="usertext">returnIdsOnly=true</span> or <span class="usertext">returnCountOnly=true</span> is specified)</p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">text</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-57C488E3-4F1D-4404-916F-3315CD923289">Description: A literal search text. If the layer has a display field associated
+with it, the server searches for this text in this field. This
+parameter is shorthand for a WHERE clause of 
+<span class="usertext">where &lt;displayField&gt; like '%&lt;text&gt;%'</span>. The text
+is case sensitive. 
+This parameter is ignored if the WHERE parameter is
+specified.</p>
+                  <p id="GUID-1ACFA220-DE33-464E-B7FC-46B4B2CE1BA7">Example: <span class="usertext">text=Los</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">geometry</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-AAF223EF-BAC4-450E-A57D-0E0F591EB60F">Description: The geometry to apply as the spatial filter. The structure of the
+geometry is the same as the structure of the <a class="xref" rel="02ss/02ss0000008m000000.htm" href="02ss/02ss0000008m000000.html">JSON geometry objects</a> returned by the ArcGIS REST API. In
+addition to the JSON structures, for envelopes and points, you can
+specify the geometry with a simpler comma-separated syntax.</p>
+                  <p id="GUID-4FC6B7A5-ECE9-4C7D-A692-ED2611DEB877">Syntax:</p>
+                  <p id="GUID-A297B8AB-DCB2-4C23-A50B-2D190DF41E51">
+                    <ul purpose="ul" id="UL_570E0319E7AA4EF9B406A7DE1D88613C">
+                      <li purpose="li" id="LI_8CFE60C23E2E446394260AA09E07794B">
+                        <span class="usertext">geometryType=esriGeometryEnvelope&amp;geometry={xmin: -104, ymin: 35.6, xmax: -94.32, ymax: 41} </span>
+                      </li>
+                      <li purpose="li" id="LI_518D8D0A6A434A78B9B9A556E286794A">
+                        <span class="usertext">geometryType=esriGeometryEnvelope&amp;geometry=-104,35.6,-94.32,41 </span>
+                      </li>
+                      <li purpose="li" id="LI_ED4BB6ED13FA4304B69EF1BA04D3FE78">
+                        <span class="usertext">geometryType=esriGeometryPoint&amp;geometry=-104,35.6</span>
+                      </li>
+                    </ul>
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">geometryType</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-D0083A20-4749-40ED-AADB-0D9F6E28EC58">Description: The type of geometry specified by the geometry parameter. The geometry type can be an envelope, point, line, or polygon. The default geometry type is an envelope.</p>
+                  <p id="GUID-617A05D9-BCA9-4B24-B652-071317AF5732">
+
+Values: <span class="usertext">esriGeometryPoint | esriGeometryMultipoint | esriGeometryPolyline | esriGeometryPolygon | esriGeometryEnvelope </span></p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">inSR</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-2B999884-FE90-41FB-9341-02163B86E7E2">Description: The spatial reference of the input <span class="usertext">geometry</span>.</p>
+                  <p id="GUID-B934C39B-537F-4386-B142-0E25CB4B2D51">The spatial reference can be specified as either a well-known ID or
+as a <a class="xref" rel="02ss/02ss0000008m000000.htm" href="02ss/02ss0000008m000000.html">spatial reference JSON object</a>. 
+If the <span class="usertext">inSR</span> is not specified, the
+<span class="usertext">geometry</span> is assumed to be in the spatial reference of
+the map.
+</p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">spatialRel</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-75CA2D6A-2BDD-4E6C-9DC9-262ACA3D8F07">Description: The spatial relationship to be applied on the input <span class="usertext">geometry</span> while performing the query. The supported spatial relationships include intersects, contains, envelope intersects, within, and so on. The default spatial relationship is intersects <span class="usertext">(esriSpatialRelIntersects)</span>.
+
+</p>
+                  <p id="GUID-DCB7E060-97E3-47F7-BF7E-B0BD7D579B22">Values: <span class="usertext">esriSpatialRelIntersects | esriSpatialRelContains | esriSpatialRelCrosses | esriSpatialRelEnvelopeIntersects | esriSpatialRelIndexIntersects | esriSpatialRelOverlaps | esriSpatialRelTouches | esriSpatialRelWithin | esriSpatialRelRelation</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">relationParam</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-A3BAF09C-3869-4B03-848E-B0B3B789F1F7">Description: The spatial relate function that can be applied while performing the query operation. An example for this spatial relate function is "FFFTTT***."
+
+</p>
+                  <p id="GUID-9F608E22-076F-43C5-B6EF-3AC6902507C4">For more information on this spatial relate function, refer to the documentation for the <a target="_blank" class="xref" href="http://resources.esri.com/HELP/9.3/ARCGISDESKTOP/DOTNET/40DE6491-9B2D-440D-848B-2609EFCD46B1.HTM#SPATIALRELATE" rel="HTTP://RESOURCES.ESRI.COM/HELP/9.3/ARCGISDESKTOP/DOTNET/40DE6491-9B2D-440D-848B-2609EFCD46B1.HTM#SPATIALRELATE">spatial relate function</a>. </p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">where</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-A1649897-3294-4ABB-8A6D-769855F4F9B0">Description:  A WHERE clause for the query filter. Any legal SQL WHERE clause operating on the fields in the layer is allowed.</p>
+                  <p id="GUID-B603B469-8444-4B67-B621-B5439FFDC578">Example: <span class="usertext">where=POP2000 &gt; 350000</span></p>
+                  <p id="GUID-BB26811A-B869-4D07-A773-B0B4B46F2B7F">When standardized queries are enabled, <span class="usertext">where = CHAR_LENGTH(cntry_name) &gt; 18</span>.</p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">objectIds</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-7CEC625C-AF3F-459A-9825-447DCAAEC919">Description: The object IDs of this layer or table to be queried.</p>
+                  <div class="notes" id="GUID-96809C5E-58BA-4F9B-8FA8-B6399BA8B189"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody">
+                    <p id="GUID-4C739886-BE0F-41E9-B0A5-F75D2A46A9D3"> There might be a drop in performance if the layer/table data source resides in an enterprise geodatabase and more than 1,000 <span class="usertext">objectIds</span> are specified.</p>
+                  </div></div>
+                  <p id="GUID-D7900890-A86B-400E-BC69-214A411E0BDC">Syntax: <span class="usertext">objectIds=&lt;objectId1&gt;, &lt;objectId2&gt;</span></p>
+                  <p id="GUID-2B8D77A9-87DA-446A-9A9D-90EE30DA84F4">Example: <span class="usertext">objectIds=37, 462</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">time</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-B14324C5-6092-43DA-8698-F67908A9FCAE">Description: The time instant or the time extent to query.</p>
+                  <p id="GUID-6EB7F6D5-F109-40B1-8810-CAEF3CC94B8B">Time instant:</p>
+                  <p id="GUID-2FF0A57B-8540-44C6-953E-CCB17EBA3D6B">Syntax: <span class="usertext">time=&lt;timeInstant&gt;</span></p>
+                  <p id="GUID-48933F3E-9262-4432-A7C1-B21582C302D7">Example: <span class="usertext">time=1199145600000</span> (1 Jan 2008 00:00:00 GMT) 
+
+</p>
+                  <p id="GUID-ABB7D22F-0E41-4AD3-995E-018F5C176CAC">Time extent:</p>
+                  <p id="GUID-A4CB75E8-1810-4274-8978-F161DFFEFBC1">Syntax: <span class="usertext">time=&lt;startTime&gt;, &lt;endTime&gt;</span></p>
+                  <p id="GUID-A9C6A278-3408-485F-B387-BC2F8C556D4A">Example: <span class="usertext">time=1199145600000, 1230768000000</span> (1 Jan 2008 00:00:00 GMT to 1 Jan 2009 00:00:00 GMT)</p>
+                  <p id="GUID-A6299885-9B2E-47F0-9196-268BC5CFAE44">A null value specified for start time or end time will represent infinity for start or end time, respectively.</p>
+                </td>
+              </tr>
+              <tr><td purpose="entry" rowspan="1" colspan="1"><span class="usertext">distance</span></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-2F6B02E8-4EFF-41DA-B23B-2618DE5F58B1">Description: The buffer distance for the input geometries. The distance unit is specified by <span class="usertext">units</span>. For example, if the distance is 100, the query geometry is a point, <span class="usertext">units</span>  is set to <span class="usertext">esriSRUnit_Meter</span>, and all points within 100 meters of the point are returned. </p><p id="GUID-EEC13142-00BF-4F3C-8580-4603FE10E7A1">Syntax: <span class="usertext">distance=&lt;distance&gt;</span></p><p id="GUID-59072622-6674-49D0-A115-51255047173C">Example: <span class="usertext">distance=100</span></p><p id="GUID-3A385AD6-3946-42BD-9447-E5C018E44E40">The geodesic buffer is created based on the datum of the output spatial reference if it exists. If there is no output spatial reference, the input geometry spatial reference is used. Otherwise, the native layer spatial reference is used to generate the geometry buffer used in the query.</p><p id="GUID-1824C973-167E-4752-979E-E948CB460410">This parameter only applies if <span class="usertext">supportsQueryWithDistance</span> is <span class="usertext">true</span>.</p></td></tr><tr><td purpose="entry" rowspan="1" colspan="1"><span class="usertext">units</span></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-559745D8-3798-44A3-AD43-914E0572F6EE">Description: The unit for calculating the buffer distance.</p><p id="GUID-D36DC337-5074-46A0-9AD2-77F8F74F361B">This parameter only applies if <span class="usertext">supportsQueryWithDistance</span> is <span class="usertext">true</span>.</p><p id="GUID-998A5A5F-FED5-4D90-92D4-6BF9810C1541">Values: <span class="usertext">esriSRUnit_Meter | esriSRUnit_StatuteMile  | esriSRUnit_Foot | esriSRUnit_Kilometer | esriSRUnit_NauticalMile | esriSRUnit_USNauticalMile </span></p></td></tr><tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">outFields</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-B3756F5D-847E-4C7D-B42D-40A10ADC9417">Description: The list of fields to be included in the returned result set. This
+list is a comma-delimited list of field names. If you specify the
+shape field in the list of return fields, it is ignored. To request
+geometry, set <span class="usertext">returnGeometry</span> to
+true.
+</p>
+                  <p id="GUID-31DB123C-C4AE-4EC0-AF60-746BAC5809AF">You can also specify the wildcard "*" as the value of this
+parameter. In this case, the query results include all the field
+values. </p>
+                  <p id="GUID-1ED3663F-792B-46CA-89E1-10F777C5AB31">Example: <span class="usertext">outFields=AREANAME,ST,POP2000</span></p>
+                  <p id="GUID-D82EA635-EE3B-4248-9E70-9EF14945FBA3">Example (wildcard usage): <span class="usertext">outFields=*</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">returnGeometry</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-0FCCAB27-9784-400B-A021-249D75493B3A">Description: If <span class="usertext">true</span>, the result set includes the geometry associated with each result. The default is <span class="usertext">true</span>.</p>
+                  <p id="GUID-28175439-A77A-45BE-AB63-C73A0DC36066">Values: <span class="usertext">true | false</span></p>
+                  <div class="notes" id="GUID-1FFC6C35-BB30-4A9E-A0DF-C044F4EF6AAF"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody">
+                    <p id="GUID-5CDF5E99-5F25-4348-864B-EA0537D2BC63">This parameter cannot be used with <span class="usertext">returnDistinctValues</span>.</p>
+                  </div></div>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">maxAllowableOffset</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-9F6E1E58-C5A0-4486-8151-C0C20EC43979">//This option was added at 10.0.</p>
+                  <p id="GUID-E94C6E91-E0C7-445A-BB87-816E796A0939">Description: This option can be used to specify the <span class="usertext">maxAllowableOffset</span> to be used for generalizing geometries returned by the <span class="usertext">query</span> operation.</p>
+                  <p id="GUID-065F2F5B-2590-4A20-86E6-60C6B1855544">The <span class="usertext">maxAllowableOffset</span> is in the units of the <span class="usertext">outSR</span>. If <span class="usertext">outSR</span> is not specified, <span class="usertext">maxAllowableOffset</span> is assumed to be in the unit of the spatial reference of the map.</p>
+                  <p id="GUID-17842574-314F-4E65-A74A-F79EA372C4D9">Example: <span class="usertext">maxAllowableOffset=2</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">geometryPrecision</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-99B18C90-6685-4FCC-AF8C-5448842F7F46">//This option was added at 10.1.</p>
+                  <p id="GUID-E38EDD99-B946-4912-AFE5-5B92E68BC816">Description: This option can be used to specify the number of decimal places in the response geometries returned by the <span class="usertext">query</span> operation. This applies to x- and y-values only (not m- or z-values).</p>
+                  <p id="GUID-943730CD-1915-49A9-A6DA-97CF11C00DA3">Example: <span class="usertext">geometryPrecision=3</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">outSR</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-A51FBB12-C5C4-4F5B-ACF7-49C41CF5827C">Description: The spatial reference of the returned geometry. </p>
+                  <p id="GUID-5FEDE774-3F2A-4880-A0C3-C0BF04851ED4">The spatial reference can be specified as either a well-known ID or
+as a <a class="xref" rel="02ss/02ss0000008m000000.htm" href="02ss/02ss0000008m000000.html">spatial reference JSON object</a>. </p>
+                  <p id="GUID-5E3E47C5-0934-4FE8-B7B7-B2F3872CF845">If <span class="usertext">outSR</span> is not specified, the geometry is returned in the spatial reference of the map.</p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">returnIdsOnly</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-8E73BEA1-BE18-4B10-8367-196E96EB0B6A">Description: If <span class="usertext">true</span>, the response only includes an array of object IDs. Otherwise the response is a feature set. The default is <span class="usertext">false</span>.</p>
+                  <p id="GUID-78F0240A-33DE-4FF4-9C0E-93F22EB8A49A"> Note that while there is a limit on the number of features included in the feature set response, there is no limit on the number of object IDs returned in the ID array response. Clients can exploit this to get all the query conforming object IDs by specifying <span class="usertext">returnIdsOnly=true</span> and subsequently requesting feature sets for subsets of object IDs. </p>
+                  <p id="GUID-2335639D-B062-4517-8247-CEBB15DA2EC9">Values: <span class="usertext">false | true</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">returnCountOnly</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-7E0D0935-4E50-4A30-BB8B-E84CBFF2222E">//This option was added at 10.0 SP1.</p>
+                  <p id="GUID-666B0392-5044-4C4D-9B98-3F63C04B85C1">Description: If <span class="usertext">true</span>, the response only includes the <span class="usertext">count</span> (number of features/records) that would be returned by a query. Otherwise the response is a feature set. The default is <span class="usertext">false</span>. This option supersedes the <span class="usertext">returnIdsOnly</span> parameter.</p>
+                  <p id="GUID-ED8D9358-6434-4F43-9471-EC723D5B96DF">Values: <span class="usertext">false | true</span></p>
+                </td>
+              </tr>
+              <tr><td purpose="entry" rowspan="1" colspan="1"><span class="usertext">returnExtentOnly</span></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-779DA6CA-CADF-46C8-B4CF-D96E2CE6B453">This option was added at 10.3.</p><div class="notes" id="GUID-1E81D204-5FE9-4B38-B6A0-71358FF8D2F6"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody"><p id="GUID-ECFDAF57-CF58-445F-8DDF-17673F0AFF46">At 10.3, this option is only available for hosted feature services.  At 10.3.1, this option is available for hosted and nonhosted feature services.</p></div></div><p id="GUID-A6F24880-F489-4157-ADEA-BDBDD888F26B">Description: If <span class="usertext">true</span>, the response only includes the extent of the features that would be returned by the query. If <span class="usertext">returnCountOnly=true</span>, the response will return both the count and the extent. The default is <span class="usertext">false</span>. This parameter applies only if the <span class="usertext">supportsReturningQueryExtent</span> property of the layer is <span class="usertext">true</span>.  </p><p id="GUID-28991176-1614-4468-8011-750A11CBCDE6">Values: <span class="usertext">true | false</span></p></td></tr><tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">orderByFields</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-4A234464-82BE-46E1-BEFD-C1830F558060">//This option was added at 10.1.</p>
+                  <p id="GUID-43CB3C2A-6BC9-41E3-A833-1E3A10811556">Description: One or more field names or expressions that the features/records need to be ordered by. Use <span class="usertext">ASC</span> or <span class="usertext">DESC</span> for ascending or descending order, respectively.</p>
+                  <p id="GUID-0884C3F4-E5C2-429E-8588-F8ECC373EFB8">
+                    <div class="notes" id="GUID-1978B9E6-EE53-4421-A41A-AA65926E8B0A"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody">
+                      <p id="GUID-8F7069AC-E1F2-4370-A3BE-EEDB7F2C7B74">
+                        <ul purpose="ul" id="UL_3ABCA483B1FA49A68F1E8A14C3DD3A5F">
+                          <li purpose="li" id="LI_84B69942D2F44D5BB648C72E426C97A9">
+                            At 10.4, expressions are allowed in addition to field name. When StandardizedQueries is enabled, only expressions that conform to the specifications are allowed. When StandardizedQueries is disabled, you can pass in any expression that the underlying database allows.</li><li purpose="li" id="LI_2C5011927DC347D9BFCB187162A1AEFF"><span class="usertext">orderByFields</span> is supported on only those <a class="xref" rel="02ss/02ss00000089000000.htm" href="02ss/02ss00000089000000.html">layers/tables</a> that indicate <span class="usertext">supportsAdvancedQueries</span> is true.</li>
+                          <li purpose="li" id="LI_260931DF6CF44E33BF5BE8E7F0C1CF43">
+                            <span class="usertext">orderByFields</span> defaults to <span class="usertext">ASC</span> (ascending order) if <span class="usertext">&lt;ORDER&gt;</span> is unspecified.</li><li purpose="li" id="LI_1BC04E4779C7452D92165FD46BFE83A4">When used with <span class="usertext">outStatistics</span>, only field names specified in <span class="usertext">outStatisticFieldName</span> or <span class="usertext">groupByFieldsForStatistics</span> are allowed.</li>
+                        </ul>
+                      </p>
+                    </div></div>
+                  </p>
+                  <p id="GUID-75238BEC-3474-4F58-B6DD-2A554B789143">Syntax: <span class="usertext">orderByFields=expression1 &lt;ORDER&gt;, expression2 &lt;ORDER&gt;, expression3
+&lt;ORDER&gt; </span></p>
+                  <p id="GUID-76F0AF01-4D75-419B-B829-651EEA1C51B8">Example: <span class="usertext">orderByFields=STATE_NAME ASC, RACE DESC, GENDER </span></p>
+                <p id="GUID-8D5E4505-CC07-440F-ABD8-A9EFA569ACDF">Example: <span class="usertext">orderByFields=POPULATION / SHAPE_AREA</span></p></td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">outStatistics</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-838C286B-1166-4569-B675-25E415C8DC86">//This option was added at 10.1.</p>
+                  <p id="GUID-8AE284DD-3C65-4C7A-82CF-9CE2F5F9B325">Description: The definitions for one or more field-based statistics to be calculated.</p>
+                  <p id="GUID-522BDCBA-4732-4BB5-BDBB-6976E323FEB1">
+                    <div class="notes" id="GUID-166DA85C-E127-4396-A4C2-8F5A528A1CBF"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody">
+                      <p id="GUID-7CD67AA1-FB4F-437A-A694-4A6442B76726">
+                        <ul purpose="ul" id="UL_3CB915AB77F7400898C7D92493241EC9">
+                          <li purpose="li" id="LI_F5731CFF163A4C5086376A03BDAA79A1">
+                            <span class="usertext">outStatistics</span> is supported on only those <a class="xref" rel="02ss/02ss00000089000000.htm" href="02ss/02ss00000089000000.html">layers/tables</a> that indicate <span class="usertext">supportsStatistics</span> is true.</li>
+                          <li purpose="li" id="LI_0EE436DD733045E4918D75FCC9817C2A">If <span class="usertext">outStatisticFieldName</span> is empty or missing, the map server would assign a field name to the returned statistic field. A valid field name can only contain alphanumeric characters and an underscore.</li>
+                          <li purpose="li" id="LI_DA9D6BBB504D49A08577D9C758C029F5">When <span class="usertext">outStatistics</span>, the only other parameters that will be used are <span class="usertext">groupByFieldsForStatistics, orderByFields, text, time,</span> and <span class="usertext">where</span>.</li>
+                          <li purpose="li" id="LI_833C25EF6AA743219A6FBA7A81BF59AC">At version 10.1, specifying <span class="usertext">geometry, objectIds</span>, or <span class="usertext">gdbVersion</span> parameters would return an error.</li>
+                          <li purpose="li" id="LI_45624F34598B48099AC68EB3DB7BFED6">At version 10.1 SP1, support for the <span class="usertext">geometry</span> parameter was added.</li>
+                          <li purpose="li" id="LI_4D245D428A5446848C6EAFAA25C48C80">At version 10.2, support for the <span class="usertext">gdbVersion</span> parameter was added.</li>
+                        </ul>
+                      </p>
+                    </div></div>
+                  </p>
+                  <p id="GUID-214C919E-4C8D-4ABE-9717-B95AA9EC5CC6">Values: An array of statistic definitions. A statistic definition specifies the type of statistic, the field on which it is to be calculated, and the resulting output field name.</p>
+                  <p id="GUID-F5685EC7-5004-4194-BBA2-29EB50EDC00D">Syntax:<div class="codeblock" purpose="codeblock"><div class="codeblockdesc" purpose="codeblockdesc"></div><div class="highlight"><pre><code>[
+  {
+    &quot;statisticType&quot;: &quot;&lt;count | sum | min | max | avg | stddev | var&gt;&quot;,
+    &quot;onStatisticField&quot;: &quot;Field1&quot;, 
+    &quot;outStatisticFieldName&quot;: &quot;Out_Field_Name1&quot;
+  },
+  {
+    &quot;statisticType&quot;: &quot;&lt;count | sum | min | max | avg | stddev | var&gt;&quot;,
+    &quot;onStatisticField&quot;: &quot;Field2&quot;,
+    &quot;outStatisticFieldName&quot;: &quot;Out_Field_Name2&quot;
+  }  
+]
+</code></pre></div>
+</div></p>
+                  <p id="GUID-309027FE-002E-4610-B60E-7B0B39D381EE">Example: <div class="codeblock" purpose="codeblock"><div class="codeblockdesc" purpose="codeblockdesc"></div><div class="highlight"><pre><code>[
+  {
+    &quot;statisticType&quot;: &quot;sum&quot;,
+    &quot;onStatisticField&quot;: &quot;GENDER&quot;,
+    &quot;outStatisticFieldName&quot;: &quot;PopulationByGender&quot;
+  },
+  {
+    &quot;statisticType&quot;: &quot;avg&quot;,
+    &quot;onStatisticField&quot;: &quot;INCOME&quot;,
+    &quot;outStatisticFieldName&quot;: &quot;AverageIncome&quot;
+  }
+]
+</code></pre></div>
+</div></p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">groupByFieldsForStatistics</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-42D3B2BA-893F-4149-9D6A-FFE2297BE2BF">//This option was added at 10.1.</p>
+                  <p id="GUID-D70AEA1A-D271-4D98-B800-1B1A09D30EE7">Description: One or more field names using the values that need to be grouped for calculating the statistics.</p>
+                  <p id="GUID-811FAEC7-E75D-46D7-88AC-47A4FD9B9330">
+                    <div class="notes" id="GUID-9FD5A708-2AF9-4189-8A92-2D3F363BC648"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody">
+                      <p id="GUID-16A22F9A-865D-4313-A4B2-2B4D3C386E99"><ul purpose="ul" id="UL_7D0C233E5C8240B68FBEB1349C377B9C">
+                          <li purpose="li" id="LI_3CBD318467AB4117818772DD3081DDAD">
+                            At 10.4, expressions are allowed in addition to field name. When StandardizedQueries is enabled, only expressions that conform to the specifications are allowed. When StandardizedQueries is disabled, you can pass in any expression that the underlying database allows.</li>
+                          <li purpose="li" id="LI_C4843506D437413D80D04AFF5B4580AC"><span class="usertext">groupByFieldsForStatistics</span> is valid only when the <span class="usertext">outStatistics</span> parameter is used.</li>
+                        </ul>
+                        </p>
+                    </div></div>
+                  </p>
+                  <p id="GUID-B3E0382F-9DA9-4BEF-81C6-51A36B7D732F">Syntax: <span class="usertext">groupByFieldsForStatistics=expression1, expression2 </span></p>
+                  <p id="GUID-0CF6A9DD-F7C0-489B-89CE-6F5997896C06">Example: <span class="usertext">groupByFieldsForStatistics=STATE_NAME, GENDER </span></p>
+                <p id="GUID-A82EEE9F-C238-4014-93B0-C6B75ED24405">Example: <span class="usertext">groupByFieldsForStatistics=extract(month from incident_date)</span> to group by month when StandardizedQueries is enabled.</p></td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">returnZ</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-2FCBA115-1372-41F3-89B8-0B304C00A88C">//This option was added at 10.1.</p>
+                  <p id="GUID-BD0F3579-B27F-4E1C-A849-D563A1734306">Description: If <span class="usertext">true</span>, the z-values will be included in the results if the features have z-values. Otherwise z-values are not returned. The default is <span class="usertext">false</span>.</p>
+                  <p id="GUID-0E751EEE-355C-4875-8264-6C8715F5D7D6">
+                    <div class="notes" id="GUID-4AF66C75-D6B7-4EDC-81FA-7E5E67E65861"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody">
+                      <p id="GUID-ADC2C751-37C6-492B-9CC7-A672761EA70D">This parameter only applies if <span class="usertext">returnGeometry</span> is <span class="usertext">true</span>.</p>
+                    </div></div>
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">returnM</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-5821AB11-C7B8-4992-9E24-62E583BBD171">//This option was added at 10.1.</p>
+                  <p id="GUID-66CDBC30-87CC-460E-8B74-2EA059D90A66">Description: If <span class="usertext">true</span>, m-values will be included in the results if the features have m-values. Otherwise, m-values are not returned. The default is <span class="usertext">false</span>.</p>
+                  <p id="GUID-64558054-AA4B-4EF3-83EA-1C89C5B95663">
+                    <div class="notes" id="GUID-B80C660A-C5F4-4B2A-92E1-806D53314734"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody">
+                      <p id="GUID-5708F638-A67D-4652-B195-3419030F86AC">This parameter only applies if <span class="usertext">returnGeometry</span> is <span class="usertext">true</span>.</p>
+                    </div></div>
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">gdbVersion</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-6D7439CE-D8E9-494C-9E8E-8DF136928930">//This option was added at 10.1.</p>
+                  <p id="GUID-BE20D886-8A80-4D10-A188-EE1253551CEE">Description: GeoDatabase version to query. This parameter applies only if the <span class="usertext">hasVersionedData</span> property of the service and the <span class="usertext">isDataVersioned</span> property of the layers queried are <span class="usertext">true</span>. If this is not specified, the query will apply to the published map's version.</p>
+                  <p id="GUID-FAD556F4-D128-42F7-AA6B-0710C00B9DDC">Syntax: <span class="usertext">gdbVersion=&lt;geodatabase version&gt;</span></p>
+                  <p id="GUID-ACA992D8-6D4C-480D-BFEC-83089C923749">Example: <span class="usertext">gdbVersion=sde.USER1</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">returnDistinctValues</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-E33CEAF7-7E3F-4685-9D15-2A9818928975">//This option was added at 10.1 SP1.</p>
+                  <p id="GUID-26FBAE6F-DFAC-4149-9E08-8BA9840A3A3D">Description: If <span class="usertext">true</span>, returns distinct values based on the fields specified in <span class="usertext">outFields</span>. This parameter applies only if the <span class="usertext">supportsAdvancedQueries</span> property of the layer is <span class="usertext">true</span>.</p>
+                  <p id="GUID-FA8EB18D-DA59-4B20-8400-D193314D6D92">Syntax: <span class="usertext">returnDistinctValues=&lt;true | false&gt;</span></p>
+                  <p id="GUID-2F34A0E5-9DC9-4BD9-975B-553C3A957F58">Example: <span class="usertext">returnDistinctValues=true</span></p>
+                  <div class="notes" id="GUID-25403EF4-83A2-4194-97FE-3E96759F635F"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody">
+                    <p id="GUID-4E5FF1D6-1480-4A0E-8745-B7291882BCE8">This parameter cannot be used when <span class="usertext">returnGeometry</span> is true.</p>
+                  </div></div>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">returnTrueCurves</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-167215D1-D7B0-4AAF-9472-860203743B30">//This option was added at 10.3.</p>
+                  <p id="GUID-875F520C-2A83-4D3B-AB16-24E7E6960C94">Description: If <span class="usertext">true</span>, returns true curves in output geometries; otherwise, curves are converted to densified polylines or polygons.</p>
+                  <p id="GUID-D4B14CE6-D0C0-4FA7-B416-1BC7D5DBF4BE">Syntax: <span class="usertext">returnTrueCurves=&lt;true | false&gt;</span></p>
+                  <p id="GUID-AD7A34D5-9597-43F0-8845-05AA8307F38A">Example: <span class="usertext">returnTrueCurves=true</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">resultOffset</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-11FE6BE4-0BC2-4E40-B5C3-884D0BD4F5A1">//This option was added at 10.3.</p>
+                  <p id="GUID-38D03F09-4A3C-4537-B812-43FB09224743">Description: This option can be used for fetching query results by skipping the specified number of records and  starts from the next record (for example, <span class="usertext">resultOffset</span> + 1th). The Default is 0.</p>
+                  <p id="GUID-0BFA2D6C-0253-41A5-BC19-EB6FB1D7D5DC">This parameter only applies if <span class="usertext">supportsPagination</span> is <span class="usertext">true</span>.</p>
+                  <p id="GUID-2A355DE5-D468-4AC0-B637-C5D3ED9400BF">You can use this option to fetch records that are beyond <span class="usertext">maxRecordCount</span>.</p>
+                  <p id="GUID-4F068174-E82B-4676-9F1F-0EC8D45D75BE">For example, if  <span class="usertext">maxRecordCount</span> is 1,000, you can get the next 100 records by setting <span class="usertext">resultOffset=1000</span> and <span class="usertext">resultRecordCount = 100</span>; query results can return the results in the range of 1,001 to 1,100.</p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">resultRecordCount</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-DFF76D3D-C411-446D-9D8F-4BE926919998">//This option was added at 10.3.</p>
+                  <p id="GUID-E92C01C9-E692-446A-BFA6-53F4746318FF">Description: This option can be used for fetching query results up to the <span class="usertext">resultRecordCount</span> specified. When <span class="usertext">resultOffset</span> is specified but this parameter is not, the map service  defaults it to <span class="usertext">maxRecordCount</span>. The maximum value for this parameter is  the value of the layer's <span class="usertext">maxRecordCount</span> property.</p>
+                  <p id="GUID-87AF7EAA-7D3F-42CA-96F2-095AE8C85A0F">This parameter only applies if <span class="usertext">supportsPagination</span> is <span class="usertext">true</span>.</p>
+                  <p id="GUID-D9D3B8C0-AD42-42F1-A0FC-554DB2A5808D">Example: <span class="usertext">resultRecordCount=10</span> to fetch up to 10 records</p>
+                </td>
+              </tr><tr><td purpose="entry" rowspan="1" colspan="1"><span class="usertext">datumTransformation</span></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-22F31B0A-4EDA-413B-940D-103CCC86DC0D">//This option was added at 10.5</p><p id="GUID-80F506DF-9A5E-4425-930B-273A4865409C">Description: Use this parameter to apply a datum transformation while projecting geometries in the results when <span class="usertext">outSR</span> is different than the layer's spatial reference.</p><p id="GUID-7AF448BC-B13E-4FF3-A937-77C18C2C67A7"><b>Note</b>: while specifying transformation, you need to think about which datum transformation best applicable to project the layer (not the map service) to the <span class="usertext">outSR</span>. <span class="usertext">sourceSpatialReference</span> property in the layer resource reports which spatial reference features are stored in the source dataset.</p><p id="GUID-EACFD66B-0FC2-4C98-B274-AAA6E4038C26"> For a list of valid datum transformation ID values and well-known text strings, see <a class="xref" rel="02ss/02ss00000033000000.htm" href="02ss/02ss00000033000000.html">Geographic transformations</a>.</p><p id="GUID-F72832FE-0712-4ABF-8683-91521ADE4706">Syntax: <span class="usertext">datumTransformation=wkid1</span>.</p><p id="GUID-3B2CFDEB-02A0-4619-BC25-0B55F0A48699">Examples: <span class="usertext">datumTransformation=1623</span> to apply a transformation.</p><p id="GUID-1DC22545-8FA0-41F4-8F1C-17C40F118C50">Syntax: <span class="usertext">datumTransformation={&lt;dt1&gt;}</span>.</p><p id="GUID-42AA420F-1ABA-4F31-87AD-071178DBC437">Examples: <span class="usertext">datumTransformation={"geoTransforms":[{"wkid":108889,"transformForward":true},{"wkid":1622,"transformForward":false}]}</span> to apply a composite transformation.</p><p id="GUID-1AAA0071-F7C1-4954-A0DD-5E18D996435B">For more information on datum transformation, please see <span class="usertext">transformation</span> parameter in <a class="xref" rel="02ss/02ss0000001p000000.htm" href="02ss/02ss0000001p000000.html">Project</a> operation.</p></td></tr><tr><td purpose="entry" rowspan="1" colspan="1"><span class="usertext">rangeValues</span></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-731BC223-7359-403A-924F-308CCEABDEBA">//This option was added at 10.5</p><p id="GUID-5DFFAAED-7A6C-4E49-8666-737914573E61">Description: Allows you to filter features from the  layer that are within the specified range instant or extent.</p><p id="GUID-74178903-7A35-4707-82C3-6B2682126C40"><b>Note</b>: Check <span class="usertext">rangeInfos</span> at the layer resources for the available ranges.</p><p id="GUID-E3CB193F-6A19-407D-A27F-B9CB0508EF61">Syntax:<div class="codeblock" purpose="codeblock"><div class="codeblockdesc" purpose="codeblockdesc"></div><div class="highlight"><pre><code>[
+    {
+      &quot;name&quot; : &quot;&lt;rangeName1&gt;&quot;,           //range id
+      &quot;value&quot;   : &lt;value&gt; |               //single value or 
+                  [ &lt;value1&gt;, &lt;value2&gt; ] //a value-range 
+                       // null is allowed in value-range case -- that means infinity
+                       // e.g. [null, 1500] means all features with values &lt;= 1500
+                       // [1000, null] means all features with values &gt;= 1000
+
+    },
+    {
+      &quot;name&quot; : &quot;&lt;rangeName2&gt;&quot;,
+      &quot;value&quot; : &lt;value&gt; |  [ &lt;value3&gt;, &lt;value4&gt; ]
+    }
+  ]
+&amp;
+</code></pre></div>
+</div></p><p id="GUID-0F6E9DD7-7A17-404E-B843-23D0A9943645">Example: <div class="codeblock" purpose="codeblock"><div class="codeblockdesc" purpose="codeblockdesc"></div><div class="highlight"><pre><code>[
+    {
+      &quot;name&quot; : &quot;salinity&quot;,
+      &quot;value&quot; : 5            //a range instant (or single) value passed
+    },
+    {
+      &quot;name&quot; : &quot;elevation&quot;,
+      &quot;value&quot; : [1000, 1500] //a range extent is passed
+    }
+  ]
+</code></pre></div>
+</div></p></td></tr><tr><td purpose="entry" rowspan="1" colspan="1"><span class="usertext">parameterValues
+
+</span></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-403AC0F3-4B48-45BD-B473-E52E790FD296">//This option was added at 10.5</p><p id="GUID-41ACD0D5-4224-4EA1-ABE4-F9E08173748C">Description: Allows you to filter the features layers by specifying value(s) to an array of pre-authored parameterized filters for those layers. When value  is not specified for any parameter in a request, the default value, that is assigned during authoring time, gets used instead.</p><p id="GUID-4C913BEA-0F00-4A4E-99BA-D11EAFA38E8E">When a <span class="usertext">parameterInfo</span> allows multiple values, you must pass them in an array.</p><p id="GUID-D2A085A2-E59F-486F-A0AF-F14CC8F7C991"><b>Note</b>: Check <span class="usertext">parameterInfos</span> at the layer resources for the available parameterized filters, their default values and expected data type.</p><p id="GUID-227E94CA-C97A-420C-B7AE-36BCBCEB83AE">Syntax:<div class="codeblock" purpose="codeblock"><div class="codeblockdesc" purpose="codeblockdesc"></div><div class="highlight"><pre><code>{
+   &quot;&lt;parameterName1&gt;&quot; : &lt;value&gt;,               //when the multipleValues=false in the parameterInfo
+   &quot;&lt;parameterName2&gt;&quot; : [&lt;value1&gt; | &lt;value2&gt;]  //when the multipleValues=true in the parameterInfo
+}&amp;
+</code></pre></div>
+</div></p><p id="GUID-4E0AC8CC-328B-4F1A-9F1D-489F82615221">Example: <div class="codeblock" purpose="codeblock"><div class="codeblockdesc" purpose="codeblockdesc"></div><div class="highlight"><pre><code>{
+   &quot;floor&quot; : 10,
+   &quot;incidentDate&quot; : 1475877014000    //date time value needs to be passed in as epoch value
+}&amp;
+</code></pre></div>
+</div></p></td></tr>
+            </tbody><caption class="table_desc"></caption></table></div>
+      </p></div>
+    <div class="section1" id="GUID-885D40B8-1FE8-49E4-83D2-8725BC6F07C3" purpose="section1"><h2>Example Usage</h2><p id="GUID-D42FD90F-BAA9-4F67-A6A4-7F08553084B7">
+        Example 1: Query using the <span class="usertext">text</span> parameter on the states layer of the 
+      ESRI_StateCityHighway_USA on sampleserver1:
+</p><p id="GUID-1CDC4945-FA14-4517-A631-16553348E722">
+        <a target="_blank" class="xref" href="http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StateCityHighway_USA/MapServer/1/query?text=Texas" rel="http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StateCityHighway_USA/MapServer/1/query?text=Texas">http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StateCityHighway_USA/MapServer/1/query?text=Texas</a>
+      </p><p id="GUID-729DBC56-8B99-48EC-9E7C-F8EB1B40FD69">
+Example 2: Query using a WHERE statement on the same
+layer. The output is JSON format:</p><p id="GUID-266507DA-4286-4145-83CB-178C072B9503">
+        <a target="_blank" class="xref" href="http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StateCityHighway_USA/MapServer/1/query?where=STATE_NAME='Florida'&amp;f=json" rel="http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StateCityHighway_USA/MapServer/1/query?where=STATE_NAME='Florida'&amp;f=json">http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StateCityHighway_USA/MapServer/1/query?where=STATE_NAME='Florida'&amp;f=json</a>
+      </p><p id="GUID-BDD44812-9C9A-4288-809E-0BC066836591">Example 3: Query strings are case sensitive. In this example, UPPER is used to make the query case insensitive:</p><p id="GUID-79D2F22F-B2EC-4CCD-8701-57D6CA6BF06A">
+        <a target="_blank" class="xref" href="http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StateCityHighway_USA/MapServer/1/query?where=UPPER(STATE_NAME)=UPPER('colorado')" rel="http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StateCityHighway_USA/MapServer/1/query?where=UPPER(STATE_NAME)=UPPER('colorado')">http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StateCityHighway_USA/MapServer/1/query?where=UPPER(STATE_NAME)=UPPER('colorado')</a>
+      </p><p id="GUID-564CAFF5-7011-43FE-B9D2-641CEC255B86">Example 4: Querying the same states layer using geometry (envelope):</p><p id="GUID-AD894BEF-FDDD-43C2-A2B3-8B70A22BB8A9">
+        <a target="_blank" class="xref" href="http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StateCityHighway_USA/MapServer/1/query?geometry=-125.4,35.2,-118.7,43.8&amp;geometryType=esriGeometryEnvelope" rel="http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StateCityHighway_USA/MapServer/1/query?geometry=-125.4,35.2,-118.7,43.8&amp;geometryType=esriGeometryEnvelope">http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StateCityHighway_USA/MapServer/1/query?geometry=-125.4,35.2,-118.7,43.8&amp;geometryType=esriGeometryEnvelope</a>
+      </p><p id="GUID-63B9F642-0325-4FE1-A0D7-A472BE582A9F">Example 5: Querying the states layer by both geometry (envelope) and a WHERE statement:</p><p id="GUID-55557DE3-DF76-4817-9902-DD4EF3A62C21">
+        <a target="_blank" class="xref" href="http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StateCityHighway_USA/MapServer/1/query?geometry=-125.4,35.2,-118.7,43.8&amp;geometryType=esriGeometryEnvelope&amp;where=POP1999%3E5000000" rel="http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StateCityHighway_USA/MapServer/1/query?geometry=-125.4,35.2,-118.7,43.8&amp;geometryType=esriGeometryEnvelope&amp;where=POP1999%3E5000000">http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StateCityHighway_USA/MapServer/1/query?geometry=-125.4,35.2,-118.7,43.8&amp;geometryType=esriGeometryEnvelope&amp;where=POP1999&gt;5000000</a>
+      </p><p id="GUID-7535793B-DD39-4C53-9AF5-009C1C74F2CE">Example 6: Querying the states layer by a WHERE statement, specifying a list of fields to return, and requesting no geometry in the results: </p><p id="GUID-FA8CD17D-00F4-4AA4-874D-1711F79F34F9">
+        <a target="_blank" class="xref" href="http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StateCityHighway_USA/MapServer/1/query?where=POP1999%3E15000000&amp;returnGeometry=false&amp;outFields=STATE_NAME,MALES,FEMALES,POP1999" rel="http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StateCityHighway_USA/MapServer/1/query?where=POP1999%3E15000000&amp;returnGeometry=false&amp;outFields=STATE_NAME,MALES,FEMALES,POP1999">http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StateCityHighway_USA/MapServer/1/query?where=POP1999&gt;15000000&amp;returnGeometry=false&amp;outFields=STATE_NAME,MALES,FEMALES,POP1999</a>
+      </p><p id="GUID-97BA3B45-D0D6-420A-A55F-57BD6D631FF1">Example 7: Querying the states layer by text parameter and requesting the geometry with the well-known ID of 102113 (Web Mercator):</p><p id="GUID-1829B273-415A-4989-B02B-ADC695618D63">
+        <a target="_blank" class="xref" href="http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StateCityHighway_USA/MapServer/1/query?text=New+York&amp;outSR=102113" rel="http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StateCityHighway_USA/MapServer/1/query?text=New+York&amp;outSR=102113">http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StateCityHighway_USA/MapServer/1/query?text=New+York&amp;outSR=102113</a>
+      </p><p id="GUID-70F5FD1F-A9B0-4589-8D23-BC89DC456A26">Example 8: Query a table using a WHERE clause and return object IDs only:</p><p id="GUID-D2BB88C1-97E6-47D5-B8FD-9A07B87F322D">
+        <a target="_blank" class="xref" href="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/SanFrancisco/311Incidents/MapServer/1/query?objectIds=&amp;where=agree_with_incident+%3D+1&amp;returnGeometry=true&amp;returnIdsOnly=true&amp;f=html" rel="http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/SanFrancisco/311Incidents/MapServer/1/query?objectIds=&amp;where=agree_with_incident+%3D+1&amp;returnGeometry=true&amp;returnIdsOnly=true&amp;f=html">http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/SanFrancisco/311Incidents/MapServer/1/query?objectIds=&amp;where=agree_with_incident+%3D+1&amp;returnGeometry=true&amp;returnIdsOnly=true&amp;f=html</a>
+      </p><p id="GUID-BA02ED6B-297D-48DF-95D9-829CA50447EE">Example 9: Using <span class="usertext">groupByFieldsForStatistics</span> and <span class="usertext">outStatistics</span>:</p><p id="GUID-53C593F9-3E80-48A1-8792-9D6E27AC6AF9">
+        <a target="_blank" class="xref" href="http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/3/query?where=&amp;text=&amp;objectIds=&amp;time=&amp;geometry=&amp;geometryType=esriGeometryEnvelope&amp;inSR=&amp;spatialRel=esriSpatialRelIntersects&amp;relationParam=&amp;outFields=&amp;returnGeometry=true&amp;maxAllowableOffset=&amp;outSR=&amp;returnIdsOnly=false&amp;returnCountOnly=false&amp;orderByFields=&amp;groupByFieldsForStatistics=sub_region&amp;outStatistics=[{%22statisticType%22:%22sum%22,%22onStatisticField%22:%22pop2007%22,%22outStatisticFieldName%22:%22Population_2007%22},{%22statisticType%22:%22avg%22,%22onStatisticField%22:%22AVE_FAM_SZ%22,%22outStatisticFieldName%22:%22Average_Family_Size%22}]&amp;returnZ=false&amp;returnM=false&amp;gdbVersion=&amp;f=pjson" rel="http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/3/query?where=&amp;text=&amp;objectIds=&amp;time=&amp;geometry=&amp;geometryType=esriGeometryEnvelope&amp;inSR=&amp;spatialRel=esriSpatialRelIntersects&amp;relationParam=&amp;outFields=&amp;returnGeometry=true&amp;maxAllowableOffset=&amp;outSR=&amp;returnIdsOnly=false&amp;returnCountOnly=false&amp;orderByFields=&amp;groupByFieldsForStatistics=sub_region&amp;outStatistics=[{&quot;statisticType&quot;:&quot;sum&quot;,&quot;onStatisticField&quot;:&quot;pop2007&quot;,&quot;outStatisticFieldName&quot;:&quot;Population_2007&quot;},{&quot;statisticType&quot;:&quot;avg&quot;,&quot;onStatisticField&quot;:&quot;AVE_FAM_SZ&quot;,&quot;outStatisticFieldName&quot;:&quot;Average_Family_Size&quot;}]&amp;returnZ=false&amp;returnM=false&amp;gdbVersion=&amp;f=pjson">http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/3/query?where=&amp;text=&amp;objectIds=&amp;time=&amp;geometry=&amp;geometryType=esriGeometryEnvelope&amp;inSR=&amp;spatialRel=esriSpatialRelIntersects&amp;relationParam=&amp;outFields=&amp;returnGeometry=true&amp;maxAllowableOffset=&amp;outSR=&amp;returnIdsOnly=false&amp;returnCountOnly=false&amp;orderByFields=&amp;groupByFieldsForStatistics=sub_region&amp;outStatistics=[{%22statisticType%22:%22sum%22,%22onStatisticField%22:%22pop2007%22,%22outStatisticFieldName%22:%22Population_2007%22},{%22statisticType%22:%22avg%22,%22onStatisticField%22:%22AVE_FAM_SZ%22,%22outStatisticFieldName%22:%22Average_Family_Size%22}]&amp;returnZ=false&amp;returnM=false&amp;gdbVersion=&amp;f=pjson</a>
+      </p><p id="GUID-E77CD141-9CCE-47B5-98C0-A1AE005FB196">Example 10: Page through a query result using <span class="usertext">resultOffset</span> and <span class="usertext">resultRecordCount</span>. Requesting to  skip first 5 records and return next 10 counties in California order by population:</p><p id="GUID-4AEB7443-3242-4175-90BB-2634EFC7DF19">http://mymachine/arcgis/rest/services/USA/MapServer/3/query?where=STATE_NAME='California'&amp;outFields=Name,Population&amp;returnGeometry=false&amp;resultOffset=5&amp;resultRecordCount=10&amp;orderByFields=Population&amp;f=pjson</p></div>
+    <div class="section1" id="GUID-CB7A046E-BB20-43A6-B9CF-180FEF1EC9F1" purpose="section1"><h2>JSON Response Syntax (when <span class="usertext">returnIdsOnly=false</span> and <span class="usertext">returnCountOnly=false</span>)</h2><p id="GUID-C9B74A1C-0AA3-4B2D-8078-273A7EC300BA">
+        <div class="codeblock" purpose="codeblock">
+          <div class="codeblockdesc" purpose="codeblockdesc">
+            
+          </div>
+          <div class="highlight"><pre><code><span class="p">{</span>
+<span class="s2">&quot;displayFieldName&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;displayFieldName&gt;&quot;</span><span class="p">,</span>
+<span class="c1">//fieldAliases deprecated at 10</span>
+<span class="s2">&quot;fieldAliases&quot;</span> <span class="o">:</span> <span class="p">{</span>
+  <span class="s2">&quot;&lt;fieldName1&gt;&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;fieldAlias1&gt;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;&lt;fieldName2&gt;&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;fieldAlias2&gt;&quot;</span>
+<span class="p">},</span>
+<span class="s2">&quot;fields&quot;</span> <span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;fieldName1&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;fieldType1&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;fieldAlias1&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;length1&gt;&quot;</span><span class="p">},</span>
+    <span class="p">{</span><span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;fieldName2&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;fieldType2&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;fieldAlias2&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;length2&gt;&quot;</span><span class="p">}</span>
+<span class="p">],</span>
+<span class="s2">&quot;geometryType&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;geometryType&gt;&quot;</span><span class="p">,</span> <span class="c1">//for layers only</span>
+<span class="s2">&quot;spatialReference&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">spatialReference</span><span class="o">&gt;</span><span class="p">,</span> <span class="c1">//for layers only</span>
+<span class="s2">&quot;hasZ&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span><span class="o">|</span><span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span> <span class="c1">//added in 10.1</span>
+<span class="s2">&quot;hasM&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span><span class="o">|</span><span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span> <span class="c1">//added in 10.1</span>
+<span class="s2">&quot;features&quot;</span> <span class="o">:</span> <span class="p">[</span> <span class="c1">//features may include geometry for layers only</span>
+  <span class="o">&lt;</span><span class="nx">feature1</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="nx">feature2</span><span class="o">&gt;</span>
+<span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+        </div>
+      </p></div>
+    <div class="section1" id="ESRI_SECTION1_7711704BC1FD49868CFEB590820B19DD" purpose="section1"><h2>JSON Response Syntax (when <span class="usertext">returnIdsOnly=true</span>)</h2><p id="GUID-BD1E9807-1A30-41A2-860D-8FCE5F5879FE">
+        <div class="codeblock" purpose="codeblock">
+          <div class="codeblockdesc" purpose="codeblockdesc">
+            
+          </div>
+          <div class="highlight"><pre><code>{
+&quot;objectIdFieldName&quot; : &quot;&lt;objectIdFieldName&gt;&quot;,
+&quot;objectIds&quot; : [ &lt;objectId1&gt;, &lt;objectId2&gt; ]
+}
+</code></pre></div>
+
+        </div>
+      </p></div>
+    <div class="section1" id="ESRI_SECTION1_26D8BFFBEC684D65AAA31B0911D276B8" purpose="section1"><h2>JSON Response Syntax (when <span class="usertext">returnCountOnly=true</span>)</h2><p id="GUID-457F6FA5-23DE-4AA3-A6DE-648CC6AF1954">
+        <div class="codeblock" purpose="codeblock">
+          <div class="codeblockdesc" purpose="codeblockdesc">
+            
+          </div>
+          <div class="highlight"><pre><code>{
+&quot;count&quot; : &lt;count&gt;
+}
+</code></pre></div>
+
+        </div>
+      </p></div>
+    <div class="section1" id="ESRI_SECTION1_40CAC829DD9E4F01B3B2633E84B15803" purpose="section1"><h2>JSON Response Syntax (when <span class="usertext">groupByFieldsForStatistics</span> and <span class="usertext">outStatistics</span> are specified)</h2><p id="GUID-F2B56842-ED15-488D-A3E0-7FFE0EE21839">
+        <div class="codeblock" purpose="codeblock">
+          <div class="codeblockdesc" purpose="codeblockdesc">
+            
+          </div>
+          <div class="highlight"><pre><code>{
+&quot;displayFieldName&quot;: &quot;&quot;,
+&quot;fieldAliases&quot;: {
+  &quot;alias1&quot;: &quot;fieldAlias1&quot;,
+  &quot;alias2&quot;: &quot;fieldAlias2&quot;
+},
+&quot;fields&quot;:
+[
+  {
+    &quot;name&quot;: &quot;fieldName1&quot;,
+    &quot;type&quot;: &quot;fieldType1&quot;,
+    &quot;alias&quot;: &quot;fieldAlias1&quot;, 
+    &quot;length&quot;: fieldLength1
+  },
+  {
+    &quot;name&quot;: &quot;fieldName2&quot;,
+    &quot;type&quot;: &quot;fieldType2&quot;,
+    &quot;alias&quot;: &quot;fieldAlias2&quot;, 
+    &quot;length&quot;: fieldLength2
+  }
+],
+&quot;features&quot;: [&lt;feature1&gt;, &lt;feature2&gt;] //Feature object without geometry
+}
+</code></pre></div>
+
+        </div>
+      </p></div>
+    <div class="section1" id="GUID-62C5E8DE-6CBB-4D43-B343-A858FCE60DDE" purpose="section1"><h2>JSON Response Example (when <span class="usertext">returnIdsOnly=false</span> and <span class="usertext">returnCountOnly=false</span>)</h2><p id="GUID-ADAAE98B-9DFA-471D-870C-1A7F4C01EAC6">
+        <div class="codeblock" purpose="codeblock">
+          <div class="codeblockdesc" purpose="codeblockdesc">
+            
+          </div>
+          <div class="highlight"><pre><code><span class="p">{</span><span class="s2">&quot;displayFieldName&quot;</span> <span class="o">:</span> <span class="s2">&quot;AREANAME&quot;</span><span class="p">,</span>
+<span class="s2">&quot;fieldAliases&quot;</span> <span class="o">:</span> <span class="p">{</span>    <span class="s2">&quot;ST&quot;</span> <span class="o">:</span> <span class="s2">&quot;ST&quot;</span><span class="p">,</span>    <span class="s2">&quot;POP2000&quot;</span> <span class="o">:</span> <span class="s2">&quot;Population - 2000&quot;</span><span class="p">,</span>    <span class="s2">&quot;AREANAME&quot;</span> <span class="o">:</span> <span class="s2">&quot;City Name&quot;</span>
+<span class="p">},</span>
+<span class="s2">&quot;fields&quot;</span> <span class="o">:</span> <span class="p">[{</span>    <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;ST&quot;</span><span class="p">,</span>    <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;ST&quot;</span><span class="p">,</span>    <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span>    <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">2</span><span class="p">},</span>
+<span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;POP2000&quot;</span><span class="p">,</span>    <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;Population - 2000&quot;</span><span class="p">,</span>        <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeInteger&quot;</span><span class="p">},</span>
+<span class="p">{</span>    <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;AREANAME&quot;</span><span class="p">,</span>    <span class="s2">&quot;alias&quot;</span> <span class="o">:</span> <span class="s2">&quot;City Name&quot;</span><span class="p">,</span>    <span class="s2">&quot;type&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriFieldTypeString&quot;</span><span class="p">,</span>    <span class="s2">&quot;length&quot;</span> <span class="o">:</span> <span class="mi">255</span><span class="p">}],</span>
+<span class="s2">&quot;geometryType&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriGeometryPoint&quot;</span><span class="p">,</span><span class="s2">&quot;spatialReference&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="s2">&quot;wkid&quot;</span> <span class="o">:</span> <span class="mi">4326</span><span class="p">},</span><span class="s2">&quot;features&quot;</span> <span class="o">:</span> <span class="p">[</span>    <span class="p">{</span>    <span class="s2">&quot;attributes&quot;</span> <span class="o">:</span> <span class="p">{</span>        <span class="s2">&quot;ST&quot;</span> <span class="o">:</span> <span class="s2">&quot;CA&quot;</span><span class="p">,</span>        <span class="s2">&quot;POP2000&quot;</span> <span class="o">:</span> <span class="mi">3694820</span><span class="p">,</span>        <span class="s2">&quot;AREANAME&quot;</span> <span class="o">:</span> <span class="s2">&quot;Los Angeles&quot;</span>    <span class="p">},</span>    <span class="s2">&quot;geometry&quot;</span> <span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;x&quot;</span> <span class="o">:</span> <span class="o">-</span><span class="mf">118.37</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span> <span class="o">:</span> <span class="mf">34.086</span> <span class="p">}</span>    <span class="p">},</span>    <span class="p">{</span>    <span class="s2">&quot;attributes&quot;</span> <span class="o">:</span> <span class="p">{</span>        <span class="s2">&quot;ST&quot;</span> <span class="o">:</span> <span class="s2">&quot;CA&quot;</span><span class="p">,</span>        <span class="s2">&quot;POP2000&quot;</span> <span class="o">:</span> <span class="mi">461522</span><span class="p">,</span>        <span class="s2">&quot;AREANAME&quot;</span> <span class="o">:</span> <span class="s2">&quot;Long Beach&quot;</span>    <span class="p">},</span>    <span class="s2">&quot;geometry&quot;</span> <span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;x&quot;</span> <span class="o">:</span> <span class="o">-</span><span class="mf">118.15</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span> <span class="o">:</span> <span class="mf">33.80</span> <span class="p">}</span>    <span class="p">}]}</span>
+</code></pre></div>
+
+        </div>
+      </p></div>
+    <div class="section1" id="ESRI_SECTION1_32D273DB9CB24B8DA61C67054DE8436B" purpose="section1"><h2>JSON Response Example (when <span class="usertext">returnIdsOnly=true</span>)</h2><p id="GUID-D2D85222-DA54-4AA0-A04F-D888A55CA11F">
+        <div class="codeblock" purpose="codeblock">
+          <div class="codeblockdesc" purpose="codeblockdesc">
+            
+          </div>
+          <div class="highlight"><pre><code>{
+&quot;objectIdFieldName&quot;:&quot;objectid&quot;,
+&quot;objectIds&quot;:[1,2,3,4,5,7]
+}
+</code></pre></div>
+
+        </div>
+      </p></div>
+    <div class="section1" id="ESRI_SECTION1_243A7B2D09704CE6875FDF94C14664FE" purpose="section1"><h2>JSON Response Example (when <span class="usertext">returnCountOnly=true</span>)</h2><p id="GUID-2EA3DE08-23EE-4752-A1AE-204E64B55F4C">
+        <div class="codeblock" purpose="codeblock">
+          <div class="codeblockdesc" purpose="codeblockdesc">
+            
+          </div>
+          <div class="highlight"><pre><code>{
+&quot;count&quot;:48
+}
+</code></pre></div>
+
+        </div>
+      </p></div>
+    <div class="section1" id="ESRI_SECTION1_95B645578AAB42458BDC1BD4A4865AFE" purpose="section1"><h2>JSON Response Example (when <span class="usertext">groupByFieldsForStatistics</span> and <span class="usertext">outStatistics</span> are specified)</h2><p id="GUID-988138CD-0F3C-4E73-B11A-4F9514D5534B">
+        <div class="codeblock" purpose="codeblock">
+          <div class="codeblockdesc" purpose="codeblockdesc">
+            
+          </div>
+          <div class="highlight"><pre><code>{
+ &quot;displayFieldName&quot;: &quot;&quot;,
+ &quot;fieldAliases&quot;: {
+  &quot;sub_region&quot;: &quot;SUB_REGION&quot;,
+  &quot;Population_2007&quot;: &quot;Population_2007&quot;,
+  &quot;Average_Family_Size&quot;: &quot;Average_Family_Size&quot;
+ },
+ &quot;fields&quot;: [
+  {
+   &quot;name&quot;: &quot;sub_region&quot;,
+   &quot;type&quot;: &quot;esriFieldTypeString&quot;,
+   &quot;alias&quot;: &quot;SUB_REGION&quot;,
+   &quot;length&quot;: 20
+  },
+  {
+   &quot;name&quot;: &quot;Population_2007&quot;,
+   &quot;type&quot;: &quot;esriFieldTypeDouble&quot;,
+   &quot;alias&quot;: &quot;Population_2007&quot;
+  },
+  {
+   &quot;name&quot;: &quot;Average_Family_Size&quot;,
+   &quot;type&quot;: &quot;esriFieldTypeDouble&quot;,
+   &quot;alias&quot;: &quot;Average_Family_Size&quot;
+  }
+ ],
+ &quot;features&quot;: [
+  {
+   &quot;attributes&quot;: {
+    &quot;sub_region&quot;: &quot;Pacific&quot;,
+    &quot;Population_2007&quot;: 49731702,
+    &quot;Average_Family_Size&quot;: 3.2439999999999998
+   }
+  },
+  {
+   &quot;attributes&quot;: {
+    &quot;sub_region&quot;: &quot;Mountain&quot;,
+    &quot;Population_2007&quot;: 21492235,
+    &quot;Average_Family_Size&quot;: 3.165
+   }
+  },
+  {
+   &quot;attributes&quot;: {
+    &quot;sub_region&quot;: &quot;New England&quot;,
+    &quot;Population_2007&quot;: 14515009,
+    &quot;Average_Family_Size&quot;: 3.0249999999999999
+   }
+  },
+  {
+   &quot;attributes&quot;: {
+    &quot;sub_region&quot;: &quot;West North Central&quot;,
+    &quot;Population_2007&quot;: 20384497,
+    &quot;Average_Family_Size&quot;: 3.044285714285714
+   }
+  },
+  {
+   &quot;attributes&quot;: {
+    &quot;sub_region&quot;: &quot;East North Central&quot;,
+    &quot;Population_2007&quot;: 47176974,
+    &quot;Average_Family_Size&quot;: 3.0940000000000003
+   }
+  },
+  {
+   &quot;attributes&quot;: {
+    &quot;sub_region&quot;: &quot;Middle Atlantic&quot;,
+    &quot;Population_2007&quot;: 41116339,
+    &quot;Average_Family_Size&quot;: 3.1566666666666663
+   }
+  },
+  {
+   &quot;attributes&quot;: {
+    &quot;sub_region&quot;: &quot;South Atlantic&quot;,
+    &quot;Population_2007&quot;: 58943344,
+    &quot;Average_Family_Size&quot;: 3.0333333333333332
+   }
+  },
+  {
+   &quot;attributes&quot;: {
+    &quot;sub_region&quot;: &quot;East South Central&quot;,
+    &quot;Population_2007&quot;: 18077309,
+    &quot;Average_Family_Size&quot;: 3.0275000000000003
+   }
+  },
+  {
+   &quot;attributes&quot;: {
+    &quot;sub_region&quot;: &quot;West South Central&quot;,
+    &quot;Population_2007&quot;: 34910821,
+    &quot;Average_Family_Size&quot;: 3.1124999999999998
+   }
+  }
+ ]
+}
+</code></pre></div>
+
+        </div>
+      </p></div>
+  <div class="footer"> Copyright © 1995-2017 Esri. All rights reserved. </div></div></body>
+<!-- Mirrored from gis.auric.city/agserver/sdk/rest/02ss/02ss0000000r000000.htm by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 03:16:16 GMT -->
+</html>

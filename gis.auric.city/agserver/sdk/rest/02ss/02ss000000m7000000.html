@@ -1,0 +1,594 @@
+<html lang="en" xml:lang="en">
+<!-- Mirrored from gis.auric.city/agserver/sdk/rest/02ss/02ss000000m7000000.htm by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 03:15:52 GMT -->
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="description" content="Identify (Map Service) http:// &amp;lt;mapservice-url&amp;gt;/identifyQuery9.3 Description The identify operation is performed on a map service resource to discover features at a geographic location. The result of this operation is an identify results resource. Each identified result includes its name, layer ID, layer name, geometry and geometry type, and other attributes of that result as name-value pairs. New in 10.5Enhanced with the following boolean flags to support returning unformatted values and field names when"><meta name="content-language" content="en"><link href="rsrc/htmlhelp.html" rel="stylesheet" type="text/css"><title>ArcGIS REST API - ArcGIS Services - 
+   Identify
+  (Map Service)</title>
+                <script type="text/javascript" language="JavaScript">
+                    var pathL  = self.location.pathname.split ("../../../../index.html");
+                    var fname = pathL[pathL.length-1];
+                    var i = fname.lastIndexOf (".htm");
+                    if (i>=0) {
+                    fname = fname.substring (0, i)
+                    } else {
+                    //??
+                    }
+                    if (self.location.hash) {
+				    		      fname = fname + self.location.hash;
+						        }
+                    self.location.replace ("../index.html#//" + fname);
+                </script>
+                </head><!--Publication GUID: [GUID-289408B4-3EC8-4C16-9DB8-B1778E780E58]--><!--Topic GUID: [GUID-B26FABCD-A242-4694-A4BE-B44EBDC4074C]--><body><div id="content"><div class="header"><h1>
+   Identify
+  (Map Service)</h1><div id="breadcrumb"></div></div>
+    <div class="restmd" purpose="restmd"><ul purpose="restmd" class="restmd list-plain"><li><span class="restkey post-1">URL:</span><span class="restval">http:// <a class="xref" rel="02ss/02ss0000006v000000.htm" href="02ss/02ss0000006v000000.html">&lt;mapservice-url&gt;</a>/identify<span class="restverb"></span><br></span></li><li><span class="restkey post-1">Required Capability:</span><span class="restval">Query</span></li><li><span class="restkey post-1">Version Introduced:</span><span class="restval">9.3</span></li></ul></div>
+    <div class="section1" id="GUID-8270440C-C683-4D31-BA9A-280E8A28476E" purpose="section1"><h2>Description</h2><p id="GUID-07EC5714-402E-4039-9533-9EDBB3760FF6">
+        The identify operation is performed on a <a class="xref" rel="02ss/02ss0000006v000000.htm" href="02ss/02ss0000006v000000.html">map service resource to discover features at a geographic location</a>. The result of this operation is an identify results resource. Each identified result includes its name, layer ID, layer name, geometry and geometry type, and other attributes of that result as name-value pairs.
+      </p></div>
+    <div class="section1" id="ESRI_SECTION1_9E5612C84EFF432B9611D3772AC5E723" purpose="section1"><h2>New in 10.5</h2><ul purpose="ul" id="UL_1712DDC6102D425EBDE6EF581A6F3855"><li purpose="li" id="LI_762600B3B3A0402A87D73C012C161139">Enhanced with the following boolean flags to support returning unformatted values and field names when desired.<ul purpose="ul" id="UL_9A97B8C8E6EC4A7196591BE220007788"><li purpose="li" id="LI_59F45D02D4C5497E873558EC7978CFB0">returnUnformattedValues</li><li purpose="li" id="LI_CCE751332F7E4892A9053155F0FE9B20">returnFieldName</li></ul></li><li purpose="li" id="LI_7548D726CA4841AD8A5E7777FA51A4B3">Supports the following new parameters.<ul purpose="ul" id="UL_39EFFDCA184B4AD09C7EB59F830B7E19"><li purpose="li" id="LI_1D977F1CD6E54A2A8E47277D3D47F6CD"><span class="usertext">datumTransformations</span> to provide a desired datum transformation to be applied while features get projected.</li><li purpose="li" id="LI_DDC253A306684CE29472C47359DFB7B2"><span class="usertext">mapRangeValues</span> to set values to ranges applicable to all layers with same ranges in the map service.</li>  <li purpose="li" id="LI_205173DB2C6C4D25837EBF7411CEA41B"><span class="usertext">layerRangeValues</span> to set range values specific layers.</li><li purpose="li" id="LI_C00280BF38E34A458C91411E35814FAA"><span class="usertext">layerParameterValues</span> to set value to parameterized filters to specific layers.</li></ul></li><li purpose="li" id="LI_1F2CD9AC59734093892C02E0A09C1A67">Simple syntax is not supported as an expected value for <span class="usertext">layerDefs</span> parameter starting 10.5.</li></ul></div><div class="section1" id="ESRI_SECTION1_9C2891D19E8F4A1B8C956383B89DDD53" purpose="section1"><h2>New in 10.1</h2><p id="GUID-57F7317E-5B44-4CE4-B811-2CC8492236F2">
+        <ul purpose="ul" id="UL_CDAA73B234194B6C84DCE68B39EAF987">
+          <li purpose="li" id="LI_44360B66C5ED4CBDAE9BCF06CE38E62B">Support for dynamic layers was added with the <span class="usertext">dynamicLayers</span> parameter. When using <span class="usertext">dynamicLayers</span>, define <span class="usertext">definitionExpression</span> and <span class="usertext">layerTimeOptions</span> within dynamic layer definition. Use <span class="usertext">layers</span> property to specify if only the "top" result or "all" results are to be returned in the identify result. Only those layers that are defined in <span class="usertext">dynamicLayers</span> are used in the identify operation. The layer list in <span class="usertext">layers</span> is ignored. Layer order is based on the order of <span class="usertext">dynamicLayer</span> elements in the <span class="usertext">dynamicLayers</span> array, the first <span class="usertext">dynamicLayer</span> is on top of the second <span class="usertext">dynamicLayer</span>.</li>
+          <li purpose="li" id="LI_94D3024398E2442A9CBDA5872E850876">
+            <span class="usertext">gdbVersion</span> parameter was introduced. Use this parameter to specify the geodatabase version.</li>
+          <li purpose="li" id="LI_C98B11059EFA4D84BE476AF99F4D9115">
+            <span class="usertext">geometryPrecision</span> parameter was introduced. This option can be used to specify the number of decimal places in the response geometries returned by the identify operation.</li>
+          <li purpose="li" id="LI_5B14F1021A13421A8DF1044907C1C553">
+            <span class="usertext">returnZ</span> and <span class="usertext">returnM</span>returnM parameters were introduced. If true, returns Z and M values, respectively.</li>
+          <li purpose="li" id="LI_C51C4E50891E41E4912A56910E460A74">JSON response contains an optional property <span class="usertext">exceededTransferLimit</span>. This property will be true only if the number of records exceeds the maximum number configured by the server administrator.</li>
+          <li purpose="li" id="LI_9AAFE100AD9446089BB6B23F316AAAA3">If <a class="xref" rel="02ss/02ss0000006v000000.htm" href="02ss/02ss0000006v000000.html">map service resource</a> lists <span class="usertext">hasLiveData</span> to be true, identify operations will default the value for <span class="usertext">time</span> parameter to be [&lt;current server time - <span class="usertext">defaultTimeWindow</span>&gt;, &lt;current server time&gt;].</li>
+        </ul>
+      </p></div>
+    <div class="section1" id="ESRI_SECTION1_6EDAD886D998409D9C0CD4FF50F10A3E" purpose="section1"><h2>New in 10.0</h2><p id="GUID-7ED6D77F-AAC3-4390-92C2-001BA7B2B377">Support for <span class="usertext">generalizing</span> geometries returned by the <span class="usertext">identify</span> operation was added.</p><p id="GUID-6944A59D-D033-44E2-8F34-5CBD0BAAB896">You can provide arguments to the <span class="usertext">identify</span> operation as query parameters defined in the parameters table below.</p></div>
+    <div class="section1" id="GUID-895DCC2D-7F28-4986-99EC-6C3080503FE2" purpose="section1"><h2>
+        Request Parameters
+      </h2><p id="GUID-3E517525-1905-4524-9356-222A36474356">
+        <div class="block_table" id="GUID-6765B761-6740-4FA8-9895-5039ED6E69BC" purpose="block_table"><span class="table_title"></span><table class="table"><colgroup width="200pt"></colgroup><colgroup width="*"></colgroup><tr purpose="thead"><th class="th" purpose="th" rowspan="1" colspan="1">
+                  <p id="GUID-5AE7274C-8671-4AA4-86E8-F0BEB5F51A42">Parameter</p>
+                </th><th class="th" purpose="th" rowspan="1" colspan="1">
+                  <p id="GUID-E69ABF7C-DB65-4E3E-A16A-E168371B272F">Details</p>
+                </th></tr><tbody>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">f</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-1D38C979-BB8E-4C57-A589-E6AC870A5E88">Description: The response format. The default response format is html.</p>
+                  <p id="GUID-3D7C94C3-E6C1-4317-8EC4-CBC830F38E5D">Values: html | json</p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">geometry</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-114DF0F9-BFC4-4747-A80D-16FD1B0A1D28">Description: (Required) The geometry to identify on. The type of the geometry is specified
+by the <span class="usertext">geometryType</span> parameter. The structure of the
+geometries is same as the structure of the <a class="xref" rel="02ss/02ss0000008m000000.htm" href="02ss/02ss0000008m000000.html">JSON geometry objects</a> returned by the ArcGIS REST API. In
+addition to the JSON structures, for points and envelopes, you can
+specify the geometries with a simpler comma-separated syntax.</p>
+                  <p id="GUID-95B9A57A-749C-43C0-8BD1-317FA2762E1A">Syntax: </p>
+                  <p id="GUID-B6FF726E-398B-4CB3-A176-3F1C69448221">
+                    <ul purpose="ul" id="UL_5222A7B2285C4326AC66D1F29F41EFDE">
+                      <li purpose="li" id="LI_8860262246D1464F8B23B3CB0FFE6E87">JSON structures: <span class="usertext">geometryType=&lt;geometryType&gt;&amp;geometry=</span>{ <a class="xref" rel="02ss/02ss0000008m000000.htm" href="02ss/02ss0000008m000000.html">geometry</a>} </li>
+                      <li purpose="li" id="LI_52C04E004F834C63BE0513403528016C">Point simple syntax: <span class="usertext">geometryType=esriGeometryPoint&amp;geometry=&lt;x&gt;,&lt;y&gt;</span></li>
+                      <li purpose="li" id="LI_6F6D629F347346848BB6BCE43F2E2FC9">Envelope simple syntax: <span class="usertext">geometryType=esriGeometryEnvelope&amp;geometry=&lt;xmin&gt;,&lt;ymin&gt;,&lt;xmax&gt;,&lt;ymax&gt;</span></li>
+                    </ul>
+                  </p>
+                  <p id="GUID-FDC9CDC0-E436-427B-99C3-271E2030B2D2">Examples: </p>
+                  <p id="GUID-3B4AC669-CF46-4491-86B8-A10D3C101CEA">
+                    <ul purpose="ul" id="UL_4C25AFD8BE1344DFA08E505E0FAF58E3">
+                      <li purpose="li" id="LI_0695B569A79C44ADA82E347BA88CDDBC">
+                        <span class="usertext">geometryType=esriGeometryPoint&amp;geometry={x: -104, y: 35.6} </span>
+                      </li>
+                      <li purpose="li" id="LI_E66A02767F2241F196DFCF16A9370FFE">
+                        <span class="usertext">geometryType=esriGeometryPoint&amp;geometry=-104,35.6 </span>
+                      </li>
+                      <li purpose="li" id="LI_53F5C9AB537D4DC4989ABB422ABEF985">
+                        <span class="usertext">geometryType=esriGeometryEnvelope&amp;geometry=-104,35.6,-94.32,41 </span>
+                      </li>
+                    </ul>
+                  </p>
+                  <p id="GUID-82B632DF-8C2A-4B67-8E0D-3EFA10BCB5DF">The coordinates must always use a period as the decimal separator even in countries where a comma is traditionally used.</p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">geometryType</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-1855CEC5-58B1-4808-A968-7F1EA587EAF0">Description:  The type of geometry specified by the geometry parameter. The geometry type could be a point, line, polygon, or an envelope. The default geometry type is a point (<span class="usertext">esriGeometryPoint</span>).</p>
+                  <p id="GUID-786FD7E9-25A7-46A5-A969-CE4C86FFE516">Values: <span class="usertext">esriGeometryPoint | esriGeometryMultipoint |
+esriGeometryPolyline | esriGeometryPolygon |
+esriGeometryEnvelope</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">sr</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-7835AE89-6531-4B70-B676-C3BD1EC8AAAF">Description: The well-known ID of the spatial reference of the input and output
+geometries as well as the <span class="usertext">mapExtent</span>. If
+<span class="usertext">sr</span> is not specified, the <span class="usertext">geometry</span> and the
+<span class="usertext">mapExtent</span> are assumed to be in the spatial reference
+of the map, and the output geometries are also in the spatial
+reference of the map.
+</p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">layerDefs</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-097E9AEF-FABE-42CD-9DF4-5386FF217B7B">(New in 10.0)</p>
+                  <p id="GUID-5BB741F8-9C84-4694-B87C-C67A0DE810D3">Description:  Allows you to filter the features of individual layers in the exported map by specifying definition expressions for those layers. Definition expression for a layer that is published with the service will be always honored. </p>
+                  
+                  
+                  
+                  
+                  
+                  <p id="GUID-E004CDE1-8864-4606-BF2E-B55F159D8332">Syntax: <span class="usertext">{ "&lt;layerId1&gt;" :
+"&lt;layerDef1&gt;" , "&lt;layerId2&gt;" : "&lt;layerDef2&gt;"
+}</span></p>
+                  <p id="GUID-73149464-726B-4BAC-B68D-87A4001B839D">Where <span class="usertext">layerId1, layerId2</span> are the layer ids returned by the map service resource.</p>
+                  <p id="GUID-E5F5A365-2A00-4CC8-B895-311194D60D7C">Example: <span class="usertext">{"0":"POP2000 &gt; 1000000","5":"AREA &gt; 100000"}</span></p>
+                <div class="notes" id="GUID-B377EE3B-DF24-4608-84C5-520ACD02D150"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody"><p id="GUID-30BD51AA-DBDE-4463-B00A-8883CEEB6BBC">Simple syntax is no longer supported starting 10.5.</p></div></div></td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">time</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-6BD50C49-3E25-4EFD-93E2-AA69DA033879">//This parameter was added at 10.0.</p>
+                  <p id="GUID-0E58EB29-45B2-4291-B95F-3986A1222E43">Description: The time instant or the time extent of the features to be identified.</p>
+                  <p id="GUID-12DDF258-93D9-4072-9DE3-38CE54EFDCDC">Time instant:</p>
+                  <p id="GUID-1FBC1803-664C-4B48-9411-DE75E3508B2F">Syntax: <span class="usertext">time=&lt;timeInstant&gt;</span></p>
+                  <p id="GUID-B16721FD-89C7-477C-9792-9EE852C7B8EA">Example: <span class="usertext">time=1199145600000</span>  (1 Jan 2008 00:00:00 GMT)</p>
+                  <p id="GUID-00049FB3-0766-400A-BC76-CBA819C74500">Time extent:</p>
+                  <p id="GUID-560F1069-378E-4DCA-9739-A3A3D5253C29">Syntax: <span class="usertext">time=&lt;startTime&gt;, &lt;endTime&gt;</span></p>
+                  <p id="GUID-546A9140-722D-455B-8BBE-29358D9BB581">Example: <span class="usertext">time=1199145600000, 1230768000000</span> (1 Jan 2008 00:00:00 GMT to 1 Jan 2009 00:00:00 GMT) </p>
+                  <p id="GUID-06324D3B-55C5-4B14-8A4F-415B67FD489E">A null value specified for start time or end time will represent infinity for start or end time respectively.</p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">layerTimeOptions</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-A4A555E2-A0D5-415D-A74A-CE86CCB01E42">//This parameter was added at 10.0.</p>
+                  <p id="GUID-ED5805E9-8664-4385-85AE-D209E9F22DB1">Description:  The time options per layer. Users can indicate whether or not the layer should use the time extent specified by the <span class="usertext">time</span> parameter or not, whether to draw the layer features cumulatively or not and the time offsets for the layer. </p>
+                  <p id="GUID-7DC4E150-E5F4-4EA6-A2A9-620105D6069A">Syntax:</p>
+                  <p id="GUID-F08EE75F-085A-44F6-9511-1E598DD5DD64">
+                    <div class="codeblock" purpose="codeblock">
+                      <div class="codeblockdesc" purpose="codeblockdesc">
+                        
+                      </div>
+                      <div class="highlight"><pre><code>{
+  &quot;&lt;layerId1&gt;&quot; : {
+    //If true, use the time extent specified by the time parameter
+    &quot;useTime&quot; : &lt; true | false &gt;,
+    //If true, draw all the features from the beginning of time for that data
+    &quot;timeDataCumulative&quot; : &lt; true | false &gt;,
+    //Time offset for this layer so that it can be overlaid on the top of a previous or future time period
+    &quot;timeOffset&quot; : &lt;timeOffset1&gt;,
+    &quot;timeOffsetUnits&quot; : &quot;&lt;esriTimeUnitsCenturies | esriTimeUnitsDays | esriTimeUnitsDecades | 
+                             esriTimeUnitsHours | esriTimeUnitsMilliseconds | esriTimeUnitsMinutes | 
+                             esriTimeUnitsMonths | esriTimeUnitsSeconds | esriTimeUnitsWeeks | esriTimeUnitsYears |
+                             esriTimeUnitsUnknown&gt;&quot;
+  },
+  &quot;&lt;layerId2&gt;&quot; : {
+    &quot;useTime&quot; : &lt; true | false &gt;,
+    &quot;timeDataCumulative&quot; : &lt; true | false &gt;,
+    &quot;timeOffsetOffset&quot; : &lt;timeOffset2&gt;,
+    &quot;timeOffsetUnits&quot; : &quot;&lt;timeOffsetUnits2&gt;&quot;
+  }
+}
+</code></pre></div>
+
+                    </div>
+                  </p>
+                  <p id="GUID-0840D781-4C90-4FB3-BA50-39F7B12CCA9A">Example:</p>
+                  <p id="GUID-01590035-856F-4E72-BE03-1E7BC87605FE">
+                    <div class="codeblock" purpose="codeblock">
+                      <div class="codeblockdesc" purpose="codeblockdesc">
+                        
+                      </div>
+                      <div class="highlight"><pre><code>{
+  &quot;0&quot; : {
+    &quot;useTime&quot; : true,
+    &quot;timeDataCumulative&quot; : false,
+    &quot;timeOffset&quot; : 1,
+    &quot;timeOffsetUnits&quot; : &quot;esriTimeUnitsYears&quot;
+  },
+  &quot;3&quot; : {
+    &quot;useTime&quot; : false
+  }
+}
+</code></pre></div>
+
+                    </div>
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">layers</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-C2B0A00D-A311-4DC8-87FD-FF44C4F26C5E">Description: The layers to perform the identify operation on. There are three
+ways to specify which layers to identify on:
+</p>
+                  <p id="GUID-C23FAB48-EFB4-4159-885A-17CF4AA8F51F">
+                    <ul purpose="ul" id="UL_5EFAC28AAA8945A7803817402F38B4B5">
+                      <li purpose="li" id="LI_7BC7752BE5A6487B9B98426F69FABD2D">
+                        <span class="usertext">top</span>: Only the top-most layer at the specified location.</li>
+                      <li purpose="li" id="LI_FA788C7D70604568B9EB3974DA53EE02">
+                        <span class="usertext"> visible</span>: All visible layers at the specified location.</li>
+                      <li purpose="li" id="LI_6CB2B3284EB14888BCB12B62C08200A6">
+                        <span class="usertext">all</span>: All layers at the specified location.</li>
+                    </ul>
+                  </p>
+                  <p id="GUID-988DE2F3-FD6B-441F-B680-78535E222479">Example: <span class="usertext">layers=all</span></p>
+                  <p id="GUID-F179BFED-8BB8-427B-8467-D53D2706D4D4">Default: By default, the identify operation identifies the top-most layer (that is, <span class="usertext">layers=top</span>).</p>
+                  <p id="GUID-4686BE34-66A4-49F3-A778-A6CF14C13388">  You can either specify the layer options as mentioned above by themselves or specify the layer option in conjunction with a list of layer IDs. When both the layer option as well as the layer IDs are specified, the server treats it as a boolean AND operator. For example, if the parameter is specified as: <span class="usertext">layers=visible:2,5</span>, only layers with IDs 2 and 5, if visible, are identified.</p>
+                  <p id="GUID-AE7002BA-9CF1-4761-87D6-9531543872FF">Syntax: <span class="usertext"> [top | visible | all]:layerId1,layerId2</span></p>
+                  <p id="GUID-46F2F983-D642-4876-A4B9-464BF635E66B">Where <span class="usertext">layerId1, layerId2</span> are the layer ids returned by the  <a class="xref" rel="02ss/02ss0000006v000000.htm" href="02ss/02ss0000006v000000.html">map service resource</a>.</p>
+                  <p id="GUID-FFB89AFE-2179-4FCF-8CFF-463113E8EB8C">Example: <span class="usertext">layers=visible:2,5</span></p>
+                  <p id="GUID-37D39227-5389-41C9-8C5B-66CBB6F62D2C">
+                    <div class="notes" id="GUID-FE058918-8F71-447C-AFC2-5DA501693423"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody">
+                      <p id="GUID-BB52C054-6991-442A-9C65-6EAF171021E7">In the case of dynamic layers the layer list is ignored, it instead
+uses top or all (default) to identify the
+layers defined in <span class="usertext">dynamicLayers</span> parameter.
+</p>
+                    </div></div>
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">tolerance</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-883BDE5F-3557-4A3B-8D0A-701E8F6689DD">Description: (Required) The distance in screen pixels from the specified <span class="usertext">geometry</span> within which the identify should be performed. The value for the tolerance is an integer.</p>
+                  <p id="GUID-F4041CCE-B8F5-40CD-B3B2-B9AFD0218D03">Example: <span class="usertext">tolerance=2</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">mapExtent</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-79487A0A-194D-47FD-95DE-5D149C801923">Description: (Required) The extent or bounding box of the map currently being viewed. Unless the <span class="usertext">sr</span> parameter has been specified, the <span class="usertext">mapExtent</span> is assumed to be in the spatial reference of the map.</p>
+                  <p id="GUID-052B86F3-F62B-4D49-A3B9-BEB57A352163">The <span class="usertext">mapExtent</span> and the <span class="usertext">imageDisplay</span> parameters are used by the server to determine the layers visible in the current extent. They are also used to calculate the distance on the map to search based on the <span class="usertext">tolerance</span> in screen pixels.</p>
+                  <p id="GUID-EC3742E5-86D6-41A7-A3E2-1D48E7265582">Syntax: <span class="usertext">&lt;xmin&gt;, &lt;ymin&gt;, &lt;xmax&gt;,
+&lt;ymax&gt;</span></p>
+                  <p id="GUID-1526BC70-0935-4215-B5A4-2BF6102A97C7">Example: <span class="usertext">mapExtent=-104,35.6,-94.32,41</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">imageDisplay</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-3969A322-F634-42C4-8261-4F59AAFB4999">Description: (Required)  The screen image display parameters (width, height, and DPI) of the map being currently viewed.</p>
+                  <p id="GUID-BE135058-041D-4BE2-9669-DDD38BEAE6F7"> The <span class="usertext">mapExtent</span> and the <span class="usertext">imageDisplay</span> parameters are used by the server to determine the layers visible in the current extent. They are also used to calculate the distance on the map to search based on the <span class="usertext">tolerance</span> in screen pixels.</p>
+                  <p id="GUID-E75DA34A-0B06-40C9-844B-EF6061901FDE">Syntax: <span class="usertext">&lt;width&gt;, &lt;height&gt;, &lt;dpi&gt;</span></p>
+                  <p id="GUID-C76C4A1C-3607-4C36-AD3D-901F71C49EAD">Example: <span class="usertext">imageDisplay=600,550,96</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">returnGeometry</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-3D1FC8E2-79DC-46D2-BB1D-DFC0BAB7CE9A">Description: If <span class="usertext">true</span>, the resultset will include the geometries associated with each result. The default is <span class="usertext">true</span>.</p>
+                  <p id="GUID-595FFCF8-7C21-4717-94E3-5C1C011DE976">Values: <span class="usertext">true | false</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">maxAllowableOffset</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-02C49292-DE6D-4677-9F1C-D15EF3911491">//This option was added at 10.0.</p>
+                  <p id="GUID-096BD307-E32A-4DF6-849D-398B2DF11B79">Description: This option can be used to specify the maximum allowable offset to be used for generalizing geometries returned by the <span class="usertext">identify</span> operation. The <span class="usertext">maxAllowableOffset</span> is in the units of the <span class="usertext">sr</span>. If <span class="usertext">sr</span> is not specified, <span class="usertext">maxAllowableOffset</span> is assumed to be in the unit of the spatial reference of the map.</p>
+                  <p id="GUID-52FD070A-3B4F-40E3-A58E-BF8AAF68367F">Example: <span class="usertext">maxAllowableOffset=2</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">geometryPrecision</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-51909215-E18A-4F2E-BEB3-02DC241DEA10">//This option was added at 10.1.</p>
+                  <p id="GUID-9D434C3E-0264-4E43-832B-51B234758252">Description: This option can be used to specify the number of decimal places in the response geometries returned by the <span class="usertext">identify</span> operation. This applies to X and Y values only (not m or z-values).</p>
+                  <p id="GUID-F4EBD0C5-E47F-4C0D-BDC0-9E294CEC83C0">Example: <span class="usertext">geometryPrecision=3</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">dynamicLayers</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-893F7E1E-4B9D-4550-977A-A50014823FA6">//This option was added at 10.1.</p>
+                  <p id="GUID-6A69520E-7CE3-45C2-806F-0BDBFA97D4E4">Description: Use <span class="usertext">dynamicLayers</span> property to reorder layers and
+change the layer data source. <span class="usertext">dynamicLayers</span> can also
+be used to add new layer that was not defined in the map used to
+create the map service. The new layer should have its source
+pointing to one of the registered workspaces that was defined at
+the time the map service was created. 
+</p>
+                  <p id="GUID-BF14DFC0-2AA7-4918-B6DF-C1C7FDB1A1B3">The order of <span class="usertext">dynamicLayers</span> array defines the layer
+drawing order. The first element of the <span class="usertext">dynamicLayers</span> is stacked on top of all other layers. 
+When defining a dynamic layer, <span class="usertext">source</span> is required.
+</p>
+                  <p id="GUID-ED76F6C7-CA70-4219-9738-26094841FDE6">Syntax:</p>
+                  <p id="GUID-E08037FA-53A8-4191-AD05-B97271E8B6AB">
+                    <div class="codeblock" purpose="codeblock">
+                      <div class="codeblockdesc" purpose="codeblockdesc">
+                        
+                      </div>
+                      <div class="highlight"><pre><code>[
+  {
+    &quot;id&quot;: &lt;layerOrTableId&gt;,
+    &quot;source&quot;: &lt;layer source&gt;,
+    &quot;definitionExpression&quot;: &quot;&lt;definitionExpression&gt;&quot;,
+    &quot;layerTimeOptions&quot;:
+    {
+      &quot;useTime&quot; : &lt;true | false&gt;,
+      &quot;timeDataCumulative&quot; : &lt;true | false&gt;,
+      &quot;timeOffset&quot; : &lt;timeOffset&gt;,
+      &quot;timeOffsetUnits&quot; : &quot;&lt;esriTimeUnitsCenturies | esriTimeUnitsDays | esriTimeUnitsDecades | 
+                             esriTimeUnitsHours | esriTimeUnitsMilliseconds | esriTimeUnitsMinutes | 
+                             esriTimeUnitsMonths | esriTimeUnitsSeconds | esriTimeUnitsWeeks | esriTimeUnitsYears |
+                             esriTimeUnitsUnknown&gt;&quot;
+    }
+  },
+  {
+    &quot;id&quot;: &lt;layerOrTableId&gt;,
+    &quot;source&quot;: &lt;layer source&gt;,
+    &quot;definitionExpression&quot;: &quot;&lt;definitionExpression&gt;&quot;,
+    &quot;layerTimeOptions&quot;:
+    {
+      &quot;useTime&quot; : &lt;true | false&gt;,
+      &quot;timeDataCumulative&quot; : &lt;true | false&gt;,
+      &quot;timeOffset&quot; : &lt;timeOffset&gt;,
+      &quot;timeOffsetUnits&quot; : &quot;&lt;esriTimeUnitsCenturies | esriTimeUnitsDays | esriTimeUnitsDecades | 
+                             esriTimeUnitsHours | esriTimeUnitsMilliseconds | esriTimeUnitsMinutes | 
+                             esriTimeUnitsMonths | esriTimeUnitsSeconds | esriTimeUnitsWeeks | esriTimeUnitsYears |
+                             esriTimeUnitsUnknown&gt;&quot;
+    }
+  }
+]
+</code></pre></div>
+
+                    </div>
+                  </p>
+                  <p id="GUID-B4F7FAA3-9C60-415A-87C2-8E8B2D9DDDF3">Example:<div class="codeblock" purpose="codeblock"><div class="codeblockdesc" purpose="codeblockdesc"></div><div class="highlight"><pre><code>[
+  //disable time on existing map service layer
+  {
+    &quot;id&quot;: 501,
+    &quot;source&quot;:
+    {
+      &quot;type&quot;: &quot;mapLayer&quot;,
+      &quot;mapLayerId&quot;: 0
+    },
+    &quot;layerTimeOptions&quot;:
+    {
+      &quot;useTime&quot;: false
+    }
+  },
+  //add a new layer from registered workspace
+  {
+    &quot;id&quot;: 502,
+    &quot;source&quot;:
+    {
+      &quot;type&quot;: &quot;dataLayer&quot;,
+      &quot;dataSource&quot;:
+      {
+        &quot;type&quot;: &quot;table&quot;,
+        &quot;workspaceId&quot;: &quot;MAP&quot;,
+        &quot;dataSourceName&quot;: &quot;MAP.user1.Taxlots&quot;
+      }
+    }
+  },
+  //change the Version of existing map service layer
+  {
+    &quot;id&quot;: 503,
+    &quot;source&quot;:
+    {
+      &quot;type&quot;: &quot;mapLayer&quot;,
+      &quot;mapLayerId&quot;: 1,
+      &quot;version&quot;: &quot;USER1&quot;
+    },
+    &quot;definitionExpression&quot;: &quot;neighborhood = &#39;French Quarter&#39;&quot;
+  }
+]
+</code></pre></div>
+</div></p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">returnZ</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-65D626B6-88B9-4658-9B9A-9588F780282E">//This option was added at 10.1.</p>
+                  <p id="GUID-1B72A4D2-0B9B-4BCC-9AC1-8CC741469C33">Description: If <span class="usertext">true</span>, Z values will be included in the results if the features have Z values. Otherwise, Z values are not returned. The default is <span class="usertext">false</span>.</p>
+                  <p id="GUID-5023B88F-E457-466A-9220-3523066B007D">
+                    <div class="notes" id="GUID-AD326B83-FDC6-4ABC-9646-2D4BD541FE01"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody">
+                      <p id="GUID-F03F1CC5-98B9-4270-8DA1-8B9DFC368D8B">This parameter only applies if <span class="usertext">returnGeometry=true</span>.</p>
+                    </div></div>
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">returnM</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-0AB7D339-2DD6-4658-8EB0-57F8D1104002">//This option was added at 10.1.</p>
+                  <p id="GUID-9E93F075-A32D-4B38-ABED-F1029EDC902C">Description: If <span class="usertext">true</span>, M values will be included in the results if the features have M values. Otherwise, M values are not returned. The default is <span class="usertext">false</span>.</p>
+                  <p id="GUID-5F98B135-EDB8-4D7D-AF19-38F5EF071239">
+                    <div class="notes" id="GUID-9ED2D3EC-7286-4754-9D45-933F14DBC337"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody">
+                      <p id="GUID-CD613A5C-EE8E-4C97-9851-D9AA03683B6A">This parameter only applies if <span class="usertext">returnGeometry=true</span>.</p>
+                    </div></div>
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">gdbVersion</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-4817C314-2C75-43DD-A356-2DCEBA3FAF79">//This option was added at 10.1.</p>
+                  <p id="GUID-66D74CB1-A160-42ED-9F32-B845A113AFCB">Description: Switch map layers to point to an alternate geodatabase version.</p>
+                  <p id="GUID-58503A85-7224-4936-9594-899703ADE46F">Syntax: <span class="usertext"> gdbVersion=&lt;geodatabase version&gt; </span></p>
+                  <p id="GUID-6320C025-2511-405A-BEB8-E29521C25319">Example: <span class="usertext">gdbVersion=sde.USER1</span></p>
+                </td>
+              </tr><tr><td purpose="entry" rowspan="1" colspan="1"><span class="usertext">returnUnformattedValues</span></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-F883C895-24CE-4DE6-A1B3-F1D71343E7F1">//This option was added at 10.5.</p><p id="GUID-BF2638B6-2A74-4676-A601-1ECE3D95C30F">Description: If <span class="usertext">true</span>, the values in the result will not be formatted i.e. numbers will returned as is and dates will be returned as epoch values.</p>
+                <p id="GUID-E6D02AA3-D690-4BD7-8BBD-748FFA72236D"><div class="notes" id="GUID-8744B9E3-5389-478F-A444-7BB66BB867DD"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody"><p id="GUID-924BFFE0-88D7-4A14-B0B9-95093A45AE9F">The default value is false i.e. numbers and dates are formatted based on server's setting.</p><p id="GUID-00770873-5AF1-440A-A341-4DF742544DF9">Subtype and domain values will be returned as numeric values instead of descriptions.</p></div></div></p></td></tr><tr><td purpose="entry" rowspan="1" colspan="1"><span class="usertext">returnFieldName</span></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-90038AC8-5F31-436F-AA31-18C9D9387DD9">//This option was added at 10.5.</p><p id="GUID-115169F2-95D7-4C69-8BE3-1F702B30D377">Description: If <span class="usertext">true</span>, field names will be returned instead of field aliases.</p><p id="GUID-8E53AFA6-AA05-46C4-B68A-36F7D5611412"><div class="notes" id="GUID-3DD58E85-A239-46F9-9724-503036B3776E"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody"><p id="GUID-2EFCCEAE-5221-4F1D-8321-270F424BE01E">The default value is false.</p><p id="GUID-6199A3DD-C807-4052-8F7A-9C271AD7B83D">In case with layers with joins, fully qualified field names will be returned.</p></div></div></p></td></tr><tr><td purpose="entry" rowspan="1" colspan="1"><span class="usertext">datumTransformations</span></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-192E0112-51BB-47E4-9661-BB707CA42F66">//This option was added at 10.5</p><p id="GUID-BCA35A77-C4EC-492F-84A9-56F7B07A6171">Description: Use this parameter to apply one or more datum transformations to the map when <span class="usertext">sr</span> is different than the map service's spatial reference. It is an array of <span class="usertext">transformation</span> elements.</p><p id="GUID-5C3A928B-BBAA-4BF6-998E-5F2BA78318A4"> Transformations specified here are used to project features from layers within a map service to  <span class="usertext">sr</span>.</p><p id="GUID-BC6D6B55-46BF-42AA-BAD3-00A8CB65C530"><b>Note</b>: while specifying transformation, you need to think about which datum transformation best applicable to project a layer(s) (not the map service) to the <span class="usertext">sr</span>. <span class="usertext">sourceSpatialReference</span> property in a layer resource reports which spatial reference features are stored in the source dataset.</p><p id="GUID-EACFD66B-0FC2-4C98-B274-AAA6E4038C26"> For a list of valid datum transformation ID values and well-known text strings, see <a class="xref" rel="02ss/02ss00000033000000.htm" href="02ss/02ss00000033000000.html">Geographic transformations</a>.</p><p id="GUID-CB0A613F-1C70-422F-9685-E67AD555BE2B">Syntax: <span class="usertext">datumTransformations=[wkid1, wkid2]</span>.</p><p id="GUID-859807ED-19BA-4186-95C6-04C382373373">Examples: <span class="usertext">datumTransformations=[1623, 4078]</span> to apply multiple transformations.</p><p id="GUID-41F24FD6-ECA3-4A35-B35C-CC8F538DB283">Syntax: <span class="usertext">datumTransformations=[{&lt;dt1&gt;}, {&lt;dt2&gt;}]</span>.</p><p id="GUID-E8761522-2748-49AE-B7E8-54E9480DCD8B">Examples: <span class="usertext">datumTransformations=[{"wkid":108889}, {"geoTransforms":[{"wkid":108889,"transformForward":true},{"wkid":1622,"transformForward":false}]}]</span> to apply multiple transformations including a composite transformation.</p><p id="GUID-DE075AAA-6AE0-438C-8D63-CF5EE8B26AE6">For more information on datum transformation, please see <span class="usertext">transformation</span> parameter in <a class="xref" rel="02ss/02ss0000001p000000.htm" href="02ss/02ss0000001p000000.html">Project</a> operation.</p></td></tr><tr><td purpose="entry" rowspan="1" colspan="1"><span class="usertext">mapRangeValues</span></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-C2F7F490-9725-45F7-AD30-0AE22CAD24B4">//This option was added at 10.5</p><p id="GUID-4AA42E19-A99E-4A3C-972E-72F7790492C5">Description: Allows you to filter features in the exported map from all layer that are within the specified range instant or extent.</p><p id="GUID-584987D4-589F-42C9-B1B5-ECAE0F688993"><b>Note</b>: Check <span class="usertext">rangeInfos</span> at the layer resources for the available ranges.</p><p id="GUID-7CB1CE8E-9934-446F-BE23-AEF83351A10C">Syntax:<div class="codeblock" purpose="codeblock"><div class="codeblockdesc" purpose="codeblockdesc"></div><div class="highlight"><pre><code>[
+  {
+    &quot;name&quot; : &quot;&lt;rangeName1&gt;&quot;,           //range id
+    &quot;value&quot;   : &lt;value&gt; |               //single value or 
+                [ &lt;value1&gt;, &lt;value2&gt; ] //a value-range 
+                     // null is allowed in value-range case -- that means infinity
+                     // e.g. [null, 1500] means all features with values &lt;= 1500
+                     // [1000, null] means all features with values &gt;= 1000
+
+  },
+  {
+    &quot;name&quot; : &quot;&lt;rangeName2&gt;&quot;,
+    &quot;value&quot; : &lt;value&gt; |  [ &lt;value3&gt;, &lt;value4&gt; ]
+  }
+]&amp;
+</code></pre></div>
+</div></p><p id="GUID-368DFBE0-98F4-4D5F-A772-E18CFBDB1476">Example: <div class="codeblock" purpose="codeblock"><div class="codeblockdesc" purpose="codeblockdesc"></div><div class="highlight"><pre><code>[{
+  &quot;name&quot; : &quot;salinity&quot;,
+  &quot;value&quot; : 5            //a range instant (or single) value passed
+
+ }, {
+  &quot;name&quot; : &quot;elevation&quot;,
+  &quot;value&quot; : [1000, 1500] //a range extent is passed
+
+}]
+</code></pre></div>
+</div></p></td></tr><tr><td purpose="entry" rowspan="1" colspan="1"><span class="usertext">layerRangeValues
+</span></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-5080D26E-B1B0-4B10-840C-B22A05D53956">//This option was added at 10.5</p><p id="GUID-74F0250A-72A5-4BF5-A92B-26AC8FB4A82B">Description: Allows you to filter features for each individual layer that are within the specified range instant or extent.</p><p id="GUID-916BD307-5278-4FE0-BB7B-97005E74B27B"><b>Note</b>: Check <span class="usertext">rangeInfos</span> at the layer resources for the available ranges.</p><p id="GUID-90B6E848-CDAF-425A-AB0D-8387451FC842">Syntax:<div class="codeblock" purpose="codeblock"><div class="codeblockdesc" purpose="codeblockdesc"></div><div class="highlight"><pre><code>{
+  &quot;&lt;layerId1&gt;&quot; : [
+    {
+      &quot;name&quot; : &quot;&lt;rangeName1&gt;&quot;,           //range id
+      &quot;value&quot;   : &lt;value&gt; |               //single value or 
+                  [ &lt;value1&gt;, &lt;value2&gt; ] //a value-range 
+                       // null is allowed in value-range case -- that means infinity
+                       // e.g. [null, 1500] means all features with values &lt;= 1500
+                       // [1000, null] means all features with values &gt;= 1000
+
+    },
+    {
+      &quot;name&quot; : &quot;&lt;rangeName2&gt;&quot;,
+      &quot;value&quot; : &lt;value&gt; |  [ &lt;value3&gt;, &lt;value4&gt; ]
+    }
+  ],
+  &quot;&lt;layerId2&gt;&quot; : [
+    {
+      &quot;name&quot; : &quot;&lt;rangeName1&gt;&quot;,
+      &quot;value&quot;   : &lt;value&gt; | [ &lt;value1&gt;, &lt;value2&gt; ]
+
+    }
+  ]
+}&amp;
+</code></pre></div>
+</div></p><p id="GUID-50E0AE0D-F545-4E86-9B74-DE6680286BB6">Example: <div class="codeblock" purpose="codeblock"><div class="codeblockdesc" purpose="codeblockdesc"></div><div class="highlight"><pre><code>{
+  &quot;0&quot; : [
+    {
+      &quot;name&quot; : &quot;salinity&quot;,
+      &quot;value&quot; : 5            //a range instant (or single) value passed
+    },
+    {
+      &quot;name&quot; : &quot;elevation&quot;,
+      &quot;value&quot; : [1000, 1500] //a range extent is passed
+    }
+  ],
+  &quot;1&quot; : [
+    {
+      &quot;name&quot; : &quot;floor&quot;,
+      &quot;value&quot; : [null, 5]   //selects features with values &lt;= 5
+    }
+  ]
+}
+</code></pre></div>
+</div></p></td></tr><tr><td purpose="entry" rowspan="1" colspan="1"><span class="usertext">layerParameterValues
+
+</span></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-3AD157E1-AAD5-46B3-A995-1685380BEFDF">//This option was added at 10.5</p><p id="GUID-350785EB-22E4-4B37-A41D-DA8E589DAAB9">Description: Allows you to filter the features of individual layers in the exported map by specifying value(s) to an array of pre-authored parameterized filters for those layers. When value  is not specified for any parameter in a request, the default value, that is assigned during authoring time, gets used instead.</p><p id="GUID-DBCF70BE-4CD9-425C-ADBA-A9DCF663294B">When a <span class="usertext">parameterInfo</span> allows multiple values, you must pass them in an array.</p><p id="GUID-2C1C3DAE-3D79-4062-AD3C-924A31F4A317"><b>Note</b>: Check <span class="usertext">parameterInfos</span> at the layer resources for the available parameterized filters, their default values and expected data type.</p><p id="GUID-C33B7818-E437-4233-A930-785B41BCEC1E">Syntax:<div class="codeblock" purpose="codeblock"><div class="codeblockdesc" purpose="codeblockdesc"></div><div class="highlight"><pre><code>[
+   {
+     &quot;&lt;layerId1&gt;&quot; : {
+       &quot;&lt;parameterName1&gt;&quot; : &lt;value&gt;,               //when the multipleValues=false in the parameterInfo
+       &quot;&lt;parameterName2&gt;&quot; : [&lt;value1&gt; | &lt;value2&gt;]  //when the multipleValues=true in the parameterInfo
+     },
+     &quot;&lt;layerId2&gt;&quot; : {
+       &quot;&lt;parameterName3&gt;&quot; : &lt;value&gt;
+    }
+  }
+]&amp;
+</code></pre></div>
+</div></p><p id="GUID-E853EF6D-ED08-4F52-B362-A76364951AED">Example: <div class="codeblock" purpose="codeblock"><div class="codeblockdesc" purpose="codeblockdesc"></div><div class="highlight"><pre><code>[
+   {
+     &quot;0&quot; : {
+       &quot;floor&quot; : 10,
+       &quot;incidentDate&quot; : 1475877014000    //date time value needs to be passed in as epoch value
+     },
+     &quot;1&quot; : {
+       &quot;crimeType&quot; : [&quot;burglary&quot;, &quot;theft&quot;]
+    }
+  }
+]&amp;
+</code></pre></div>
+</div></p></td></tr>
+            </tbody><caption class="table_desc"></caption></table></div>
+      </p></div>
+    <div class="section1" id="GUID-E5287DAA-6669-4A17-8DB4-45A5D2C03FC3" purpose="section1"><h2>Example Usage</h2><p id="GUID-B6D65FB0-8CC1-4090-A46F-6E3C66AFB973">
+        Example  1: Identify that includes geometry using simple point syntax,
+tolerance, map extent, and image display. Default values for
+geometry type, spatial reference, layers, and returnGeometry are
+used. The response is in HTML format:
+
+      </p><p id="GUID-E5182935-93DD-4218-9979-83D875E263C2">
+        <a target="_blank" class="xref" href="http://sampleserver1.arcgisonline.com/ARCGIS/REST/SERVICES/SPECIALTY/ESRI_STATECITYHIGHWAY_USA/MAPSERVER/IDENTIFY?GEOMETRYTYPE=ESRIGEOMETRYPOINT&amp;GEOMETRY=-120%2C40&amp;TOLERANCE=10&amp;MAPEXTENT=-119%2C38%2C-121%2C41&amp;IMAGEDISPLAY=400%2C300%2C96" rel="HTTP://SAMPLESERVER1.ARCGISONLINE.COM/ARCGIS/REST/SERVICES/SPECIALTY/ESRI_STATECITYHIGHWAY_USA/MAPSERVER/IDENTIFY?GEOMETRYTYPE=ESRIGEOMETRYPOINT&amp;GEOMETRY=-120%2C40&amp;TOLERANCE=10&amp;MAPEXTENT=-119%2C38%2C-121%2C41&amp;IMAGEDISPLAY=400%2C300%2C96">http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StateCityHighway_USA/MapServer/identify?geometryType=esriGeometryPoint&amp;geometry=-120,40&amp;tolerance=10&amp;mapExtent=-119,38,-121,41&amp;imageDisplay=400,300,96</a>
+      </p><p id="GUID-5B2FF2CD-51CF-4962-A4F6-29A4627E2CF2">Example 2: Identify that includes geometry using a JSON structure. The
+response is in JSON format:
+ </p><p id="GUID-2C467DA8-C811-445F-80CD-31F1E47AD998">
+        <a target="_blank" class="xref" href="http://sampleserver1.arcgisonline.com/ARCGIS/REST/SERVICES/SPECIALTY/ESRI_STATECITYHIGHWAY_USA/MAPSERVER/IDENTIFY?GEOMETRYTYPE=ESRIGEOMETRYPOINT&amp;GEOMETRY={X:%20-120,%20Y:%2040}&amp;WKID=&amp;LAYERS=&amp;TOLERANCE=5&amp;MAPEXTENT=-119%2C38%2C-121%2C41&amp;IMAGEDISPLAY=400%2C300%2C96&amp;F=JSON" rel="HTTP://SAMPLESERVER1.ARCGISONLINE.COM/ARCGIS/REST/SERVICES/SPECIALTY/ESRI_STATECITYHIGHWAY_USA/MAPSERVER/IDENTIFY?GEOMETRYTYPE=ESRIGEOMETRYPOINT&amp;GEOMETRY={X:%20-120,%20Y:%2040}&amp;WKID=&amp;LAYERS=&amp;TOLERANCE=5&amp;MAPEXTENT=-119%2C38%2C-121%2C41&amp;IMAGEDISPLAY=400%2C300%2C96&amp;F=JSON">http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StateCityHighway_USA/MapServer/identify?geometryType=esriGeometryPoint&amp;geometry={x: -120, y:40}&amp;tolerance=10&amp;mapExtent=-119,38,-121,41&amp;imageDisplay=400,300,96&amp;f=json</a>
+      </p><p id="GUID-08A0B298-6144-4BB4-A6E8-FEF1810E5947">Example 3: Identify that specifies a specific layer. In this example, only
+layer 2 is desired. Since this is not the top layer, the syntax <span class="usertext">layer=all:2</span>
+ is used:
+</p><p id="GUID-BB53CE69-43CC-42D2-B9FF-3A94078303BA">
+        <a target="_blank" class="xref" href="http://sampleserver1.arcgisonline.com/ARCGIS/REST/SERVICES/SPECIALTY/ESRI_STATECITYHIGHWAY_USA/MAPSERVER/IDENTIFY?GEOMETRYTYPE=ESRIGEOMETRYPOINT&amp;GEOMETRY=%7BX%3A+-120%2C+Y%3A+40%7D&amp;WKID=&amp;LAYERS=ALL%3A2&amp;TOLERANCE=10&amp;MAPEXTENT=-119%2C38%2C-121%2C41&amp;IMAGEDISPLAY=400%2C300%2C96&amp;RETURNGEOMETRY=TRUE" rel="HTTP://SAMPLESERVER1.ARCGISONLINE.COM/ARCGIS/REST/SERVICES/SPECIALTY/ESRI_STATECITYHIGHWAY_USA/MAPSERVER/IDENTIFY?GEOMETRYTYPE=ESRIGEOMETRYPOINT&amp;GEOMETRY=%7BX%3A+-120%2C+Y%3A+40%7D&amp;WKID=&amp;LAYERS=ALL%3A2&amp;TOLERANCE=10&amp;MAPEXTENT=-119%2C38%2C-121%2C41&amp;IMAGEDISPLAY=400%2C300%2C96&amp;RETURNGEOMETRY=TRUE">http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StateCityHighway_USA/MapServer/identify?geometryType=esriGeometryPoint&amp;geometry={x: -120, y:40}&amp;layers=all:2&amp;tolerance=10&amp;mapExtent=-119,38,-121,41&amp;imageDisplay=400,300,96&amp;returnGeometry=true</a>
+      </p><p id="GUID-36760A25-0CA3-4D4A-85E6-290CEE08CEDD">Example 4: Identify operation using <span class="usertext">dynamicLayers:</span></p><p id="GUID-7020F896-433D-4DF8-AAA6-EF4CEB48C6F5">
+        <a target="_blank" class="xref" href="http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/identify?geometry={%22rings%22:[[[-406686.615,151348.621],[-277679.963,210564.789],[-152903.038,82615.569],[-334781.268,46662.895],[-406686.615,151348.621]]],%22spatialReference%22:{%22wkid%22:102003}}&amp;geometryType=esriGeometryPolygon&amp;sr=102003&amp;layers=all&amp;layerDefs=&amp;time=&amp;layerTimeOptions=&amp;tolerance=2&amp;mapExtent=-574325.931693231,-211967.870311805,154917.862982949,393469.077966946&amp;imageDisplay=1056,816,96&amp;returnGeometry=true&amp;maxAllowableOffset=&amp;dynamicLayers=[{%22id%22:101,%22source%22:{%22type%22:%22mapLayer%22,%22mapLayerId%22:3}}]&amp;returnZ=false&amp;returnM=false&amp;gdbVersion=&amp;f=pjson" rel="http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/identify?geometry={%22rings%22:[[[-406686.615,151348.621],[-277679.963,210564.789],[-152903.038,82615.569],[-334781.268,46662.895],[-406686.615,151348.621]]],%22spatialReference%22:{%22wkid%22:102003}}&amp;geometryType=esriGeometryPolygon&amp;sr=102003&amp;layers=all&amp;layerDefs=&amp;time=&amp;layerTimeOptions=&amp;tolerance=2&amp;mapExtent=-574325.931693231,-211967.870311805,154917.862982949,393469.077966946&amp;imageDisplay=1056,816,96&amp;returnGeometry=true&amp;maxAllowableOffset=&amp;dynamicLayers=[{%22id%22:101,%22source%22:{%22type%22:%22mapLayer%22,%22mapLayerId%22:3}}]&amp;returnZ=false&amp;returnM=false&amp;gdbVersion=&amp;f=pjson">http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/identify?geometry={"rings":[[[-406686.615,151348.621],[-277679.963,210564.789],[-152903.038,82615.569],[-334781.268,46662.895],[-406686.615,151348.621]]],"spatialReference":{"wkid":102003}}&amp;geometryType=esriGeometryPolygon&amp;sr=102003&amp;layers=all&amp;layerDefs=&amp;time=&amp;layerTimeOptions=&amp;tolerance=2&amp;mapExtent=-574325.931693231,-211967.870311805,154917.862982949,393469.077966946&amp;imageDisplay=1056,816,96&amp;returnGeometry=true&amp;maxAllowableOffset=&amp;dynamicLayers=[{"id":101,"source":{"type":"mapLayer","mapLayerId":3}}]&amp;returnZ=false&amp;returnM=false&amp;gdbVersion=&amp;f=pjson</a>
+      </p></div>
+    <div class="section1" id="GUID-FB13D7D8-199A-46EE-8CC2-43470D871194" purpose="section1"><h2>JSON Response Syntax</h2><p id="GUID-2D9A6B7D-0927-40E3-83C3-037725035A6C">
+        <div class="codeblock" purpose="codeblock">
+          <div class="codeblockdesc" purpose="codeblockdesc">
+            
+          </div>
+          <div class="highlight"><pre><code><span class="p">{</span><span class="s2">&quot;results&quot;</span> <span class="o">:</span> <span class="p">[</span> <span class="p">{</span> <span class="s2">&quot;layerId&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">layerId1</span><span class="o">&gt;</span><span class="p">,</span> <span class="s2">&quot;layerName&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;layerName1&gt;&quot;</span><span class="p">,</span>  <span class="s2">&quot;value&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;value1&gt;&quot;</span><span class="p">,</span>  <span class="s2">&quot;displayFieldName&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;displayFieldName1&gt;&quot;</span><span class="p">,</span> <span class="s2">&quot;attributes&quot;</span> <span class="o">:</span> <span class="p">{</span>  <span class="s2">&quot;&lt;fieldName11&gt;&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">fieldValue11</span><span class="o">&gt;</span><span class="p">,</span>  <span class="s2">&quot;&lt;fieldName12&gt;&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="nx">fieldValue12</span><span class="o">&gt;</span> <span class="p">},</span> <span class="s2">&quot;geometryType&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;geometryType1&gt;&quot;</span><span class="p">,</span><span class="s2">&quot;hasZ&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span><span class="o">|</span><span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span> <span class="c1">//added in 10.1&quot;hasM&quot; : &lt;true|false&gt;, //added in 10.1&quot;geometry&quot; : {&lt;geometry1&gt;} }, { &quot;layerId&quot; : &lt;layerId2&gt;, &quot;layerName&quot; : &quot;&lt;layerName2&gt;&quot;, &quot;value&quot; : &quot;&lt;value2&gt;&quot;,  &quot;displayFieldName&quot; : &quot;&lt;displayFieldName1&gt;&quot;, &quot;attributes&quot; : {  &quot;&lt;fieldName21&gt;&quot; : &lt;fieldValue21&gt;,  &quot;&lt;fieldName22&gt;&quot; : &lt;fieldValue22&gt; }, &quot;geometryType&quot; : &quot;&lt;geometryType2&gt;&quot;,&quot;hasZ&quot; : &lt;true|false&gt;, //added in 10.1&quot;hasM&quot; : &lt;true|false&gt;, //added in 10.1 &quot;geometry&quot; : {&lt;geometry2&gt;} }]}</span>
+</code></pre></div>
+
+        </div>
+      </p></div>
+    <div class="section1" id="GUID-B43E6A56-C050-43C9-AE1F-DEDBA06FD673" purpose="section1"><h2>JSON Response Example</h2><p id="GUID-D5620128-0AF8-4A50-844A-663A0D61AD4D">
+        <div class="codeblock" purpose="codeblock">
+          <div class="codeblockdesc" purpose="codeblockdesc">
+            
+          </div>
+          <div class="highlight"><pre><code><span class="p">{</span><span class="s2">&quot;results&quot;</span> <span class="o">:</span> <span class="p">[</span> <span class="p">{</span> <span class="s2">&quot;layerId&quot;</span> <span class="o">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;layerName&quot;</span> <span class="o">:</span> <span class="s2">&quot;Cities&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span> <span class="o">:</span> <span class="s2">&quot;Joe City&quot;</span><span class="p">,</span> <span class="s2">&quot;displayFieldName&quot;</span> <span class="o">:</span> <span class="s2">&quot;City Name&quot;</span><span class="p">,</span> <span class="s2">&quot;attributes&quot;</span> <span class="o">:</span> <span class="p">{</span>  <span class="s2">&quot;City Name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Joe City&quot;</span><span class="p">,</span>  <span class="s2">&quot;CLASS&quot;</span> <span class="o">:</span> <span class="s2">&quot;city&quot;</span><span class="p">,</span>  <span class="s2">&quot;ST&quot;</span> <span class="o">:</span> <span class="s2">&quot;CA&quot;</span> <span class="p">},</span> <span class="s2">&quot;geometryType&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriGeometryPoint&quot;</span><span class="p">,</span> <span class="s2">&quot;geometry&quot;</span> <span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;x&quot;</span> <span class="o">:</span> <span class="o">-</span><span class="mf">118.375</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span> <span class="o">:</span> <span class="mf">34.086</span><span class="p">,</span> <span class="s2">&quot;spatialReference&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="s2">&quot;wkid&quot;</span> <span class="o">:</span> <span class="mi">4326</span><span class="p">}</span> <span class="p">}</span> <span class="p">},</span> <span class="p">{</span> <span class="s2">&quot;layerId&quot;</span> <span class="o">:</span> <span class="mi">59</span><span class="p">,</span> <span class="s2">&quot;layerName&quot;</span> <span class="o">:</span> <span class="s2">&quot;Parcel&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span> <span class="o">:</span> <span class="s2">&quot;Parcel 649&quot;</span><span class="p">,</span> <span class="s2">&quot;displayFieldName&quot;</span> <span class="o">:</span> <span class="s2">&quot;NAME&quot;</span><span class="p">,</span> <span class="s2">&quot;attributes&quot;</span> <span class="o">:</span> <span class="p">{</span>  <span class="s2">&quot;NAME&quot;</span> <span class="o">:</span> <span class="s2">&quot;Parcel 649&quot;</span><span class="p">,</span>  <span class="s2">&quot;SUB_REGION&quot;</span> <span class="o">:</span> <span class="s2">&quot;Pacific&quot;</span><span class="p">,</span>  <span class="s2">&quot;STATE_ABBR&quot;</span> <span class="o">:</span> <span class="s2">&quot;CA&quot;</span> <span class="p">},</span> <span class="s2">&quot;geometryType&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriGeometryPolygon&quot;</span><span class="p">,</span> <span class="s2">&quot;geometry&quot;</span> <span class="o">:</span> <span class="p">{</span> <span class="s2">&quot;spatialReference&quot;</span> <span class="o">:</span> <span class="p">{</span><span class="s2">&quot;wkid&quot;</span> <span class="o">:</span> <span class="mi">4326</span><span class="p">},</span> <span class="s2">&quot;rings&quot;</span> <span class="o">:</span> <span class="p">[[[</span><span class="o">-</span><span class="mf">118.35</span><span class="p">,</span><span class="mf">32.81</span><span class="p">],[</span><span class="o">-</span><span class="mf">118.42</span><span class="p">.</span><span class="mi">806</span><span class="p">],[</span><span class="o">-</span><span class="mf">118.511</span><span class="p">,</span><span class="mf">32.892</span><span class="p">],[</span><span class="o">-</span><span class="mf">118.35</span><span class="p">,</span><span class="mf">32.81</span><span class="p">]]]}</span> <span class="p">}]}</span>
+</code></pre></div>
+
+        </div>
+      </p></div>
+  <div class="footer"> Copyright © 1995-2017 Esri. All rights reserved. </div></div></body>
+<!-- Mirrored from gis.auric.city/agserver/sdk/rest/02ss/02ss000000m7000000.htm by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 03:15:52 GMT -->
+</html>

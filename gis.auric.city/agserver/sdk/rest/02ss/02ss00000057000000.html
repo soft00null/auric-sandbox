@@ -1,0 +1,55 @@
+<html lang="en" xml:lang="en">
+<!-- Mirrored from gis.auric.city/agserver/sdk/rest/02ss/02ss00000057000000.htm by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 02:50:56 GMT -->
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="description" content="Working with services you've published The ArcGIS REST API, short for Representational State Transfer, provides a simple, open web interface to ArcGIS. A major portion of the API, described in this section of the help, allows access to services hosted by ArcGIS Server. All resources and operations exposed by the REST API are accessible through a hierarchy of endpoints or Uniform Resource Locators (URLs) for each GIS service published with ArcGIS Server. When using the ArcGIS Services portion of the REST"><meta name="content-language" content="en"><link href="rsrc/htmlhelp.html" rel="stylesheet" type="text/css"><title>ArcGIS REST API - ArcGIS Services - Working with services you've published</title>
+                <script type="text/javascript" language="JavaScript">
+                    var pathL  = self.location.pathname.split ("../../../../index.html");
+                    var fname = pathL[pathL.length-1];
+                    var i = fname.lastIndexOf (".htm");
+                    if (i>=0) {
+                    fname = fname.substring (0, i)
+                    } else {
+                    //??
+                    }
+                    if (self.location.hash) {
+				    		      fname = fname + self.location.hash;
+						        }
+                    self.location.replace ("../index.html#//" + fname);
+                </script>
+                </head><!--Publication GUID: [GUID-289408B4-3EC8-4C16-9DB8-B1778E780E58]--><!--Topic GUID: [GUID-58904CAA-9BFC-499C-B16C-75FC8D1EDEB0]--><body><div id="content"><div class="header"><h1>Working with services you've published</h1><div id="breadcrumb"></div></div>
+    
+    <p id="GUID-2F8DA83E-1AD2-43D9-93E8-A0FF30CF06B1">The ArcGIS REST API, short for Representational State
+Transfer, provides a simple, open web interface to ArcGIS. A major portion of the API, described in this section of the help, allows access to services hosted
+by <span purpose="ph" varid="ArcGISforServer" translate="no">ArcGIS Server</span>. </p><p id="GUID-36DF98EC-7AC8-4AC4-A559-7C0B560C90B0">All resources and operations exposed by the REST
+API are accessible through a hierarchy of endpoints or Uniform
+Resource Locators (URLs) for each GIS service published with <span purpose="ph" varid="ArcGISforServer" translate="no">ArcGIS Server</span>. When using the ArcGIS Services portion of the REST API, you typically start from a well-known
+endpoint, which represents the server <a class="xref" rel="02ss/02ss00000029000000.htm" href="02ss/02ss00000029000000.html">catalog</a>. See the <a class="xref" rel="02ss/02ss00000067000000.htm" href="02ss/02ss00000067000000.html">Resource hierarchy</a> to learn about how the services in the REST API fit together under the catalog.</p><p id="GUID-869AEA3E-E7E5-4D2D-94AD-B9DA17521BEC"> The default REST endpoint for
+an ArcGIS Server site is as follows:</p><p id="GUID-4DC817AC-A8BD-4971-8962-E13BA4A358A6"><span class="usertext">http://&lt;host&gt;:/arcgis/rest/services</span></p><p id="GUID-0E960E93-2678-4245-8F87-9B2D8EB651C2">For example, to get to the root directory of ArcGIS Online services, the URL is as follows:
+
+
+</p><p id="GUID-ED4D0843-9CCE-4EF4-8081-3A41221BF930"><span class="usertext">http://server.arcgisonline.com/arcgis/rest/services</span></p><p id="GUID-AB4C642D-C464-465F-B6EC-DF9026F3B260">From this base URL, you can navigate to any of the listed services, resources, and operations associated with the service. 
+
+</p><p id="GUID-D23B9CA4-EDBB-4DED-9EE5-499F6C1D3B7E">The REST API is stateless, which means that REST does not keep track of transactions from one request to the next. Each request must contain all the information necessary for successful processing. 
+
+</p>
+    
+    
+    
+    
+    
+  <div class="section1" id="ESRI_SECTION1_8AEFB86C904B4AE58F160E75187186FE" purpose="section1"><h2>Getting started</h2><p id="GUID-BAA1B997-4ABB-43E0-BE28-800AF6B81081">To learn more about how the REST API operates, see the examples in <a class="xref" rel="02ss/02ss00000048000000.htm" href="02ss/02ss00000048000000.html">Getting started</a>.
+</p></div><div class="section1" id="ESRI_SECTION1_480ABAF150EA436EA66C10E673DF888B" purpose="section1"><h2>Services Directory</h2><p id="GUID-E73518C2-0581-481A-B768-96CD83CD6EA2">Each <span purpose="ph" varid="ArcGISforServer" translate="no">ArcGIS Server</span> site comes with a <a class="xref" rel="02ss/02ss00000066000000.htm" href="02ss/02ss00000066000000.html">Services Directory</a>. The Services Directory is a view of your available REST resources and operations in HTML format. You can browse the contents of an <span purpose="ph" varid="ArcGISforServer" translate="no">ArcGIS Server</span> site and obtain information, such as service metadata and supported operations, that can be useful in developing applications.</p></div><div class="section1" id="ESRI_SECTION1_ADF3925316B04BB78F7A2E6147402C9B" purpose="section1"><h2>Resources and operations</h2><p id="GUID-BF7F260C-6390-4A07-87F2-BD1A4E1B7DB0">The REST API has some level of support for each of the <span purpose="ph" varid="ArcGISforServer" translate="no">ArcGIS Server</span>  service types. Each service is a resource and has a unique
+URL. Although a REST system always returns only representations of
+resources to the clients, for the sake of simplicity, the resources
+of the ArcGIS REST API are divided into two types: resources and
+operations. For more information, see <a class="xref" rel="02ss/02ss00000053000000.htm" href="02ss/02ss00000053000000.html">Resources and operations</a>.</p><p id="GUID-5C879E75-B61E-4196-968B-2D4620E15294">The supported service types that include operations are map,
+geocode, geoprocessing, geometry, feature, network, and image.
+Another set of service types that is supported as resources but
+has no associated operations includes mobile, geodata, and globe
+services.</p><div class="notes" id="GUID-1AAA89CC-9097-47B1-B344-BBD4E00250D8"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody"><p id="GUID-93F0CB8C-A6D6-47CC-BB09-3883C20EC58D">Globe services and the mobile data access capability are deprecated as of 10.5.</p></div></div></div><div class="section1" id="ESRI_SECTION1_1E089925A6C749F58F702F728B93FD94" purpose="section1"><h2>Output formats</h2><p id="GUID-EE31D63A-0056-4865-9DA9-96A9A9CE3562">The REST API supports responses in several formats. The format is specified by using the query parameter <span class="usertext">f</span> in the URL. The list of supported formats includes html (HyperText Markup Language), json (JavaScript Object Notation), image, kmz (compressed KML, or Keyhole Markup Language), help, lyr (layer file), nmf (ArcGIS Explorer map file), amf (Action Message Format), and jsapi (JavaScript). For more details, see <a class="xref" rel="02ss/02ss00000078000000.htm" href="02ss/02ss00000078000000.html">Output formats</a>.</p></div><div class="section1" id="ESRI_SECTION1_46C021588CBD4DD3A7D7CCAE314BA7D4" purpose="section1"><h2>KML support</h2><p id="GUID-AF312BDD-7CBD-4CE9-93A3-1B7A423B6C63">You can request KML in several different ways, which are summarized in <a class="xref" rel="02ss/02ss000000ns000000.htm" href="02ss/02ss000000ns000000.html">KML support</a>.</p></div><div class="section1" id="ESRI_SECTION1_5884D3185C5F456686F134EA4D4969DE" purpose="section1"><h2>Versioning</h2><p id="GUID-0D869F60-665B-454B-B278-B55F59FFDE43">As the REST API evolves, different versions of the API
+will become available. For information on the rules of versioning,
+see <a class="xref" rel="02ss/02ss00000060000000.htm" href="02ss/02ss00000060000000.html">REST API versioning</a>
+</p></div><div class="section1" id="ESRI_SECTION1_B82FA67C551B4DF5A33031F0599E1D69" purpose="section1"><h2>REST API administration</h2><p id="GUID-0283D716-ABFC-41AC-A321-8A7F1B40EFAF">In addition to being a browser for your published data, the Services Directory also provides access to an administrative console. The administration page is needed to refresh the site after adding, deleting, and updating services or after updating to a new version of the REST API. The Services Directory can also be disabled through the console. For more information, see <a class="xref" rel="02ss/02ss0000000z000000.htm" href="02ss/02ss0000000z000000.html">REST API admin</a>.</p></div><div class="footer"> Copyright © 1995-2017 Esri. All rights reserved. </div></div></body>
+<!-- Mirrored from gis.auric.city/agserver/sdk/rest/02ss/02ss00000057000000.htm by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 02:51:08 GMT -->
+</html>

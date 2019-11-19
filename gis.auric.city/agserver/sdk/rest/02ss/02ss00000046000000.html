@@ -1,0 +1,117 @@
+<html lang="en" xml:lang="en">
+<!-- Mirrored from gis.auric.city/agserver/sdk/rest/02ss/02ss00000046000000.htm by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 03:15:52 GMT -->
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="description" content="Generate KML http:// &amp;lt;mapservice-url&amp;gt;/generateKmlMap9.3 Description The generateKml operation is performed on a map service resource. The result of this operation is a KML document wrapped in a KMZ file. The document contains a network link to the KML Service endpoint with properties and parameters you specify. The viewRefreshMode tag of the resulting network link will be set to onStop for raster data and to onRequest if it contains vector data. You can provide arguments to the"><meta name="content-language" content="en"><link href="rsrc/htmlhelp.html" rel="stylesheet" type="text/css"><title>ArcGIS REST API - ArcGIS Services - 
+   Generate KML
+  </title>
+                <script type="text/javascript" language="JavaScript">
+                    var pathL  = self.location.pathname.split ("../../../../index.html");
+                    var fname = pathL[pathL.length-1];
+                    var i = fname.lastIndexOf (".htm");
+                    if (i>=0) {
+                    fname = fname.substring (0, i)
+                    } else {
+                    //??
+                    }
+                    if (self.location.hash) {
+				    		      fname = fname + self.location.hash;
+						        }
+                    self.location.replace ("../index.html#//" + fname);
+                </script>
+                </head><!--Publication GUID: [GUID-289408B4-3EC8-4C16-9DB8-B1778E780E58]--><!--Topic GUID: [GUID-857283DF-9667-4502-897B-B1D62BB858A6]--><body><div id="content"><div class="header"><h1>
+   Generate KML
+  </h1><div id="breadcrumb"></div></div>
+    <div class="restmd" purpose="restmd"><ul purpose="restmd" class="restmd list-plain"><li><span class="restkey post-1">URL:</span><span class="restval">http:// <a class="xref" rel="02ss/02ss0000006v000000.htm" href="02ss/02ss0000006v000000.html">&lt;mapservice-url&gt;</a>/generateKml<span class="restverb"></span><br></span></li><li><span class="restkey post-1">Required Capability:</span><span class="restval">Map</span></li><li><span class="restkey post-1">Version Introduced:</span><span class="restval">9.3</span></li></ul></div>
+    <div class="section1" id="GUID-19646876-FF0E-4AB6-9282-DD52954AAD63" purpose="section1"><h2>Description</h2><p id="GUID-23425FB2-C9C3-49E9-AA9A-38BFED378EB9">The <span class="usertext">generateKml</span> operation is performed on a <a class="xref" rel="02ss/02ss0000006v000000.htm" href="02ss/02ss0000006v000000.html">map service resource</a>. The result of this operation is a KML
+document wrapped in a KMZ file. The document contains a network
+link to the KML Service endpoint with properties and parameters you
+specify.</p><p id="GUID-820A15F5-2352-4B6B-84BE-0A6BDE630DD1">
+        <div class="notes" id="GUID-0137D293-58D4-4D26-8BA3-604D4744754F"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody">
+          <p id="GUID-CA1F1049-06C5-4A45-B5F7-6E775B417514">The <span class="usertext">viewRefreshMode</span> tag of the resulting network link will be set to <span class="usertext">onStop</span> for raster data and to <span class="usertext">onRequest</span> if it contains vector data. You can provide arguments to the <span class="usertext">generateKML</span> operation as query parameters defined in the parameters table below.</p>
+        </div></div>
+      </p></div>
+    <div class="section1" id="GUID-A31662CC-96BE-4D77-949B-143BE4351695" purpose="section1"><h2>
+        Request Parameters
+      </h2><p id="GUID-810BBE28-549E-4B9E-9EB6-9D29CFDC9EFC">
+        <div class="block_table" id="GUID-E559F383-A6A9-4C65-9304-403A8697C857" purpose="block_table"><span class="table_title"></span><table class="table"><colgroup width="200pt"></colgroup><colgroup width="*"></colgroup><tr purpose="thead"><th class="th" purpose="th" rowspan="1" colspan="1">
+                  <p id="GUID-4BDA0A0B-1199-46A5-9276-03E6080BA5B0">Parameter</p>
+                </th><th class="th" purpose="th" rowspan="1" colspan="1">
+                  <p id="GUID-BC467B6A-C0F1-4D62-BBC1-8D0BA949CB0B">Details</p>
+                </th></tr><tbody>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">docName</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-B469AC07-D31D-40E8-AD6A-530B3E34728E">Description: The name of the resulting KML document. This is the name that appears in the Places panel of Google Earth.</p>
+                  <p id="GUID-E826D214-4A71-4517-A4A1-EB99080A6CAA">Example: <span class="usertext">docName=Test+Name</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">layers</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-5DF3A48D-BD19-48BE-95A8-72C1DF712D76">Description: The layers to perform the <span class="usertext">generateKML</span> operation on. The layers are specified as a comma-separated list of layer ids.</p>
+                  <p id="GUID-EDBA97A2-CDCF-45D7-A59C-7552609C6837">Syntax: <span class="usertext">layers=&lt;layerId1&gt;,&lt;layerId2&gt;</span></p>
+                  <p id="GUID-AD1F6B58-CCB5-4DE8-9044-8FDE56CC24D2">Where <span class="usertext">layerId1 ,layerId2</span> are the layer ids returned by the <a class="xref" rel="02ss/02ss0000006v000000.htm" href="02ss/02ss0000006v000000.html">map service resource</a>.</p>
+                  <p id="GUID-6DF803A1-BC3F-4F3B-9C75-508BE596395E">Example: <span class="usertext">layers=2,4,7</span></p>
+                </td>
+              </tr>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">layerOptions</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-4BAAEDF5-D79F-4E51-BA80-0F77B4AC3D96">Description:  The layer drawing options. Based on the option chosen, the layers are drawn as one composite image, as separate images, or as vectors. When the KML capability is enabled, the ArcGIS Server administrator has the option of setting the layer operations allowed. If vectors are not allowed, then the caller will not be able to get vectors. Instead, the caller receives a single composite image. </p>
+                  <p id="GUID-9D602BBD-268B-44DE-A68C-3D7706C8E272">Values: <span class="usertext">composite | separateImage | nonComposite</span></p>
+                  <p id="GUID-2956C19B-7D99-4033-B703-77FAAFE960A8">
+                    <ul purpose="ul" id="UL_093212D333CE4290959D0C12E268985B">
+                      <li purpose="li" id="LI_267012331C4D4413A69556DCC1F3090B">
+                        <span class="usertext">composite</span>: (Default) All layers as a single composite image. Layers cannot be turned on and off in the client.</li>
+                      <li purpose="li" id="LI_A6DBD05B2A2E4BF78CB0533B3E2AC4FD">
+                        <span class="usertext">separateImage</span>: Each layer as a separate image.</li>
+                      <li purpose="li" id="LI_F10E76334034478F804AAC64F3FDE054">
+                        <span class="usertext">nonComposite</span>: Vector layers as vectors and raster layers as images.</li>
+                    </ul>
+                  </p>
+                </td>
+              </tr>
+            </tbody><caption class="table_desc"></caption></table></div>
+      </p></div>
+    <div class="section1" id="GUID-CC63D2E1-5D96-435E-B009-5BADD7DAD56A" purpose="section1"><h2>Example Usage</h2><p id="GUID-1CC85568-8C30-4C86-9FE1-7A6C8D4FF98A">
+        Example 1: Generate KML operation.
+      </p><p id="GUID-A3974815-8D46-47DA-88FF-0A0479934583">
+        <a target="_blank" class="xref" href="http://sampleserver1.arcgisonline.com/ARCGIS/REST/SERVICES/SPECIALTY/ESRI_STATESCITIESRIVERS_USA/MAPSERVER/GENERATEKML?DOCNAME=TEST+NAME&amp;LAYERS=1,2&amp;LAYEROPTIONS=SEPARATEIMAGE" rel="HTTP://SAMPLESERVER1.ARCGISONLINE.COM/ARCGIS/REST/SERVICES/SPECIALTY/ESRI_STATESCITIESRIVERS_USA/MAPSERVER/GENERATEKML?DOCNAME=TEST+NAME&amp;LAYERS=1,2&amp;LAYEROPTIONS=SEPARATEIMAGE">http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StatesCitiesRivers_USA/MapServer/generatekml?docName=Test+Name&amp;layers=1,2&amp;layerOptions=separateImage</a>
+      </p></div>
+    <div class="section1" id="ESRI_SECTION1_53EB7D5D16194DAAA5BE0EE319B3A73C" purpose="section1"><h2>KML Response Example</h2><p id="GUID-CD406BEF-B5B3-41C7-82A8-25EAFA0CB912">Below is a typical KML document wrapped in an example KMZ response:</p><p id="GUID-5851D975-3EF8-4177-95B6-1CB4AE9FF4E2">
+        <div class="codeblock" purpose="codeblock">
+          <div class="codeblockdesc" purpose="codeblockdesc">
+            
+          </div>
+          <div class="highlight"><pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;kml xmlns=&quot;http://earth.google.com/kml/2.1&quot;&gt;  
+&lt;NetworkLink&gt;
+  &lt;open&gt;1&lt;/open&gt;
+  &lt;name&gt;Test Name&lt;/name&gt;
+  &lt;Snippet&gt;Test Map Service Description&lt;/Snippet&gt;  
+  &lt;Url&gt;
+    &lt;viewRefreshMode&gt;onStop&lt;/viewRefreshMode&gt;
+    &lt;viewRefreshTime&gt;2&lt;/viewRefreshTime&gt;
+    &lt;href&gt;http://myhost:8399/arcgis/services/Maps/USGeo/MapServer/KmlServer&lt;/href&gt;
+    &lt;viewFormat&gt;
+    &lt;![CDATA[
+    Composite=true&amp;LayerIDs=0,1&amp;BBOX=[bboxWest],[bboxSouth],[bboxEast],[bboxNorth]&amp;ImageSize=[horizPixels],[vertPixels]
+    ]]&gt;
+    &lt;/viewFormat&gt;
+  &lt;/Url&gt;
+&lt;/NetworkLink&gt;
+&lt;/kml&gt;
+</code></pre></div>
+
+        </div>
+      </p></div>
+  <div class="footer"> Copyright © 1995-2017 Esri. All rights reserved. </div></div></body>
+<!-- Mirrored from gis.auric.city/agserver/sdk/rest/02ss/02ss00000046000000.htm by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 03:15:52 GMT -->
+</html>

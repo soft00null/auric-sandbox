@@ -1,0 +1,494 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  
+<!-- Mirrored from lms.auric.city/arch-reg-home by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 02:30:55 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta charset="utf-8">
+    <title>e-Land Management System, AITL</title>
+    <meta name="description" content="overview &amp; stats">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/font-awesome.min.css"/>
+    <!-- text fonts -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300"/>
+    <!-- ace styles -->
+    <link rel="stylesheet" href="css/ace.min.css"/>
+        <!--[if lte IE 9]>
+                                <link rel="stylesheet" href="https://lms.auric.city/css/ace-part2.min.css" />
+                                <![endif]-->
+                                <link rel="stylesheet" href="css/ace-skins.min.css"/>
+                                <link rel="stylesheet" href="css/ace-rtl.min.css"/>
+        <!--[if lte IE 9]>
+                          <link rel="stylesheet" href="https://lms.auric.city/css/ace-ie.min.css" />
+                          <![endif]-->
+                          <!-- custom styles -->
+        <!--<link href="css/jquery.simplyscroll.css" rel="stylesheet" media="all" type="text/css">
+        <link href="https://lms.auric.city/css/menu.css" rel="stylesheet"/>
+        <link href="https://lms.auric.city/css/jquery.lightbox-0.5.css" rel="stylesheet" type="text/css" media="screen" />-->
+        <link href="css/custom.css" rel="stylesheet"/>
+        <!--<script src="https://lms.auric.city/js/jquery-1.8.2.min.js"></script>-->
+        <script src="js/jquery-2.1.1.js"></script>
+        <!-- extra custom script -->
+        <script>
+            // function to scroll to topposition
+            function scrollToPosition(id)
+            {  
+                $('html, body').animate({ scrollTop: $('#'+id).offset().top-300 }, 'slow');
+                $('#'+id).focus();
+            }
+            $(document).ready(function () {
+                $('form').find('input[type=text],textarea,select').not('.date-picker, .dashboard-control').filter(':visible:first').focus();
+                $('form').find('input[type=text],textarea').attr('autocomplete', 'off');
+            });
+            function viewAlert(msg, ctrlId, redLoc)
+            {
+                $('#btnAlertOk').off('click');
+                if (typeof (ctrlId) == 'undefined')
+                {
+                    ctrlId = '';
+                }
+                if (typeof (redLoc) == 'undefined')
+                {
+                    redLoc = '';
+                }
+                $('#alertModal').modal({backdrop: 'static', keyboard: false});
+                $('.alertMessage').html(msg);
+                $('#btnAlertOk').on('click', function () {
+                    $('#alertModal').modal('hide');
+                    if (ctrlId != '')
+                    {
+                        $(".form-content").hide();
+                        $("#" + ctrlId).closest(".form-content").show();
+                        $('#' + ctrlId).focus();
+                        $("hr").css('border-bottom','1px solid #ccc');
+                        $('#' + ctrlId).closest(".form-group").next('hr').css('border-bottom','1px solid #f00');
+                        $('#' + ctrlId).closest('.widget-main').css('border','1px solid #f59942');
+                        scrollToPosition(ctrlId);
+                    }
+                    if (redLoc != '')
+                    {
+                        window.location.href = redLoc;
+                    }
+                });
+
+            }
+            function confirmAlert(msg)
+            {
+                $('#confirmModal').modal({backdrop: 'static', keyboard: false});
+                $('.confirmMessage').html(msg);
+            }
+        </script>
+    </head>
+    <body class="loginbgblue">
+        <form class="form-horizontal" role="form" name="frmAITL" id="frmAITL" method="post" enctype="multipart/form-data">
+            <!--[if lte IE 8]>
+            <script src="https://lms.auric.city/Application/js/html5shiv.js"></script>
+            <script src="https://lms.auric.city/Application/js/respond.min.js"></script>
+            <![endif]-->
+            
+            <div class="main-container" id="main-container">
+                <script type="text/javascript">
+                    try {
+                        ace.settings.check('main-container', 'fixed')
+                    } catch (e) {
+                    }
+                </script>
+                
+                <div class="main-content2">
+                    
+                    <script src="js/loadComponent.js"></script>
+                                        <style type="text/css">
+                        div.tooltip{width: 350px!important;}
+                        div.tooltip p{text-align: left!important;}
+                    </style>
+                    <script type="text/javascript">
+                        $(function () {
+
+
+                          var winW = $(window).width();
+                          if(winW <= 770 ){
+                           $('.hlpICN').tooltip().removeData().off();
+                           $('#passHlp.hlpICN').tooltip({
+						//html: true,
+						placement: 'bottom',
+						title: '<p align="left">Password should be alphanumeric and consist of at least one upper case letter, special character and should be 8-15 characters long</p>'
+					});
+
+                           $('#mobHlp.hlpICN').tooltip({
+                              html: true,
+                              placement: 'bottom',
+                              title: '<p align="left">This number will be used by AITL for all future official communications via SMS</p>'
+                          });
+
+                           $('#emailHlp.hlpICN').tooltip({
+                              html: true,
+                              placement: 'bottom',
+                              title: '<p align="left">This Email ID will be used by AITL for all future official communications</p>'
+                          });
+                       }
+                       else {
+
+                           $('#passHlp').tooltip({
+                              html: true,
+                              placement: 'top',
+                              title: '<p align="left">Password should be alphanumeric and consist of at least one upper case letter, special character and should be 8-15 characters long</p>'
+                          });
+                           $('#mobHlp').tooltip({
+                              html: true,
+                              placement: 'top',
+                              title: '<p align="left">This number will be used by AITL for all future official communications via SMS</p>'
+                          });
+                           $('#emailHlp').tooltip({
+                              html: true,
+                              placement: 'top',
+                              title: '<p align="left">This Email ID will be used by AITL for all future official communications</p>'
+                          });
+                       }
+
+
+
+                   });
+                        function validator() {
+                            var strPassword = $("#txtPassword").val();
+                            var strCpassword = $("#txtCpassword").val();
+                            var mailFlag = $("#mailFlag").val();
+
+                            if (!blankCheck('txtName', 'Technical Personnel First Name cannot be left blank'))
+                                return false;
+                            if (!maxLength('txtName', 50, 'Technical Personnel First Name'))
+                                return false;
+                            if (!checkSpecialChar('txtName'))
+                                return false;
+                            if (!blankCheck('txtLastName', 'Technical Personnel Last Name cannot be left blank'))
+                                return false;
+                            if (!maxLength('txtLastName', 50, 'Technical Personnel Last Name'))
+                                return false;
+                            if (!checkSpecialChar('txtLastName'))
+                                return false;
+
+
+                            /*if (!blankCheck('txtMobNo', 'Mobile number cannot be left blank'))
+                                return false;*/
+                            
+                            if($('#txtMobNo').val()!='')
+                            {
+                                if (!maxLength('txtMobNo', 10, 'Mobile number'))
+                                    return false;
+                                if (!validateNumber('txtMobNo'))
+                                    return false;
+                                if (!validMobileNo('txtMobNo', 'Invalid mobile number')) {
+                                    return false;
+                                }
+                            }
+                            if (!blankCheck('txtEmail', 'Email cannot be left blank'))
+                                return false;
+                            if (!checkSpecialChar('txtEmail'))
+                                return false;
+                            if (!validEmail('txtEmail'))
+                                return false;
+                            if (mailFlag>0) {
+                                viewAlert('Email Id already exists ', 'txtEmail');
+                                return false;
+                            }
+                            /*if (!selectDropdown('selAppType', 'Select applicant type'))
+                            {
+                                scrollToPosition('selAppType');
+                                return false;
+
+                            }*/
+                            if (!blankCheck('txtPassword', 'Create Password cannot be left blank'))
+                                return false;
+                            if (!validPassword('txtPassword', ''))
+                                return false;
+                            if (!checkSpecialChar('txtPassword'))
+                                return false;
+                            if (!blankCheck('txtCpassword', 'Confirm password cannot be left blank'))
+                                return false;
+                            if (!validPassword('txtCpassword', ''))
+                                return false;
+                            if (!checkSpecialChar('txtCpassword'))
+                                return false;
+                            if (strPassword !== strCpassword) {
+                                viewAlert('Mismatching confirm password ', 'txtCpassword');
+                                return false;
+                            }
+                            if (!validPassword('txtCpassword', 'Confirm password'))
+                                return false;
+
+                        }
+                    </script>
+                                        <div class="loginheighttop"></div>
+                    <div class="container loginbgnew registernew">
+                        <div class="row">
+                           <div class="col-md-3 registerbluebg col-md-offset-1 col-sm-4">
+
+                               <span class="logobg"> <img src="../www.lms.auric.city/img/auric_logo2.html" alt="AURIC" title="AURIC" class="resister-logo" />
+                               <!--<h5 class="white">e-Land Management System, AITL</h5>--></span>
+                           </div>   
+                           <div class="col-md-7 col-sm-8 padding0 loginpanelnew">
+                            <div class="panel panel-login">
+                                <div class="clearfix"></div>
+                                <h2 class="loginTitle">Technical personnel can apply to register with AURIC</h2>
+
+                                <div class="panel-body">
+                                    <div class="arch-regd">
+
+                                        <div class="form-group applicantgroup">
+                                            <label class="col-sm-12 col-xs-12 control-label no-padding-right" for="txtBusinessName">Technical personnel Name </label>
+                                            <div class="col-sm-2 col-xs-6"> 
+                                                <select class="form-control setname pull-left" name="selNamePrefix">
+                                                                                                                                                                <option value="Mr" selected>Mr</option>
+                                                                                                            <option value="Ms" >Ms</option>
+                                                                                                    </select>
+
+                                            </div>
+                                            <div class="col-sm-3  col-xs-6"> 
+
+                                                <input type="text" id="txtName" name="txtName" placeholder="First Name" class="form-control setname" maxlength="50" value="" autocomplete="off" onKeyPress="return isCharKey(event);">
+                                                <span class="mandatory">*</span>
+                                            </div>
+                                            <div class="col-sm-3  col-xs-6"> 
+                                                <input type="text" id="txtMiddleName" name="txtMiddleName" placeholder="Middle Name" class="form-control setname" maxlength="50" value="" autocomplete="off" onKeyPress="return isCharKey(event);">
+                                            </div>
+                                            <div class="col-sm-3  col-xs-6"> 
+                                                <input type="text" id="txtLastName" name="txtLastName" placeholder="Last Name" class="form-control setname" maxlength="50" value="" autocomplete="off" onKeyPress="return isCharKey(event);">
+                                                <span class="mandatory">*</span>
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group">
+
+                                            <div class="col-sm-5"> 
+                                                <label class="control-label no-padding-right" for="txtMobNo">Mobile Number</label>
+                                                <div class="clearfix"></div>
+                                                <div style="width:23%;margin-right: 5px;padding: 5px 3px;" class="form-control pull-left">+91</div>
+                                                <div class="pos-rel"> <input type="text" id="txtMobNo" name="txtMobNo" value="" style="width:74%;" class="form-control pull-left" maxlength="10" onBlur="checkDuplicatArchMobile(this.value);" onKeyPress="return isNumberKey(event);" autocomplete="off">
+                                                    <input type="hidden" name="mobFlag" id="mobFlag" value="0">
+                                                    <!--<span class="mandatory" style="margin-top:10px;">*</span>-->
+                                                    <i class="fa fa-question-circle pos-abs hlpICN" id="mobHlp"></i>
+                                                    <label class="text-danger errMob" style="display: none;"></label></div>
+                                                </div>
+                                                <div class="col-sm-1"></div>
+
+                                                <div class="col-sm-5">
+                                                  <label class="control-label no-padding-right" for="txtEmail">Email ID (User Name)</label>
+                                                  <div class="pos-rel"> <input type="text" id="txtEmail" name="txtEmail" value="" class="form-control sentenceCase" maxlength="50" autocomplete="off" onBlur="checkDuplicatArchemail(this.value);">
+                                                    <i class="fa fa-question-circle hlpICN" id="emailHlp"></i></div>
+                                                    <input type="hidden" name="mailFlag" id="mailFlag" value="0">
+                                                    <span class="mandatory">*</span>
+                                                    <label class="text-danger errMail" style="display: none;"></label>
+                                                </div>
+
+                                            </div>
+                                            <!--<div class="form-group">
+                                                <div class="col-sm-5">
+                                                    <label for="selAppType" class="control-label no-padding-right">Applicant Type</label>
+                                                    <div>
+                                                        <select class="form-control" placeholder="" name="selAppType" id="selAppType">
+                                                            <option value="0">--Select--</option>
+                                                            <option title="Architect" value="2">Architect</option>
+                                                            <option title="Structure Engineer" value="1">Structure Engineer</option>
+                                                        </select>
+                                                        <span class="mandatory">*</span> 
+                                                    </div>
+                                                </div>
+                                            </div>-->
+                                            <div class="form-group">
+
+                                                <div class="col-sm-5 .hlpICN">  
+                                                    <label class="control-label no-padding-right" for="txtPassword">Create Password</label>
+                                                    <div class="pos-rel"><input id="txtPassword" name="txtPassword" value="" class="form-control pull-left" maxlength="15" autocomplete="off" type="password">
+                                                        <i class="fa fa-question-circle hlpICN" id="passHlp" data-original-title="" title=""></i>
+                                                        <span class="mandatory" style="margin-top: 10px;">*</span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-1"></div>
+
+                                                <div class="col-sm-5"> <label class="control-label no-padding-right" for="txtCpassword">Confirm Password</label>
+                                                    <input id="txtCpassword" name="txtCpassword" value="" class="form-control sentenceCase" maxlength="15" autocomplete="off" type="password">
+                                                    <span class="mandatory">*</span>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-sm-12 red" style="margin-top: 10px;">Note :  Unique ID / Email ID / Mobile Number and Password will be used for login purposes</div>
+                                            </div>
+                                            <div class="form-group" style="padding-bottom: 28px;">
+                                                <div class="col-sm-12" style="margin-top: 10px;"><a href="Technical-Personnel-Registration-Manual.pdf" target="_blank">How to Register <i class="fa fa-download"></i></a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="panel-footer">
+                                        <div class=" arch-regd">
+                                            <div class="col-sm-12 center">
+                                                <input class="btnlogin" type="button" onClick="window.location.href='login/2.html'" value="Back"/>
+                                                <input class="btnlogin btnregister" id="btnRegister" type="submit" name="btnRegister" value="Register" onClick="return validator();" style="width:100px;"/>
+
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="clearfix hidden-xs" style="height:20px;"></div>
+
+
+                                <div class="clearfix"></div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!--footer start-->
+
+
+                    <div class="loginfooter">
+                       <span class="text-center whitetxt">&copy; 2019, e-Land Management System,<br/>AITL</span>  <div class="clearfix"></div>
+                       <span class="text-center whitetxt footersmalltxt">Design &amp; Developed by <a href="http://www.csmpl.com/" title="CSM Technologies" target="_blank" class="white">CSM Technologies</a></span>
+                   </div>
+
+
+                   <!-- /.main-content -->
+               </div>
+               <!-- /.main-container -->
+           </div>
+
+
+       </form>
+
+       <div class="modal fade in" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="false" >
+        <div class="modal-dialog">
+            <div class="modal-content text-center">
+                <div class="modal-body no-padding">
+                    <h2 class="alertMessage"></h2>
+                    <div class="form-group">
+                        <div class="center"> <a class=" btn btn-danger btn-sm" id="btnAlertOk" style="width:100px; margin-top:30px;">Ok</a> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ace settings handler -->
+    <script src="js/ace-extra.min.js"></script>
+    <!-- extra custom script -->
+    <script src="js/custom.js"></script>
+    <script src="js/loadComponent.js"></script>
+
+    <!--basic scripts--> 
+    <script src="Application/js/bootstrap.min.js"></script>
+    <script src="Application/js/validatorchklist.js"></script>
+<!-- page specific plugin scripts 
+<!--[if lte IE 8]>
+                <script src="https://lms.auric.city/Application/js/excanvas.min.js"></script>
+                <![endif]-->
+<!--<script src="https://lms.auric.city/Application/js/jquery-ui.custom.min.js"></script>
+ ace scripts 
+<script src="https://lms.auric.city/Application/js/ace-elements.min.js"></script>
+<script src="https://lms.auric.city/Application/js/ace.min.js"></script>-->
+<!-- inline scripts related to this page -->
+<script type="text/javascript" language="javascript">
+    $(document).ready(function () {
+
+        $('#startApp').click(function (e) {
+            $('#appBox').slideToggle('medium');
+        });
+
+//Add navigation
+var gLink = (getCookie("WebGlName") != '' && getCookie("WebGlName") > 0) ? getCookie("WebGlName") : 0;
+var pLink = (getCookie("WebPlName") != '' && getCookie("WebPlName") > 0) ? getCookie("WebPlName") : 0;
+        /*$('.mainLi').each(function(){
+         var dataVal	= $(this).data('val');
+         if(dataVal==gLink)
+         {
+         $(this).addClass('open');
+         $(this).find('.submenu').addClass('nav-show');
+         $(this).find('.submenu').show();
+         $(this).find('li').each(function(){
+         var dataSubVal	= $(this).data('subval');	
+         if(dataSubVal==pLink)
+         {
+         $(this).addClass('active');
+         }
+         });								 
+         }			
+     });*/
+
+     if ('arch-reg-home' == 'home')
+     {
+        gLink = 0;
+        pLink = 0;
+        removeCookie("WebGlName");
+        removeCookie("WebPlName");
+    }
+
+//if(getCookie('mysheet')!='')
+//	var cookieName	= getCookie('mysheet');
+//	chooseStyle(cookieName, 60);
+
+//Add tabindex
+setInterval(function () {
+    $('.screenReader').each(function (i) {
+        $(this).attr('tabindex', i);
+    });
+}, 3000);
+});
+
+//Customisation of font size
+var min = 11;
+var max = 16;
+var reset = 13;
+function increaseFontSize() {
+    var p = document.getElementsByTagName('body');
+    for (i = 0; i < p.length; i++) {
+        if (p[i].style.fontSize) {
+            var s = parseInt(p[i].style.fontSize.replace("px", ""));
+        } else {
+            var s = 13;
+        }
+        if (s != max) {
+            s += 1;
+        }
+        p[i].style.fontSize = s + "px"
+    }
+}
+function decreaseFontSize() {
+    var p = document.getElementsByTagName('body');
+    for (i = 0; i < p.length; i++) {
+        if (p[i].style.fontSize) {
+            var s = parseInt(p[i].style.fontSize.replace("px", ""));
+        } else {
+            var s = 13;
+        }
+        if (s != min) {
+            s -= 1;
+        }
+        p[i].style.fontSize = s + "px"
+    }
+}
+function reSetFontSize() {
+    var p = document.getElementsByTagName('body');
+    for (i = 0; i < p.length; i++) {
+        if (p[i].style.fontSize) {
+            var s = parseInt(p[i].style.fontSize.replace("px", ""));
+        } else {
+            var s = 13;
+        }
+        if (s != reset) {
+            s = 13;
+        }
+        p[i].style.fontSize = s + "px"
+    }
+}
+</script>
+</body>
+<!-- Mirrored from lms.auric.city/arch-reg-home by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 02:30:56 GMT -->
+</html>
+
+
+
+ 

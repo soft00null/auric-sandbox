@@ -1,0 +1,319 @@
+<html lang="en" xml:lang="en">
+<!-- Mirrored from gis.auric.city/agserver/sdk/rest/02ss/02ss0000007n000000.htm by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 03:15:40 GMT -->
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="description" content="Legend (Map Service) http:// &amp;lt;mapservice-url&amp;gt;/legendMap10.0 Description The legend resource represents a map service's legend. It returns the legend information for all layers in the service. Each layer's legend information includes the symbol images and labels for each symbol. Each symbol is an image of size 20 x 20 pixels at 96 DPI. Additional information for each layer such as the layer ID, name, and min and max scales are also included. The legend symbols include"><meta name="content-language" content="en"><link href="rsrc/htmlhelp.html" rel="stylesheet" type="text/css"><title>ArcGIS REST API - ArcGIS Services - 
+   Legend (Map Service)</title>
+                <script type="text/javascript" language="JavaScript">
+                    var pathL  = self.location.pathname.split ("../../../../index.html");
+                    var fname = pathL[pathL.length-1];
+                    var i = fname.lastIndexOf (".htm");
+                    if (i>=0) {
+                    fname = fname.substring (0, i)
+                    } else {
+                    //??
+                    }
+                    if (self.location.hash) {
+				    		      fname = fname + self.location.hash;
+						        }
+                    self.location.replace ("../index.html#//" + fname);
+                </script>
+                </head><!--Publication GUID: [GUID-289408B4-3EC8-4C16-9DB8-B1778E780E58]--><!--Topic GUID: [GUID-10F739D7-DCFC-4D46-9B2D-2907FAC6C085]--><body><div id="content"><div class="header"><h1>
+   Legend (Map Service)</h1><div id="breadcrumb"></div></div>
+    <div class="restmd" purpose="restmd"><ul purpose="restmd" class="restmd list-plain"><li><span class="restkey post-1">URL:</span><span class="restval">http:// <a class="xref" rel="02ss/02ss0000006v000000.htm" href="02ss/02ss0000006v000000.html">&lt;mapservice-url&gt;</a>/legend<span class="restverb"></span><br></span></li><li><span class="restkey post-1">Required Capability:</span><span class="restval">Map</span></li><li><span class="restkey post-1">Version Introduced:</span><span class="restval">10.0</span></li></ul></div>
+    <div class="section1" id="GUID-D38DB813-F985-44B7-8DF5-803F22223875" purpose="section1"><h2>Description</h2><p id="GUID-4B144DAF-DF6F-43A4-A610-F9364B6F02BB">
+        The legend resource represents a map service's legend. It returns the legend information for all layers in the service. Each layer's legend information includes the symbol images and labels for each symbol. Each symbol is an image of size 20 x 20 pixels at 96 DPI. Additional information for each layer such as the layer ID, name, and min and max scales are also included.
+      </p><p id="GUID-0CA14132-EC7C-4F3A-A803-6BC8E2B47C27">The legend symbols include the base64 encoded <span class="usertext">imageData</span> as well as a <span class="usertext">url</span> that could be used to retrieve the image from the server. </p><p id="GUID-097F9304-6AC3-493C-BBFB-CF0ADD61822A"><div class="notes" id="GUID-5E4D0A33-840E-4F71-AEB6-76C06BDE2C0E"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody"><p id="GUID-4881EF13-4F0E-4AC4-AAA7-F99F9D9C0DC3">This is a relative URL. It can be dereferenced by accessing the <a class="xref" rel="02ss/02ss00000082000000.htm" href="02ss/02ss00000082000000.html">map layer image resource</a>.
+</p></div></div></p></div>
+    <div class="section1" id="ESRI_SECTION1_86FD3DBB2C294474AB6D55A60F0E1C44" purpose="section1"><h2>New in 10.1 sp1</h2><p id="GUID-5971EE4A-B7AF-4BA5-AC60-603E2EB2B83A"> <ul purpose="ul" id="UL_98C6469A1D384CB9B6BCB4E7A55812D7"> <li purpose="li" id="LI_A3A504A804CC4888B4EA839BB7F942C5">Legend response now includes <span class="usertext">height</span> and <span class="usertext">width</span> for symbols.</li> </ul> </p></div><div class="section1" id="ESRI_SECTION1_CD3B60E085A04FFFB78087BE2CB9D95D" purpose="section1"><h2>New in 10.1</h2><p id="GUID-911DDC34-0671-46D8-AA69-8633C5622C36"> <ul purpose="ul" id="UL_51AEFF0F693A4314B95E5B652A99766E"> <li purpose="li" id="LI_64139C1115064FC188D50EFEF2F2D9F6">Legend response contains a <span class="usertext">values</span> json array for layers that are symbolized using either class breaks or unique value renderer. <ul purpose="ul" id="UL_C0A069EDDEC0443CB9562196A602AEC2"> <li purpose="li" id="LI_94A2DFC76AEA4F30B271E6635B9FC10E">In case of class breaks renderer,  <span class="usertext">values</span> contains the class maximum value.</li> <li purpose="li" id="LI_9A56451474294C4EAD7C53C145A1740A">In case of unique value renderer, <span class="usertext">values</span> contains the list of ungrouped unique values.</li> </ul> </li> <li purpose="li" id="LI_053E8869A8364DF1A51BAD344F0755C3">Support for <span class="usertext">dynamicLayers</span> was added.</li> </ul> </p></div><div class="section1" id="GUID-78358B57-3967-42DA-8772-7DCCB8074C3F" purpose="section1"><h2>
+        Request Parameters
+      </h2><p id="GUID-C561C0DD-5021-4C63-8AC9-41024D68CBF2">
+        <div class="block_table" id="GUID-324DD475-0F5C-44C6-9A56-E62E7CA0A011" purpose="block_table"><span class="table_title"></span><table class="table"><colgroup width="200pt"></colgroup><colgroup width="*"></colgroup><tr purpose="thead"><th class="th" purpose="th" rowspan="1" colspan="1">
+                  <p id="GUID-73658A42-5887-462C-9817-79D9A40F54A3">Parameter</p>
+                </th><th class="th" purpose="th" rowspan="1" colspan="1">
+                  <p id="GUID-BB477E58-F628-4278-A068-1C49FCB0103C">Details</p>
+                </th></tr><tbody>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">f</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-DFED39D3-8C0C-405A-86CB-94F8C62BF33B">Description: The response format. The default response format is html.</p><p id="GUID-2EE8EB4F-4BBD-4728-8A2E-1C7E4D3FB5F5">Values: html | json</p>
+                </td>
+              </tr><tr><td purpose="entry" rowspan="1" colspan="1"><span class="usertext">dynamicLayers</span></td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-C6EFA271-A45F-4C8B-9119-F11EE2D38AFA">//This option was added at 10.1.</p><p id="GUID-0FF7A133-2064-4657-9C5C-44E99889258B">Description: Dynamic layers definition. This parameter is required only for generating a legend for dynamic layers. <div class="notes" id="GUID-052761BF-779A-4313-9700-406F81E2A46E"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody"><p id="GUID-AE74152A-5F2F-4808-BFF1-82F8DF09E086"><span class="usertext">supportsDynamicLayers</span> on the map service resource should be <span class="usertext">true</span> to use <span class="usertext">dynamicLayers</span> property when requesting a legend.</p><p id="GUID-5C6EAC77-3999-4464-B70C-AD6D86485021">Syntax: <div class="codeblock" purpose="codeblock"><div class="codeblockdesc" purpose="codeblockdesc"></div><div class="highlight"><pre><code>[dynamicLayer1,dynamicLayer2,...,dynamicLayerN ]
+</code></pre></div>
+</div></p></div></div></p></td></tr>
+            </tbody><caption class="table_desc"></caption></table></div>
+      </p></div>
+    
+    <div class="section1" id="GUID-CA783A09-3BDD-4F0B-BA44-9A9FB463074B" purpose="section1"><h2>Example Usage</h2><p id="GUID-D78C63FD-0E7A-41F9-981E-AC4E9AC152E4">
+        Example 1: 
+      </p><p id="GUID-AD70C427-E284-47A7-AE2B-31E926A72E8A"><a target="_blank" class="xref" href="http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/legend?f=pjson" rel="http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/legend?f=pjson">http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/legend?f=pjson</a></p><p id="GUID-D42E70F9-D22B-4788-9BAC-53DBAA3B2CDA">Example 2:</p><p id="GUID-BC60F016-AB00-4A8A-92FC-4C736D5C701F"><a target="_blank" class="xref" href="http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/legend?dynamicLayers=[{&quot;id&quot;:101,&quot;source&quot;:{&quot;type&quot;:&quot;mapLayer&quot;,&quot;mapLayerId&quot;:3},&quot;drawingInfo&quot;:{&quot;renderer&quot;:{&quot;type&quot;:&quot;classBreaks&quot;,&quot;field&quot;:&quot;pop2007&quot;,&quot;normalizationType&quot;:&quot;esriNormalizeByPercentOfTotal&quot;,&quot;normalizationTotal&quot;:306348230,&quot;minValue&quot;:0.17077754945736098,&quot;classBreakInfos&quot;:[{&quot;classMaxValue&quot;:1.7498315560693791,&quot;label&quot;:&quot;0.969259%25+-+1.749832%25&quot;,&quot;description&quot;:&quot;&quot;,&quot;symbol&quot;:{&quot;type&quot;:&quot;esriSMS&quot;,&quot;style&quot;:&quot;esriSMSSquare&quot;,&quot;size&quot;:10.5,&quot;angle&quot;:23,&quot;xoffset&quot;:-10,&quot;yoffset&quot;:0,&quot;color&quot;:[0,255,255,255]}},{&quot;classMaxValue&quot;:12.235568653358957,&quot;label&quot;:&quot;2.902453%25+-+12.235569%25&quot;,&quot;description&quot;:&quot;&quot;,&quot;symbol&quot;:{&quot;type&quot;:&quot;esriSMS&quot;,&quot;style&quot;:&quot;esriSMSSquare&quot;,&quot;size&quot;:10.5,&quot;angle&quot;:23,&quot;xoffset&quot;:-10,&quot;yoffset&quot;:0,&quot;color&quot;:[0,0,255,255]}}]}}}]&amp;amp;f=html" rel="http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/legend?dynamicLayers=[{&quot;id&quot;:101,&quot;source&quot;:{&quot;type&quot;:&quot;mapLayer&quot;,&quot;mapLayerId&quot;:3},&quot;drawingInfo&quot;:{&quot;renderer&quot;:{&quot;type&quot;:&quot;classBreaks&quot;,&quot;field&quot;:&quot;pop2007&quot;,&quot;normalizationType&quot;:&quot;esriNormalizeByPercentOfTotal&quot;,&quot;normalizationTotal&quot;:306348230,&quot;minValue&quot;:0.17077754945736098,&quot;classBreakInfos&quot;:[{&quot;classMaxValue&quot;:1.7498315560693791,&quot;label&quot;:&quot;0.969259%25+-+1.749832%25&quot;,&quot;description&quot;:&quot;&quot;,&quot;symbol&quot;:{&quot;type&quot;:&quot;esriSMS&quot;,&quot;style&quot;:&quot;esriSMSSquare&quot;,&quot;size&quot;:10.5,&quot;angle&quot;:23,&quot;xoffset&quot;:-10,&quot;yoffset&quot;:0,&quot;color&quot;:[0,255,255,255]}},{&quot;classMaxValue&quot;:12.235568653358957,&quot;label&quot;:&quot;2.902453%25+-+12.235569%25&quot;,&quot;description&quot;:&quot;&quot;,&quot;symbol&quot;:{&quot;type&quot;:&quot;esriSMS&quot;,&quot;style&quot;:&quot;esriSMSSquare&quot;,&quot;size&quot;:10.5,&quot;angle&quot;:23,&quot;xoffset&quot;:-10,&quot;yoffset&quot;:0,&quot;color&quot;:[0,0,255,255]}}]}}}]&amp;amp;f=html">http://sampleserver6.arcgisonline.com/arcgis/rest/services/Census/MapServer/legend?dynamicLayers=[{"id":101,"source":{"type":"mapLayer","mapLayerId":3},"drawingInfo":{"renderer":{"type":"classBreaks","field":"pop2007","normalizationType":"esriNormalizeByPercentOfTotal","normalizationTotal":306348230,"minValue":0.17077754945736098,"classBreakInfos":[{"classMaxValue":1.7498315560693791,"label":"0.969259% - 1.749832%","description":"","symbol":{"type":"esriSMS","style":"esriSMSSquare","size":10.5,"angle":23,"xoffset":-10,"yoffset":0,"color":[0,255,255,255]}},{"classMaxValue":12.235568653358957,"label":"2.902453% - 12.235569%","description":"","symbol":{"type":"esriSMS","style":"esriSMSSquare","size":10.5,"angle":23,"xoffset":-10,"yoffset":0,"color":[0,0,255,255]}}]}}}]&amp;f=html</a> 
+</p></div>
+    <div class="section1" id="GUID-AC7F1884-B38E-46A0-A258-ED6D2490093E" purpose="section1"><h2>JSON Response Syntax</h2><p id="GUID-06187184-FE6D-44C0-AF04-53DCAE332FB9">
+        <div class="codeblock" purpose="codeblock">
+          <div class="codeblockdesc" purpose="codeblockdesc">
+            
+          </div>
+          <div class="highlight"><pre><code><span class="p">{</span>
+  <span class="s2">&quot;layers&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;layerId&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">layerId1</span><span class="o">&gt;</span><span class="p">,</span>
+      <span class="s2">&quot;layerName&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;layerName1&gt;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;layerType&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;layerType1&gt;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;minScale&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">minScale1</span><span class="o">&gt;</span><span class="p">,</span>
+      <span class="s2">&quot;maxScale&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">maxScale1</span><span class="o">&gt;</span><span class="p">,</span>
+      <span class="s2">&quot;legend&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;label11&gt;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;url&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;imageUrl11&gt;&quot;</span><span class="p">,</span> <span class="c1">//Relative URL for static layers and full URL for dynamic layers. Access relative URL using http://&lt;mapservice-url&gt;/&lt;layerId1&gt;/images/&lt;imageUrl11&gt;</span>
+          <span class="s2">&quot;imageData&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;base64EncodedImageData11&gt;&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;contentType&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;contentType11&gt;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">height</span><span class="o">&gt;</span><span class="p">,</span> <span class="c1">//new at 10.1 SP1;</span>
+          <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">width</span><span class="o">&gt;</span><span class="p">,</span> <span class="c1">//new at 10.1 SP1;</span>
+          <span class="s2">&quot;values&quot;</span><span class="o">:</span> <span class="p">[</span><span class="o">&lt;</span><span class="nx">maximum</span> <span class="nx">value1</span><span class="o">&gt;</span><span class="p">]</span> <span class="c1">//In case of classBreaks renderer values will contain classMaxValue</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;label12&gt;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;url&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;imageUrl12&gt;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;imageData&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;base64EncodedImageData12&gt;&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;contentType&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;contentType12&gt;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">height</span><span class="o">&gt;</span><span class="p">,</span>
+          <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">width</span><span class="o">&gt;</span><span class="p">,</span>
+          <span class="s2">&quot;values&quot;</span><span class="o">:</span> <span class="p">[</span><span class="o">&lt;</span><span class="nx">maximum</span> <span class="nx">value2</span><span class="o">&gt;</span><span class="p">]</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;layerId&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">layerId2</span><span class="o">&gt;</span><span class="p">,</span>
+      <span class="s2">&quot;layerName&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;layerName2&gt;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;layerType&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;layerType2&gt;&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;minScale&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">minScale2</span><span class="o">&gt;</span><span class="p">,</span>
+      <span class="s2">&quot;maxScale&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">maxScale2</span><span class="o">&gt;</span><span class="p">,</span>
+      <span class="s2">&quot;legend&quot;</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;label21&gt;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;url&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;imageUrl21&gt;&quot;</span><span class="p">,</span> <span class="c1">//Relative URL for static layers and full URL for dynamic layers. Access relative URL using http://&lt;mapservice-url&gt;/&lt;layerId2&gt;/images/&lt;imageUrl21&gt;</span>
+          <span class="s2">&quot;imageData&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;base64EncodedImageData21&gt;&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;contentType&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;contentType21&gt;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">height</span><span class="o">&gt;</span><span class="p">,</span>
+          <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">width</span><span class="o">&gt;</span><span class="p">,</span>
+          <span class="s2">&quot;values&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;uniqueValue1&quot;</span><span class="p">]</span> <span class="c1">//In case of uniqueValue renderer values will contain ungrouped unique values.</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+          <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;label22&gt;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;url&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;imageUrl22&gt;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;imageData&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;base64EncodedImageData22&gt;&quot;</span><span class="p">,</span> 
+          <span class="s2">&quot;contentType&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;contentType22&gt;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">height</span><span class="o">&gt;</span><span class="p">,</span>
+          <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">width</span><span class="o">&gt;</span><span class="p">,</span>
+          <span class="s2">&quot;values&quot;</span><span class="o">:</span> <span class="p">[</span><span class="s2">&quot;uniqueValue2&quot;</span><span class="p">,</span> <span class="s2">&quot;uniqueValue3&quot;</span><span class="p">]</span>
+        <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+        </div>
+      </p></div>
+    <div class="section1" id="GUID-1C6F0E59-F9CA-4879-AC87-5061EA0EB410" purpose="section1"><h2>JSON Response Example</h2><p id="GUID-48011860-9C51-4DB2-BE2E-FBD489308E65">
+        <div class="codeblock" purpose="codeblock">
+          <div class="codeblockdesc" purpose="codeblockdesc">
+            
+          </div>
+          <div class="highlight"><pre><code><span class="p">{</span>
+ <span class="s2">&quot;layers&quot;</span><span class="o">:</span> <span class="p">[</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;layerId&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+   <span class="s2">&quot;layerName&quot;</span><span class="o">:</span> <span class="s2">&quot;Census Block Points&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;layerType&quot;</span><span class="o">:</span> <span class="s2">&quot;Feature Layer&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;minScale&quot;</span><span class="o">:</span> <span class="mi">99999</span><span class="p">,</span>
+   <span class="s2">&quot;maxScale&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+   <span class="s2">&quot;legend&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+     <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;0 - 61&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;16c1750c363249f0a97da4bfd6d99a49&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;imageData&quot;</span><span class="o">:</span> <span class="s2">&quot;iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAFNJREFUOI1jYaAyYBk1cNRAOPiPxGak1MD/JZsR5vX4Mv7HZyghA1EMY2BgYCjZ/B+voUM/Uhh7fBnRw5CBgYIwhBuKzKfEhUQZQo6BRINRAykHADL/FCzY81v0AAAAAElFTkSuQmCC&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;contentType&quot;</span><span class="o">:</span> <span class="s2">&quot;image/png&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+     <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+     <span class="s2">&quot;values&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="mi">61</span>
+     <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+     <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;62 - 264&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;96b1e45aea277d25d6759101c5a568f2&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;imageData&quot;</span><span class="o">:</span> <span class="s2">&quot;iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAGRJREFUOI3t0cEJwDAMA0AZsp63yRjeJgO6v35iOU0oJZToKfA9rIKXUw74CehBJ6ug19Z7puIMzcAQA4DanKIMpNgI/cfKe4JiKukwpgJMrJyiDBuBNxr17ODJD+nxKjiV/cELXCYgLEwEnd4AAAAASUVORK5CYII=&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;contentType&quot;</span><span class="o">:</span> <span class="s2">&quot;image/png&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+     <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+     <span class="s2">&quot;values&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="mi">264</span>
+     <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+     <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;265 - 759&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;eec6c4375388bb67e0bd976a7476bbcf&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;imageData&quot;</span><span class="o">:</span> <span class="s2">&quot;iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAIdJREFUOI3d1MEJwCAMBdAEXM9tOobbdMD0YorGH2ulIjRHTR8fEhvo4wo7QAFnPAMKEdFxtl6KrIcNjEAX0tI7BMOEPcz2pViHtKCMYgYVTbl0yq/TaZUpt+zhj0FOkacGk3dx/doQTaQs0yHwbhpB7bPzQM7Nvb9N1fsEQhjdoRoZivsxqgsOTDUsDDFUxQAAAABJRU5ErkJggg==&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;contentType&quot;</span><span class="o">:</span> <span class="s2">&quot;image/png&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+     <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+     <span class="s2">&quot;values&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="mi">759</span>
+     <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+     <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;760 - 1900&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;2b73fd7416e13da8cdec1865ca48ca1f&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;imageData&quot;</span><span class="o">:</span> <span class="s2">&quot;iVBORw0KGgoAAAANSUhEUgAAABUAAAAVCAYAAACpF6WWAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAIlJREFUOI3t1cENgCAMBdDfhPXYxjHYxgHxQglWWhXKwcReCy8/aQMBdmWjR1ojWNi262aKxM0L3kOzhXHxmYKfYIk+AiUu4RZ9DWowo8NgD9YGNVUBDim5OO2ypD/6EZRSJJe1SpGAlcsPOKTllC06BbegRIdgCfbQCgO3L389L3vaoKhcHPqjDhqnRC6j0pDtAAAAAElFTkSuQmCC&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;contentType&quot;</span><span class="o">:</span> <span class="s2">&quot;image/png&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+     <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+     <span class="s2">&quot;values&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="mi">1900</span>
+     <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+     <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;1901 - 9409&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;0f3caba8a8bff54af2f795d36fa00b64&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;imageData&quot;</span><span class="o">:</span> <span class="s2">&quot;iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAKBJREFUSInt1sENgCAMBdDfhPXYxjHYxgHxVIOVFtCiF/61TV5+gISAjxIGdrMxIw8oA8C2606KxEMVtKAmwOEdC9Sg3AM0wAtWgx4hEpSYhF4jGjZy616lhNzacMpWnzdyb8PhVr+c0YIWBACgFGnKFU+RgD8eLDChFbeR0NRIyK1V2aYGuWAS0aATA/r+DAK4IRZ0LveAFtADVUFrx8oBsCBQQjt9MuwAAAAASUVORK5CYII=&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;contentType&quot;</span><span class="o">:</span> <span class="s2">&quot;image/png&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+     <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+     <span class="s2">&quot;values&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="mi">9409</span>
+     <span class="p">]</span>
+    <span class="p">}</span>
+   <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;layerId&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+   <span class="s2">&quot;layerName&quot;</span><span class="o">:</span> <span class="s2">&quot;Census Block Group&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;layerType&quot;</span><span class="o">:</span> <span class="s2">&quot;Feature Layer&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;minScale&quot;</span><span class="o">:</span> <span class="mi">1000000</span><span class="p">,</span>
+   <span class="s2">&quot;maxScale&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+   <span class="s2">&quot;legend&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+     <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;9f9da73612bae8cabdfccb9dc9ebb5ec&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;imageData&quot;</span><span class="o">:</span> <span class="s2">&quot;iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAAADsQBlSsOGwAAADpJREFUOI1jYaAyYKGZgU1NTf8pNayuro6RBV2AXMNgDqKdl0cNHDVw1MBRA3EaSEmZCCv6WNAFKAUAXT0NzOV1EscAAAAASUVORK5CYII=&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;contentType&quot;</span><span class="o">:</span> <span class="s2">&quot;image/png&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+     <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="mi">20</span>
+    <span class="p">}</span>
+   <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;layerId&quot;</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span>
+   <span class="s2">&quot;layerName&quot;</span><span class="o">:</span> <span class="s2">&quot;Detailed Counties&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;layerType&quot;</span><span class="o">:</span> <span class="s2">&quot;Feature Layer&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;minScale&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+   <span class="s2">&quot;maxScale&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+   <span class="s2">&quot;legend&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+     <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;98fb6d62c20377d8d861e56ede28766f&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;imageData&quot;</span><span class="o">:</span> <span class="s2">&quot;iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAAADsQBlSsOGwAAADZJREFUOI1jYaAyYKGlgf+pYB4jugsZKTDsPwMDjb08auCogaMGjhqI00BKykRGdAMpKQvhAABd0QNSDPGCHwAAAABJRU5ErkJggg==&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;contentType&quot;</span><span class="o">:</span> <span class="s2">&quot;image/png&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+     <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="mi">20</span>
+    <span class="p">}</span>
+   <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+   <span class="s2">&quot;layerId&quot;</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+   <span class="s2">&quot;layerName&quot;</span><span class="o">:</span> <span class="s2">&quot;states&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;layerType&quot;</span><span class="o">:</span> <span class="s2">&quot;Feature Layer&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;minScale&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+   <span class="s2">&quot;maxScale&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+   <span class="s2">&quot;legend&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+     <span class="s2">&quot;label&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;url&quot;</span><span class="o">:</span> <span class="s2">&quot;bb835639802a7005b5d50553e8a13dce&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;imageData&quot;</span><span class="o">:</span> <span class="s2">&quot;iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAAADsQBlSsOGwAAADdJREFUOI1jYaAyYIHS/6lkHiMLYTWkAXQDGck0B+5Dmrtw1MBRA0cNHB4GUlwu0syF5JaDGAAABzUDUfxbIJcAAAAASUVORK5CYII=&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;contentType&quot;</span><span class="o">:</span> <span class="s2">&quot;image/png&quot;</span><span class="p">,</span>
+     <span class="s2">&quot;height&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+     <span class="s2">&quot;width&quot;</span><span class="o">:</span> <span class="mi">20</span>
+    <span class="p">}</span>
+   <span class="p">]</span>
+  <span class="p">}</span>
+ <span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+        </div>
+      </p></div>
+  <div class="section1" id="ESRI_SECTION1_05D92BBB77744A04AA7E04A20A4AE45C" purpose="section1"><h2>JSON Response Example (for dynamic map layers)</h2><p id="GUID-97BB68BA-527F-4981-8CE2-542B6CACE78F"><div class="codeblock" purpose="codeblock"><div class="codeblockdesc" purpose="codeblockdesc"></div><div class="highlight"><pre><code>{
+ &quot;layers&quot;: [
+  {
+   &quot;layerId&quot;: 101,
+   &quot;layerName&quot;: &quot;states&quot;,
+   &quot;layerType&quot;: &quot;Feature Layer&quot;,
+   &quot;minScale&quot;: 0,
+   &quot;maxScale&quot;: 0,
+   &quot;legend&quot;: [
+    {
+     &quot;label&quot;: &quot;0.170778% - 0.441503%&quot;,
+     &quot;url&quot;: &quot;http://sampleserver6.arcgisonline.com/arcgis/rest/directories/arcgisoutput/Census_MapServer/_ags_legend_be1f0e6f9480468a9d7e7b6f43f9dbe3.png&quot;,
+     &quot;imageData&quot;: &quot;iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAHZJREFUOI2108sOgCAMRNFpwv//cl0oCdTaB62zNZ5cAw40b6TfYDAAgEA1cELObNBCGKxV6mCwRtsOZiGlclSL5PKnLCcqb5BAXZX1wk+wUrl89o+F1T2VO9hwOD2Fr2sjH0Yrw//yAWSDWqWB+OAB5INJaO4CLn4gU6oOM3wAAAAASUVORK5CYII=&quot;,
+     &quot;contentType&quot;: &quot;image/png&quot;,
+     &quot;height&quot;: 20,
+     &quot;width&quot;: 20,
+     &quot;values&quot;: [
+      0.44150279569103434
+     ]
+    },
+    {
+     &quot;label&quot;: &quot;0.441504% - 0.969258%&quot;,
+     &quot;url&quot;: &quot;http://sampleserver6.arcgisonline.com/arcgis/rest/directories/arcgisoutput/Census_MapServer/_ags_legend_b78cba0cf8ee4f2499b01018e7f43f09.png&quot;,
+     &quot;imageData&quot;: &quot;iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAHdJREFUOI2100sOgDAIRVFIunB2jgPbxCLyKfimxpNrWgc0b6TfYGIAAEDCGrggZzZoIUysVepgsEbbDmYhpXJUi+TypywnKm8QCbsq64WfYKXy8dk/FlY3K3ew4XB6Cl/XRj6MVob/5QPIBrVKA/HBA8gHk9DaBR97MNOpuBjQAAAAAElFTkSuQmCC&quot;,
+     &quot;contentType&quot;: &quot;image/png&quot;,
+     &quot;height&quot;: 20,
+     &quot;width&quot;: 20,
+     &quot;values&quot;: [
+      0.96925841549663927
+     ]
+    },
+    {
+     &quot;label&quot;: &quot;0.969259% - 1.749832%&quot;,
+     &quot;url&quot;: &quot;http://sampleserver6.arcgisonline.com/arcgis/rest/directories/arcgisoutput/Census_MapServer/_ags_legend_63250b4a6f8d4c99aae77d4ca275501b.png&quot;,
+     &quot;imageData&quot;: &quot;iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAHZJREFUOI2108sOgCAMRNFpwv//cl0oCdTaB62zNZ5cAw40b6TfYGYAABHVwAk5s0ELYWatUgeDNdp2MAsplaNaJJc/ZTlReYNE1FVZL/wEK5XLZ/9YWN1TuYMNh9NT+Lo28mG0MvwvH0A2qFUaiA8eQD6YhOYuvaAwVEoxj/0AAAAASUVORK5CYII=&quot;,
+     &quot;contentType&quot;: &quot;image/png&quot;,
+     &quot;height&quot;: 20,
+     &quot;width&quot;: 20,
+     &quot;values&quot;: [
+      1.7498315560693791
+     ]
+    },
+    {
+     &quot;label&quot;: &quot;1.749833% - 2.902452%&quot;,
+     &quot;url&quot;: &quot;http://sampleserver6.arcgisonline.com/arcgis/rest/directories/arcgisoutput/Census_MapServer/_ags_legend_28618eb5d5ed444c8159679a43cf0f7e.png&quot;,
+     &quot;imageData&quot;: &quot;iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAHZJREFUOI21k0sOwCAIBUvCwb05XVSTllI+PjobF8bJGJSPZrh8YohcKxEmXKIAX+hJhohVaQuTNRZPYVVkVDJapKlPWaMqZyFRVyVe+ClEKm/X/rEQZVaqd4gPp6fw9Wz0ZrYy/Zc3RL7QqnQksXBDFAuLosUJH/ow03WzBn8AAAAASUVORK5CYII=&quot;,
+     &quot;contentType&quot;: &quot;image/png&quot;,
+     &quot;height&quot;: 20,
+     &quot;width&quot;: 20,
+     &quot;values&quot;: [
+      2.9024522191624871
+     ]
+    },
+    {
+     &quot;label&quot;: &quot;2.902453% - 12.235569%&quot;,
+     &quot;url&quot;: &quot;http://sampleserver6.arcgisonline.com/arcgis/rest/directories/arcgisoutput/Census_MapServer/_ags_legend_a3e7573e466c4249a41bc34d34de059e.png&quot;,
+     &quot;imageData&quot;: &quot;iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAHRJREFUOI2100EOgCAMRFGb9P5XrgskhNJCy9TZuDC+fIPyUzzOPyLSrkQg2KH9DuAOEbEqHTBWY02BWWitZLRI7+KU9ebKDySqqiwodEGkcrz2n4XoWqUC8cMpKlw+G30zWhn+l/PQAbQqfSQA5qEAmIP6Xh59IFML5CgnAAAAAElFTkSuQmCC&quot;,
+     &quot;contentType&quot;: &quot;image/png&quot;,
+     &quot;height&quot;: 20,
+     &quot;width&quot;: 20,
+     &quot;values&quot;: [
+      12.235568653358957
+     ]
+    }
+   ]
+  }
+ ]
+}
+</code></pre></div>
+</div></p></div><div class="footer"> Copyright © 1995-2017 Esri. All rights reserved. </div></div></body>
+<!-- Mirrored from gis.auric.city/agserver/sdk/rest/02ss/02ss0000007n000000.htm by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 03:15:40 GMT -->
+</html>

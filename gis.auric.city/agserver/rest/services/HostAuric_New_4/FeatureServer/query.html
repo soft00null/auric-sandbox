@@ -1,0 +1,201 @@
+<html lang="en">
+
+<!-- Mirrored from gis.auric.city/agserver/rest/services/HostAuric_New_4/FeatureServer/query by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 03:34:29 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Query : (HostAuric_New_4)</title>
+<link href="../../../static/main.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<table width="100%" class="userTable">
+<tr>
+<td class="titlecell">
+ArcGIS REST Services Directory
+</td>
+<td align="right">
+<a href="../../../../login/index51c3.html?returnUrl=https://gis.auric.city/agserver/rest/services">Login</a>
+</td>
+</tr>
+</table>
+<table width="100%" class="navTable">
+<tr valign="top">
+<td class="breadcrumbs">
+<a href="../../../services.html">Home</a>
+&gt; <a href="../../../services.html">services</a>
+&gt; <a href="../FeatureServer.html">HostAuric_New_4 (FeatureServer)</a>
+&gt; <a href="query.html"><i>query</i></a>
+</td>
+<td align="right">
+<a href="../../../../sdk/rest/02ss/02ss00000057000000.html" target="_blank">Help</a> | <a href="query45be.html?f=help" target="_blank">API Reference</a>
+</td>
+</tr>
+</table>
+<h2>Query : (HostAuric_New_4)</h2>
+<div class="rbody">
+<div style="color:#ff6666"> </div>
+<form name="sdform" action="https://gis.auric.city/agserver/rest/services/HostAuric_New_4/FeatureServer/query">
+<table class="formTable">
+<tr valign="top">
+<td><label for="layerDefs">Layer Definitions:</label></td>
+<td><input type="text" id="layerDefs" name="layerDefs" value="" size="75" /></td>
+</tr>
+<tr>
+<td><label for="geometry">Geometry:</label></td>
+<td>
+<textarea id="geometry" name="geometry" rows="5" cols="55"></textarea>
+</td>
+</tr>
+<tr>
+<td><label for="geometryType">Geometry Type:</label></td>
+<td>
+<select id="geometryType" name="geometryType">
+<option value="esriGeometryEnvelope" >Envelope</option>
+<option value="esriGeometryPoint" >Point</option>
+<option value="esriGeometryPolyline" >Polyline</option>
+<option value="esriGeometryPolygon" >Polygon</option>
+<option value="esriGeometryMultipoint" >Multipoint</option>
+</select>
+</td>
+</tr>
+<tr valign="top">
+<td><label for="inSR">Input Spatial Reference:</label></td>
+<td><input type="text" id="inSR" name="inSR" value="" size="75"/></td>
+</tr>
+<tr>
+<td><label for="spatialRel">Spatial Relationship:</label></td>
+<td>
+<select id="spatialRel" name="spatialRel">
+<option value="esriSpatialRelIntersects" >Intersects</option>
+<option value="esriSpatialRelContains" >Contains</option>
+<option value="esriSpatialRelCrosses" >Crosses</option>
+<option value="esriSpatialRelEnvelopeIntersects" >Envelope Intersects</option>
+<option value="esriSpatialRelIndexIntersects" >Index Intersects</option>
+<option value="esriSpatialRelOverlaps" >Overlaps</option>
+<option value="esriSpatialRelTouches" >Touches</option>
+<option value="esriSpatialRelWithin" >Within</option>
+</select>
+</td>
+</tr>
+<tr valign="top">
+<td><label for="time">Time:</label></td>
+<td><input type="text" id="time" name="time" value="" size="75"/></td>
+</tr>
+<tr valign="top">
+<td><label for="outSR">Output Spatial Reference:</label></td>
+<td><input type="text" id="outSR" name="outSR" value="" size="75"/></td>
+</tr>
+<tr valign="top">
+<td><label for="gdbVersion">Geodatabase Version Name:</label></td>
+<td><input type="text" id="gdbVersion" name="gdbVersion" value="" /></td>
+</tr>
+<tr valign="top">
+<td>Historic Moment:</td>
+<td><input type="text" name="historicMoment" value="" /></td>
+</tr>
+<tr>
+<td>Return Distinct Values:</td>
+<td>
+<label><input type="radio" name="returnDistinctValues" value="true" /> True &nbsp;</label>
+<label><input type="radio" name="returnDistinctValues" value="false" checked="true" /> False</label>
+</td>
+</tr>
+<tr>
+<td>Return Geometry:</td>
+<td>
+<label><input type="radio" name="returnGeometry" value="true" checked="true" /> True &nbsp;</label>
+<label><input type="radio" name="returnGeometry" value="false" /> False</label>
+</td>
+</tr>
+<tr valign="top">
+<td><label for="maxAllowableOffset">Max Allowable Offset:</label></td>
+<td><input type="text" id="maxAllowableOffset" name="maxAllowableOffset" value="" size="25"/></td>
+</tr>
+<tr>
+<td>Return IDs Only:</td>
+<td>
+<label><input type="radio" name="returnIdsOnly" value="true" /> True &nbsp;</label>
+<label><input type="radio" name="returnIdsOnly" value="false" checked="true" /> False</label>
+</td>
+</tr>
+<tr>
+<td>Return Count Only:</td>
+<td>
+<label><input type="radio" name="returnCountOnly" value="true" /> True &nbsp;</label>
+<label><input type="radio" name="returnCountOnly" value="false" checked="true" /> False</label>
+</td>
+</tr>
+<tr>
+<td>ReturnZ:</td>
+<td>
+<label><input type="radio" name="returnZ" value="true" /> True &nbsp;</label>
+<label><input type="radio" name="returnZ" value="false" checked="true" /> False</label>
+</td>
+</tr>
+<tr>
+<td>ReturnM:</td>
+<td>
+<label><input type="radio" name="returnM" value="true" /> True &nbsp;</label>
+<label><input type="radio" name="returnM" value="false" checked="true" /> False</label>
+</td>
+</tr>
+<tr valign="top">
+<td><label for="geometryPrecision">Geometry Precision:</label></td>
+<td><input type="text" id="geometryPrecision" name="geometryPrecision" value="" /></td>
+</tr>
+<tr valign="top">
+<td><label for="multipatchOption">Multipatch Option:</label></td>
+<td>
+<select id="multipatchOption" name="multipatchOption">
+<option value="xyFootprint" >XY Footprint</option>
+</select>
+</td>
+</tr>
+<tr>
+<td>Return True Curves:</td>
+<td>
+<label><input type="radio" name="returnTrueCurves" value="true" /> True &nbsp;</label>
+<label><input type="radio" name="returnTrueCurves" value="false" checked="true" /> False</label>
+</td>
+</tr>
+<tr valign="top">
+<td><label for="resultOffset">Result Offset:</label></td>
+<td><input type="text" id="resultOffset" name="resultOffset" value="" /></td>
+</tr>
+<tr valign="top">
+<td><label for="resultRecordCount">Result Record Count:</label></td>
+<td><input type="text" id="resultRecordCount" name="resultRecordCount" value="" /></td>
+</tr>
+<tr>
+<td><label for="sqlFormat">SQL Format:</label></td>
+<td>
+<select id="sqlFormat" name="sqlFormat">
+<option value="none">None</option>
+<option value="standard">Standard</option>
+<option value="native">Native</option>
+</select>
+</td>
+</tr>
+<tr>
+<td><label for="f">Format:</label></td>
+<td>
+<select id="f" name="f">
+<option value="html">HTML</option>
+<option value="pjson">JSON</option>
+<option value="amf">AMF</option>
+</select>
+</td>
+</tr>
+<tr>
+<td colspan="2" align="left">
+<input type="submit" value="Query (GET)" />
+<input type="submit" onclick="this.form.method = 'post';" value="Query (POST)" />
+</td>
+</tr>
+</table>
+</form>
+</div>
+<br/><br/>
+</body>
+
+<!-- Mirrored from gis.auric.city/agserver/rest/services/HostAuric_New_4/FeatureServer/query by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 03:34:29 GMT -->
+</html>

@@ -1,0 +1,243 @@
+<html lang="en" xml:lang="en">
+<!-- Mirrored from gis.auric.city/agserver/sdk/rest/02ss/02ss0000007v000000.htm by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 03:34:29 GMT -->
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"><META name="description" content="Feature Service http:// &amp;lt;catalog-url&amp;gt;/&amp;lt;serviceName&amp;gt;/FeatureServerApply EditsCreate ReplicaQueryQuery DomainsSynchronize ReplicaUnregister ReplicaLayerReplicas10.0 Description A feature service can contain datasets (for example, tables and views) with or without a spatial column. Datasets with a spatial column are considered layers; those without a spatial column are considered tables. A feature service allows clients to query and edit feature geometry and attributes.This resource provides basic information about the feature service, including the feature layers and tables that it contains, the service description, and"><meta name="content-language" content="en"><link href="rsrc/htmlhelp.html" rel="stylesheet" type="text/css"><title>ArcGIS REST API - ArcGIS Services - 
+   Feature Service</title>
+                <script type="text/javascript" language="JavaScript">
+                    var pathL  = self.location.pathname.split ("../../../../index.html");
+                    var fname = pathL[pathL.length-1];
+                    var i = fname.lastIndexOf (".htm");
+                    if (i>=0) {
+                    fname = fname.substring (0, i)
+                    } else {
+                    //??
+                    }
+                    if (self.location.hash) {
+				    		      fname = fname + self.location.hash;
+						        }
+                    self.location.replace ("../index.html#//" + fname);
+                </script>
+                </head><!--Publication GUID: [GUID-289408B4-3EC8-4C16-9DB8-B1778E780E58]--><!--Topic GUID: [GUID-6E7CC77F-6101-481E-A65B-94983D05B8C7]--><body><div id="content"><div class="header"><h1>
+   Feature Service</h1><div id="breadcrumb"></div></div>
+    <div class="restmd" purpose="restmd"><ul purpose="restmd" class="restmd list-plain"><li><span class="restkey post-1">URL:</span><span class="restval">http://<a class="xref" rel="02ss/02ss00000029000000.htm" href="02ss/02ss00000029000000.html">&lt;catalog-url&gt;</a>/&lt;serviceName&gt;/FeatureServer<span class="restverb"></span><br></span></li><li><span class="restkey post-1">Operations:</span><span class="restval"><a class="xref" rel="02ss/02ss00000009000000.htm" href="02ss/02ss00000009000000.html">Apply Edits</a>,<a class="xref" rel="02ss/02ss00000037000000.htm" href="02ss/02ss00000037000000.html">Create Replica</a>,<a class="xref" rel="02ss/02ss00000070000000.htm" href="02ss/02ss00000070000000.html">Query</a>,<a class="xref" rel="02ss/02ss000000t7000000.htm" href="02ss/02ss000000t7000000.html">Query Domains</a>,<a class="xref" rel="02ss/02ss0000006p000000.htm" href="02ss/02ss0000006p000000.html">Synchronize Replica</a>,<a class="xref" rel="02ss/02ss0000002w000000.htm" href="02ss/02ss0000002w000000.html">Unregister Replica</a></span></li><li><span class="restkey post-1">Child Resources:</span><span class="restval"><a class="xref" rel="02ss/02ss00000071000000.htm" href="02ss/02ss00000071000000.html">Layer</a>,<a class="xref" rel="02ss/02ss00000073000000.htm" href="02ss/02ss00000073000000.html">Replicas</a></span></li><li><span class="restkey post-1">Version Introduced:</span><span class="restval">10.0</span></li></ul></div>
+    <div class="section1" id="GUID-272D4D8E-41BB-4D69-ABAD-299892FEC366" purpose="section1"><h2>Description</h2><p id="GUID-E593635D-8278-4862-9CAF-911E542DF1DC">A feature service can contain datasets (for example, tables and views) with or without a spatial column.  Datasets with a spatial column are considered layers; those without a spatial column are considered tables.  A feature service allows clients to query and edit feature geometry and attributes.</p><p id="GUID-E702D988-BEAC-4D07-A5A6-941693DF2BE7">This resource provides basic information about the feature service, including the feature layers and tables that it contains, the service description, and so on.</p><p id="GUID-1F113EE7-F430-401B-A9D7-1C22902D91BA">The <span class="usertext">capabilities</span> property returns Create, Delete, Extract, Query, Update, Sync, and Uploads capabilities. The Uploads capability is included if Create, Delete, or Update is enabled for a feature service. The Editing capability is included if Create, Delete, and Update is enabled and <span class="usertext">allowGeometryUpdates</span> is true.    The <a class="xref" rel="02ss/02ss000000m6000000.htm" href="02ss/02ss000000m6000000.html">Sync</a> capability allows editors to make local edits and periodically sync with the feature service. The Extract capability allows editors to create a local copy of data without the ability to sync with the feature service.</p><p id="GUID-6AFB4A9A-3012-4435-8C8D-5DEB8BE77459">The <span class="usertext">maxRecordCount</span>  property returns the maximum number of records that will be returned at once for a query. The <span class="usertext">Feature Service</span> resource has an input parameters option and outSR to support viewing of a feature service footprint in arcgis.com. </p><p id="GUID-394B934E-7F76-42E0-9C99-D6599CEA3AFA">   The following properties describe features that have been added to <span class="usertext">Feature Service</span> through the releases. If the property does not exist, it's equivalent to having a value of false or not set.
+    </p><ul purpose="ul" id="UL_76069224D94C4D849A9BF222D9F6C1B8"><li purpose="li" id="LI_2642D1083B6740EDA2E4F4789E7146A8"><span class="usertext">hasVersionedData</span> will be <span class="usertext">true</span> if the data is versioned.</li><li purpose="li" id="LI_41DBE536912240529B32FEA1E5701683"><span class="usertext">supportedQueryFormats</span> returns the formats in which query results can be returned.</li><li purpose="li" id="LI_96712922B8AE4D7F8024244D9EE23BEA"><span class="usertext">allowGeometryUpdates</span> returns <span class="usertext">true</span> if the geometry of the features in the layer can be edited.</li><li purpose="li" id="LI_62FD5FF6D20F4E6C89E0FAE8BCD7BB1C"><span class="usertext">zDefault</span> and <span class="usertext">enableZDefaults</span> are returned for a service configured with default z-values.</li><li purpose="li" id="LI_65DBD3FB3AEA431F92F356B2C543D213"><span class="usertext">supportsDisconnectedEditing</span> will be <span class="usertext">true</span> to indicate the support for disconnected editing. </li><li purpose="li" id="LI_32EE6ACC558D42319FF2128DE13B8539"><span class="usertext">syncEnabled</span> will be <span class="usertext">true</span> to indicate the support for sync. </li><li purpose="li" id="LI_31AF347A3D0B476F9114D774FEAE498C"><span class="usertext">supportsRegisterExistingData</span> will be <span class="usertext">true</span> if the service supports registration of existing data for <span class="usertext">createReplica</span>. Only present if <span class="usertext">syncEnabled</span> is <span class="usertext">true</span>.</li><li purpose="li" id="LI_0C223D4802E743F3AE80E4089DB5CF05"><span class="usertext">supportsSyncDirectionControl</span> will be <span class="usertext">true</span> if the service will allow control of data sync direction. Only present if <span class="usertext">syncEnabled</span> is <span class="usertext">true</span>. </li><li purpose="li" id="LI_799D474891114E5DBE05FBC889D86CCC"><span class="usertext">supportsPerLayerSync</span> will be <span class="usertext">true</span> if the layers can be synchronized independently, and the service will accept a value of  <span class="usertext">perLayer</span> for the sync model during the <span class="usertext">createReplica</span> operation. If <span class="usertext">supportsPerLayerSync</span> is <span class="usertext">false</span>, then the only sync model supported is <span class="usertext">perReplica</span>.  Only present if <span class="usertext">syncEnabled</span> is <span class="usertext">true</span>.</li><li purpose="li" id="LI_DDC6900A383C48C898162A2B8DF209D9"><span class="usertext">supportsPerReplicaSync</span> will be <span class="usertext">true</span> if the layers can be synchronized together, and the service will accept a value of <span class="usertext">perReplica</span> for the sync model during the <span class="usertext">createReplica</span> operation.  If <span class="usertext">supportsPerReplicaSync</span> is <span class="usertext">false</span>, then the only sync model supported is <span class="usertext">perLayer</span>. Only present if <span class="usertext">syncEnabled</span> is <span class="usertext">true</span>.</li><li purpose="li" id="LI_887F650011B846BDB1E9682522B13E8C"><span class="usertext">supportsSyncModelNone</span> will be <span class="usertext">true</span> if the service supports extracting data without the creation of a replica. If <span class="usertext">true</span>,  the service will accept setting  <span class="usertext">syncModel=none</span> for the sync model during the <span class="usertext">createReplica</span> operation.  </li><li purpose="li" id="LI_63575EE8E968425F8E5FA9D117472FDC"><span class="usertext">supportsAttachmentsSyncDirection</span> will be <span class="usertext">true</span> if the service supports options to define how attachments will be synced. If <span class="usertext">true</span>,  the service will accept setting  the <span class="usertext">attachmentsSyncDirection</span> parameter during the <span class="usertext">createReplica</span> operation.  </li><li purpose="li" id="LI_969EF46A31CA45D495D69D93EAF0882F"><span class="usertext">supportsRollbackOnFailure</span> will be  <span class="usertext">true</span> if the <span class="usertext">rollbackOnFailure</span> parameter can be set to <span class="usertext">true</span> or <span class="usertext">false</span> when running the <a class="xref" rel="02ss/02ss0000006p000000.htm" href="02ss/02ss0000006p000000.html">synchronizeReplica</a> operation. <span class="usertext">supportsRollbackOnFailure</span> will be <span class="usertext">false</span> if the <span class="usertext">synchronizeReplica</span> operation does not support the parameter.</li><li purpose="li" id="LI_D2E8976185884335A5722635439DBA15"><span class="usertext">supportsAsync</span> will be <span class="usertext">true</span> if the service can execute sync operations <a class="xref" rel="02ss/02ss00000022000000.htm" href="02ss/02ss00000022000000.html">asynchronously</a>. Only present if <span class="usertext">syncEnabled</span> is <span class="usertext">true</span>.</li><li purpose="li" id="LI_2BD91BF6062F4704B01AD5598AC36D60"><span class="usertext"> supportsApplyEditsWithGlobalIds</span> in the root resource will be <span class="usertext">true</span>  if all layers in the service
+have <span class="usertext">supportsApplyEditsWithGlobalIds</span>
+as <span class="usertext">true</span>. See  <a class="xref" rel="02ss/02ss00000071000000.htm" href="02ss/02ss00000071000000.html">Feature Service Layer Properties</a> for more details. </li></ul></div><div class="section1" id="ESRI_SECTION1_0BFA9B9F46DD42318CBEDEC9A7D736FC" purpose="section1"><h2>New at 10.6</h2><ul purpose="ul" id="UL_3D2FC5F71E3E49C6AD40CB8BFAB1BEF1"><li purpose="li" id="LI_FD367D8CAD1A4B20B8043366290D5789">New layer types for <a target="_blank" class="xref" rel="http://pro.arcgis.com/en/pro-app/help/data/utility-network/what-is-a-utility-network-.htm" href="http://pro.arcgis.com/en/pro-app/help/data/utility-network/what-is-a-utility-network-.htm">Utility Networks</a> and <a target="_blank" class="xref" rel="http://pro.arcgis.com/en/pro-app/help/data/annotation/managing-annotation-feature-classes.htm" href="http://pro.arcgis.com/en/pro-app/help/data/annotation/managing-annotation-feature-classes.htm">annotation layers</a> can be publish from ArcGIS Pro starting at version 2.1.</li>  <li purpose="li" id="LI_8795ACE50297468199E904CFB7E37B37">Feature services can be published from enterprise geodatabase data that has <a target="_blank" class="xref" rel="http://pro.arcgis.com/en/pro-app/help/data/geodatabases/overview/an-overview-of-attribute-rules.htm" href="http://pro.arcgis.com/en/pro-app/help/data/geodatabases/overview/an-overview-of-attribute-rules.htm">attribute rules</a>.   </li><li purpose="li" id="LI_91CDA4E80A8F49A6A5043A026E51DFD9">Feature services can be published from enterprise geodatabase data that has been configured to use <a target="_blank" class="xref" rel="http://pro.arcgis.com/en/pro-app/help/data/geodatabases/overview/publish-branch-versioned-data.htm" href="http://pro.arcgis.com/en/pro-app/help/data/geodatabases/overview/publish-branch-versioned-data.htm">branch versioning</a>. If the service is published form a branch versioned workspace, the gdbVersion parameter on various operations can take the name of a branch version. </li><li purpose="li" id="LI_14AB3A92E66C40ECA576BA94A4ED85D4">Additional spatial reference properties describing the published maps VCS, tolerance, resolution properties and height model info are now provided. See JSON response example below.</li></ul><div class="notes" id="GUID-5947CBE0-DEB5-436F-83DC-64AB6FEA3A3B"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody"><p id="GUID-42D26A3B-2DF2-4618-973A-4DC6339C8AAD">When querying, z values are returned in the sourceSpatialReference vertical coordinate system regardless of what is specified as the output spatial reference. It is also expected that z values are provided in the sourceSpatialReference source vertical coordinate system when editing.</p></div></div><div class="notes" id="GUID-2B36DFF6-405D-4527-B2FC-D2695DDA2326"><div class="note"><img class="note_img" src="rsrc/note.html" alt="Note" title="Note"><span>Note:</span></div><div class="tipbody"><p id="GUID-531BABA8-8483-4B08-A96B-080A8FFCB532">The features listed above are available for non-hosted services published from
+ArcGIS Pro 2.1 or later but not necessarily for services published from ArcMap
+or other processes.
+ Services published from ArcGIS Pro 2.1 have the following layer and service property:  <span class="usertext">"cimVersion": "2.1.0"</span></p></div></div></div><div class="section1" id="ESRI_SECTION1_28611168A45F4F3A9BFBA055C7C15DFC" purpose="section1"><h2>New at 10.5</h2><ul purpose="ul" id="UL_8F764124D9CC43419D26ADD2ADE93D00"><li purpose="li" id="LI_077B7F01D0F6478AAC39177A955850DA">The <span class="usertext">Layers</span> resource now returns full information about each layer without having to go to the individual layer resources. For example, <span class="usertext">http://services.myserver.com/arcgis/rest/services/USA/FeatureServer/layers?f=pjson</span> returns JSON for all of the layers in the feature service.</li><li purpose="li" id="LI_64A5B30393484241B6F4773E2E1C83BB">If <span class="usertext">allowTrueCurvesUpdates</span> is <span class="usertext">true</span> and <span class="usertext">onlyAllowTrueCurveUpdatesByTrueCurveClients</span> is <span class="usertext">true</span>, features with true curves can by updated by true curve capable clients (e.g. ArcGIS Pro). When edits are applied, the true curve client must set the <span class="usertext">trueCurveClient</span> parameter to <span class="usertext">true</span>.</li><li purpose="li" id="LI_EC297610E754478FAD76579278833102"><p id="GUID-BF752B19-7F47-47B8-A664-7668503E7317">If <span class="usertext">allowTrueCurvesUpdates</span> is <span class="usertext">true</span> and <span class="usertext">onlyAllowTrueCurveUpdatesByTrueCurveClients</span> is <span class="usertext">false</span>, features with true curves can be updated by any client. This includes cases where the client provides a densified feature to update the true curve feature.</p>
+</li><li purpose="li" id="LI_96ABB66D55674223BE52A7819819237F">If <span class="usertext">allowTrueCurvesUpdates</span> is <span class="usertext">false</span>, features with true curves cannot be updated.</li><li purpose="li" id="LI_2420C191B47E4D01A54AFF56E623D71D"><span class="usertext">supportsTrueCurve</span> will be <span class="usertext">true</span> if the service supports the option to <span class="usertext">returnTrueCurves</span> in the query response.</li><li purpose="li" id="LI_E4E5F85D60424807BE3B37692F36FB7E"><span class="usertext">supportsQueryDomains</span> will be <tt>true</tt> if the service supports the <a class="xref" rel="02ss/02ss000000t7000000.htm" href="02ss/02ss000000t7000000.html">queryDomains</a> operation.</li><li purpose="li" id="LI_A8BE9AF673024045ABF00FC74785003E"><span class="usertext">allowUpdateWithoutMValues</span> will be <tt>true</tt> to allow  NaN to be inserted for m-values when m-values are not supplied with the geometry of m-aware data. If <span class="usertext">allowUpdateWithoutMValues</span> is <tt>false</tt> m-values must be supplied in order to edit the geometry of m-aware data.</li></ul></div><div class="section1" id="GUID-5789EABB-13E1-416D-BF0C-3EF998163FBC" purpose="section1"><h2>
+        Request parameters
+      </h2><p id="GUID-5DBE64DA-9AF2-4026-887C-7CCBFD243DF2">
+        <div class="block_table" id="GUID-4F0D8146-9E8E-4B1D-8567-2A5D485A6626" purpose="block_table"><span class="table_title"></span><table class="table"><colgroup width="200pt"></colgroup><colgroup width="*"></colgroup><tr purpose="thead"><th class="th" purpose="th" rowspan="1" colspan="1">
+                  <p id="GUID-939E7240-CE69-4302-9E22-FAAAC0CEEE7B">Parameter</p>
+                </th><th class="th" purpose="th" rowspan="1" colspan="1">
+                  <p id="GUID-38D3A25F-7383-4A61-8B6E-C3EE0186F32F">Details</p>
+                </th></tr><tbody>
+              <tr>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <span class="usertext">f</span>
+                </td>
+                <td purpose="entry" rowspan="1" colspan="1">
+                  <p id="GUID-61E0B8CB-0D9E-43B6-ABBA-4BFEBB7740F0">Description: The response format. The default response format is <span class="usertext">html</span>.</p><p id="GUID-726DDFEB-9F87-426C-B187-C2249143C754">Values: <span class="usertext">html | json</span></p>
+                </td>
+              </tr><tr><td purpose="entry" rowspan="1" colspan="1"><span class="usertext">option</span>
+                </td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-E3FD020D-EAE1-4AC2-9419-EEE8A1BF2161">This parameter was added at 10.1.</p><p id="GUID-1053332E-323E-485B-8903-3AD9158DBE4D">Description: If <span class="usertext">option</span> is <span class="usertext">footprints</span>, the footprint of the feature service is returned as a feature collection. This feature collection can be viewed in the ArcGIS.com <span purpose="ph" varid="AGMapViewer" translate="no">Map Viewer</span>. This is supported when <span class="usertext">f=json</span> only.</p><p id="GUID-CD759AD1-3B4E-4E65-842D-B58443EBA087">Value: <span class="usertext">footprints</span></p>
+                </td></tr><tr><td purpose="entry" rowspan="1" colspan="1"><span class="usertext">outSR</span>
+                </td><td purpose="entry" rowspan="1" colspan="1"><p id="GUID-D250FF28-DF66-4F28-84F2-3346AE00BF50">This parameter was added at 10.1.</p><p id="GUID-DB1CDF7A-421D-419D-BD70-DAADAC99A004">Description: The spatial reference of the geometry returned in footprints. This parameter is supported only when <span class="usertext">option=footprints</span> is specified. </p><p id="GUID-AC83ED06-8738-4B1C-A955-AD443C2C4842">The spatial reference should be specified as a well-known ID. </p><p id="GUID-D592AAA1-1326-471D-9C71-F4F99643C4BD">If <span class="usertext">outSR</span> is not specified, the geometry is returned in <span class="usertext">GCS_WGS_1984</span>.</p>
+                </td></tr>
+            </tbody><caption class="table_desc"></caption></table></div>
+      </p></div>
+    
+    <div class="section1" id="GUID-173F40CB-5EBE-4450-B7C8-AC104A8B18F7" purpose="section1"><h2>Example usage</h2><p id="GUID-B0140BCC-C917-425C-BAD5-001AECD65407">URL for the USA feature service.
+      </p><p id="GUID-71526ADF-A838-40F5-9055-DF6E0C01F4D6"><span class="usertext">http://services.myserver.com/ERmEceOGq5cHrItq/ArcGIS/rest/services/USA/FeatureServer?f=pjson</span>
+</p></div>
+    <div class="section1" id="GUID-F3D1D1BA-3614-47D0-A92D-DEFD14725B8E" purpose="section1"><h2>JSON response syntax</h2><p id="GUID-FCADE7C2-B19D-428D-BE04-090597CFB902">
+        <div class="codeblock" purpose="codeblock">
+          <div class="codeblockdesc" purpose="codeblockdesc">
+            
+          </div>
+          <div class="highlight"><pre><code><span class="p">{</span>
+  <span class="s2">&quot;currentVersion&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">currentVersion</span><span class="o">&gt;</span><span class="p">,</span> 
+  <span class="s2">&quot;serviceDescription&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;serviceDescription&gt;&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;hasVersionedData&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span> 
+  <span class="s2">&quot;supportsDisconnectedEditing&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span> 
+  <span class="s2">&quot;hasStaticData&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span> 
+  <span class="s2">&quot;maxRecordCount&quot;</span> <span class="o">:</span> <span class="s2">&quot;&lt;maxRecordCount&gt;&quot;</span><span class="p">,</span> <span class="p">,</span> 
+  <span class="s2">&quot;supportedQueryFormats&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;supportedQueryFormats&gt;&quot;</span><span class="p">,</span> 
+  <span class="s2">&quot;capabilities&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;capabilities&gt;&quot;</span><span class="p">,</span> 
+  <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;description&gt;&quot;</span><span class="p">,</span> 
+  <span class="s2">&quot;copyrightText&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;copyrightText&gt;&quot;</span><span class="p">,</span> 
+  <span class="s2">&quot;spatialReference&quot;</span><span class="o">:</span> <span class="p">{</span><span class="o">&lt;</span><span class="nx">spatialReference</span><span class="o">&gt;</span><span class="p">},</span> 
+  <span class="s2">&quot;initialExtent&quot;</span><span class="o">:</span> <span class="p">{</span><span class="o">&lt;</span><span class="nx">envelope</span><span class="o">&gt;</span><span class="p">},</span> 
+  <span class="s2">&quot;fullExtent&quot;</span><span class="o">:</span> <span class="p">{</span><span class="o">&lt;</span><span class="nx">envelope</span><span class="o">&gt;</span><span class="p">},</span> 
+  <span class="s2">&quot;allowGeometryUpdates&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span> 
+  <span class="s2">&quot;units&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;units&gt;&quot;</span><span class="p">,</span> 
+  <span class="s2">&quot;syncEnabled&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span> 
+  <span class="s2">&quot;syncCapabilities&quot;</span> <span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;supportsASync&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;supportsRegisteringExistingData&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;supportsSyncDirectionControl&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;supportsPerLayerSync&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;supportsPerReplicaSync&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;supportsRollbackOnFailure&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;editorTrackingInfo&quot;</span> <span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;enableEditorTracking&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;enableOwnershipAccessControl&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;allowOthersToUpdate&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;allowOthersToDelete&quot;</span> <span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span>
+  <span class="p">},</span> 
+  <span class="s2">&quot;documentInfo&quot;</span><span class="o">:</span> <span class="p">{</span> 
+   <span class="s2">&quot;&lt;key1&gt;&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;value1&gt;&quot;</span><span class="p">,</span>
+   <span class="s2">&quot;&lt;key2&gt;&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;value2&gt;&quot;</span>
+   <span class="p">},</span>
+  <span class="c1">//the feature layers published by this service</span>
+  <span class="s2">&quot;layers&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">layerId1</span><span class="o">&gt;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;layerName1&gt;&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">layerId2</span><span class="o">&gt;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;layerName2&gt;&quot;</span> <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="c1">//the non-spatial tables published by this service</span>
+  <span class="s2">&quot;tables&quot;</span><span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">tableId1</span><span class="o">&gt;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;tableName1&gt;&quot;</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">tableId2</span><span class="o">&gt;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;tableName2&gt;&quot;</span> <span class="p">}</span>
+  <span class="p">]</span>
+  <span class="s2">&quot;enableZDefaults&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="kc">true</span> <span class="o">|</span> <span class="kc">false</span><span class="o">&gt;</span><span class="p">,</span>
+  <span class="s2">&quot;zDefault&quot;</span><span class="o">:</span> <span class="o">&lt;</span><span class="nx">zDefaultValue</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="p">}</span>
+</code></pre></div>
+
+        </div>
+      </p></div>
+    <div class="section1" id="GUID-1CCD6762-4EAC-4DE9-909F-1CCAF5318249" purpose="section1"><h2>JSON response example</h2><p id="GUID-F211E482-048B-4606-8D9B-BABAAF291866">
+        <div class="codeblock" purpose="codeblock">
+          <div class="codeblockdesc" purpose="codeblockdesc">
+            
+          </div>
+          <div class="highlight"><pre><code><span class="p">{</span>
+  <span class="s2">&quot;currentVersion&quot;</span> <span class="o">:</span> <span class="mf">10.21</span><span class="p">,</span> 
+  <span class="s2">&quot;serviceDescription&quot;</span> <span class="o">:</span> <span class="s2">&quot;Birds&quot;</span><span class="p">,</span> 
+  <span class="s2">&quot;hasVersionedData&quot;</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span> 
+  <span class="s2">&quot;supportsDisconnectedEditing&quot;</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span> 
+  <span class="s2">&quot;syncEnabled&quot;</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span> 
+  <span class="s2">&quot;hasStaticData&quot;</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span> 
+  <span class="s2">&quot;maxRecordCount&quot;</span> <span class="o">:</span> <span class="mi">1000</span><span class="p">,</span> 
+  <span class="s2">&quot;supportedQueryFormats&quot;</span> <span class="o">:</span> <span class="s2">&quot;JSON&quot;</span><span class="p">,</span> 
+  <span class="s2">&quot;capabilities&quot;</span> <span class="o">:</span> <span class="s2">&quot;Query,Create,Delete,Update,Uploads,Editing&quot;</span><span class="p">,</span> 
+  <span class="s2">&quot;description&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> 
+  <span class="s2">&quot;copyrightText&quot;</span> <span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> 
+  <span class="s2">&quot;spatialReference&quot;</span> <span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;wkid&quot;</span> <span class="o">:</span> <span class="mi">4326</span><span class="p">,</span> 
+    <span class="s2">&quot;latestWkid&quot;</span> <span class="o">:</span> <span class="mi">4326</span>
+  <span class="p">},</span> 
+  <span class="s2">&quot;initialExtent&quot;</span> <span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;xmin&quot;</span> <span class="o">:</span> <span class="o">-</span><span class="mf">118.016756138237</span><span class="p">,</span> 
+    <span class="s2">&quot;ymin&quot;</span> <span class="o">:</span> <span class="mf">32.8933824408207</span><span class="p">,</span> 
+    <span class="s2">&quot;xmax&quot;</span> <span class="o">:</span> <span class="o">-</span><span class="mf">116.532738278622</span><span class="p">,</span> 
+    <span class="s2">&quot;ymax&quot;</span> <span class="o">:</span> <span class="mf">34.3261469363675</span><span class="p">,</span> 
+    <span class="s2">&quot;spatialReference&quot;</span> <span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;wkid&quot;</span> <span class="o">:</span> <span class="mi">4326</span><span class="p">,</span> 
+      <span class="s2">&quot;latestWkid&quot;</span> <span class="o">:</span> <span class="mi">4326</span>
+    <span class="p">}</span>
+  <span class="p">},</span> 
+  <span class="s2">&quot;fullExtent&quot;</span> <span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;xmin&quot;</span> <span class="o">:</span> <span class="o">-</span><span class="mf">117.855689264791</span><span class="p">,</span> 
+    <span class="s2">&quot;ymin&quot;</span> <span class="o">:</span> <span class="mf">32.5702577626442</span><span class="p">,</span> 
+    <span class="s2">&quot;xmax&quot;</span> <span class="o">:</span> <span class="o">-</span><span class="mf">116.87086222794</span><span class="p">,</span> 
+    <span class="s2">&quot;ymax&quot;</span> <span class="o">:</span> <span class="mf">34.1460567673275</span><span class="p">,</span> 
+    <span class="s2">&quot;spatialReference&quot;</span> <span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;wkid&quot;</span> <span class="o">:</span> <span class="mi">4326</span><span class="p">,</span> 
+      <span class="s2">&quot;latestWkid&quot;</span> <span class="o">:</span> <span class="mi">4326</span>
+    <span class="p">}</span>
+  <span class="p">},</span> 
+  <span class="s2">&quot;allowGeometryUpdates&quot;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span> 
+  <span class="s2">&quot;units&quot;</span> <span class="o">:</span> <span class="s2">&quot;esriDecimalDegrees&quot;</span><span class="p">,</span> 
+  <span class="s2">&quot;syncEnabled&quot;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span> 
+  <span class="s2">&quot;syncCapabilities&quot;</span> <span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;supportsASync&quot;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span> 
+    <span class="s2">&quot;supportsRegisteringExistingData&quot;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span> 
+    <span class="s2">&quot;supportsSyncDirectionControl&quot;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span> 
+    <span class="s2">&quot;supportsPerLayerSync&quot;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;supportsPerReplicaSync&quot;</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="s2">&quot;supportsRollbackOnFailure&quot;</span> <span class="o">:</span> <span class="kc">false</span>
+  <span class="p">},</span> 
+  <span class="s2">&quot;editorTrackingInfo&quot;</span> <span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;enableEditorTracking&quot;</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span> 
+    <span class="s2">&quot;enableOwnershipAccessControl&quot;</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span> 
+    <span class="s2">&quot;allowOthersToUpdate&quot;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span> 
+    <span class="s2">&quot;allowOthersToDelete&quot;</span> <span class="o">:</span> <span class="kc">false</span>
+  <span class="p">},</span> 
+  <span class="s2">&quot;layers&quot;</span> <span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span> 
+      <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Sitings&quot;</span><span class="p">,</span> 
+      <span class="s2">&quot;parentLayerId&quot;</span> <span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> 
+      <span class="s2">&quot;defaultVisibility&quot;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span> 
+      <span class="s2">&quot;subLayerIds&quot;</span> <span class="o">:</span> <span class="kc">null</span><span class="p">,</span> 
+      <span class="s2">&quot;minScale&quot;</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span> 
+      <span class="s2">&quot;maxScale&quot;</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+   			<span class="s2">&quot;geometryType&quot;</span><span class="o">:</span> <span class="s2">&quot;esriGeometryPoint&quot;</span>
+    <span class="p">},</span> 
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="mi">1</span><span class="p">,</span> 
+      <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;NestingGrounds&quot;</span><span class="p">,</span> 
+      <span class="s2">&quot;parentLayerId&quot;</span> <span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> 
+      <span class="s2">&quot;defaultVisibility&quot;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span> 
+      <span class="s2">&quot;subLayerIds&quot;</span> <span class="o">:</span> <span class="kc">null</span><span class="p">,</span> 
+      <span class="s2">&quot;minScale&quot;</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span> 
+      <span class="s2">&quot;maxScale&quot;</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+   			<span class="s2">&quot;geometryType&quot;</span><span class="o">:</span> <span class="s2">&quot;esriGeometryPolygon&quot;</span>
+    <span class="p">},</span> 
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="mi">2</span><span class="p">,</span> 
+      <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;LandCover&quot;</span><span class="p">,</span> 
+      <span class="s2">&quot;parentLayerId&quot;</span> <span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> 
+      <span class="s2">&quot;defaultVisibility&quot;</span> <span class="o">:</span> <span class="kc">true</span><span class="p">,</span> 
+      <span class="s2">&quot;subLayerIds&quot;</span> <span class="o">:</span> <span class="kc">null</span><span class="p">,</span> 
+      <span class="s2">&quot;minScale&quot;</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span> 
+      <span class="s2">&quot;maxScale&quot;</span> <span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+   			<span class="s2">&quot;geometryType&quot;</span><span class="o">:</span> <span class="s2">&quot;esriGeometryPolygon&quot;</span>
+    <span class="p">}</span>
+  <span class="p">],</span> 
+  <span class="s2">&quot;tables&quot;</span> <span class="o">:</span> <span class="p">[]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+        </div>
+      </p></div>
+  
+    
+    <div class="section1" id="ESRI_SECTION1_2D888FA1F58042D59A8279B2EF50753A" purpose="section1"><h2>JSON response example (Spatial reference, VCS, tolerance, resolution properties, height model info)</h2><p id="GUID-B6C2A24C-1E57-4CCF-AC98-3B916D5C9364">
+        <div class="codeblock" purpose="codeblock">
+          <div class="codeblockdesc" purpose="codeblockdesc">
+            
+          </div>
+          <div class="highlight"><pre><code><span class="s2">&quot;spatialReference&quot;</span><span class="o">:</span> <span class="p">{</span>
+  <span class="s2">&quot;wkid&quot;</span><span class="o">:</span> <span class="mi">102100</span><span class="p">,</span>
+  <span class="s2">&quot;latestWkid&quot;</span><span class="o">:</span> <span class="mi">3857</span><span class="p">,</span>
+  <span class="s2">&quot;vcsWkid&quot;</span><span class="o">:</span> <span class="mi">115700</span><span class="p">,</span>
+  <span class="s2">&quot;latestVcsWkid&quot;</span><span class="o">:</span> <span class="mi">115700</span><span class="p">,</span>
+  <span class="s2">&quot;xyTolerance&quot;</span><span class="o">:</span> <span class="mf">0.001</span><span class="p">,</span>
+  <span class="s2">&quot;zTolerance&quot;</span><span class="o">:</span> <span class="mf">0.001</span><span class="p">,</span>
+  <span class="s2">&quot;mTolerance&quot;</span><span class="o">:</span> <span class="mf">0.001</span><span class="p">,</span>
+  <span class="s2">&quot;falseX&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mi">20037700</span><span class="p">,</span>
+  <span class="s2">&quot;falseY&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mi">30241100</span><span class="p">,</span>
+  <span class="s2">&quot;xyUnits&quot;</span><span class="o">:</span> <span class="mf">1.4892314192838538E8</span><span class="p">,</span>
+  <span class="s2">&quot;falseZ&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mi">100000</span><span class="p">,</span>
+  <span class="s2">&quot;zUnits&quot;</span><span class="o">:</span> <span class="mi">10000</span><span class="p">,</span>
+  <span class="s2">&quot;falseM&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mi">100000</span><span class="p">,</span>
+  <span class="s2">&quot;mUnits&quot;</span><span class="o">:</span> <span class="mi">10000</span>
+ <span class="p">},</span> 
+ <span class="s2">&quot;heightModelInfo&quot;</span><span class="o">:</span> <span class="p">{</span>
+  <span class="s2">&quot;heightModel&quot;</span><span class="o">:</span> <span class="s2">&quot;ellipsoidal&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;vertCRS&quot;</span><span class="o">:</span> <span class="s2">&quot;WGS_1984&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;heightUnit&quot;</span><span class="o">:</span> <span class="s2">&quot;meter&quot;</span>
+ <span class="p">},</span>
+</code></pre></div>
+
+        </div>
+      </p></div><div class="footer"> Copyright © 1995-2017 Esri. All rights reserved. </div></div></body>
+<!-- Mirrored from gis.auric.city/agserver/sdk/rest/02ss/02ss0000007v000000.htm by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 03:34:29 GMT -->
+</html>

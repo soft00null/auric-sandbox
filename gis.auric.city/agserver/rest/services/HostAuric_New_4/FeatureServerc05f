@@ -1,0 +1,67 @@
+{
+ "currentVersion": 10.6,
+ "serviceDescription": "sdf",
+ "hasVersionedData": false,
+ "supportsDisconnectedEditing": false,
+ "syncEnabled": false,
+ "supportedQueryFormats": "JSON, AMF",
+ "maxRecordCount": 1000,
+ "capabilities": "Delete,Query,Update,Uploads,Editing",
+ "description": "",
+ "copyrightText": "",
+ "spatialReference": {
+  "wkid": 4326,
+  "latestWkid": 4326
+ },
+ "initialExtent": {
+  "xmin": 75.50286133699119,
+  "ymin": 19.874662297446278,
+  "xmax": 75.55710365511477,
+  "ymax": 19.901809509494683,
+  "spatialReference": {
+   "wkid": 4326,
+   "latestWkid": 4326
+  }
+ },
+ "fullExtent": {
+  "xmin": 75.5053268969059,
+  "ymin": 19.86879539489746,
+  "xmax": 75.55463809520006,
+  "ymax": 19.89183619618416,
+  "spatialReference": {
+   "wkid": 4326,
+   "latestWkid": 4326
+  }
+ },
+ "allowGeometryUpdates": true,
+ "allowTrueCurvesUpdates": false,
+ "onlyAllowTrueCurveUpdatesByTrueCurveClients": false,
+ "supportsApplyEditsWithGlobalIds": false,
+ "supportsTrueCurve": true,
+ "units": "esriDecimalDegrees",
+ "documentInfo": {
+  "Title": "",
+  "Author": "",
+  "Comments": "sdf",
+  "Subject": "df",
+  "Category": "",
+  "Keywords": "sdf"
+ },
+ "supportsQueryDomains": true,
+ "layers": [
+  {
+   "id": 0,
+   "name": "auric_stg.public.fire_fight_holes",
+   "parentLayerId": -1,
+   "defaultVisibility": true,
+   "subLayerIds": null,
+   "minScale": 0,
+   "maxScale": 0,
+   "type": "Feature Layer",
+   "geometryType": "esriGeometryPoint"
+  }
+ ],
+ "tables": [],
+ "enableZDefaults": false,
+ "allowUpdateWithoutMValues": false
+}

@@ -1,0 +1,33 @@
+{
+ "culture": "en-US",
+ "name": "Shendra_plot_V4",
+ "guid": "DDEFFE24-4671-4E6C-ABE5-8FE9C7222386",
+ "catalogPath": "",
+ "snippet": "",
+ "description": "",
+ "summary": "",
+ "title": "Shendra_plot_V4",
+ "tags": [],
+ "type": "Map Service",
+ "typeKeywords": [
+  "Data",
+  "Service",
+  "Map Service",
+  "ArcGIS Server"
+ ],
+ "thumbnail": "thumbnail/thumbnail.png",
+ "url": "",
+ "extent": [
+  [
+   75.504135993,
+   19.8677642550001
+  ],
+  [
+   75.5548407860001,
+   19.8945315670001
+  ]
+ ],
+ "spatialReference": "GCS_WGS_1984",
+ "accessInformation": "",
+ "licenseInfo": ""
+}

@@ -1,0 +1,76 @@
+{
+ "currentVersion": 10.6,
+ "serviceDescription": "8",
+ "mapName": "Layers",
+ "description": "",
+ "copyrightText": "zxc",
+ "supportsDynamicLayers": true,
+ "layers": [
+  {
+   "id": 0,
+   "name": "auric_stg.public.shendra_alloted_plot_v3",
+   "parentLayerId": -1,
+   "defaultVisibility": true,
+   "subLayerIds": null,
+   "minScale": 0,
+   "maxScale": 0
+  },
+  {
+   "id": 1,
+   "name": "auric_stg.public.shendra_building_p3",
+   "parentLayerId": -1,
+   "defaultVisibility": true,
+   "subLayerIds": null,
+   "minScale": 0,
+   "maxScale": 0
+  }
+ ],
+ "tables": [],
+ "spatialReference": {
+  "wkid": 4326,
+  "latestWkid": 4326
+ },
+ "singleFusedMapCache": false,
+ "initialExtent": {
+  "xmin": 75.50323315234968,
+  "ymin": 19.883051221307365,
+  "xmax": 75.55277353049104,
+  "ymax": 19.893378082072662,
+  "spatialReference": {
+   "wkid": 4326,
+   "latestWkid": 4326
+  }
+ },
+ "fullExtent": {
+  "xmin": 75.50413599610329,
+  "ymin": 19.86776429414749,
+  "xmax": 75.55484079569578,
+  "ymax": 19.894531600177288,
+  "spatialReference": {
+   "wkid": 4326,
+   "latestWkid": 4326
+  }
+ },
+ "minScale": 0,
+ "maxScale": 0,
+ "units": "esriDecimalDegrees",
+ "supportedImageFormatTypes": "PNG32,PNG24,PNG,JPG,DIB,TIFF,EMF,PS,PDF,GIF,SVG,SVGZ,BMP",
+ "documentInfo": {
+  "Title": "",
+  "Author": "",
+  "Comments": "8",
+  "Subject": "zxc",
+  "Category": "",
+  "AntialiasingMode": "None",
+  "TextAntialiasingMode": "Force",
+  "Keywords": "zxc"
+ },
+ "capabilities": "Map,Query,Data",
+ "supportedQueryFormats": "JSON, AMF, geoJSON",
+ "exportTilesAllowed": false,
+ "supportsDatumTransformation": true,
+ "maxRecordCount": 1000,
+ "maxImageHeight": 4096,
+ "maxImageWidth": 4096,
+ "supportedExtensions": "FeatureServer, KmlServer"
+}

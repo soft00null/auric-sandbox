@@ -1,0 +1,10 @@
+{
+ "currentVersion": 10.6,
+ "serviceDescription": "df",
+ "tasks": [
+  "PrintPopups"
+ ],
+ "executionType": "esriExecutionTypeAsynchronous",
+ "resultMapServerName": "",
+ "maximumRecords": 1000
+}

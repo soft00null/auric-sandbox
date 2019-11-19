@@ -1,0 +1,87 @@
+<html lang="en">
+
+<!-- Mirrored from gis.auric.city/agserver/rest/services/Auric_Staging/bidkin_phase_boundary_text/MapServer/generateKml by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 03:34:29 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<title>Generate KML (Auric_Staging/bidkin_phase_boundary_text)</title>
+<link href="../../../../static/main.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<table width="100%" class="userTable">
+<tr>
+<td class="titlecell">
+ArcGIS REST Services Directory
+</td>
+<td align="right">
+<a href="../../../../../login/index51c3.html?returnUrl=https://gis.auric.city/agserver/rest/services">Login</a>
+</td>
+</tr>
+</table>
+<table width="100%" class="navTable">
+<tr valign="top">
+<td class="breadcrumbs">
+<a href="../../../../services.html">Home</a>
+&gt; <a href="../../../../services.html">services</a>
+&gt; <a href="../../../Auric_Staging.html">Auric_Staging</a>
+&gt; <a href="../MapServer.html">bidkin_phase_boundary_text (MapServer)</a>
+&gt; <a href="generateKml.html"><i>generateKml</i></a>
+</td>
+<td align="right">
+<a href="../../../../../sdk/rest/02ss/02ss00000057000000.html" target="_blank">Help</a> | <a href="generateKml45be.html?f=help" target="_blank">API Reference</a>
+</td>
+</tr>
+</table>
+<h2>Generate KML (Auric_Staging/bidkin_phase_boundary_text)</h2>
+<div class="rbody">
+<script type="text/javascript">
+function setLayers(frm) {
+  var layerIds = "";
+  var layerChkPrefix = "l:";
+  for(var i=0; i<frm.elements.length; i++) {
+    var element = frm.elements[i];
+    if(element.name.search("^" + layerChkPrefix + ".") >= 0 && element.checked) {
+      layerIds += element.name.substring(layerChkPrefix.length) + ",";
+    }
+  }
+  layerIds = layerIds.length > 0 ? layerIds.substring(0, layerIds.length - 1) : "-1";
+  frm.elements["layers"].value = layerIds;
+}
+</script>
+<form onsubmit="setLayers(this);">
+<table class = "formTable">
+<tr valign="top">
+<td><label for="docName">Document Name:</label></td>
+<td><input type="text" id="docName" name="docName" value="" /></td>
+</tr>
+<tr valign="top">
+<td>Layers:</td>
+<td>
+<ul>
+<input type="checkbox" name="l:0" /> bidkin_stg.public.phase_boundary(0) <br/>
+</ul>
+<input type="hidden" name="layers" value="" />
+</td>
+</tr>
+<tr valign="top">
+<td>Layer Options:</td>
+<td>
+<label><input type="radio" name="layerOptions" value="composite" checked="true" />
+All layers as a single composite image (Layers can't be turned on and off in client) </label><br/>
+<label><input type="radio" name="layerOptions" value="seperateImage" />
+Each layer as a separate image </label><br/>
+<label><input type="radio" name="layerOptions" value="nonComposite" />
+Vector layers as vectors and raster layers as images </label><br/>
+</td>
+</tr>
+<tr valign="top">
+<td colspan="2">
+<input type="submit" value="Generate KML" />
+</td> </tr>
+</table>
+</form>
+</div>
+<br/><br/>
+</body>
+
+<!-- Mirrored from gis.auric.city/agserver/rest/services/Auric_Staging/bidkin_phase_boundary_text/MapServer/generateKml by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 03:34:29 GMT -->
+</html>

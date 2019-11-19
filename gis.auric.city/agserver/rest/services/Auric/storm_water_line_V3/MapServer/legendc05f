@@ -1,0 +1,21 @@
+{
+ "layers": [
+  {
+   "layerId": 0,
+   "layerName": "auric.postgres.shendra_plots",
+   "layerType": "Feature Layer",
+   "minScale": 0,
+   "maxScale": 0,
+   "legend": [
+    {
+     "label": "Storm Water",
+     "url": "889d52779e8e031271b952fe872a3780",
+     "imageData": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IB2cksfwAAAAlwSFlzAAAOxAAADsQBlSsOGwAAADRJREFUOI1jYaAyYBk1cNTAQWXg0f//8aq0ZmREUYONT1sXQm3AC9DVYNEzlCJl1MDhayAA2ZwKCHhMFlMAAAAASUVORK5CYII=",
+     "contentType": "image/png",
+     "height": 20,
+     "width": 20
+    }
+   ]
+  }
+ ]
+}
