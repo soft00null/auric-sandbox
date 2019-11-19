@@ -2146,37 +2146,13 @@ function googleTranslateElementInit() {
 }
 </script>
 <!--<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>-->
-<script>
-if (!localStorage.userId) {
-                localStorage.userId = new Date().getTime();
-}
-                window.a8bot = {
-                                appConfig: {
-                                                isFloatingIcon: true,
-                                                showAfterInterval: 'icon', /*'icon' || 'chat' || 'notify'*/
-                                                notifyText: "Hi! I am your Auric Virtual Assistant !",
-                                                initTime: 1000 /*ms*/
-                                },
-                                cusInfo: {
-                                                appKey: "3e8791f22981e7446b33d327ee28b610a9be2b558955fbd71f25f65f",
-                                                displayName: "User" ,
-                                                orgId: "5d29d49a0a8ad576f3f30bf1",
-                                                botHandle: "auricbot",
-                                                userId: localStorage.userId,
-                                                email: ""
-                                },
-                                theme: {
-                                                header: {
-                                                                title: "Hello!"
-                                                }
-                                }
-                };
-var script = document.createElement('script');
-script.type = 'text/javascript';
-script.id = "a8_chat_widget";
-script.src = "https://livechat.autonom8.com/chatwidget/hosted/widget.js";
-document.body.appendChild(script);
+<script type="text/javascript">
+var $zoho=$zoho || {};$zoho.salesiq = $zoho.salesiq || 
+{widgetcode:"dc64cf710f4179c698525ece9fa32189c2c11130931462d6b56108f31faf35c78ed70c89dd4d12aa0ead445e6033fdc1", values:{},ready:function(){}};
+var d=document;s=d.createElement("script");s.type="text/javascript";s.id="zsiqscript";s.defer=true;
+s.src="https://salesiq.zoho.com/widget";t=d.getElementsByTagName("script")[0];t.parentNode.insertBefore(s,t);d.write("<div id='zsiqwidget'></div>");
 </script>
+	
 </body>
 
 <!-- Mirrored from www.auric.city/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 19 Nov 2019 02:17:23 GMT -->
